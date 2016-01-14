@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=5.0.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Foundation,OC基础," />
 
 
 
@@ -57,19 +57,37 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="description" content="这里整理一下经常要用的概念，一次性想记住真的没那么容易，只有反复使用，罗列出来方便下次查阅。
+CGPoint(1) CGpoint ：表示一个点的位置坐标信息
+
+(2) 定义结构
+
+    CGPoint p1 = NSMakePoint(10, 10);
+
+    NSPoint p2 = CGPointMake(20, 20);">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2015/12/26/hello-world/index.html">
+<meta property="og:title" content="Objective-C:Foundation框架总结">
+<meta property="og:url" content="http://yoursite.com/2016/01/14/Objective-C-Foundation框架总结/index.html">
 <meta property="og:site_name" content="ifyour's blog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
-<meta property="og:updated_time" content="2015-12-26T08:47:34.000Z">
+<meta property="og:description" content="这里整理一下经常要用的概念，一次性想记住真的没那么容易，只有反复使用，罗列出来方便下次查阅。
+CGPoint(1) CGpoint ：表示一个点的位置坐标信息
+
+(2) 定义结构
+
+    CGPoint p1 = NSMakePoint(10, 10);
+
+    NSPoint p2 = CGPointMake(20, 20);">
+<meta property="og:updated_time" content="2016-01-14T12:18:21.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="twitter:title" content="Objective-C:Foundation框架总结">
+<meta name="twitter:description" content="这里整理一下经常要用的概念，一次性想记住真的没那么容易，只有反复使用，罗列出来方便下次查阅。
+CGPoint(1) CGpoint ：表示一个点的位置坐标信息
+
+(2) 定义结构
+
+    CGPoint p1 = NSMakePoint(10, 10);
+
+    NSPoint p2 = CGPointMake(20, 20);">
 
 
 
@@ -87,7 +105,7 @@ Quick">
   };
 </script>
 
-  <title> Hello World | ifyour's blog </title>
+  <title> Objective-C:Foundation框架总结 | ifyour's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -225,7 +243,7 @@ Quick">
             
             
               
-                Hello World
+                Objective-C:Foundation框架总结
               
             
           </h1>
@@ -237,19 +255,38 @@ Quick">
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-12-26T16:47:34+08:00" content="2015-12-26">
-              2015-12-26
+            <time itemprop="dateCreated" datetime="2016-01-14T19:29:52+08:00" content="2016-01-14">
+              2016-01-14
             </time>
           </span>
 
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/OC基础/" itemprop="url" rel="index">
+                    <span itemprop="name">OC基础</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
           
 
           
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/12/26/hello-world/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/26/hello-world/" itemprop="commentsCount"></span>
+                <a href="/2016/01/14/Objective-C-Foundation框架总结/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/14/Objective-C-Foundation框架总结/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -270,33 +307,320 @@ Quick">
       
 
       
-        <p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start"><a href="#Quick_Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create_a_new_post"><a href="#Create_a_new_post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server"><a href="#Run_server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files"><a href="#Generate_static_files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites"><a href="#Deploy_to_remote_sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <p>这里整理一下经常要用的概念，一次性想记住真的没那么容易，只有反复使用，罗列出来方便下次查阅。</p>
+<h2 id="CGPoint"><a href="#CGPoint" class="headerlink" title="CGPoint"></a>CGPoint</h2><pre><code>(1) CGpoint ：表示一个点的位置坐标信息
 
+(2) 定义结构
+
+    CGPoint p1 = NSMakePoint(10, 10);
+
+    NSPoint p2 = CGPointMake(20, 20);
+</code></pre><a id="more"></a>
+<h2 id="CGRect/NSRect"><a href="#CGRect/NSRect" class="headerlink" title="CGRect/NSRect"></a>CGRect/NSRect</h2><pre><code>(1) 表示一个局域
+
+    CGRect r1 = CGRectMake(0,0, 100, 50);
+
+(2) 表示原点
+
+    CGPointZero == CGPointMake(0, 0)
+
+(3) 将结构体转为字符串
+
+    CGPoint p = NSMakePoint(10, 10);
+
+    NSString *str = NSStringFromPoint(p);
+
+    CGSize s3 = NSMakeSize(200, 60);
+
+    NSString *str = NSStringFromSize(s3);
+
+    CGRect r1 = CGRectMake(0, 0, 100, 50);
+
+    NSString *str = NSStringFromRect(r1);
+
+(4) 注意:使用CGPointZero等的前提是添加CoreGraphics框架
+</code></pre><h2 id="NSArray"><a href="#NSArray" class="headerlink" title="NSArray"></a>NSArray</h2><pre><code> 不可变数组。
+
+(1) NSArray的元素个数
+
+    NSLog(@&quot;%ld&quot;, array.count);
+
+(2) NSArray中元素的访问
+
+    NSLog(@&quot;%@&quot;, [array objectAtIndex:1]);
+
+    array[1];
+
+(3) 注意：
+
+    &gt; OC数组不能存放nil值
+
+    &gt; OC数组只能存放OC对象、不能存放非OC对象类型，比如int、struct、enum等
+
+    &gt; 这个array永远是空数组
+
+      NSArray *array = [NSArray array];
+</code></pre><h2 id="NSMutableArray"><a href="#NSMutableArray" class="headerlink" title="NSMutableArray"></a>NSMutableArray</h2><pre><code> 可变数组。
+
+(1) 初始化
+
+    NSMutableArray *array = [NSMutableArray arrayWithObjects:@&quot;jack&quot;, @&quot;rose&quot;, nil];
+
+    NSMutableArray *array = [NSMutableArray array];
+
+
+(2) 添加元素
+
+    [array addObject:[[Person alloc] init]];
+
+    [array addObject:@&quot;jack&quot;];
+
+
+(3) 插入元素到指定位置
+
+    [array insertObject:persion atIndex:index];
+
+
+(4) 删除所有元素
+
+    [array removeAllObjects];
+
+
+(5) 删除指定的对象
+
+    [array removeObject:@&quot;jack&quot;];
+
+    [array removeObjectAtIndex:0];
+
+
+(6) @[] 只创建不可变数组NSArray
+
+
+(7) 错误写法
+
+    NSMutableArray *array = @[@&quot;jack&quot;, @&quot;rose&quot;];
+
+    [array addObject:@&quot;jim&quot;];
+</code></pre><h2 id="NSSet"><a href="#NSSet" class="headerlink" title="NSSet"></a>NSSet</h2><pre><code> 不可变集合。
+
+(1) 定义和初始化
+
+    NSSet *s = [NSSet set];
+
+    NSSet *s2 = [NSSet setWithObjects:@&quot;jack&quot;,@&quot;rose&quot;, @&quot;jack2&quot;,@&quot;jack3&quot;,nil];
+
+
+(2) 随机拿出来一个元素
+
+    NSString *str =  [s2 anyObject];
+
+    NSLog(@&quot;%@&quot;, str);
+</code></pre><h2 id="NSMutableSet"><a href="#NSMutableSet" class="headerlink" title="NSMutableSet"></a>NSMutableSet</h2><pre><code> 可变的集合。
+
+(1) 定义和初始化
+
+    NSMutableSet *s = [NSMutableSet set];
+
+
+(2) 添加元素
+
+    [s addObject:@&quot;hack&quot;];
+
+
+(3) 删除元素
+
+    [s removeObject:&lt;#(id)#&gt;];
+</code></pre><h2 id="NSSet_u548CNSArray_u7684_u5BF9_u6BD4"><a href="#NSSet_u548CNSArray_u7684_u5BF9_u6BD4" class="headerlink" title="NSSet和NSArray的对比"></a>NSSet和NSArray的对比</h2><pre><code>(1) 共同点
+
+    * 都是集合，都能存放多个OC对象
+
+    * 只能放OC对象，不能放非OC对象类型（基本数据类型：int、char、float，结构体，枚举）
+
+    * 本身都不可变，都有一个可变的子类
+
+(2) 不同点
+
+    * NSArray有顺序，NSSet没有顺序
+</code></pre><h2 id="OC_u4E2D_u96C6_u5408_u7684_u603B_u7ED3"><a href="#OC_u4E2D_u96C6_u5408_u7684_u603B_u7ED3" class="headerlink" title="OC中集合的总结"></a>OC中集合的总结</h2><pre><code>(1) NSArray/NSMutableArray
+
+    * 有序
+
+    * 快速创建（不可变）：@[obj1, obj2, obj3]
+
+    * 快速访问元素：数组名[i]
+
+(2) NSSet/NSMutableSet
+
+    * 无序
+
+(3) NSDictionary\NSMutableDictionary
+
+    * 无序
+
+    * 快速创建（不可变）：@{key1 : value1,  key2 : value2}
+
+    * 快速访问元素：字典名[key]
+</code></pre><h2 id="NSDictionary"><a href="#NSDictionary" class="headerlink" title="NSDictionary"></a>NSDictionary</h2><pre><code>(1) 字典（里面存放的东西都是键值对）
+
+    key ----&gt; value
+    索引 ----&gt; 文字内容
+
+(2) 初始化
+
+    1) 第一种初始化方法
+
+    NSDictionary *dict = [NSDictionary dictionaryWithObject:@&quot;jack&quot; forKey:@&quot;name&quot;];
+
+
+    2) 第二种初始化的方法
+
+    NSArray *keys = @[@&quot;name&quot;, @&quot;address&quot;];
+
+    NSArray *objects = @[@&quot;jack&quot;, @&quot;北京&quot;];
+
+    NSDictionary *dict = [NSDictionary dictionaryWithObjects:objects forKeys:keys];
+
+
+    3) 第三中初始化的方法（前面是value，后面是key）
+
+    NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:
+
+                                        @&quot;jack&quot;, @&quot;name&quot;,
+
+                                        @&quot;北京&quot;, @&quot;address&quot;,
+
+                                        @&quot;1234567&quot;, @&quot;qq&quot;, nil];
+
+
+    4) 第四种初始化的方法
+
+    NSDictionary *dict = @{@&quot;name&quot; : @&quot;jack&quot;, @&quot;address&quot; : @&quot;北京&quot;};
+
+
+(3) 字典数据访问
+
+    NSDictionary *dict = @{@&quot;name&quot; : @&quot;jack&quot;, @&quot;address&quot; : @&quot;北京&quot;};
+
+    id obj = [dict objectForKey:@&quot;name&quot;];
+
+    id obj = dict[@&quot;name&quot;];
+
+    NSLog(@&quot;%@&quot;, obj);
+
+     &gt;&gt; 注意：NSLog(@&quot;%ld&quot;, dict.count);  返回的是键值对的个数
+
+
+(4) 字典的使用
+
+    1) 添加键值对
+
+        [dict setObject:@&quot;jack&quot; forKey:@&quot;name&quot;];
+
+    2) 移除键值对
+
+        [dict removeObjectForKey:&lt;#(id)#&gt;];
+
+        NSString *str = dict[@&quot;name&quot;];
+
+    3) 注意：
+
+        &gt;&gt; 字典不允许有相同的key，但允许有相同的value（Object）
+
+        &gt;&gt; 字典无序的
+</code></pre><h2 id="NSNumber"><a href="#NSNumber" class="headerlink" title="NSNumber"></a>NSNumber</h2><pre><code>由于集合里面只可以存放OC对象，所以需要把基本类型转换成OC对象。
+
+将各种基本数据类型包装成NSNumber对象
+
+1) 整形包装成NSNumber
+
+    @10.5;
+
+2) 布尔包装成NSNumber
+
+    @YES;
+
+3) 注意区分 @&apos;A&apos;;和 @&quot;A&quot;;
+
+    @&apos;A&apos;;      //NSNumber对象
+
+    @&quot;A&quot;;    //NSString对象
+
+4) 将age变量包装成NSNumber对象
+
+    int age = 100;
+
+    @(age);
+
+    //[NSNumber numberWithInt:age];  
+
+5) 把整形包装成NSNumber对象
+
+    int a = 20;
+
+    NSNumber *b = @20; // 编译器特性
+
+    NSNumber *num = [NSNumber numberWithInt:10];
+
+6) NSNumber对象装换成整形
+
+    NSLog(@&quot;%d&quot;, [num intValue]);
+</code></pre><h2 id="NSValue"><a href="#NSValue" class="headerlink" title="NSValue"></a>NSValue</h2><pre><code>能包装所有数据，包括指针、结构体、枚举。
+
+CGPoint p = CGPointMake(10, 10);
+
+// 将结构体转成OC（NSValue）对象
+
+NSValue *pValue = [NSValue valueWithPoint:p];
+
+// 将OC（NSValue）对象转成结构体
+
+CGPoint p2 = [pValue pointValue];
+
+
+针对很常见CGRect/CGPoint/CGSize等数据结构，提供了封装好的接口
+
++ (NSValue *)valueWithCGPoint:(CGPoint)point;
+
++ (NSValue *)valueWithCGSize:(CGSize)size;
+
++ (NSValue *)valueWithCGRect:(CGRect)rect;
+
+- (CGPoint)CGPointValue;
+
+- (CGSize)CGSizeValue;
+
+- (CGRect)CGRectValue;
+</code></pre><h2 id="NSData"><a href="#NSData" class="headerlink" title="NSData"></a>NSData</h2><pre><code>NSData主要是提供一块原始数据的封装（变成纯粹的0、1字节流），方便数据的封装与流动。
+
+比较常见的是NSString／NSImage数据的封装与传递。
+
+在应用中，最常用于访问存储在文件中或者网络资源中的数据。
+</code></pre>
       
     </div>
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Foundation/" rel="tag">#Foundation</a>
+          
+            <a href="/tags/OC基础/" rel="tag">#OC基础</a>
+          
+        </div>
       
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2015/12/27/UIView的继承关系和层次结构/" rel="next" title="UIView的继承关系和层次结构">
+                <i class="fa fa-chevron-left"></i> UIView的继承关系和层次结构
+              </a>
+            
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2015/12/27/UIView的继承关系和层次结构/" rel="prev" title="UIView的继承关系和层次结构">
-                UIView的继承关系和层次结构 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -322,8 +646,8 @@ Quick">
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2015/12/26/hello-world/"
-           data-title="Hello World" data-url="http://yoursite.com/2015/12/26/hello-world/">
+      <div class="ds-thread" data-thread-key="2016/01/14/Objective-C-Foundation框架总结/"
+           data-title="Objective-C:Foundation框架总结" data-url="http://yoursite.com/2016/01/14/Objective-C-Foundation框架总结/">
       </div>
     
   </div>
@@ -375,14 +699,14 @@ Quick">
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">1</span>
+              <span class="site-state-item-count">2</span>
               <span class="site-state-item-name">分类</span>
               </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-count">5</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
@@ -438,7 +762,7 @@ Quick">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick_Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create_a_new_post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run_server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate_static_files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy_to_remote_sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#CGPoint"><span class="nav-number">1.</span> <span class="nav-text">CGPoint</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CGRect/NSRect"><span class="nav-number">2.</span> <span class="nav-text">CGRect/NSRect</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NSArray"><span class="nav-number">3.</span> <span class="nav-text">NSArray</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NSMutableArray"><span class="nav-number">4.</span> <span class="nav-text">NSMutableArray</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NSSet"><span class="nav-number">5.</span> <span class="nav-text">NSSet</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NSMutableSet"><span class="nav-number">6.</span> <span class="nav-text">NSMutableSet</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NSSet_u548CNSArray_u7684_u5BF9_u6BD4"><span class="nav-number">7.</span> <span class="nav-text">NSSet和NSArray的对比</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OC_u4E2D_u96C6_u5408_u7684_u603B_u7ED3"><span class="nav-number">8.</span> <span class="nav-text">OC中集合的总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NSDictionary"><span class="nav-number">9.</span> <span class="nav-text">NSDictionary</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NSNumber"><span class="nav-number">10.</span> <span class="nav-text">NSNumber</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NSValue"><span class="nav-number">11.</span> <span class="nav-text">NSValue</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NSData"><span class="nav-number">12.</span> <span class="nav-text">NSData</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
@@ -460,7 +784,7 @@ Quick">
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2015</span>
+  <span itemprop="copyrightYear">2016</span>
   <span class="with-love">
     <i class="icon-next-heart fa fa-heart"></i>
   </span>

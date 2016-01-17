@@ -63,7 +63,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/01/17/Objective-C-代理模式/index.html">
 <meta property="og:site_name" content="ifyour's blog">
 <meta property="og:description" content="代理模式代理模式（Delegate）又叫做委托，代理就是一个人（类）帮另一个人（类）完成特定的事，这个事就是提前协商好的，我们称之为协议的东西。举个简单的例子，小明去租房，但是房子非常不好找，为了节省时间，小明雇了一个人，这个人就是房介，房介来帮小明找房子。小明不用亲自去找，只要小明自己去找能胜任这项任务的中介就行了。此时，我们就可以说，中介是小明的代理，按照协议的内容（遵守协议），帮小明租到房子">
-<meta property="og:updated_time" content="2016-01-17T11:19:36.000Z">
+<meta property="og:updated_time" content="2016-01-17T11:23:41.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Objective-C:代理模式">
 <meta name="twitter:description" content="代理模式代理模式（Delegate）又叫做委托，代理就是一个人（类）帮另一个人（类）完成特定的事，这个事就是提前协商好的，我们称之为协议的东西。举个简单的例子，小明去租房，但是房子非常不好找，为了节省时间，小明雇了一个人，这个人就是房介，房介来帮小明找房子。小明不用亲自去找，只要小明自己去找能胜任这项任务的中介就行了。此时，我们就可以说，中介是小明的代理，按照协议的内容（遵守协议），帮小明租到房子">
@@ -286,7 +286,7 @@
       
 
       
-        <h2 id="u4EE3_u7406_u6A21_u5F0F"><a href="#u4EE3_u7406_u6A21_u5F0F" class="headerlink" title="代理模式"></a>代理模式</h2><p>代理模式（Delegate）又叫做委托，代理就是一个人（类）帮另一个人（类）完成特定的事，这个事就是提前协商好的，我们称之为<code>协议</code>的东西。举个简单的例子，小明去租房，但是房子非常不好找，为了节省时间，小明雇了一个人，这个人就是房介，房介来帮小明找房子。小明不用亲自去找，只要小明自己去找能胜任这项任务的中介就行了。此时，我们就可以说，中介是小明的代理，按照协议的内容（<code>遵守协议</code>），帮小明租到房子。</p>
+        <h2 id="u4EE3_u7406_u6A21_u5F0F"><a href="#u4EE3_u7406_u6A21_u5F0F" class="headerlink" title="代理模式"></a>代理模式</h2><p>代理模式（Delegate）又叫做委托，代理就是一个人（类）帮另一个人（类）完成特定的事，这个事就是提前协商好的，我们称之为<code>协议</code>的东西。举个简单的例子，小明去租房，但是房子非常不好找，为了节省时间，小明雇了一个人，这个人就是房介，房介来帮小明找房子。小明不用亲自去找，只要小明自己去找能胜任这项任务的中介就行了。此时，我们就可以说，中介是小明的代理，按照协议的内容（<code>遵守协议</code>），帮小明租到房子。<br><a id="more"></a></p>
 <h2 id="u5E94_u7528_u573A_u666F"><a href="#u5E94_u7528_u573A_u666F" class="headerlink" title="应用场景"></a>应用场景</h2><p>(1)当A对象想监听B对象的一些变化时, 可以使用代理设计模式<br>(2)当B对象发生一些事情, 想通知A对象的时候, 可以使用代理设计模式<br>(3)当对象A无法处理某些行为的时候,想让对象B帮忙处理(让对象B成为对象A的代理对象)</p>
 <h2 id="u5177_u4F53_u5B9E_u73B0"><a href="#u5177_u4F53_u5B9E_u73B0" class="headerlink" title="具体实现"></a>具体实现</h2><h3 id="u534F_u8BAE_u683C_u5F0F"><a href="#u534F_u8BAE_u683C_u5F0F" class="headerlink" title="协议格式"></a>协议格式</h3><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@protocol</span>  协议名  &lt;父协议&gt;</span><br><span class="line">定义方法</span><br><span class="line"><span class="variable">@end</span></span><br></pre></td></tr></table></figure>
 <p>协议中定义的方法还有两个修饰符：</p>

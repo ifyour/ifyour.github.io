@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=5.0.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Delegate,OC基础,代理模式," />
 
 
 
@@ -57,15 +57,16 @@
 
 
 
-<meta name="description" content="业精于勤，荒于嬉；行成于思，毁于随。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="ifyour's blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="代理模式代理模式（Delegate）又叫做委托，代理就是一个人（类）帮另一个人（类）完成特定的事，这个事就是提前协商好的，我们称之为协议的东西。举个简单的例子，小明去租房，但是房子非常不好找，为了节省时间，小明雇了一个人，这个人就是房介，房介来帮小明找房子。小明不用亲自去找，只要小明自己去找能胜任这项任务的中介就行了。此时，我们就可以说，中介是小明的代理，按照协议的内容（遵守协议），帮小明租到房子">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Objective-C:代理模式">
+<meta property="og:url" content="http://yoursite.com/2016/01/17/Objective-C-代理模式/index.html">
 <meta property="og:site_name" content="ifyour's blog">
-<meta property="og:description" content="业精于勤，荒于嬉；行成于思，毁于随。">
+<meta property="og:description" content="代理模式代理模式（Delegate）又叫做委托，代理就是一个人（类）帮另一个人（类）完成特定的事，这个事就是提前协商好的，我们称之为协议的东西。举个简单的例子，小明去租房，但是房子非常不好找，为了节省时间，小明雇了一个人，这个人就是房介，房介来帮小明找房子。小明不用亲自去找，只要小明自己去找能胜任这项任务的中介就行了。此时，我们就可以说，中介是小明的代理，按照协议的内容（遵守协议），帮小明租到房子">
+<meta property="og:updated_time" content="2016-01-17T11:19:36.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ifyour's blog">
-<meta name="twitter:description" content="业精于勤，荒于嬉；行成于思，毁于随。">
+<meta name="twitter:title" content="Objective-C:代理模式">
+<meta name="twitter:description" content="代理模式代理模式（Delegate）又叫做委托，代理就是一个人（类）帮另一个人（类）完成特定的事，这个事就是提前协商好的，我们称之为协议的东西。举个简单的例子，小明去租房，但是房子非常不好找，为了节省时间，小明雇了一个人，这个人就是房介，房介来帮小明找房子。小明不用亲自去找，只要小明自己去找能胜任这项任务的中介就行了。此时，我们就可以说，中介是小明的代理，按照协议的内容（遵守协议），帮小明租到房子">
 
 
 
@@ -83,7 +84,7 @@
   };
 </script>
 
-  <title> ifyour's blog </title>
+  <title> Objective-C:代理模式 | ifyour's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -100,9 +101,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-right 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -201,15 +200,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
 
+  <div id="posts" class="posts-expand">
     
-
-    
-    
-
-    
-      
 
   
   
@@ -229,10 +222,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2016/01/17/Objective-C-代理模式/" itemprop="url">
-                  Objective-C:代理模式
-                </a>
+                Objective-C:代理模式
               
             
           </h1>
@@ -296,9 +286,7 @@
       
 
       
-        
-          
-            <h2 id="u4EE3_u7406_u6A21_u5F0F"><a href="#u4EE3_u7406_u6A21_u5F0F" class="headerlink" title="代理模式"></a>代理模式</h2><p>代理模式（Delegate）又叫做委托，代理就是一个人（类）帮另一个人（类）完成特定的事，这个事就是提前协商好的，我们称之为<code>协议</code>的东西。举个简单的例子，小明去租房，但是房子非常不好找，为了节省时间，小明雇了一个人，这个人就是房介，房介来帮小明找房子。小明不用亲自去找，只要小明自己去找能胜任这项任务的中介就行了。此时，我们就可以说，中介是小明的代理，按照协议的内容（<code>遵守协议</code>），帮小明租到房子。</p>
+        <h2 id="u4EE3_u7406_u6A21_u5F0F"><a href="#u4EE3_u7406_u6A21_u5F0F" class="headerlink" title="代理模式"></a>代理模式</h2><p>代理模式（Delegate）又叫做委托，代理就是一个人（类）帮另一个人（类）完成特定的事，这个事就是提前协商好的，我们称之为<code>协议</code>的东西。举个简单的例子，小明去租房，但是房子非常不好找，为了节省时间，小明雇了一个人，这个人就是房介，房介来帮小明找房子。小明不用亲自去找，只要小明自己去找能胜任这项任务的中介就行了。此时，我们就可以说，中介是小明的代理，按照协议的内容（<code>遵守协议</code>），帮小明租到房子。</p>
 <h2 id="u5E94_u7528_u573A_u666F"><a href="#u5E94_u7528_u573A_u666F" class="headerlink" title="应用场景"></a>应用场景</h2><p>(1)当A对象想监听B对象的一些变化时, 可以使用代理设计模式<br>(2)当B对象发生一些事情, 想通知A对象的时候, 可以使用代理设计模式<br>(3)当对象A无法处理某些行为的时候,想让对象B帮忙处理(让对象B成为对象A的代理对象)</p>
 <h2 id="u5177_u4F53_u5B9E_u73B0"><a href="#u5177_u4F53_u5B9E_u73B0" class="headerlink" title="具体实现"></a>具体实现</h2><h3 id="u534F_u8BAE_u683C_u5F0F"><a href="#u534F_u8BAE_u683C_u5F0F" class="headerlink" title="协议格式"></a>协议格式</h3><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@protocol</span>  协议名  &lt;父协议&gt;</span><br><span class="line">定义方法</span><br><span class="line"><span class="variable">@end</span></span><br></pre></td></tr></table></figure>
 <p>协议中定义的方法还有两个修饰符：</p>
@@ -326,378 +314,49 @@
 <li>《<a href="http://blog.csdn.net/cy_cai/article/details/17474069" target="_blank" rel="external">协议Delegate代理模式-OC</a>》</li>
 </ul>
 
-          
-        
       
     </div>
 
     <footer class="post-footer">
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/01/14/Objective-C-KVC/" itemprop="url">
-                  Objective-C:KVC
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-01-14T23:51:38+08:00" content="2016-01-14">
-              2016-01-14
-            </time>
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/OC基础/" itemprop="url" rel="index">
-                    <span itemprop="name">OC基础</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
+            <a href="/tags/Delegate/" rel="tag">#Delegate</a>
           
-
+            <a href="/tags/OC基础/" rel="tag">#OC基础</a>
           
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/01/14/Objective-C-KVC/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/14/Objective-C-KVC/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
+            <a href="/tags/代理模式/" rel="tag">#代理模式</a>
           
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <h2 id="KVC"><a href="#KVC" class="headerlink" title="KVC"></a>KVC</h2><blockquote>
-<p>键值编码（key-value coding）：将表示对象包含的信息的字符串作为键值使用，来间接访问该信息的方式。</p>
-</blockquote>
-<h2 id="u7528_u6CD5"><a href="#u7528_u6CD5" class="headerlink" title="用法"></a>用法</h2><h3 id="u8BBE_u7F6E_u5C5E_u6027"><a href="#u8BBE_u7F6E_u5C5E_u6027" class="headerlink" title="设置属性"></a>设置属性</h3><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="typename">void</span>)<span class="string">setValue:</span>(id)value <span class="string">forKey:</span>(NSString *)key; <span class="comment">//已进行内存管理</span></span><br><span class="line">[p <span class="string">setValue:</span>@<span class="string">"John"</span> <span class="string">forKey:</span>@<span class="string">"name"</span>];</span><br></pre></td></tr></table></figure>
-<h3 id="u83B7_u53D6_u5C5E_u6027"><a href="#u83B7_u53D6_u5C5E_u6027" class="headerlink" title="获取属性"></a>获取属性</h3><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">id</span>)valueForKey:(<span class="built_in">NSString</span> *)key;</span><br><span class="line"><span class="built_in">NSString</span> *name = [p valueForKey:<span class="string">@"_name"</span>];</span><br></pre></td></tr></table></figure>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/01/14/Objective-C-KVC/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/01/14/Objective-C-KVC/" rel="next" title="Objective-C:KVC">
+                <i class="fa fa-chevron-left"></i> Objective-C:KVC
+              </a>
+            
           </div>
-        
-      
-    </div>
 
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
+          <div class="post-nav-prev post-nav-item">
             
-            
-              
-                
-                <a class="post-title-link" href="/2016/01/14/Objective-C-Foundation框架总结/" itemprop="url">
-                  Objective-C:Foundation框架总结
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-01-14T19:29:52+08:00" content="2016-01-14">
-              2016-01-14
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/OC基础/" itemprop="url" rel="index">
-                    <span itemprop="name">OC基础</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/01/14/Objective-C-Foundation框架总结/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/14/Objective-C-Foundation框架总结/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
+          </div>
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <p>这里整理一下经常要用的概念，一次性想记住真的没那么容易，只有反复使用，罗列出来方便下次查阅。</p>
-<h2 id="CGPoint"><a href="#CGPoint" class="headerlink" title="CGPoint"></a>CGPoint</h2><pre><code>(1) CGpoint ：表示一个点的位置坐标信息
-
-(2) 定义结构
-
-    CGPoint p1 = NSMakePoint(10, 10);
-
-    NSPoint p2 = CGPointMake(20, 20);
-</code></pre>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/01/14/Objective-C-Foundation框架总结/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-      
 
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/12/27/UIView的继承关系和层次结构/" itemprop="url">
-                  UIView的继承关系和层次结构
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-12-27T21:53:54+08:00" content="2015-12-27">
-              2015-12-27
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/UI基础/" itemprop="url" rel="index">
-                    <span itemprop="name">UI基础</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/12/27/UIView的继承关系和层次结构/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/27/UIView的继承关系和层次结构/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="UIView_u7684_u4F7F_u7528"><a href="#UIView_u7684_u4F7F_u7528" class="headerlink" title="UIView的使用"></a>UIView的使用</h2><p>UIView为图形绘制以及事件操作提供了一个架构。一个UIView对象定义了屏幕上的一块矩形区域，同时处理该区域的图形绘制和触摸事件。一个视图也可以作为其他视图的父视图。</p>
-<p>UIView在App中占有绝对重要的地位，因为iOS中几乎所有可视化控件都是UIView的子类。UIView负责渲染区域的内容，并且响应该区域内发生的触摸事件。<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/12/27/UIView的继承关系和层次结构/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
+    <div class="post-spread">
       
     </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-
-  </section>
-
-  
+  </div>
 
 
           </div>
@@ -705,6 +364,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/01/17/Objective-C-代理模式/"
+           data-title="Objective-C:代理模式" data-url="http://yoursite.com/2016/01/17/Objective-C-代理模式/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -724,8 +391,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.jpg"
@@ -796,6 +472,23 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#u4EE3_u7406_u6A21_u5F0F"><span class="nav-number">1.</span> <span class="nav-text">代理模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u5E94_u7528_u573A_u666F"><span class="nav-number">2.</span> <span class="nav-text">应用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u5177_u4F53_u5B9E_u73B0"><span class="nav-number">3.</span> <span class="nav-text">具体实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u534F_u8BAE_u683C_u5F0F"><span class="nav-number">3.1.</span> <span class="nav-text">协议格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u5B9E_u73B0_u6B65_u9AA4"><span class="nav-number">3.2.</span> <span class="nav-text">实现步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u6CE8_u610F_u70B9"><span class="nav-number">3.3.</span> <span class="nav-text">注意点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u4E3E_u4F8B"><span class="nav-number">3.4.</span> <span class="nav-text">举例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u603B_u7ED3"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u53C2_u8003"><span class="nav-number">5.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
       
 
     </div>
@@ -877,6 +570,167 @@
 
 
   
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
 
   
 

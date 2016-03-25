@@ -101,6 +101,10 @@ UIView在App中占有绝对重要的地位，因为iOS中几乎所有可视化�
 
 
 
+
+
+
+
   
   
     
@@ -135,7 +139,7 @@ UIView在App中占有绝对重要的地位，因为iOS中几乎所有可视化�
   
 
   
-    <ul id="menu" class="menu ">
+    <ul id="menu" class="menu">
       
         
         <li class="menu-item menu-item-home">
@@ -188,8 +192,6 @@ UIView在App中占有绝对重要的地位，因为iOS中几乎所有可视化�
         </li>
       
 
-      
-      
       
     </ul>
   
@@ -280,6 +282,7 @@ UIView在App中占有绝对重要的地位，因为iOS中几乎所有可视化�
 
           
           
+
         </div>
       </header>
     
@@ -308,6 +311,12 @@ UIView在App中占有绝对重要的地位，因为iOS中几乎所有可视化�
 <li>部分资料整理自互联网</li>
 </ul>
 
+      
+    </div>
+
+    <div>
+      
+        
       
     </div>
 
@@ -411,19 +420,23 @@ UIView在App中占有绝对重要的地位，因为iOS中几乎所有可视化�
             </a>
           </div>
 
-          <div class="site-state-item site-state-categories">
-            <a href="/categories">
-              <span class="site-state-item-count">2</span>
-              <span class="site-state-item-name">分类</span>
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
               </a>
-          </div>
+            </div>
+          
 
-          <div class="site-state-item site-state-tags">
-            <a href="/tags">
-              <span class="site-state-item-count">8</span>
-              <span class="site-state-item-name">标签</span>
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">标签</span>
               </a>
-          </div>
+            </div>
+          
 
         </nav>
 
@@ -460,7 +473,8 @@ UIView在App中占有绝对重要的地位，因为iOS中几乎所有可视化�
           </div>
         
 
-        <div class="links-of-author motion-element">
+        
+        <div class="links-of-blogroll motion-element">
           
         </div>
 
@@ -500,7 +514,7 @@ UIView在App中占有绝对重要的地位，因为iOS中几乎所有可视化�
   &copy; 
   <span itemprop="copyrightYear">2016</span>
   <span class="with-love">
-    <i class="icon-next-heart fa fa-heart"></i>
+    <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Willard Wang</span>
 </div>
@@ -521,7 +535,9 @@ UIView在App中占有绝对重要的地位，因为iOS中几乎所有可视化�
       </div>
     </footer>
 
-    <div class="back-to-top"></div>
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
   </div>
 
   
@@ -529,6 +545,14 @@ UIView在App中占有绝对重要的地位，因为iOS中几乎所有可视化�
 
   
 
+
+
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
 
 
   <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
@@ -715,7 +739,7 @@ UIView在App中占有绝对重要的地位，因为iOS中几乎所有可视化�
     NexT.motion.middleWares.sidebar = function () {
       var $tocContent = $('.post-toc-content');
 
-      if (CONFIG.sidebar === 'post') {
+      if (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always') {
         if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
           NexT.utils.displaySidebar();
         }
@@ -765,10 +789,11 @@ UIView在App中占有绝对重要的地位，因为iOS中几乎所有可视化�
 
   
   
-
-  
   
 
+  
+
+  
 
 </body>
 </html>

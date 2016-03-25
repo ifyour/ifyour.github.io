@@ -494,12 +494,12 @@ body {
 }
 pre,
 .highlight {
-  background: #2d2d2d;
+  background: #f7f7f7;
   margin: 20px 0;
   padding: 15px;
   overflow: auto;
   font-size: 13px;
-  color: #ccc;
+  color: #4d4d4c;
   line-height: 1.6;
 }
 .highlight .gutter pre,
@@ -537,7 +537,7 @@ pre code {
 }
 .highlight figcaption {
   font-size: 0.85em;
-  color: #999;
+  color: #8e908c;
   line-height: 1em;
   margin-bottom: 1em;
 }
@@ -564,7 +564,7 @@ pre code {
   border-style: solid;
   border-color: #ccc;
   border-width: 1px 0;
-  background: #2d2d2d;
+  background: #f7f7f7;
   padding: 15px 40px 15px 15px;
 }
 .gist .gist-file {
@@ -590,8 +590,8 @@ pre code {
   border: none;
 }
 .gist .gist-file .gist-meta {
-  background: #2d2d2d;
-  color: #999;
+  background: #f7f7f7;
+  color: #8e908c;
   font: 13px Lato, "PingFang SC", "Microsoft YaHei", sans-serif;
   text-shadow: 0 0;
   padding: 0;
@@ -606,7 +606,7 @@ pre code {
   text-decoration: underline;
 }
 pre .comment {
-  color: #999;
+  color: #8e908c;
 }
 pre .variable,
 pre .attribute,
@@ -620,7 +620,7 @@ pre .html .doctype,
 pre .css .id,
 pre .css .class,
 pre .css .pseudo {
-  color: #f2777a;
+  color: #c82829;
 }
 pre .number,
 pre .preprocessor,
@@ -628,11 +628,11 @@ pre .built_in,
 pre .literal,
 pre .params,
 pre .constant {
-  color: #f99157;
+  color: #f5871f;
 }
 pre .ruby .class .title,
 pre .css .rules .attribute {
-  color: #9c9;
+  color: #718c00;
 }
 pre .string,
 pre .value,
@@ -640,11 +640,11 @@ pre .inheritance,
 pre .header,
 pre .ruby .symbol,
 pre .xml .cdata {
-  color: #9c9;
+  color: #718c00;
 }
 pre .title,
 pre .css .hexcolor {
-  color: #6cc;
+  color: #3e999f;
 }
 pre .function,
 pre .python .decorator,
@@ -654,11 +654,11 @@ pre .ruby .title .keyword,
 pre .perl .sub,
 pre .javascript .title,
 pre .coffeescript .title {
-  color: #69c;
+  color: #4271ae;
 }
 pre .keyword,
 pre .javascript .function {
-  color: #c9c;
+  color: #8959a8;
 }
 .full-image.full-image.full-image {
   border: none;
@@ -1545,7 +1545,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #8f2bf7;
+  background: #c6e522;
 }
 .sidebar-nav {
   margin: 0 0 20px;

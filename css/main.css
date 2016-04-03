@@ -393,6 +393,13 @@ dd {
   font-size: 14px;
   color: #999;
 }
+.scrollbar-measure {
+  width: 100px;
+  height: 100px;
+  overflow: scroll;
+  position: absolute;
+  top: -9999px;
+}
 .use-motion .motion-element {
   opacity: 0;
 }
@@ -499,31 +506,30 @@ body {
 }
 pre,
 .highlight {
-  background: #2d2d2d;
+  overflow: auto;
   margin: 20px 0;
   padding: 15px;
-  overflow: auto;
   font-size: 13px;
   color: #ccc;
+  background: #2d2d2d;
   line-height: 1.6;
-}
-.highlight .gutter pre {
-  color: #666;
 }
 pre,
 code {
   font-family: "Input Mono", "PT Mono", Consolas, Monaco, Menlo, monospace;
 }
 code {
+  padding: 2px 4px;
   word-break: break-all;
+  color: #222;
   background: #eee;
-  text-shadow: 0 1px #fff;
-  padding: 0 0.3em;
+  border-radius: 4px;
+  font-size: 13px;
 }
 pre code {
+  padding: 0;
   background: none;
   text-shadow: none;
-  padding: 0;
 }
 .highlight pre {
   border: none;
@@ -557,6 +563,7 @@ pre code {
   float: right;
 }
 .highlight .gutter pre {
+  color: #666;
   text-align: right;
   padding-right: 20px;
 }
@@ -590,9 +597,7 @@ pre .command {
   color: #f99157;
 }
 pre .ruby .class .title,
-pre .css .rules .attribute {
-  color: #9c9;
-}
+pre .css .rules .attribute,
 pre .string,
 pre .value,
 pre .inheritance,
@@ -1361,11 +1366,11 @@ pre .javascript .function {
   border: none;
 }
 .sidebar {
-  width: 0;
   position: fixed;
   right: 0;
   top: 0;
   bottom: 0;
+  width: 0;
   z-index: 1040;
   box-shadow: inset 0 2px 6px #000;
   background: #222;
@@ -1513,7 +1518,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #8cff83;
+  background: #34ff0a;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -1542,7 +1547,7 @@ pre .javascript .function {
   color: #555;
 }
 .sidebar-nav li:hover {
-  color: #222;
+  color: #fc6423;
 }
 .page-post-detail .sidebar-nav-toc {
   padding: 0 5px;
@@ -1551,11 +1556,11 @@ pre .javascript .function {
   margin-left: 10px;
 }
 .sidebar-nav .sidebar-nav-active {
-  color: #222;
-  border-bottom-color: #222;
+  color: #fc6423;
+  border-bottom-color: #fc6423;
 }
 .sidebar-nav .sidebar-nav-active:hover {
-  color: #222;
+  color: #fc6423;
 }
 .sidebar-panel {
   display: none;
@@ -1563,27 +1568,43 @@ pre .javascript .function {
 .sidebar-panel-active {
   display: block;
 }
-.post-toc {
-  overflow: hidden;
-  position: relative;
-}
 .post-toc-empty {
   font-size: 14px;
   color: #666;
 }
-.post-toc ol {
+.post-toc-wrap {
+  overflow: hidden;
+}
+.post-toc {
   overflow: auto;
+}
+.post-toc ol {
   margin: 0;
-  padding: 0 10px 10px;
+  padding: 0 2px 5px 10px;
   text-align: left;
   list-style: none;
   font-size: 14px;
 }
+.post-toc ol > ol {
+  padding-left: 0;
+}
 .post-toc ol a {
-  color: #555;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+  transition-delay: 0s;
+  transition-property: all;
+  color: #666;
+  border-bottom-color: #ccc;
 }
 .post-toc ol a:hover {
-  color: #222;
+  color: #000;
+  border-bottom-color: #000;
+}
+.post-toc .nav-item {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: 1.8;
 }
 .post-toc .nav .nav-child {
   display: none;
@@ -1598,27 +1619,14 @@ pre .javascript .function {
   display: block;
 }
 .post-toc .nav .active > a {
-  color: #ccc;
+  color: #fc6423;
+  border-bottom-color: #fc6423;
 }
 .post-toc .nav .active-current > a {
-  color: #222;
+  color: #fc6423;
 }
 .post-toc .nav .active-current > a:hover {
-  color: #222;
-}
-.post-toc-indicator {
-  height: 20px;
-  text-align: center;
-  color: #fff;
-  font-size: 14px;
-}
-.post-toc-indicator-top {
-  opacity: 0;
-  margin-top: 10px;
-}
-.post-toc-indicator-bottom {
-  position: absolute;
-  width: 100%;
+  color: #fc6423;
 }
 .footer {
   font-size: 14px;
@@ -2068,7 +2076,7 @@ a.search-result {
   padding-left: 10px;
 }
 .page-post-detail .sidebar-toggle-line {
-  background: #222;
+  background: #fc6423;
 }
 .page-post-detail .comments {
   overflow: hidden;
@@ -2337,8 +2345,8 @@ body {
   background: #fff;
 }
 .sidebar-inner.affix {
-  top: 0px;
   position: fixed;
+  top: 0;
 }
 .site-overview {
   margin: 0 10px;
@@ -2421,9 +2429,6 @@ body {
 }
 .links-of-author-item .fa-globe {
   font-size: 15px;
-}
-.post-toc ol {
-  padding: 0 20px 10px;
 }
 @media (max-width: 767px) {
   .post-body {

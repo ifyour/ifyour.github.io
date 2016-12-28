@@ -29,7 +29,7 @@
 </ul>
 <h4 id="模块分类"><a href="#模块分类" class="headerlink" title="模块分类"></a>模块分类</h4><p>Node.js 提供两种模块类型：</p>
 <ol>
-<li>核心模块：是由NodeJs平台提供的模块，也可以称为“系统模块”。</li>
+<li>核心模块：是由 Node.js 平台提供的模块，也可以称为“系统模块”。</li>
 <li>文件模块：以 <code>..</code> 或 <code>.</code> 和 <code>/</code> 开始的标识符，这里都被当做文件模块来处理。</li>
 </ol>
 <h4 id="node-modules-文件夹"><a href="#node-modules-文件夹" class="headerlink" title="node_modules 文件夹"></a>node_modules 文件夹</h4><p>该文件夹是 Node.js 中的特殊文件夹，用来存放 node 模块，如果一个模块既不是系统模块，也不是文件模块，那么它会被存放在 node_modules 文件夹中。使用 <code>console.log(module.paths);</code> 可以打印 node_modules 会查找的目录。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">[ <span class="string">'/Users/wangmingming/Documents/Projects/JSstudy/12.26/node_modules'</span>,</div><div class="line">  <span class="string">'/Users/wangmingming/Documents/Projects/JSstudy/node_modules'</span>,</div><div class="line">  <span class="string">'/Users/wangmingming/Documents/Projects/node_modules'</span>,</div><div class="line">  <span class="string">'/Users/wangmingming/Documents/node_modules'</span>,</div><div class="line">  <span class="string">'/Users/wangmingming/node_modules'</span>,</div><div class="line">  <span class="string">'/Users/node_modules'</span>,</div><div class="line">  <span class="string">'/node_modules'</span> ]</div></pre></td></tr></table></figure></p>

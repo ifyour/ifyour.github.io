@@ -2,49 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite.com/2016/01/17/Objective-C-%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/</loc>
+    <loc>http://ifyour.github.io/2016/12/28/node-js-note-01/</loc>
     
-    <lastmod>2016-04-05T15:37:25.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2016/01/14/Objective-C-Foundation%E6%A1%86%E6%9E%B6%E6%80%BB%E7%BB%93/</loc>
-    
-    <lastmod>2016-04-05T15:37:04.000Z</lastmod>
+    <lastmod>2016-12-28T14:34:57.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/2015/12/27/UIView%E7%9A%84%E7%BB%A7%E6%89%BF%E5%85%B3%E7%B3%BB%E5%92%8C%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84/</loc>
-    
-    <lastmod>2016-04-05T15:36:41.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2016/01/14/Objective-C-KVC/</loc>
-    
-    <lastmod>2016-04-05T15:35:58.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/about/index.html</loc>
+    <loc>http://ifyour.github.io/about/index.html</loc>
     
     <lastmod>2015-12-27T14:39:04.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/tags/index.html</loc>
+    <loc>http://ifyour.github.io/tags/index.html</loc>
     
     <lastmod>2015-12-27T14:35:37.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/categories/index.html</loc>
+    <loc>http://ifyour.github.io/categories/index.html</loc>
     
     <lastmod>2015-12-27T14:34:15.000Z</lastmod>
     

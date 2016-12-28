@@ -1,0 +1,496 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Ifyour&#39;s Blog</title>
+  <subtitle>Talk is cheap. Show me the code.</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2016-04-05T15:37:25.000Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>Willard Wang</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Objective-C:代理模式</title>
+    <link href="http://yoursite.com/2016/01/17/Objective-C-%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/"/>
+    <id>http://yoursite.com/2016/01/17/Objective-C-代理模式/</id>
+    <published>2016-01-17T10:26:02.000Z</published>
+    <updated>2016-04-05T15:37:25.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="代理模式"><a href="#代理模式" class="headerlink" title="代理模式"></a>代理模式</h2><p>代理模式（Delegate）又叫做委托，代理就是一个人（类）帮另一个人（类）完成特定的事，这个事就是提前协商好的，我们称之为<code>协议</code>的东西。举个简单的例子，小明去租房，但是房子非常不好找，为了节省时间，小明雇了一个人，这个人就是房介，房介来帮小明找房子。小明不用亲自去找，只要小明自己去找能胜任这项任务的中介就行了。此时，我们就可以说，中介是小明的代理，按照协议的内容（<code>遵守协议</code>），帮小明租到房子。<br><a id="more"></a></p>
+<h2 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h2><p>(1)当A对象想监听B对象的一些变化时, 可以使用代理设计模式<br>(2)当B对象发生一些事情, 想通知A对象的时候, 可以使用代理设计模式<br>(3)当对象A无法处理某些行为的时候,想让对象B帮忙处理(让对象B成为对象A的代理对象)</p>
+<h2 id="具体实现"><a href="#具体实现" class="headerlink" title="具体实现"></a>具体实现</h2><h3 id="协议格式"><a href="#协议格式" class="headerlink" title="协议格式"></a>协议格式</h3><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="variable">@protocol</span>  协议名  &lt;父协议&gt;</div><div class="line">定义方法</div><div class="line"><span class="variable">@end</span></div></pre></td></tr></table></figure>
+<p>协议中定义的方法还有两个修饰符：</p>
+<pre><code>@required：这个表示这个方法是其他类必须实现的，也是默认的值
+@optional：这个表示这个方法对于其他类实现是可选的
+</code></pre><h3 id="实现步骤"><a href="#实现步骤" class="headerlink" title="实现步骤"></a>实现步骤</h3><p>（1）声明一个类： @class 类名<br>（2）定义代理协议<br>（3）将代理作为属性，类型限定代理遵守协议<br>（4）声明方法，方法里调用代理，调用代理实现的协议方法 接受代理者<br>（5）带入代理<br>（6）遵守代理<br>（7）实现协议中的方法 发出的代理者<br>（8）实现调用代理者的方法</p>
+<h3 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h3><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 判断代理是否实现了协议中方法</span></div><div class="line"><span class="selector-tag">-</span> (BOOL)<span class="selector-tag">respondsToSelector</span><span class="selector-pseudo">:(SEL)aSelector</span>;</div><div class="line"><span class="comment">// e.g:</span></div><div class="line"><span class="selector-tag">if</span> ([self.delegate <span class="attribute">respondsToSelector</span>:<span class="variable">@selector</span>(<span class="attribute">personFindHouse</span>:)]) &#123;</div><div class="line">    <span class="selector-attr">[self.delegate personFindHouse:self]</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h3><p>小明想租房，但是自己找不到，委托给房介，帮小明找。</p>
+<p><code>MMPerson.h</code></p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">&lt;Foundation/Foundation.h&gt;</span></span></div><div class="line"><span class="comment">// 定义协议</span></div><div class="line"><span class="class"><span class="keyword">@class</span> <span class="title">MMPerson</span>;</span></div><div class="line"><span class="class"><span class="keyword">@protocol</span> <span class="title">MMPersonFindHoseDelegate</span> &lt;<span class="title">NSObject</span>&gt;</span></div><div class="line"><span class="comment">// 协议规定实现的方法</span></div><div class="line"><span class="keyword">@optional</span></div><div class="line">- (<span class="keyword">void</span>)personFindHouse:(MMPerson *)person;</div><div class="line"><span class="keyword">@end</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">MMPerson</span> : <span class="title">NSObject</span></span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span> ,<span class="keyword">copy</span>) <span class="built_in">NSString</span> *name;</div><div class="line"></div><div class="line"><span class="comment">// 定义代理属性并遵守协议</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span> ,<span class="keyword">weak</span>) <span class="keyword">id</span>&lt;MMPersonFindHoseDelegate&gt; delegate;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)zuFang;</div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
+<p><code>MMPerson.m</code></p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">"MMPerson.h"</span></span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">MMPerson</span></span></div><div class="line">- (<span class="keyword">void</span>)zuFang&#123;</div><div class="line"></div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@需要租房"</span>,<span class="keyword">self</span>.name);</div><div class="line"></div><div class="line">    <span class="comment">// 判断代理是否实现了协议规定的方法</span></div><div class="line">    <span class="keyword">if</span> ([<span class="keyword">self</span>.delegate respondsToSelector:<span class="keyword">@selector</span>(personFindHouse:)]) &#123;</div><div class="line">        [<span class="keyword">self</span>.delegate personFindHouse:<span class="keyword">self</span>];</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">&#125;</div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
+<p><code>MMProxy.h</code></p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">&lt;Foundation/Foundation.h&gt;</span></span></div><div class="line"><span class="meta">#import <span class="meta-string">"MMPerson.h"</span></span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">MMProxy</span> : <span class="title">NSObject</span> &lt;<span class="title">MMPersonFindHoseDelegate</span>&gt; //遵守协议</span></div><div class="line"></div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
+<p><code>MMProxy.m</code></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="selector-id">#import</span> "<span class="selector-tag">MMProxy</span><span class="selector-class">.h</span>"</div><div class="line"></div><div class="line">@<span class="keyword">implementation</span> MMProxy</div><div class="line">- (void)personFindHouse:(MMPerson *)person&#123;</div><div class="line"></div><div class="line">    <span class="selector-tag">NSLog</span>(@"我是中介，我帮%@找到房子了！",<span class="keyword">person</span>.<span class="keyword">name</span>);</div><div class="line">&#125;</div><div class="line">@<span class="keyword">end</span></div></pre></td></tr></table></figure>
+<p><code>main.m</code></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">"MMPerson.h"</span></span></div><div class="line"><span class="meta">#import <span class="meta-string">"MMProxy.h"</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> <span class="keyword">const</span> *argv[])</span></span></div><div class="line">&#123;</div><div class="line">    MMProxy *proxy = [[MMProxy alloc] init];</div><div class="line">    MMPerson *p = [[MMPerson alloc] init];</div><div class="line">    </div><div class="line">    p.name = @<span class="string">"小明"</span>;</div><div class="line">    p.delegate = proxy;</div><div class="line">    </div><div class="line">    [p zuFang];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>output</p>
+<pre><code>小明需要租房
+我是中介，我帮小明找到房子了！
+</code></pre><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>OC中的代理模式核心是：id类型+协议+多态</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li>《<a href="http://blog.csdn.net/jiangwei0910410003/article/details/41777627" target="_blank" rel="external">OC学习篇之—代理模式</a>》</li>
+<li>《<a href="http://blog.csdn.net/cy_cai/article/details/17474069" target="_blank" rel="external">协议Delegate代理模式-OC</a>》</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;代理模式&quot;&gt;&lt;a href=&quot;#代理模式&quot; class=&quot;headerlink&quot; title=&quot;代理模式&quot;&gt;&lt;/a&gt;代理模式&lt;/h2&gt;&lt;p&gt;代理模式（Delegate）又叫做委托，代理就是一个人（类）帮另一个人（类）完成特定的事，这个事就是提前协商好的，我们称之为&lt;code&gt;协议&lt;/code&gt;的东西。举个简单的例子，小明去租房，但是房子非常不好找，为了节省时间，小明雇了一个人，这个人就是房介，房介来帮小明找房子。小明不用亲自去找，只要小明自己去找能胜任这项任务的中介就行了。此时，我们就可以说，中介是小明的代理，按照协议的内容（&lt;code&gt;遵守协议&lt;/code&gt;），帮小明租到房子。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="OC基础" scheme="http://yoursite.com/categories/OC%E5%9F%BA%E7%A1%80/"/>
+    
+    
+      <category term="OC基础" scheme="http://yoursite.com/tags/OC%E5%9F%BA%E7%A1%80/"/>
+    
+      <category term="代理模式" scheme="http://yoursite.com/tags/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/"/>
+    
+      <category term="Delegate" scheme="http://yoursite.com/tags/Delegate/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Objective-C:KVC</title>
+    <link href="http://yoursite.com/2016/01/14/Objective-C-KVC/"/>
+    <id>http://yoursite.com/2016/01/14/Objective-C-KVC/</id>
+    <published>2016-01-14T15:51:38.000Z</published>
+    <updated>2016-04-05T15:35:58.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="KVC"><a href="#KVC" class="headerlink" title="KVC"></a>KVC</h2><blockquote>
+<p>键值编码（key-value coding）：将表示对象包含的信息的字符串作为键值使用，来间接访问该信息的方式。</p>
+</blockquote>
+<h2 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h2><h3 id="设置属性"><a href="#设置属性" class="headerlink" title="设置属性"></a>设置属性</h3><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)<span class="string">setValue:</span>(id)value <span class="string">forKey:</span>(NSString *)key; <span class="comment">//已进行内存管理</span></div><div class="line">[p <span class="string">setValue:</span>@<span class="string">"John"</span> <span class="string">forKey:</span>@<span class="string">"name"</span>];</div></pre></td></tr></table></figure>
+<h3 id="获取属性"><a href="#获取属性" class="headerlink" title="获取属性"></a>获取属性</h3><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">id</span>)valueForKey:(<span class="built_in">NSString</span> *)key;</div><div class="line"><span class="built_in">NSString</span> *name = [p valueForKey:<span class="string">@"_name"</span>];</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>如果人还拥有一条狗，以@class的方式加在Person.h中，狗有dogName属性，那么可以<strong>指定路径设置</strong></p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[p <span class="string">setValue:</span>@<span class="string">"wangwang"</span> <span class="string">forKeyPath:</span>@<span class="string">"dog._dogname"</span>];</div><div class="line">NSLog(@<span class="string">"%@"</span>,[p <span class="string">valueForKeyPath:</span>@<span class="string">"dog._dogname"</span>])</div></pre></td></tr></table></figure>
+<figure class="highlight erlang"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">- <span class="params">(id)</span>valueForKeyPath:<span class="params">(NSString *)</span>keyPath;</div><div class="line">- <span class="params">(void)</span>setValue:<span class="params">(id)</span>value forKeyPath:<span class="params">(NSString *)</span>keyPath;</div></pre></td></tr></table></figure>
+<h3 id="举例说明"><a href="#举例说明" class="headerlink" title="举例说明"></a>举例说明</h3><p><code>Person.h</code></p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">Person</span> : <span class="title">NSObject</span> </span>&#123;</div><div class="line">    <span class="keyword">@private</span></div><div class="line">    <span class="built_in">NSString</span> *_name;</div><div class="line">    <span class="built_in">NSInteger</span> _age;</div><div class="line">&#125;</div><div class="line">- (<span class="keyword">void</span>)setAge:(<span class="built_in">NSInteger</span>)age;</div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
+<p><code>Person.m</code></p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">Person</span></span></div><div class="line"></div><div class="line">- (<span class="built_in">NSString</span> *)description &#123;</div><div class="line">    <span class="keyword">return</span> [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"name:%@,age=%li"</span>, _name, _age];</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)setAge:(<span class="built_in">NSInteger</span>)age &#123;</div><div class="line">    _age = age;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
+<p><code>main.m</code></p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">Person *p = [[Person alloc] init];</div><div class="line"><span class="comment">//  p-&gt;_name = @"John";   不可访问</span></div><div class="line"></div><div class="line"><span class="comment">//1.使用KVC给private的属性设置值</span></div><div class="line">[p <span class="string">setValue:</span>@<span class="string">"John"</span> <span class="string">forKey:</span>@<span class="string">"name"</span>];</div><div class="line"></div><div class="line"><span class="comment">//2.通过KVC获取到属性值</span></div><div class="line">NSString *name = [p <span class="string">valueForKey:</span>@<span class="string">"_name"</span>];</div><div class="line">NSLog(@<span class="string">"%@"</span>, name);</div><div class="line"></div><div class="line">[p <span class="string">setValue:</span>@<span class="number">21</span> <span class="string">forKey:</span>@<span class="string">"age"</span>];</div><div class="line">NSLog(@<span class="string">"%@"</span>, p);</div></pre></td></tr></table></figure>
+<h2 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h2><ul>
+<li><strong>破坏了面向对象的封装性</strong>;</li>
+<li>编译器不会对设置的keyValue进行错误检查;</li>
+<li>需要先对字符串进行解析，执行效率低于set和get方法;</li>
+</ul>
+<h2 id="其他说明"><a href="#其他说明" class="headerlink" title="其他说明"></a>其他说明</h2><h3 id="使用KVC设置属性"><a href="#使用KVC设置属性" class="headerlink" title="使用KVC设置属性"></a>使用KVC设置属性</h3><p>优先去当前类中查找是否有相应的set方法，如果有，则使用set方法设置，若无，则找到属性设置。 例如例子中的：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[p <span class="built_in">set</span>Value:@21 <span class="keyword">for</span>Key:@<span class="string">"age"</span>];</div><div class="line">[p <span class="built_in">set</span>Value:@21 <span class="keyword">for</span>Key:@<span class="string">"_age"</span>];</div></pre></td></tr></table></figure>
+<p>可以在age的set方法实现处设置断点，会发现，如果写_age则不调用set方法。</p>
+<h3 id="一对多的关系"><a href="#一对多的关系" class="headerlink" title="一对多的关系"></a>一对多的关系</h3><p>一般先打包成NSArray，再通过setValue方法，作为value赋值，访问的时候通过路径访问valueForKeyPath访问。</p>
+<h3 id="数值计算"><a href="#数值计算" class="headerlink" title="数值计算"></a>数值计算</h3><p>在上述例子中为Person增加dog成员变量；<br>并且<code>Dog.h</code>拥有成员变量dogage</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@interface</span> <span class="string">Dog :</span> NSObject</div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> _dogage;</div><div class="line">&#125;</div><div class="line">- (instancetype)<span class="string">initWithAge:</span>(<span class="keyword">int</span>)age;   <span class="comment">//并实现</span></div><div class="line"><span class="meta">@end</span></div></pre></td></tr></table></figure>
+<p><code>main.m</code></p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">Dog* dog1 = [[Dog alloc] <span class="string">initWithAge:</span><span class="number">20</span>];</div><div class="line">Dog* dog2 = [[Dog alloc] <span class="string">initWithAge:</span><span class="number">30</span>];</div><div class="line">Dog* dog3 = [[Dog alloc] <span class="string">initWithAge:</span><span class="number">10</span>];</div><div class="line"></div><div class="line">NSArray *array = [NSArray <span class="string">arrayWithObjects:</span>dog1,dog2,dog3, nil];</div><div class="line">[p <span class="string">setValue:</span>array <span class="string">forKey:</span>@<span class="string">"dog"</span>];       <span class="comment">//前面已定义</span></div><div class="line"></div><div class="line">NSLog(@<span class="string">"%@"</span>,[p <span class="string">valueForKeyPath:</span>@<span class="string">"dog.@count"</span>]);         <span class="comment">//dog数量</span></div><div class="line">NSLog(@<span class="string">"%@"</span>,[p <span class="string">valueForKeyPath:</span>@<span class="string">"dog.@sum._dogage"</span>]);   <span class="comment">//所有dogage总和</span></div><div class="line">NSLog(@<span class="string">"%@"</span>,[p <span class="string">valueForKeyPath:</span>@<span class="string">"dog.@avg._dogage"</span>]);   <span class="comment">//平均值</span></div><div class="line">NSLog(@<span class="string">"%@"</span>,[p <span class="string">valueForKeyPath:</span>@<span class="string">"dog.@min._dogage"</span>]);   <span class="comment">//最小值</span></div><div class="line">NSLog(@<span class="string">"%@"</span>,[p <span class="string">valueForKeyPath:</span>@<span class="string">"dog.@max._dogage"</span>]);   <span class="comment">//最大值</span></div></pre></td></tr></table></figure>
+<p>output：</p>
+<pre><code>3
+60
+20
+10
+30
+</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;KVC&quot;&gt;&lt;a href=&quot;#KVC&quot; class=&quot;headerlink&quot; title=&quot;KVC&quot;&gt;&lt;/a&gt;KVC&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;键值编码（key-value coding）：将表示对象包含的信息的字符串作为键值使用，来间接访问该信息的方式。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;用法&quot;&gt;&lt;a href=&quot;#用法&quot; class=&quot;headerlink&quot; title=&quot;用法&quot;&gt;&lt;/a&gt;用法&lt;/h2&gt;&lt;h3 id=&quot;设置属性&quot;&gt;&lt;a href=&quot;#设置属性&quot; class=&quot;headerlink&quot; title=&quot;设置属性&quot;&gt;&lt;/a&gt;设置属性&lt;/h3&gt;&lt;figure class=&quot;highlight groovy&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;- (&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt;)&lt;span class=&quot;string&quot;&gt;setValue:&lt;/span&gt;(id)value &lt;span class=&quot;string&quot;&gt;forKey:&lt;/span&gt;(NSString *)key; &lt;span class=&quot;comment&quot;&gt;//已进行内存管理&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;[p &lt;span class=&quot;string&quot;&gt;setValue:&lt;/span&gt;@&lt;span class=&quot;string&quot;&gt;&quot;John&quot;&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;forKey:&lt;/span&gt;@&lt;span class=&quot;string&quot;&gt;&quot;name&quot;&lt;/span&gt;];&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;获取属性&quot;&gt;&lt;a href=&quot;#获取属性&quot; class=&quot;headerlink&quot; title=&quot;获取属性&quot;&gt;&lt;/a&gt;获取属性&lt;/h3&gt;&lt;figure class=&quot;highlight objectivec&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;- (&lt;span class=&quot;keyword&quot;&gt;id&lt;/span&gt;)valueForKey:(&lt;span class=&quot;built_in&quot;&gt;NSString&lt;/span&gt; *)key;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;NSString&lt;/span&gt; *name = [p valueForKey:&lt;span class=&quot;string&quot;&gt;@&quot;_name&quot;&lt;/span&gt;];&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="OC基础" scheme="http://yoursite.com/categories/OC%E5%9F%BA%E7%A1%80/"/>
+    
+    
+      <category term="OC基础" scheme="http://yoursite.com/tags/OC%E5%9F%BA%E7%A1%80/"/>
+    
+      <category term="KVC" scheme="http://yoursite.com/tags/KVC/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Objective-C:Foundation框架总结</title>
+    <link href="http://yoursite.com/2016/01/14/Objective-C-Foundation%E6%A1%86%E6%9E%B6%E6%80%BB%E7%BB%93/"/>
+    <id>http://yoursite.com/2016/01/14/Objective-C-Foundation框架总结/</id>
+    <published>2016-01-14T11:29:52.000Z</published>
+    <updated>2016-04-05T15:37:04.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>这里整理一下经常要用的概念，一次性想记住真的没那么容易，只有反复使用，罗列出来方便下次查阅。</p>
+<h2 id="CGPoint"><a href="#CGPoint" class="headerlink" title="CGPoint"></a>CGPoint</h2><pre><code>(1) CGpoint ：表示一个点的位置坐标信息
+
+(2) 定义结构
+
+    CGPoint p1 = NSMakePoint(10, 10);
+
+    NSPoint p2 = CGPointMake(20, 20);
+</code></pre><a id="more"></a>
+<h2 id="CGRect-NSRect"><a href="#CGRect-NSRect" class="headerlink" title="CGRect/NSRect"></a>CGRect/NSRect</h2><pre><code>(1) 表示一个局域
+
+    CGRect r1 = CGRectMake(0,0, 100, 50);
+
+(2) 表示原点
+
+    CGPointZero == CGPointMake(0, 0)
+
+(3) 将结构体转为字符串
+
+    CGPoint p = NSMakePoint(10, 10);
+
+    NSString *str = NSStringFromPoint(p);
+
+    CGSize s3 = NSMakeSize(200, 60);
+
+    NSString *str = NSStringFromSize(s3);
+
+    CGRect r1 = CGRectMake(0, 0, 100, 50);
+
+    NSString *str = NSStringFromRect(r1);
+
+(4) 注意:使用CGPointZero等的前提是添加CoreGraphics框架
+</code></pre><h2 id="NSArray"><a href="#NSArray" class="headerlink" title="NSArray"></a>NSArray</h2><pre><code> 不可变数组。
+
+(1) NSArray的元素个数
+
+    NSLog(@&quot;%ld&quot;, array.count);
+
+(2) NSArray中元素的访问
+
+    NSLog(@&quot;%@&quot;, [array objectAtIndex:1]);
+
+    array[1];
+
+(3) 注意：
+
+    &gt; OC数组不能存放nil值
+
+    &gt; OC数组只能存放OC对象、不能存放非OC对象类型，比如int、struct、enum等
+
+    &gt; 这个array永远是空数组
+
+      NSArray *array = [NSArray array];
+</code></pre><h2 id="NSMutableArray"><a href="#NSMutableArray" class="headerlink" title="NSMutableArray"></a>NSMutableArray</h2><pre><code> 可变数组。
+
+(1) 初始化
+
+    NSMutableArray *array = [NSMutableArray arrayWithObjects:@&quot;jack&quot;, @&quot;rose&quot;, nil];
+
+    NSMutableArray *array = [NSMutableArray array];
+
+
+(2) 添加元素
+
+    [array addObject:[[Person alloc] init]];
+
+    [array addObject:@&quot;jack&quot;];
+
+
+(3) 插入元素到指定位置
+
+    [array insertObject:persion atIndex:index];
+
+
+(4) 删除所有元素
+
+    [array removeAllObjects];
+
+
+(5) 删除指定的对象
+
+    [array removeObject:@&quot;jack&quot;];
+
+    [array removeObjectAtIndex:0];
+
+
+(6) @[] 只创建不可变数组NSArray
+
+
+(7) 错误写法
+
+    NSMutableArray *array = @[@&quot;jack&quot;, @&quot;rose&quot;];
+
+    [array addObject:@&quot;jim&quot;];
+</code></pre><h2 id="NSSet"><a href="#NSSet" class="headerlink" title="NSSet"></a>NSSet</h2><pre><code> 不可变集合。
+
+(1) 定义和初始化
+
+    NSSet *s = [NSSet set];
+
+    NSSet *s2 = [NSSet setWithObjects:@&quot;jack&quot;,@&quot;rose&quot;, @&quot;jack2&quot;,@&quot;jack3&quot;,nil];
+
+
+(2) 随机拿出来一个元素
+
+    NSString *str =  [s2 anyObject];
+
+    NSLog(@&quot;%@&quot;, str);
+</code></pre><h2 id="NSMutableSet"><a href="#NSMutableSet" class="headerlink" title="NSMutableSet"></a>NSMutableSet</h2><pre><code> 可变的集合。
+
+(1) 定义和初始化
+
+    NSMutableSet *s = [NSMutableSet set];
+
+
+(2) 添加元素
+
+    [s addObject:@&quot;hack&quot;];
+
+
+(3) 删除元素
+
+    [s removeObject:&lt;#(id)#&gt;];
+</code></pre><h2 id="NSSet和NSArray的对比"><a href="#NSSet和NSArray的对比" class="headerlink" title="NSSet和NSArray的对比"></a>NSSet和NSArray的对比</h2><pre><code>(1) 共同点
+
+    * 都是集合，都能存放多个OC对象
+
+    * 只能放OC对象，不能放非OC对象类型（基本数据类型：int、char、float，结构体，枚举）
+
+    * 本身都不可变，都有一个可变的子类
+
+(2) 不同点
+
+    * NSArray有顺序，NSSet没有顺序
+</code></pre><h2 id="NSDictionary"><a href="#NSDictionary" class="headerlink" title="NSDictionary"></a>NSDictionary</h2><pre><code>(1) 字典（里面存放的东西都是键值对）
+
+    key ----&gt; value
+    索引 ----&gt; 文字内容
+
+(2) 初始化
+
+    1) 第一种初始化方法
+
+    NSDictionary *dict = [NSDictionary dictionaryWithObject:@&quot;jack&quot; forKey:@&quot;name&quot;];
+
+
+    2) 第二种初始化的方法
+
+    NSArray *keys = @[@&quot;name&quot;, @&quot;address&quot;];
+
+    NSArray *objects = @[@&quot;jack&quot;, @&quot;北京&quot;];
+
+    NSDictionary *dict = [NSDictionary dictionaryWithObjects:objects forKeys:keys];
+
+
+    3) 第三中初始化的方法（前面是value，后面是key）
+
+    NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:
+
+                                        @&quot;jack&quot;, @&quot;name&quot;,
+
+                                        @&quot;北京&quot;, @&quot;address&quot;,
+
+                                        @&quot;1234567&quot;, @&quot;qq&quot;, nil];
+
+
+    4) 第四种初始化的方法
+
+    NSDictionary *dict = @{@&quot;name&quot; : @&quot;jack&quot;, @&quot;address&quot; : @&quot;北京&quot;};
+
+
+(3) 字典数据访问
+
+    NSDictionary *dict = @{@&quot;name&quot; : @&quot;jack&quot;, @&quot;address&quot; : @&quot;北京&quot;};
+
+    id obj = [dict objectForKey:@&quot;name&quot;];
+
+    id obj = dict[@&quot;name&quot;];
+
+    NSLog(@&quot;%@&quot;, obj);
+
+     &gt;&gt; 注意：NSLog(@&quot;%ld&quot;, dict.count);  返回的是键值对的个数
+
+
+(4) 字典的使用
+
+    1) 添加键值对
+
+        [dict setObject:@&quot;jack&quot; forKey:@&quot;name&quot;];
+
+    2) 移除键值对
+
+        [dict removeObjectForKey:&lt;#(id)#&gt;];
+
+        NSString *str = dict[@&quot;name&quot;];
+
+    3) 注意：
+
+        &gt;&gt; 字典不允许有相同的key，但允许有相同的value（Object）
+
+        &gt;&gt; 字典无序的
+</code></pre><h2 id="OC中集合的总结"><a href="#OC中集合的总结" class="headerlink" title="OC中集合的总结"></a>OC中集合的总结</h2><pre><code>(1) NSArray/NSMutableArray
+
+    * 有序
+
+    * 快速创建（不可变）：@[obj1, obj2, obj3]
+
+    * 快速访问元素：数组名[i]
+
+(2) NSSet/NSMutableSet
+
+    * 无序
+
+(3) NSDictionary\NSMutableDictionary
+
+    * 无序
+
+    * 快速创建（不可变）：@{key1 : value1,  key2 : value2}
+
+    * 快速访问元素：字典名[key]        
+</code></pre><h2 id="NSNumber"><a href="#NSNumber" class="headerlink" title="NSNumber"></a>NSNumber</h2><pre><code>由于集合里面只可以存放OC对象，所以需要把基本类型转换成OC对象。
+
+将各种基本数据类型包装成NSNumber对象
+
+1) 整形包装成NSNumber
+
+    @10.5;
+
+2) 布尔包装成NSNumber
+
+    @YES;
+
+3) 注意区分 @&apos;A&apos;;和 @&quot;A&quot;;
+
+    @&apos;A&apos;;      //NSNumber对象
+
+    @&quot;A&quot;;    //NSString对象
+
+4) 将age变量包装成NSNumber对象
+
+    int age = 100;
+
+    @(age);
+
+    //[NSNumber numberWithInt:age];  
+
+5) 把整形包装成NSNumber对象
+
+    int a = 20;
+
+    NSNumber *b = @20; // 编译器特性
+
+    NSNumber *num = [NSNumber numberWithInt:10];
+
+6) NSNumber对象装换成整形
+
+    NSLog(@&quot;%d&quot;, [num intValue]);
+</code></pre><h2 id="NSValue"><a href="#NSValue" class="headerlink" title="NSValue"></a>NSValue</h2><pre><code>能包装所有数据，包括指针、结构体、枚举。
+
+CGPoint p = CGPointMake(10, 10);
+
+// 将结构体转成OC（NSValue）对象
+
+NSValue *pValue = [NSValue valueWithPoint:p];
+
+// 将OC（NSValue）对象转成结构体
+
+CGPoint p2 = [pValue pointValue];
+
+
+针对很常见CGRect/CGPoint/CGSize等数据结构，提供了封装好的接口
+
++ (NSValue *)valueWithCGPoint:(CGPoint)point;
+
++ (NSValue *)valueWithCGSize:(CGSize)size;
+
++ (NSValue *)valueWithCGRect:(CGRect)rect;
+
+- (CGPoint)CGPointValue;
+
+- (CGSize)CGSizeValue;
+
+- (CGRect)CGRectValue;
+</code></pre><h2 id="NSData"><a href="#NSData" class="headerlink" title="NSData"></a>NSData</h2><pre><code>NSData主要是提供一块原始数据的封装（变成纯粹的0、1字节流），方便数据的封装与流动。
+
+比较常见的是NSString／NSImage数据的封装与传递。
+
+在应用中，最常用于访问存储在文件中或者网络资源中的数据。
+</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;这里整理一下经常要用的概念，一次性想记住真的没那么容易，只有反复使用，罗列出来方便下次查阅。&lt;/p&gt;
+&lt;h2 id=&quot;CGPoint&quot;&gt;&lt;a href=&quot;#CGPoint&quot; class=&quot;headerlink&quot; title=&quot;CGPoint&quot;&gt;&lt;/a&gt;CGPoint&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;(1) CGpoint ：表示一个点的位置坐标信息
+
+(2) 定义结构
+
+    CGPoint p1 = NSMakePoint(10, 10);
+
+    NSPoint p2 = CGPointMake(20, 20);
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="OC基础" scheme="http://yoursite.com/categories/OC%E5%9F%BA%E7%A1%80/"/>
+    
+    
+      <category term="Foundation" scheme="http://yoursite.com/tags/Foundation/"/>
+    
+      <category term="OC基础" scheme="http://yoursite.com/tags/OC%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>UIView的继承关系和层次结构</title>
+    <link href="http://yoursite.com/2015/12/27/UIView%E7%9A%84%E7%BB%A7%E6%89%BF%E5%85%B3%E7%B3%BB%E5%92%8C%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84/"/>
+    <id>http://yoursite.com/2015/12/27/UIView的继承关系和层次结构/</id>
+    <published>2015-12-27T13:53:54.000Z</published>
+    <updated>2016-04-05T15:36:41.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="UIView的使用"><a href="#UIView的使用" class="headerlink" title="UIView的使用"></a>UIView的使用</h2><p>UIView为图形绘制以及事件操作提供了一个架构。一个UIView对象定义了屏幕上的一块矩形区域，同时处理该区域的图形绘制和触摸事件。一个视图也可以作为其他视图的父视图。</p>
+<p>UIView在App中占有绝对重要的地位，因为iOS中几乎所有可视化控件都是UIView的子类。UIView负责渲染区域的内容，并且响应该区域内发生的触摸事件。<br><a id="more"></a></p>
+<h2 id="UIView的功能"><a href="#UIView的功能" class="headerlink" title="UIView的功能"></a>UIView的功能</h2><ol>
+<li>管理矩形区域里的内容</li>
+<li>处理矩形区域中的事件</li>
+<li>管理子视图</li>
+<li>实现动画</li>
+</ol>
+<h2 id="UIView的层次结构"><a href="#UIView的层次结构" class="headerlink" title="UIView的层次结构"></a>UIView的层次结构</h2><p><img src="http://ww2.sinaimg.cn/large/6057861cgw1ezemt7f4irj20fp0ja75h.jpg" alt="image"></p>
+<p>因为UIView的子类继承了UIView的属性和方法， 因此，UIView的子类也具有上述功能。在App开发中，会经常用到UITableView，从IB的Attributes Inspector（属性检查器）中，可以清楚地看到UITableView的层级关系。如下图所示:</p>
+<p><img src="http://ww3.sinaimg.cn/large/6057861cgw1ezejtsg78uj20ec0cjmxq.jpg" alt="image"></p>
+<p>透视该图，从上之下的关系是：TableView 继承了 Scrollview， 而ScrollView 继承了 View。在Attributes Inspector（属性检查器）中，改变这些属性的值，可以实时看到对应的UI的变化。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li>Apple官方文档</li>
+<li>部分资料整理自互联网</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;UIView的使用&quot;&gt;&lt;a href=&quot;#UIView的使用&quot; class=&quot;headerlink&quot; title=&quot;UIView的使用&quot;&gt;&lt;/a&gt;UIView的使用&lt;/h2&gt;&lt;p&gt;UIView为图形绘制以及事件操作提供了一个架构。一个UIView对象定义了屏幕上的一块矩形区域，同时处理该区域的图形绘制和触摸事件。一个视图也可以作为其他视图的父视图。&lt;/p&gt;
+&lt;p&gt;UIView在App中占有绝对重要的地位，因为iOS中几乎所有可视化控件都是UIView的子类。UIView负责渲染区域的内容，并且响应该区域内发生的触摸事件。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="UI基础" scheme="http://yoursite.com/categories/UI%E5%9F%BA%E7%A1%80/"/>
+    
+    
+      <category term="UIView" scheme="http://yoursite.com/tags/UIView/"/>
+    
+      <category term="UI基础" scheme="http://yoursite.com/tags/UI%E5%9F%BA%E7%A1%80/"/>
+    
+      <category term="继承关系" scheme="http://yoursite.com/tags/%E7%BB%A7%E6%89%BF%E5%85%B3%E7%B3%BB/"/>
+    
+  </entry>
+  
+</feed>

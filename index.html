@@ -47,6 +47,8 @@
 
 
 
+  <link rel="alternate" href="/atom.xml" title="Ifyour's Blog" type="application/atom+xml" />
+
 
 
 
@@ -294,7 +296,7 @@
 
       
         
-          <h2 id="u4EE3_u7406_u6A21_u5F0F"><a href="#u4EE3_u7406_u6A21_u5F0F" class="headerlink" title="代理模式"></a>代理模式</h2><p>代理模式（Delegate）又叫做委托，代理就是一个人（类）帮另一个人（类）完成特定的事，这个事就是提前协商好的，我们称之为<code>协议</code>的东西。举个简单的例子，小明去租房，但是房子非常不好找，为了节省时间，小明雇了一个人，这个人就是房介，房介来帮小明找房子。小明不用亲自去找，只要小明自己去找能胜任这项任务的中介就行了。此时，我们就可以说，中介是小明的代理，按照协议的内容（<code>遵守协议</code>），帮小明租到房子。<br>
+          <h2 id="代理模式"><a href="#代理模式" class="headerlink" title="代理模式"></a>代理模式</h2><p>代理模式（Delegate）又叫做委托，代理就是一个人（类）帮另一个人（类）完成特定的事，这个事就是提前协商好的，我们称之为<code>协议</code>的东西。举个简单的例子，小明去租房，但是房子非常不好找，为了节省时间，小明雇了一个人，这个人就是房介，房介来帮小明找房子。小明不用亲自去找，只要小明自己去找能胜任这项任务的中介就行了。此时，我们就可以说，中介是小明的代理，按照协议的内容（<code>遵守协议</code>），帮小明租到房子。<br>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/01/17/Objective-C-代理模式/#more" rel="contents">
               阅读全文 &raquo;
@@ -418,8 +420,8 @@
           <h2 id="KVC"><a href="#KVC" class="headerlink" title="KVC"></a>KVC</h2><blockquote>
 <p>键值编码（key-value coding）：将表示对象包含的信息的字符串作为键值使用，来间接访问该信息的方式。</p>
 </blockquote>
-<h2 id="u7528_u6CD5"><a href="#u7528_u6CD5" class="headerlink" title="用法"></a>用法</h2><h3 id="u8BBE_u7F6E_u5C5E_u6027"><a href="#u8BBE_u7F6E_u5C5E_u6027" class="headerlink" title="设置属性"></a>设置属性</h3><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="typename">void</span>)<span class="string">setValue:</span>(id)value <span class="string">forKey:</span>(NSString *)key; <span class="comment">//已进行内存管理</span></span><br><span class="line">[p <span class="string">setValue:</span>@<span class="string">"John"</span> <span class="string">forKey:</span>@<span class="string">"name"</span>];</span><br></pre></td></tr></table></figure>
-<h3 id="u83B7_u53D6_u5C5E_u6027"><a href="#u83B7_u53D6_u5C5E_u6027" class="headerlink" title="获取属性"></a>获取属性</h3><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">id</span>)valueForKey:(<span class="built_in">NSString</span> *)key;</span><br><span class="line"><span class="built_in">NSString</span> *name = [p valueForKey:<span class="string">@"_name"</span>];</span><br></pre></td></tr></table></figure>
+<h2 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h2><h3 id="设置属性"><a href="#设置属性" class="headerlink" title="设置属性"></a>设置属性</h3><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)<span class="string">setValue:</span>(id)value <span class="string">forKey:</span>(NSString *)key; <span class="comment">//已进行内存管理</span></div><div class="line">[p <span class="string">setValue:</span>@<span class="string">"John"</span> <span class="string">forKey:</span>@<span class="string">"name"</span>];</div></pre></td></tr></table></figure>
+<h3 id="获取属性"><a href="#获取属性" class="headerlink" title="获取属性"></a>获取属性</h3><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">id</span>)valueForKey:(<span class="built_in">NSString</span> *)key;</div><div class="line"><span class="built_in">NSString</span> *name = [p valueForKey:<span class="string">@"_name"</span>];</div></pre></td></tr></table></figure>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/01/14/Objective-C-KVC/#more" rel="contents">
               阅读全文 &raquo;
@@ -669,7 +671,7 @@
 
       
         
-          <h2 id="UIView_u7684_u4F7F_u7528"><a href="#UIView_u7684_u4F7F_u7528" class="headerlink" title="UIView的使用"></a>UIView的使用</h2><p>UIView为图形绘制以及事件操作提供了一个架构。一个UIView对象定义了屏幕上的一块矩形区域，同时处理该区域的图形绘制和触摸事件。一个视图也可以作为其他视图的父视图。</p>
+          <h2 id="UIView的使用"><a href="#UIView的使用" class="headerlink" title="UIView的使用"></a>UIView的使用</h2><p>UIView为图形绘制以及事件操作提供了一个架构。一个UIView对象定义了屏幕上的一块矩形区域，同时处理该区域的图形绘制和触摸事件。一个视图也可以作为其他视图的父视图。</p>
 <p>UIView在App中占有绝对重要的地位，因为iOS中几乎所有可视化控件都是UIView的子类。UIView负责渲染区域的内容，并且响应该区域内发生的触摸事件。<br>
           <div class="post-more-link text-center">
             <a class="btn" href="/2015/12/27/UIView的继承关系和层次结构/#more" rel="contents">
@@ -768,6 +770,13 @@
 
         </nav>
 
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
         
 
         <div class="links-of-author motion-element">

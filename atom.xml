@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ifyour.github.io/"/>
-  <updated>2016-12-29T04:36:02.000Z</updated>
+  <updated>2016-12-29T05:21:18.000Z</updated>
   <id>http://ifyour.github.io/</id>
   
   <author>
@@ -17,10 +17,10 @@
   
   <entry>
     <title>Node.JS 学习笔记 [02]</title>
-    <link href="http://ifyour.github.io/2016/12/29/Node-JS-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-02/"/>
-    <id>http://ifyour.github.io/2016/12/29/Node-JS-学习笔记-02/</id>
+    <link href="http://ifyour.github.io/2016/12/29/Node-js-note-02/"/>
+    <id>http://ifyour.github.io/2016/12/29/Node-js-note-02/</id>
     <published>2016-12-29T00:27:02.000Z</published>
-    <updated>2016-12-29T04:36:02.000Z</updated>
+    <updated>2016-12-29T05:21:18.000Z</updated>
     
     <content type="html"><![CDATA[<p>在使用 npm 的时候，我发现在速度实在太慢，安装小一点的包确实没啥问题，装大一点的，依赖多一点的包的时候，问题就来了。速度慢，响应迟钝。<strong><em>nrm</em></strong> 是一个非常好的解决方案，安装 nrm 后，可以使用简单的命令快速来切换 npm 源，比如切换到 cnpm、taobao 源等，详细的使用方法可以点<a href="https://github.com/Pana/nrm#install" target="_blank" rel="external">这里</a>进去了解下。<br><a id="more"></a></p>
 <h3 id="Node-js-使用"><a href="#Node-js-使用" class="headerlink" title="Node.js 使用"></a>Node.js 使用</h3><h4 id="Node-js-控制台"><a href="#Node-js-控制台" class="headerlink" title="Node.js 控制台"></a>Node.js 控制台</h4><p>前面说了，Node.js 提供了 REPL 模式来解析输入的每条命令，现在可以实战一下了，打开终端，然后输入 <code>node</code> 进入 Node.js 开始敲命令吧！<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="string">'hello,world!'</span>); <span class="comment">// 普通输入</span></div><div class="line"><span class="built_in">console</span>.error(<span class="string">'错误消息'</span>);    <span class="comment">// 错误输出</span></div><div class="line"><span class="built_in">console</span>.time(<span class="string">'time'</span>);        <span class="comment">// 会计算在这个表达式之间的代码快执行耗时</span></div><div class="line"><span class="comment">// &#123;...&#125;</span></div><div class="line"><span class="built_in">console</span>.time(<span class="string">'time'</span>);</div><div class="line"><span class="built_in">console</span>.assert(<span class="number">3</span>&gt;<span class="number">10</span>,<span class="string">'str..'</span>);<span class="comment">// 断言：表达式不成立，会输出后面的字符串</span></div></pre></td></tr></table></figure></p>
@@ -83,7 +83,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="Node-js-异步与同步"><a href="#Node-js-异步与同步" class="headerlink" title="Node.js 异步与同步"></a>Node.js 异步与同步</h3><p><img src="http://ww4.sinaimg.cn/large/6057861cgw1fb7gi7gen5j208c05qt8v.jpg" alt=""><br><strong><em>同步</em></strong>：一个任务执行完成后，才能执行下一个任务，执行总时间等于所有任务消耗时间之和。<br><strong><em>异步</em></strong>：几个任务同时执行，不限制先后，执行总时间等于执行耗时最长的那个任务的消耗时间。</p>
+<h3 id="Node-js-异步与同步"><a href="#Node-js-异步与同步" class="headerlink" title="Node.js 异步与同步"></a>Node.js 异步与同步</h3><p><strong><em>同步</em></strong>：一个任务执行完成后，才能执行下一个任务，执行总时间等于所有任务消耗时间之和。<br><strong><em>异步</em></strong>：几个任务同时执行，不限制先后，执行总时间等于执行耗时最长的那个任务的消耗时间。</p>
 <p>在 Node.js 中每一个任务有一个或多个回调函数，前一个任务结束后，不是执行后一个任务，而是执行回调函数，后一个任务则是不等前一个任务结束就执行，所以程序的执行顺序与任务的排列顺序是不一致的、异步的。</p>
 <h4 id="异步的实现"><a href="#异步的实现" class="headerlink" title="异步的实现"></a>异步的实现</h4><ul>
 <li>回调函数</li>

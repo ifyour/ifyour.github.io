@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ifyour.github.io/"/>
-  <updated>2017-01-02T16:59:35.000Z</updated>
+  <updated>2017-01-02T17:01:16.000Z</updated>
   <id>http://ifyour.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://ifyour.github.io/2017/01/02/Node-js-note-05/"/>
     <id>http://ifyour.github.io/2017/01/02/Node-js-note-05/</id>
     <published>2017-01-02T13:24:40.000Z</published>
-    <updated>2017-01-02T16:59:35.000Z</updated>
+    <updated>2017-01-02T17:01:16.000Z</updated>
     
     <content type="html"><![CDATA[<p><strong><em>Express</em></strong> 是一个基于 Node.js 平台的极简、灵活的 Web 应用开发框架，它提供一系列强大的特性，帮助你创建各种 Web 和移动设备应用。Express的核心特性可以概括以下三点。<br><a id="more"></a></p>
 <ul>
@@ -29,7 +29,7 @@
 <li>可以通过向模板传递参数来动态渲染 HTML 页面。</li>
 </ul>
 <p>下面学习的知识点，都会围绕这几个特性展开。</p>
-<h3 id="Express-安装"><a href="#Express-安装" class="headerlink" title="Express 安装"></a>Express 安装</h3><h4 id="在项目中引入-Express"><a href="#在项目中引入-Express" class="headerlink" title="在项目中引入 Express"></a>在项目中引入 Express</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> projectName              <span class="comment">#进入新建的 Node.js 项目</span></div><div class="line">npm init                    <span class="comment">#初始化项目配置文件</span></div><div class="line">npm install express --save  <span class="comment">#安装 Express 模块到项目配置文件中</span></div></pre></td></tr></table></figure>
+<h3 id="Express-安装"><a href="#Express-安装" class="headerlink" title="Express 安装"></a>Express 安装</h3><h4 id="在项目中引入-Express"><a href="#在项目中引入-Express" class="headerlink" title="在项目中引入 Express"></a>在项目中引入 Express</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> projectName              <span class="comment"># 进入新建的 Node.js 项目</span></div><div class="line">npm init                    <span class="comment"># 初始化项目配置文件</span></div><div class="line">npm install express --save  <span class="comment"># 安装 Express 模块到项目配置文件中</span></div></pre></td></tr></table></figure>
 <p>通过上门的命令，就可以完成 Express 的安装，下面在 <code>app.js</code> 中使用 Express 吧！<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</div><div class="line"><span class="keyword">var</span> app = express();</div><div class="line"></div><div class="line">app.get(<span class="string">'/'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</div><div class="line">    res.send(<span class="string">'Hello,Express!'</span>);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">app.listen(<span class="number">8080</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'Express running at http://127.0.0.1:8080/'</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
 <h4 id="使用-Express-generator"><a href="#使用-Express-generator" class="headerlink" title="使用 Express-generator"></a>使用 Express-generator</h4><p>为了方便开发者，更便捷的使用 Express 生成项目，官方提供的快速的生成工具 <code>Express-generator</code>，虽然生成非常快速方便，但是作为初学者，还是要弄清楚里面每条命令所代表的含义，最后再使用官方提供的工具快速生成。打开终端，因为我是 MacOS，所以安装的时候要加上 <code>sudo</code> 否则会报错提示权限不够。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">sudo npm install express-generator -g  <span class="comment"># 全局安装</span></div><div class="line">express mywebapp                       <span class="comment"># 创建 mywebapp 项目</span></div><div class="line"><span class="built_in">cd</span> mywebapp &amp;&amp; npm install             <span class="comment"># 安装依赖文件</span></div><div class="line">npm start                              <span class="comment"># 启动项目</span></div></pre></td></tr></table></figure></p>
 <p>启动项目后，就可以在浏览器中预览了，访问地址：<a href="http://127.0.0.1:3000/" target="_blank" rel="external">http://127.0.0.1:3000/</a> 。</p>

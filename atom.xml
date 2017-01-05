@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ifyour.github.io/"/>
-  <updated>2017-01-03T01:37:48.000Z</updated>
+  <updated>2017-01-05T05:18:59.000Z</updated>
   <id>http://ifyour.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://ifyour.github.io/2017/01/02/Node-js-note-05/"/>
     <id>http://ifyour.github.io/2017/01/02/Node-js-note-05/</id>
     <published>2017-01-02T13:24:40.000Z</published>
-    <updated>2017-01-03T01:37:48.000Z</updated>
+    <updated>2017-01-05T05:18:59.000Z</updated>
     
     <content type="html"><![CDATA[<p><strong><em>Express</em></strong> 是一个基于 Node.js 平台的极简、灵活的 Web 应用开发框架，它提供一系列强大的特性，帮助你创建各种 Web 和移动设备应用。Express的核心特性可以概括以下三点。<br><a id="more"></a></p>
 <ul>
@@ -55,9 +55,8 @@
 <h4 id="redirect"><a href="#redirect" class="headerlink" title="redirect()"></a>redirect()</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 重定向到指定的 URL 路径</span></div><div class="line">res.redirect(<span class="string">'/404.html'</span>);</div><div class="line">res.redirect(<span class="string">'https://www.google.com/'</span>);</div></pre></td></tr></table></figure>
 <p>更多响应对象的方法，参考 <a href="http://www.expressjs.com.cn/4x/api.html#res" target="_blank" rel="external">Express 官方API</a>。</p>
 <h3 id="Express-请求对象"><a href="#Express-请求对象" class="headerlink" title="Express 请求对象"></a>Express 请求对象</h3><p>Express 中的 <code>Request</code> 对象，包含了一次请求中的所有数据，比如请求头、路径、Cookies 等，获取请求头中的信息，服务器根据这些信息处理业务逻辑层，最终将处理过后的数据返回给用户。这里总结了常用的请求对象方法。</p>
-<h4 id="URL-中的参数"><a href="#URL-中的参数" class="headerlink" title="URL 中的参数"></a>URL 中的参数</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 语法： req.query.参数名</span></div><div class="line"><span class="comment">// e.g.  http://localhost:3000/user?name=ifyour</span></div><div class="line"><span class="built_in">console</span>.log(req.query.name);</div><div class="line"><span class="comment">// =&gt; ifyour</span></div></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 语法：req.params.参数名</span></div><div class="line"><span class="comment">//e.g.  http://localhost/post/123123</span></div><div class="line">router.get(<span class="string">'/post/:id'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(req.params.id);</div><div class="line">    <span class="comment">// =&gt; 123123</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<h4 id="表单中的参数"><a href="#表单中的参数" class="headerlink" title="表单中的参数"></a>表单中的参数</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 语法：req.params.参数名</span></div><div class="line"><span class="comment">// e.g. &lt;input type="text" name="user"&gt;</span></div><div class="line"><span class="built_in">console</span>.log(req.param(<span class="string">'user'</span>));</div></pre></td></tr></table></figure>
+<h4 id="URL-中的参数"><a href="#URL-中的参数" class="headerlink" title="URL 中的参数"></a>URL 中的参数</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 方式一： req.query.参数名</span></div><div class="line"><span class="comment">// e.g.  http://localhost:3000/user?name=ifyour</span></div><div class="line"><span class="built_in">console</span>.log(req.query.name);</div><div class="line"><span class="comment">// =&gt; ifyour</span></div><div class="line"></div><div class="line"><span class="comment">// 方式二：req.params.参数名</span></div><div class="line"><span class="comment">//e.g.  http://localhost/post/123123</span></div><div class="line">router.get(<span class="string">'/post/:id'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(req.params.id);</div><div class="line">    <span class="comment">// =&gt; 123123</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h4 id="表单中的参数"><a href="#表单中的参数" class="headerlink" title="表单中的参数"></a>表单中的参数</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 方式一：语法：req.param.参数名  注意这里没加 s</span></div><div class="line"><span class="comment">// e.g. &lt;input type="text" name="user"&gt;</span></div><div class="line"><span class="built_in">console</span>.log(req.param(<span class="string">'user'</span>));</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">// 方式二：使用 body-parser 中间件</span></div><div class="line"><span class="comment">// e.g. &lt;input type="text" name="user"&gt;</span></div><div class="line"><span class="keyword">var</span> bodyparser = <span class="built_in">require</span>(<span class="string">'body-parser'</span>);</div><div class="line"><span class="built_in">console</span>.console.log(req.boy.name);</div></pre></td></tr></table></figure>
 <h3 id="Express-中间件"><a href="#Express-中间件" class="headerlink" title="Express 中间件"></a>Express 中间件</h3><p>Express 是一个自身功能极简，完全是由路由和中间件构成一个的 Web 开发框架：从本质上来说，一个 Express 应用就是在调用各种中间件。<br><img src="http://ww3.sinaimg.cn/large/6057861cgw1fbcrpk71zxj20sg03kaaa.jpg" alt=""><br>如图，中间件（Middleware）位于客户端和路由之间，它好比是一个漏斗，经过这个漏斗的 <code>Request</code> 对象和 <code>Response</code> 对象以及循环流程中的 <code>Next</code> 会被处理，比如正确性校验、业务逻辑处理等。</p>
 <ul>
 <li>执行任何代码</li>
@@ -65,9 +64,16 @@
 <li>终结请求-响应循环</li>
 <li>调用堆栈中的下一个中间件</li>
 </ul>
-<div class="tip"><br>如果当前中间件没有终结请求-响应循环，则必须调用 next() 方法将控制权交给下一个中间件，否则请求就会挂起。<br></div>
-
-<p>.. 未完待续 2017-01-03 ..</p>
+<p><div class="tip"><br>如果当前中间件没有终结请求-响应循环，则必须调用 next() 方法将控制权交给下一个中间件，否则请求就会挂起。<br></div><br>举个例子来说明一下，如何通过 <code>next()</code> 方法把控制权交给下一个中间件。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> app = express();</div><div class="line">app.use(<span class="function"><span class="keyword">function</span> (<span class="params">req, res, next</span>) </span>&#123;</div><div class="line">   <span class="keyword">var</span> accessToken = req.query.accessToken;</div><div class="line">   <span class="comment">//检查请求中是否含有“认证牌”，存在就继续执行。</span></div><div class="line">   <span class="keyword">if</span>(accessToken)&#123;</div><div class="line">       next(); <span class="comment">// 执行下一个中间件</span></div><div class="line">       &#125;<span class="keyword">else</span>&#123;</div><div class="line">          res.send(“请求必须包含token”);</div><div class="line">        &#125;</div><div class="line">&#125;);</div><div class="line"><span class="comment">// ...</span></div></pre></td></tr></table></figure></p>
+<h4 id="应用级中间件"><a href="#应用级中间件" class="headerlink" title="应用级中间件"></a>应用级中间件</h4><p>应用级中间件就是绑定到用 <code>express()</code> 生成的对象 <code>app</code> 身上的，比如 <code>app.use()</code> 中的 <code>use</code> 方法，以及 <code>app.post()</code> 、<code>app.get()</code> 中的 <code>POST</code> 和 <code>GET</code> 方法等。</p>
+<h4 id="内置中间件"><a href="#内置中间件" class="headerlink" title="内置中间件"></a>内置中间件</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 设置公共静态目录，用于存放 css js image 等文件，项目目录里有 images 目录存放 1.png</span></div><div class="line"><span class="comment">// 那么访问：http://localhost/images/1.png 获取</span></div><div class="line">app.use(express.static(<span class="string">'public'</span>));</div></pre></td></tr></table></figure>
+<h4 id="第三方中间件"><a href="#第三方中间件" class="headerlink" title="第三方中间件"></a>第三方中间件</h4><p>中间件可以说是整个 Express 的精华所在了，使用中间件可以几大的扩展项目的功能。使用方法都差不多，这里介绍几个常用的，具体使用方式需要看官方的文档了。</p>
+<ul>
+<li>解析客户端请求的 body 中的内容：body-parser</li>
+<li>cookie 解析中间件：cookie-parser</li>
+<li>文件上传中间件：multer</li>
+</ul>
+<p>使用命令 <code>npm i 包名称 --save</code> 安装到项目中，然后引入项目使用即可。</p>
 ]]></content>
     
     <summary type="html">

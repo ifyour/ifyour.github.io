@@ -48,11 +48,11 @@
   </entry>
   
   <entry>
-    <title>Mongodb 学习笔记</title>
+    <title>Mongodb 学习笔记 -- 增删改查</title>
     <link href="http://ifyour.github.io/2016/01/05/Mongodb-note/"/>
     <id>http://ifyour.github.io/2016/01/05/Mongodb-note/</id>
     <published>2016-01-05T13:24:40.000Z</published>
-    <updated>2017-01-11T12:49:15.000Z</updated>
+    <updated>2017-01-17T15:20:16.000Z</updated>
     
     <content type="html"><![CDATA[<p>记录 Mongodb 的学习之旅，从环境配置，到基础命令行使用，算是一个简单的入门教程，同时也是学习总结，还有把踩到的坑都记录下来，以后遇到同样的问题不至于在同一个地方继续踩坑。<br><a id="more"></a></p>
 <h3 id="Mongodb-介绍"><a href="#Mongodb-介绍" class="headerlink" title="Mongodb 介绍"></a>Mongodb 介绍</h3><blockquote>
@@ -132,11 +132,11 @@
   </entry>
   
   <entry>
-    <title>Node.JS 学习笔记 [03]</title>
+    <title>Node.JS 学习笔记 [03] -- Buffer fs path</title>
     <link href="http://ifyour.github.io/2015/12/30/Node-js-note-03/"/>
     <id>http://ifyour.github.io/2015/12/30/Node-js-note-03/</id>
     <published>2015-12-30T13:57:05.000Z</published>
-    <updated>2017-01-11T12:49:12.000Z</updated>
+    <updated>2017-01-17T15:17:23.000Z</updated>
     
     <content type="html"><![CDATA[<p>今天学习了 Node.js 的缓冲区（Buffer）、文件系统（fs）、路径（path）模块，感受了一下 Node.js 作为 JavaScript 的扩展在后台方面的一些功能。给我最多的感受是，大量的异步代码和回调函数，让 Node.js 性能非常出色。来总结下今天学习的内容吧。<br><a id="more"></a></p>
 <h3 id="缓冲区-Buffer"><a href="#缓冲区-Buffer" class="headerlink" title="缓冲区 (Buffer)"></a>缓冲区 (Buffer)</h3><p>JavaScript 语言自身只有字符串数据类型，没有二进制数据类型。但在处理像 TCP 流或文件流时，必须使用到二进制数据。因此在 Node.js 中，定义了一个 Buffer 类，该类用来创建一个专门存放二进制数据的缓存区。按照我的理解，Buffer 类很像我们的整数数组。有对应的索引，存储方式也和数组类似。来看看 Buffer 类是如何创建的。</p>
@@ -177,11 +177,11 @@
   </entry>
   
   <entry>
-    <title>Node.JS 学习笔记 [02]</title>
+    <title>Node.JS 学习笔记 [02] -- 同步异步</title>
     <link href="http://ifyour.github.io/2015/12/29/Node-js-note-02/"/>
     <id>http://ifyour.github.io/2015/12/29/Node-js-note-02/</id>
     <published>2015-12-29T00:27:02.000Z</published>
-    <updated>2017-01-11T12:49:13.000Z</updated>
+    <updated>2017-01-17T15:17:55.000Z</updated>
     
     <content type="html"><![CDATA[<p>在使用 npm 的时候，我发现在速度实在太慢，安装小一点的包确实没啥问题，装大一点的，依赖多一点的包的时候，问题就来了。速度慢，响应迟钝。<strong><em>nrm</em></strong> 是一个非常好的解决方案，安装 nrm 后，可以使用简单的命令快速来切换 npm 源，比如切换到 cnpm、taobao 源等，详细的使用方法可以点<a href="https://github.com/Pana/nrm#install" target="_blank" rel="external">这里</a>进去了解下。<br><a id="more"></a></p>
 <h3 id="Node-js-使用"><a href="#Node-js-使用" class="headerlink" title="Node.js 使用"></a>Node.js 使用</h3><h4 id="Node-js-控制台"><a href="#Node-js-控制台" class="headerlink" title="Node.js 控制台"></a>Node.js 控制台</h4><p>前面说了，Node.js 提供了 REPL 模式来解析输入的每条命令，现在可以实战一下了，打开终端，然后输入 <code>node</code> 进入 Node.js 开始敲命令吧！<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="string">'hello,world!'</span>); <span class="comment">// 普通输入</span></div><div class="line"><span class="built_in">console</span>.error(<span class="string">'错误消息'</span>);    <span class="comment">// 错误输出</span></div><div class="line"><span class="built_in">console</span>.time(<span class="string">'time'</span>);        <span class="comment">// 会计算在这个表达式之间的代码块执行耗时</span></div><div class="line"><span class="comment">// &#123;...&#125;</span></div><div class="line"><span class="built_in">console</span>.time(<span class="string">'time'</span>);</div><div class="line"><span class="built_in">console</span>.assert(<span class="number">3</span>&gt;<span class="number">10</span>,<span class="string">'str..'</span>);<span class="comment">// 断言：表达式不成立，会输出后面的字符串</span></div></pre></td></tr></table></figure></p>
@@ -278,11 +278,11 @@
   </entry>
   
   <entry>
-    <title>Node.JS 学习笔记 [01]</title>
+    <title>Node.JS 学习笔记 [01] -- Node.JS入门</title>
     <link href="http://ifyour.github.io/2015/12/28/node-js-note-01/"/>
     <id>http://ifyour.github.io/2015/12/28/node-js-note-01/</id>
     <published>2015-12-28T11:00:24.000Z</published>
-    <updated>2017-01-11T12:49:14.000Z</updated>
+    <updated>2017-01-17T15:18:50.000Z</updated>
     
     <content type="html"><![CDATA[<p>整理记录 Node.js 学习笔记，作为前端人员，非常有必要了解后端的一些知识，方便与后端的同事协作，提高效率，搞好前端后，也可以尝试往后端发展，成为一名全栈工程师！:P<br><a id="more"></a><br><img src="http://ww4.sinaimg.cn/mw690/6057861cgw1fb6vlzd7i7j20go08cjro.jpg" alt=""></p>
 <h3 id="Node-js-介绍"><a href="#Node-js-介绍" class="headerlink" title="Node.js 介绍"></a>Node.js 介绍</h3><p>Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。Node.js 使用了一个事件驱动、非阻塞式 I/O 的模型，使其轻量又高效。Node.js 的包管理器 npm，是全球最大的开源库生态系统。</p>
@@ -339,11 +339,11 @@
   </entry>
   
   <entry>
-    <title>Node.JS 学习笔记 [05]</title>
+    <title>Node.JS 学习笔记 [05] -- Express</title>
     <link href="http://ifyour.github.io/2015/01/02/Node-js-note-05/"/>
     <id>http://ifyour.github.io/2015/01/02/Node-js-note-05/</id>
     <published>2015-01-02T13:24:40.000Z</published>
-    <updated>2017-01-11T12:49:10.000Z</updated>
+    <updated>2017-01-17T15:16:22.000Z</updated>
     
     <content type="html"><![CDATA[<p><strong><em>Express</em></strong> 是一个基于 Node.js 平台的极简、灵活的 Web 应用开发框架，它提供一系列强大的特性，帮助你创建各种 Web 和移动设备应用。Express的核心特性可以概括以下三点。<br><a id="more"></a></p>
 <ul>
@@ -409,11 +409,11 @@
   </entry>
   
   <entry>
-    <title>Node.JS 学习笔记 [04]</title>
+    <title>Node.JS 学习笔记 [04] -- HTTP</title>
     <link href="http://ifyour.github.io/2015/01/01/Node-js-note-04/"/>
     <id>http://ifyour.github.io/2015/01/01/Node-js-note-04/</id>
     <published>2015-01-01T07:05:10.000Z</published>
-    <updated>2017-01-11T12:49:11.000Z</updated>
+    <updated>2017-01-17T15:16:13.000Z</updated>
     
     <content type="html"><![CDATA[<p>本次的学习内容是 Node.js Web 模块，介绍了什么是 web 服务器，以及常见的几种模式，比如 B/S 模式（Browser/Server，浏览器/服务器模式），C/S 模式（Client/Server，客户端/服务器模式）等。Web 客户端通过使用 HTTP 协议就能访问到 Web 服务器上的数据，Web 服务器响应客户端的请求。<br><a id="more"></a></p>
 <h3 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h3><h4 id="HTTP-协议"><a href="#HTTP-协议" class="headerlink" title="HTTP 协议"></a>HTTP 协议</h4><p><strong><em>HTTP</em></strong>  协议是 Hyper Text Transfer Protocol（超文本传输协议）的缩写,是用于从万维网服务器传输超文本到本地浏览器的传送协议。用于定义 Web 浏览器与 Web 服务器之间交换数据的过程以及数据本身的格式。</p>

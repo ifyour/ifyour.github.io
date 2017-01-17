@@ -278,11 +278,11 @@
   </entry>
   
   <entry>
-    <title>Node.JS 学习笔记 [01] -- Node.JS入门</title>
+    <title>Node.JS 学习笔记 [01] -- Node.JS 入门</title>
     <link href="http://ifyour.github.io/2015/12/28/node-js-note-01/"/>
     <id>http://ifyour.github.io/2015/12/28/node-js-note-01/</id>
     <published>2015-12-28T11:00:24.000Z</published>
-    <updated>2017-01-17T15:18:50.000Z</updated>
+    <updated>2017-01-17T15:23:06.000Z</updated>
     
     <content type="html"><![CDATA[<p>整理记录 Node.js 学习笔记，作为前端人员，非常有必要了解后端的一些知识，方便与后端的同事协作，提高效率，搞好前端后，也可以尝试往后端发展，成为一名全栈工程师！:P<br><a id="more"></a><br><img src="http://ww4.sinaimg.cn/mw690/6057861cgw1fb6vlzd7i7j20go08cjro.jpg" alt=""></p>
 <h3 id="Node-js-介绍"><a href="#Node-js-介绍" class="headerlink" title="Node.js 介绍"></a>Node.js 介绍</h3><p>Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。Node.js 使用了一个事件驱动、非阻塞式 I/O 的模型，使其轻量又高效。Node.js 的包管理器 npm，是全球最大的开源库生态系统。</p>

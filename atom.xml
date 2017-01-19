@@ -232,11 +232,48 @@
   </entry>
   
   <entry>
+    <title>CentOS 6 x86 Node.js + MongoDB + Express 环境配置笔记</title>
+    <link href="http://ifyour.github.io/2015/11/19/CentOS-6-x86-Node-js-MongoDB-Express-%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E7%AC%94%E8%AE%B0/"/>
+    <id>http://ifyour.github.io/2015/11/19/CentOS-6-x86-Node-js-MongoDB-Express-环境配置笔记/</id>
+    <published>2015-11-19T12:18:33.000Z</published>
+    <updated>2017-01-19T14:45:07.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>总体来说配置比较顺利，期间也踩了不少坑，毕竟不是专业的运维人员，Linux 经验完全在平常项目中一点点积累的，文章中环境变量的配置只是临时生效（终端关闭后失效），我会再写一篇文章详细说一下 Linux 中的环境变量永久生效的办法。</p>
+<a id="more"></a>
+<h3 id="Node-js-安装"><a href="#Node-js-安装" class="headerlink" title="Node.js 安装"></a>Node.js 安装</h3><p>0.进入到待安装位置<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/</div></pre></td></tr></table></figure></p>
+<p>1.下载安装文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget https://nodejs.org/dist/v6.9.4/node-v6.9.4-linux-x86.tar.xz</div></pre></td></tr></table></figure></p>
+<p>2.解压文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">xz <span class="_">-d</span> node-v6.9.4-linux-x86.tar.xz</div><div class="line">tar xvf node-v6.9.4-linux-x86.tar</div></pre></td></tr></table></figure></p>
+<p>3.重命名文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mv node-v* node</div></pre></td></tr></table></figure></p>
+<p>4.配置环境变量 (临时生效)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">export</span> PATH=/usr/<span class="built_in">local</span>/node/bin:<span class="variable">$PATH</span></div></pre></td></tr></table></figure></p>
+<p>5.验证是否成功，显示版本号即安装成功！<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">node -v</div></pre></td></tr></table></figure></p>
+<h3 id="Mongodb-安装"><a href="#Mongodb-安装" class="headerlink" title="Mongodb 安装"></a>Mongodb 安装</h3><p>0.进入到待安装位置<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/</div></pre></td></tr></table></figure></p>
+<p>1.下载安装文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget http://fastdl.mongodb.org/linux/mongodb-linux-i686-1.8.2.tgz</div></pre></td></tr></table></figure></p>
+<p>2.解压文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tar zxf mongodb-linux-i686-1.8.2.tgz</div></pre></td></tr></table></figure></p>
+<p>3.重命名<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mv mongodb-* mongodb</div></pre></td></tr></table></figure></p>
+<p>4.配置环境变量(临时生效)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">export</span> PATH=/usr/<span class="built_in">local</span>/mongodb/bin:<span class="variable">$PATH</span></div></pre></td></tr></table></figure></p>
+<p>5.验证是否安装成功<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mongod --version</div></pre></td></tr></table></figure></p>
+<p>6.创建数据库目录和 logs 目录<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mkdir -p /data/db</div><div class="line">mkdir -p /usr/<span class="built_in">local</span>/mongodb/logs</div></pre></td></tr></table></figure></p>
+<p>7.开机启动数据库(不带授权方式)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">echo</span> <span class="string">"/usr/local/mongodb/bin/mongod --dbpath=/data --logpath=/usr/local/mongodb/logs --logappend  --port=27017"</span> &gt;&gt; /etc/rc.locala</div></pre></td></tr></table></figure></p>
+<div class="tip"><br>因为是学习环境，所以我没有给 MongoDB 增加授权验证，连接数据库是不需要账号密码的，实际项目中需要添加授权。<br></div>
+
+<h3 id="Express"><a href="#Express" class="headerlink" title="Express"></a>Express</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm -i express -g</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;总体来说配置比较顺利，期间也踩了不少坑，毕竟不是专业的运维人员，Linux 经验完全在平常项目中一点点积累的，文章中环境变量的配置只是临时生效（终端关闭后失效），我会再写一篇文章详细说一下 Linux 中的环境变量永久生效的办法。&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Node.JS 学习笔记 [02] -- 同步异步</title>
-    <link href="http://ifyour.github.io/2015/12/29/Node.JS-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%5B02%5D----%E5%90%8C%E6%AD%A5%E5%BC%82%E6%AD%A5/"/>
-    <id>http://ifyour.github.io/2015/12/29/Node.JS-学习笔记-[02]----同步异步/</id>
-    <published>2015-12-29T00:27:02.000Z</published>
-    <updated>2017-01-17T15:17:55.000Z</updated>
+    <link href="http://ifyour.github.io/2015/01/29/Node.JS-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%5B02%5D----%E5%90%8C%E6%AD%A5%E5%BC%82%E6%AD%A5/"/>
+    <id>http://ifyour.github.io/2015/01/29/Node.JS-学习笔记-[02]----同步异步/</id>
+    <published>2015-01-29T00:27:02.000Z</published>
+    <updated>2017-01-19T14:44:47.000Z</updated>
     
     <content type="html"><![CDATA[<p>在使用 npm 的时候，我发现在速度实在太慢，安装小一点的包确实没啥问题，装大一点的，依赖多一点的包的时候，问题就来了。速度慢，响应迟钝。<strong><em>nrm</em></strong> 是一个非常好的解决方案，安装 nrm 后，可以使用简单的命令快速来切换 npm 源，比如切换到 cnpm、taobao 源等，详细的使用方法可以点<a href="https://github.com/Pana/nrm#install" target="_blank" rel="external">这里</a>进去了解下。<br><a id="more"></a></p>
 <h3 id="Node-js-使用"><a href="#Node-js-使用" class="headerlink" title="Node.js 使用"></a>Node.js 使用</h3><h4 id="Node-js-控制台"><a href="#Node-js-控制台" class="headerlink" title="Node.js 控制台"></a>Node.js 控制台</h4><p>前面说了，Node.js 提供了 REPL 模式来解析输入的每条命令，现在可以实战一下了，打开终端，然后输入 <code>node</code> 进入 Node.js 开始敲命令吧！<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="string">'hello,world!'</span>); <span class="comment">// 普通输入</span></div><div class="line"><span class="built_in">console</span>.error(<span class="string">'错误消息'</span>);    <span class="comment">// 错误输出</span></div><div class="line"><span class="built_in">console</span>.time(<span class="string">'time'</span>);        <span class="comment">// 会计算在这个表达式之间的代码块执行耗时</span></div><div class="line"><span class="comment">// &#123;...&#125;</span></div><div class="line"><span class="built_in">console</span>.time(<span class="string">'time'</span>);</div><div class="line"><span class="built_in">console</span>.assert(<span class="number">3</span>&gt;<span class="number">10</span>,<span class="string">'str..'</span>);<span class="comment">// 断言：表达式不成立，会输出后面的字符串</span></div></pre></td></tr></table></figure></p>
@@ -334,10 +371,10 @@
   
   <entry>
     <title>Node.JS 学习笔记 [01] -- 入门</title>
-    <link href="http://ifyour.github.io/2015/12/28/Node.JS-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%5B01%5D----%E5%85%A5%E9%97%A8/"/>
-    <id>http://ifyour.github.io/2015/12/28/Node.JS-学习笔记-[01]----入门/</id>
-    <published>2015-12-28T11:00:24.000Z</published>
-    <updated>2017-01-19T11:50:19.000Z</updated>
+    <link href="http://ifyour.github.io/2015/01/28/Node.JS-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%5B01%5D----%E5%85%A5%E9%97%A8/"/>
+    <id>http://ifyour.github.io/2015/01/28/Node.JS-学习笔记-[01]----入门/</id>
+    <published>2015-01-28T11:00:24.000Z</published>
+    <updated>2017-01-19T14:44:43.000Z</updated>
     
     <content type="html"><![CDATA[<p>整理记录 Node.js 学习笔记，作为前端人员，非常有必要了解后端的一些知识，方便与后端的同事协作，提高效率，搞好前端后，也可以尝试往后端发展，成为一名全栈工程师！:P<br><a id="more"></a><br><img src="http://ww4.sinaimg.cn/mw690/6057861cgw1fb6vlzd7i7j20go08cjro.jpg" alt=""></p>
 <h3 id="Node-js-介绍"><a href="#Node-js-介绍" class="headerlink" title="Node.js 介绍"></a>Node.js 介绍</h3><p>Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。Node.js 使用了一个事件驱动、非阻塞式 I/O 的模型，使其轻量又高效。Node.js 的包管理器 npm，是全球最大的开源库生态系统。</p>
@@ -387,43 +424,6 @@
     <summary type="html">
     
       &lt;p&gt;整理记录 Node.js 学习笔记，作为前端人员，非常有必要了解后端的一些知识，方便与后端的同事协作，提高效率，搞好前端后，也可以尝试往后端发展，成为一名全栈工程师！:P&lt;br&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>CentOS 6 x86 Node.js + MongoDB + Express 环境配置笔记</title>
-    <link href="http://ifyour.github.io/2015/06/19/CentOS-6-x86-Node-js-MongoDB-Express-%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E7%AC%94%E8%AE%B0/"/>
-    <id>http://ifyour.github.io/2015/06/19/CentOS-6-x86-Node-js-MongoDB-Express-环境配置笔记/</id>
-    <published>2015-06-19T12:18:33.000Z</published>
-    <updated>2017-01-19T12:37:37.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>总体来说配置比较顺利，期间也踩了不少坑，毕竟不是专业的运维人员，Linux 经验完全在平常项目中一点点积累的，文章中环境变量的配置只是临时生效（终端关闭后失效），我会再写一篇文章详细说一下 Linux 中的环境变量永久生效的办法。</p>
-<a id="more"></a>
-<h3 id="Node-js-安装"><a href="#Node-js-安装" class="headerlink" title="Node.js 安装"></a>Node.js 安装</h3><p>0.进入到待安装位置<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/</div></pre></td></tr></table></figure></p>
-<p>1.下载安装文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget https://nodejs.org/dist/v6.9.4/node-v6.9.4-linux-x86.tar.xz</div></pre></td></tr></table></figure></p>
-<p>2.解压文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">xz <span class="_">-d</span> node-v6.9.4-linux-x86.tar.xz</div><div class="line">tar xvf node-v6.9.4-linux-x86.tar</div></pre></td></tr></table></figure></p>
-<p>3.重命名文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mv node-v* node</div></pre></td></tr></table></figure></p>
-<p>4.配置环境变量 (临时生效)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">export</span> PATH=/usr/<span class="built_in">local</span>/node/bin:<span class="variable">$PATH</span></div></pre></td></tr></table></figure></p>
-<p>5.验证是否成功，显示版本号即安装成功！<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">node -v</div></pre></td></tr></table></figure></p>
-<h3 id="Mongodb-安装"><a href="#Mongodb-安装" class="headerlink" title="Mongodb 安装"></a>Mongodb 安装</h3><p>0.进入到待安装位置<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/</div></pre></td></tr></table></figure></p>
-<p>1.下载安装文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget http://fastdl.mongodb.org/linux/mongodb-linux-i686-1.8.2.tgz</div></pre></td></tr></table></figure></p>
-<p>2.解压文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tar zxf mongodb-linux-i686-1.8.2.tgz</div></pre></td></tr></table></figure></p>
-<p>3.重命名<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mv mongodb-* mongodb</div></pre></td></tr></table></figure></p>
-<p>4.配置环境变量(临时生效)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">export</span> PATH=/usr/<span class="built_in">local</span>/mongodb/bin:<span class="variable">$PATH</span></div></pre></td></tr></table></figure></p>
-<p>5.验证是否安装成功<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mongod --version</div></pre></td></tr></table></figure></p>
-<p>6.创建数据库目录和 logs 目录<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mkdir -p /data/db</div><div class="line">mkdir -p /usr/<span class="built_in">local</span>/mongodb/logs</div></pre></td></tr></table></figure></p>
-<p>7.开机启动数据库(不带授权方式)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">echo</span> <span class="string">"/usr/local/mongodb/bin/mongod --dbpath=/data --logpath=/usr/local/mongodb/logs --logappend  --port=27017"</span> &gt;&gt; /etc/rc.locala</div></pre></td></tr></table></figure></p>
-<div class="tip"><br>因为是学习环境，所以我没有给 MongoDB 增加授权验证，连接数据库是不需要账号密码的，实际项目中需要添加授权。<br></div>
-
-<h3 id="Express"><a href="#Express" class="headerlink" title="Express"></a>Express</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm -i express -g</div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;总体来说配置比较顺利，期间也踩了不少坑，毕竟不是专业的运维人员，Linux 经验完全在平常项目中一点点积累的，文章中环境变量的配置只是临时生效（终端关闭后失效），我会再写一篇文章详细说一下 Linux 中的环境变量永久生效的办法。&lt;/p&gt;
     
     </summary>
     

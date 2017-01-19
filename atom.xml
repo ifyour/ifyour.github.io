@@ -48,8 +48,8 @@
   
   <entry>
     <title>7招轻松搞定 JavaScript 多行字符串拼接</title>
-    <link href="http://ifyour.github.io/2016/01/06/Multi-line-string-concatenation/"/>
-    <id>http://ifyour.github.io/2016/01/06/Multi-line-string-concatenation/</id>
+    <link href="http://ifyour.github.io/2016/01/06/7%E6%8B%9B%E8%BD%BB%E6%9D%BE%E6%90%9E%E5%AE%9A-JavaScript-%E5%A4%9A%E8%A1%8C%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%8B%BC%E6%8E%A5/"/>
+    <id>http://ifyour.github.io/2016/01/06/7招轻松搞定-JavaScript-多行字符串拼接/</id>
     <published>2016-01-06T13:24:40.000Z</published>
     <updated>2017-01-11T17:21:00.000Z</updated>
     
@@ -80,8 +80,8 @@
   
   <entry>
     <title>Mongodb 学习笔记 -- 增删改查</title>
-    <link href="http://ifyour.github.io/2016/01/05/Mongodb-note/"/>
-    <id>http://ifyour.github.io/2016/01/05/Mongodb-note/</id>
+    <link href="http://ifyour.github.io/2016/01/05/Mongodb-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0----%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5/"/>
+    <id>http://ifyour.github.io/2016/01/05/Mongodb-学习笔记----增删改查/</id>
     <published>2016-01-05T13:24:40.000Z</published>
     <updated>2017-01-17T15:20:16.000Z</updated>
     
@@ -164,8 +164,8 @@
   
   <entry>
     <title>Node.JS 学习笔记 [03] -- Buffer fs path</title>
-    <link href="http://ifyour.github.io/2015/12/30/Node-js-note-03/"/>
-    <id>http://ifyour.github.io/2015/12/30/Node-js-note-03/</id>
+    <link href="http://ifyour.github.io/2015/12/30/Node.JS-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%5B03%5D----Buffer-fs-path/"/>
+    <id>http://ifyour.github.io/2015/12/30/Node.JS-学习笔记-[03]----Buffer-fs-path/</id>
     <published>2015-12-30T13:57:05.000Z</published>
     <updated>2017-01-17T15:17:23.000Z</updated>
     
@@ -209,8 +209,8 @@
   
   <entry>
     <title>Node.JS 学习笔记 [02] -- 同步异步</title>
-    <link href="http://ifyour.github.io/2015/12/29/Node-js-note-02/"/>
-    <id>http://ifyour.github.io/2015/12/29/Node-js-note-02/</id>
+    <link href="http://ifyour.github.io/2015/12/29/Node.JS-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%5B02%5D----%E5%90%8C%E6%AD%A5%E5%BC%82%E6%AD%A5/"/>
+    <id>http://ifyour.github.io/2015/12/29/Node.JS-学习笔记-[02]----同步异步/</id>
     <published>2015-12-29T00:27:02.000Z</published>
     <updated>2017-01-17T15:17:55.000Z</updated>
     
@@ -309,11 +309,11 @@
   </entry>
   
   <entry>
-    <title>Node.JS 学习笔记 [01] -- Node.JS 入门</title>
-    <link href="http://ifyour.github.io/2015/12/28/node-js-note-01/"/>
-    <id>http://ifyour.github.io/2015/12/28/node-js-note-01/</id>
+    <title>Node.JS 学习笔记 [01] -- 入门</title>
+    <link href="http://ifyour.github.io/2015/12/28/Node.JS-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%5B01%5D----%E5%85%A5%E9%97%A8/"/>
+    <id>http://ifyour.github.io/2015/12/28/Node.JS-学习笔记-[01]----入门/</id>
     <published>2015-12-28T11:00:24.000Z</published>
-    <updated>2017-01-17T15:23:06.000Z</updated>
+    <updated>2017-01-19T11:50:19.000Z</updated>
     
     <content type="html"><![CDATA[<p>整理记录 Node.js 学习笔记，作为前端人员，非常有必要了解后端的一些知识，方便与后端的同事协作，提高效率，搞好前端后，也可以尝试往后端发展，成为一名全栈工程师！:P<br><a id="more"></a><br><img src="http://ww4.sinaimg.cn/mw690/6057861cgw1fb6vlzd7i7j20go08cjro.jpg" alt=""></p>
 <h3 id="Node-js-介绍"><a href="#Node-js-介绍" class="headerlink" title="Node.js 介绍"></a>Node.js 介绍</h3><p>Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。Node.js 使用了一个事件驱动、非阻塞式 I/O 的模型，使其轻量又高效。Node.js 的包管理器 npm，是全球最大的开源库生态系统。</p>
@@ -371,8 +371,8 @@
   
   <entry>
     <title>Node.JS 学习笔记 [05] -- Express</title>
-    <link href="http://ifyour.github.io/2015/01/02/Node-js-note-05/"/>
-    <id>http://ifyour.github.io/2015/01/02/Node-js-note-05/</id>
+    <link href="http://ifyour.github.io/2015/01/02/Node.JS-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%5B05%5D----Express/"/>
+    <id>http://ifyour.github.io/2015/01/02/Node.JS-学习笔记-[05]----Express/</id>
     <published>2015-01-02T13:24:40.000Z</published>
     <updated>2017-01-17T15:16:22.000Z</updated>
     
@@ -441,8 +441,8 @@
   
   <entry>
     <title>Node.JS 学习笔记 [04] -- HTTP</title>
-    <link href="http://ifyour.github.io/2015/01/01/Node-js-note-04/"/>
-    <id>http://ifyour.github.io/2015/01/01/Node-js-note-04/</id>
+    <link href="http://ifyour.github.io/2015/01/01/Node.JS-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%5B04%5D----HTTP/"/>
+    <id>http://ifyour.github.io/2015/01/01/Node.JS-学习笔记-[04]----HTTP/</id>
     <published>2015-01-01T07:05:10.000Z</published>
     <updated>2017-01-17T15:16:13.000Z</updated>
     

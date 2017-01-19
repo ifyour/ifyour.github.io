@@ -1,0 +1,92 @@
+<!DOCTYPE html><html lang="zh-Hans"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> Node.JS 学习笔记 [02] -- 同步异步 · Ifyour's Blog</title><meta name="description" content="Node.JS 学习笔记 [02] -- 同步异步 - Ifyour"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://ifyour.github.io/atom.xml" title="Ifyour's Blog"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="https://twitter.com/JohnWmm/" target="_blank" class="nav-list-link">TWITTER</a></li><li class="nav-list-item"><a href="https://github.com/ifyour/" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/about/" target="_self" class="nav-list-link">ABOUT</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">Node.JS 学习笔记 [02] -- 同步异步</h1><div class="post-info">Dec 29, 2015</div><div class="post-content"><p>在使用 npm 的时候，我发现在速度实在太慢，安装小一点的包确实没啥问题，装大一点的，依赖多一点的包的时候，问题就来了。速度慢，响应迟钝。<strong><em>nrm</em></strong> 是一个非常好的解决方案，安装 nrm 后，可以使用简单的命令快速来切换 npm 源，比如切换到 cnpm、taobao 源等，详细的使用方法可以点<a href="https://github.com/Pana/nrm#install" target="_blank" rel="external">这里</a>进去了解下。<br><a id="more"></a></p>
+<h3 id="Node-js-使用"><a href="#Node-js-使用" class="headerlink" title="Node.js 使用"></a>Node.js 使用</h3><h4 id="Node-js-控制台"><a href="#Node-js-控制台" class="headerlink" title="Node.js 控制台"></a>Node.js 控制台</h4><p>前面说了，Node.js 提供了 REPL 模式来解析输入的每条命令，现在可以实战一下了，打开终端，然后输入 <code>node</code> 进入 Node.js 开始敲命令吧！<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="string">'hello,world!'</span>); <span class="comment">// 普通输入</span></div><div class="line"><span class="built_in">console</span>.error(<span class="string">'错误消息'</span>);    <span class="comment">// 错误输出</span></div><div class="line"><span class="built_in">console</span>.time(<span class="string">'time'</span>);        <span class="comment">// 会计算在这个表达式之间的代码块执行耗时</span></div><div class="line"><span class="comment">// &#123;...&#125;</span></div><div class="line"><span class="built_in">console</span>.time(<span class="string">'time'</span>);</div><div class="line"><span class="built_in">console</span>.assert(<span class="number">3</span>&gt;<span class="number">10</span>,<span class="string">'str..'</span>);<span class="comment">// 断言：表达式不成立，会输出后面的字符串</span></div></pre></td></tr></table></figure></p>
+<h4 id="Node-js-作用域"><a href="#Node-js-作用域" class="headerlink" title="Node.js 作用域"></a>Node.js 作用域</h4><ul>
+<li>全局作用域：没有使用 <code>var</code> 隐式声明的一个变量，会享受全局作用域，或者在 <code>global</code> 上挂载的变量，也具有全局作用域的属性，全局变量可以被其它模块使用。</li>
+<li>局部作用域：在 Node.js 中一个文件就是一个模块，在这个模块中定义的变量，只能在这个模块中使用。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 这些变量都属于全局变量</span></div><div class="line">name = <span class="string">'ifyour'</span>;</div><div class="line">global.age = <span class="number">18</span>; <span class="comment">// Node.js 中的 global 类似 JavaScript 中的 window</span></div></pre></td></tr></table></figure>
+<div class="tip"><br>尽量避免使用全局变量，会造成变量污染。<br></div>
+
+<h4 id="回调函数"><a href="#回调函数" class="headerlink" title="回调函数"></a>回调函数</h4><p>Node.js 中大量使用了回调函数，关于回调函数，我之前在简书写了一篇，我的理解心得，有兴趣的可以<a href="http://www.jianshu.com/p/1383f4cb9a75" target="_blank" rel="external">去看看</a>。关于回调函数，我也正是在 Node.js 中对它的理解更为深刻了，Node.js 大量的异步代码都借助回调函数实现，正因如此，性能更高呀。看一个非常简单的例子。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 定义回调函数</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">cb</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'Hello,callback!'</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 把回调函数的引用（指针）传入该函数，一秒后执行</span></div><div class="line">setTimeout(cb,<span class="number">1000</span>);</div></pre></td></tr></table></figure>
+<p>借助这个例子，可以看到回调函数的实现机制：</p>
+<ul>
+<li>定义一个普通函数（其实它就是回调函数）</li>
+<li>将该函数的引用地址作为参数传给调用者，调用者本身也是一个函数，例子中的 <code>setTimeout</code></li>
+<li>当特定条件发生时，调用者使用这个引用地址去执行该函数</li>
+</ul>
+<p>回调函数的用途很多，比如实现事件注册、异步代码等。在 jQuery 中的动画就是回调函数的经典用法，<code>animate(x,y,z,function(){...})</code>,当一个动画执行完成后，执行回调函数。当点击一个按钮时，需要执行的函数块，这些都是回调函数。</p>
+<h3 id="Node-js-事件"><a href="#Node-js-事件" class="headerlink" title="Node.js 事件"></a>Node.js 事件</h3><p>Node.js 中的 event 模块就是提供事件编程的 API，所有具有触发事件的对象都继承或内部包含了 <code>EventEmitter</code> 对象。来一个简单的例子吧！<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//events 模块中的 EventEmitter 对象，定义了事件对象的基础信息和行为</span></div><div class="line"><span class="keyword">var</span> EventEmitter = <span class="built_in">require</span>(<span class="string">'events'</span>).EventEmitter;</div><div class="line"><span class="keyword">var</span> event = <span class="keyword">new</span> EventEmitter();<span class="comment">// 实例化一个 event 对象</span></div><div class="line">event.on(<span class="string">'myevent'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">name</span>)</span>&#123; <span class="comment">// 绑定 myevent 事件</span></div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'Hi!'</span> + name);</div><div class="line">&#125;);</div><div class="line">event.emit(<span class="string">'myevent'</span>,<span class="string">'ifyour'</span>);<span class="comment">// 触发事件</span></div></pre></td></tr></table></figure></p>
+<h4 id="事件常用方法"><a href="#事件常用方法" class="headerlink" title="事件常用方法"></a>事件常用方法</h4><table>
+<thead>
+<tr>
+<th style="text-align:left">方法</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">addListener(event, listener)</td>
+<td style="text-align:left">为指定事件添加一个监听器到监听器数组的尾部。与on等价</td>
+</tr>
+<tr>
+<td style="text-align:left">on(event, listener)</td>
+<td style="text-align:left">为指定事件注册一个监听器，接受一个字符串 event 和一个回调函数</td>
+</tr>
+<tr>
+<td style="text-align:left">once(event, listener)</td>
+<td style="text-align:left">为指定事件注册一个单次监听器</td>
+</tr>
+<tr>
+<td style="text-align:left">removeListener(event,listener)</td>
+<td style="text-align:left">移除指定事件的某个监听器，监听器必须是该事件已经注册过的监听器</td>
+</tr>
+<tr>
+<td style="text-align:left">removeAllListeners([event])</td>
+<td style="text-align:left">移除所有事件的所有监听器如果指定事件，则移除该事件的所有监听器</td>
+</tr>
+<tr>
+<td style="text-align:left">setMaxListeners(n)</td>
+<td style="text-align:left">setMaxListeners 函数用于提高监听器的默认限制的数量，默认是 10</td>
+</tr>
+<tr>
+<td style="text-align:left">listeners(event)</td>
+<td style="text-align:left">返回指定事件的监听器数组</td>
+</tr>
+<tr>
+<td style="text-align:left">emit(event, [arg1], [arg2], […])</td>
+<td style="text-align:left">按顺序执行监听器，如果事件有注册监听返回 true，否则返回 false</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Node-js-异步与同步"><a href="#Node-js-异步与同步" class="headerlink" title="Node.js 异步与同步"></a>Node.js 异步与同步</h3><p><strong><em>同步</em></strong>：一个任务执行完成后，才能执行下一个任务，执行总时间等于所有任务消耗时间之和。<br><strong><em>异步</em></strong>：几个任务同时执行，不限制先后，执行总时间等于执行耗时最长的那个任务的消耗时间。</p>
+<p>在 Node.js 中每一个任务有一个或多个回调函数，前一个任务结束后，不是执行后一个任务，而是执行回调函数，后一个任务则是不等前一个任务结束就执行，所以程序的执行顺序与任务的排列顺序是不一致的、异步的。</p>
+<h4 id="异步的实现"><a href="#异步的实现" class="headerlink" title="异步的实现"></a>异步的实现</h4><ul>
+<li>回调函数</li>
+<li>事件（基于回调函数）</li>
+<li>Promise （ES6）</li>
+</ul>
+<p>前面已经讲了回调函数的实现方式，下面举两个例子来说明 Node.js 中 <strong><em>事件</em></strong> 和 <strong><em>Promise</em></strong> 实现异步。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 事件（基于回调函数）实现异步</span></div><div class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</div><div class="line"></div><div class="line"><span class="keyword">var</span> stream = fs.createReadStream(<span class="string">'./data'</span>);<span class="comment">// 调用 fs 模块创建一个读取流对象</span></div><div class="line">stream.on(<span class="string">'data'</span>,getData);<span class="comment">// 读取事件，每次读取时触发调用回调函数 getData</span></div><div class="line">stream.on(<span class="string">'end'</span>,getDataDone);<span class="comment">// 读取完毕调用回调函数 getDataDone</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getDataDone</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'read done!'</span>);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getData</span>(<span class="params">data</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(data.toString());</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>上面的代码中，当读取多个 <code>data</code> 文件时，输出的内容的顺序可能不一致，因为事件采用回调函数实现了异步操作。可以看出，事件实现异步，本质上还是回调函数。</p>
+<blockquote>
+<p>所谓Promise，简单说就是一个容器，里面保存着某个未来才会结束的事件（通常是一个异步操作）的结果。从语法上说，Promise 是一个对象，从它可以获取异步操作的消息。</p>
+</blockquote>
+<p>下面来看看 <code>Promise</code> 的一个实例：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</div><div class="line"></div><div class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span> (<span class="params">resolve, reject</span>) </span>&#123;<span class="comment">// 使用 Promise 生成实例</span></div><div class="line">    fs.readFile(<span class="string">'./1'</span>, <span class="string">'utf-8'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">err, data</span>) </span>&#123;<span class="comment">// readFile 是一个异步方法</span></div><div class="line">        <span class="keyword">if</span> (!err) &#123;</div><div class="line">            resolve(data);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            reject(err);</div><div class="line">        &#125;</div><div class="line">    &#125;)</div><div class="line">&#125;);</div><div class="line"></div><div class="line">p.then(<span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;<span class="comment">// 调用实例的 then 方法</span></div><div class="line">    <span class="built_in">console</span>.log(data);</div><div class="line">&#125;, <span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(err);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>ES6 规定，Promise 对象是一个构造函数，用来生成 Promise 实例。Promise 构造函数接受一个函数作为参数，该函数的两个参数分别是 <code>resolve</code> 和 <code>reject</code>。它们是两个函数，由 JavaScript 引擎提供，不用自己部署。</p>
+<ul>
+<li>resolve : 在异步操作成功时调用，并将异步操作的结果，作为参数传递出去；</li>
+<li>reject  : 在异步操作失败时调用，并将异步操作报出的错误，作为参数传递出去。</li>
+</ul>
+<p>Promise实例生成以后，可以用 <code>then</code> 方法分别指定 Resolved 状态和 Reject 状态的回调函数。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">promise.then(<span class="function"><span class="keyword">function</span>(<span class="params">value</span>) </span>&#123;</div><div class="line">  <span class="comment">// success</span></div><div class="line">&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">error</span>) </span>&#123;</div><div class="line">  <span class="comment">// failure</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>有了 Promise 对象，就可以将异步操作以同步操作的流程表达出来，避免了层层嵌套的回调函数。此外，Promise 对象提供统一的接口，使得控制异步操作更加容易。</p>
+<p>下面这个例子，在未使用 <code>Promise</code> 时，我们想要 <code>p1</code> 读取完数据后，紧接着 <code>p2</code> 、<code>p3</code> 读取，就需要在 <code>p1</code> 的回调读取成功函数里继续写 <code>p2</code> 的读取，类似的 <code>p3</code> 也要在 <code>p2</code> 的回调函数中写，这就造成了 <strong><em>层层嵌套</em></strong> 不利于代码阅读。而使用 <code>Promise</code> 后，<code>then</code> 方法把里面的回调函数统一提取出来， 可读性更好了，也方便理解。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Promise 提供的 then 方法避免层次嵌套，相当于实现 then 的链式操作</span></div><div class="line"><span class="comment">// p1 执行完 then 方法后，通过 return p2 ，让 p2 继续执行 then 方法</span></div><div class="line">p1.then(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(data);</div><div class="line">    <span class="keyword">return</span> p2;</div><div class="line">&#125;,<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(err);</div><div class="line">    <span class="keyword">return</span> p2;</div><div class="line">&#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(data);</div><div class="line">    <span class="keyword">return</span> p3;</div><div class="line">&#125;,<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(err);</div><div class="line">    <span class="keyword">return</span> p3;</div><div class="line">&#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(data);</div><div class="line">&#125;,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(err);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>更多 Promise 语法，可以参考阮一峰的《<a href="http://es6.ruanyifeng.com/#docs/promise#基本用法" target="_blank" rel="external">ECMAScript 6 入门</a>》。</p>
+</div></article></div></main><footer><div class="paginator"><a href="/2015/12/30/Node.JS-学习笔记-[03]----Buffer-fs-path/" class="prev">PREV</a><a href="/2015/12/28/Node.JS-学习笔记-[01]----入门/" class="next">NEXT</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'ifyour';
+var disqus_identifier = '2015/12/29/Node.JS-学习笔记-[02]----同步异步/';
+var disqus_title = 'Node.JS 学习笔记 [02] -- 同步异步';
+var disqus_url = 'http://ifyour.github.io/2015/12/29/Node.JS-学习笔记-[02]----同步异步/';
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//ifyour.disqus.com/count.js" async></script><div class="copyright"><p>© 2015 - 2017 <a href="http://ifyour.github.io">Ifyour</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script></body></html>

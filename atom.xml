@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ifyour.github.io/"/>
-  <updated>2017-01-19T11:45:39.000Z</updated>
+  <updated>2017-01-19T12:07:26.000Z</updated>
   <id>http://ifyour.github.io/</id>
   
   <author>
@@ -16,11 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>JavaScript 中的 this 指向</title>
-    <link href="http://ifyour.github.io/2016/02/19/JavaScript-%E4%B8%AD%E7%9A%84-this-%E6%8C%87%E5%90%91/"/>
-    <id>http://ifyour.github.io/2016/02/19/JavaScript-中的-this-指向/</id>
+    <title>JavaScript 中的 this 用法总结</title>
+    <link href="http://ifyour.github.io/2016/02/19/JavaScript-%E4%B8%AD%E7%9A%84-this-%E7%94%A8%E6%B3%95%E6%80%BB%E7%BB%93/"/>
+    <id>http://ifyour.github.io/2016/02/19/JavaScript-中的-this-用法总结/</id>
     <published>2016-02-19T11:23:36.000Z</published>
-    <updated>2017-01-19T11:45:39.000Z</updated>
+    <updated>2017-01-19T12:07:26.000Z</updated>
     
     <content type="html"><![CDATA[<p><code>this</code> 是 Javascript 语言的一个关键字。它代表函数运行时，自动生成的一个内部对象，只能在函数内部使用。随着函数使用场合的不同，<code>this</code> 的值会发生变化。但是有一个总的原则，那就是 <code>this</code> 指的是，调用函数的那个对象。</p>
 <a id="more"></a>

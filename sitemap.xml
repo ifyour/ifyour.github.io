@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://ifyour.github.io/2016/02/19/JavaScript-%E4%B8%AD%E7%9A%84-this-%E6%8C%87%E5%90%91/</loc>
+    
+    <lastmod>2017-01-19T11:45:39.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://ifyour.github.io/2015/12/28/node-js-note-01/</loc>
     
     <lastmod>2017-01-17T15:23:06.000Z</lastmod>

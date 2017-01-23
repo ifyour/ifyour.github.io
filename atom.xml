@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ifyour.github.io/"/>
-  <updated>2017-01-23T02:17:25.000Z</updated>
+  <updated>2017-01-23T02:31:03.000Z</updated>
   <id>http://ifyour.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://ifyour.github.io/2017/03/23/ProxyChains-NG-%E6%90%AD%E9%85%8D-ShadowSocks-%E5%AE%9E%E7%8E%B0%E7%BB%88%E7%AB%AF%E4%BB%A3%E7%90%86/"/>
     <id>http://ifyour.github.io/2017/03/23/ProxyChains-NG-搭配-ShadowSocks-实现终端代理/</id>
     <published>2017-03-23T00:25:31.000Z</published>
-    <updated>2017-01-23T02:17:25.000Z</updated>
+    <updated>2017-01-23T02:31:03.000Z</updated>
     
     <content type="html"><![CDATA[<p>经常在终端下执行一些网络命令，例如 <code>wget</code> 、<code>git</code>、<code>ssh</code> 等命令，速度慢的不行，说白了，有些是因为 GFW 的原因，有些则是访问国外的服务器本来速度就很慢，而我们的 ShadowSocks 提供的是 <code>socks5</code> 代理，终端无法享用。这个时候 <strong>ProxyChains-NG</strong> 应势而生。<br><a id="more"></a></p>
 <h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>使用 <a href="http://brew.sh/index_zh-cn.html" target="_blank" rel="external">brew</a> 快速安装 ProxyChains-NG，想详细了解 ProxyChains-NG 可以去他们<a href="https://github.com/rofl0r/proxychains-ng" target="_blank" rel="external">项目主页</a>。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install proxychains-ng</div></pre></td></tr></table></figure></p>
@@ -32,7 +32,7 @@
 <p>让配置生效<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">source</span> ~.zshrc</div></pre></td></tr></table></figure></p>
 <p>再执行之前查看 ip 的命令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">myss curl ip.cn</div></pre></td></tr></table></figure></p>
 <p>Have done! :)</p>
-<h3 id="测速"><a href="#测速" class="headerlink" title="测速"></a>测速</h3><p>使用 speedtest 的命令行工具，来测上行宽带和下行宽度。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 下载 speedtest-cli</span></div><div class="line">wget -O speedtest-cli https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py</div><div class="line"></div><div class="line"><span class="comment"># 给执行权限</span></div><div class="line">chmod +x speedtest-cli</div><div class="line"></div><div class="line"><span class="comment"># 运行</span></div><div class="line">./speedtest-cli</div></pre></td></tr></table></figure></p>
+<h3 id="测速"><a href="#测速" class="headerlink" title="测速"></a>测速</h3><p>使用 speedtest 的命令行工具，来测上行宽带和下行宽度。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 下载 speedtest-cli</span></div><div class="line">wget -O speedtest-cli https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py</div><div class="line"></div><div class="line"><span class="comment"># 给执行权限</span></div><div class="line">chmod +x speedtest-cli</div><div class="line"></div><div class="line"><span class="comment"># 运行</span></div><div class="line">./speedtest-cli</div><div class="line"></div><div class="line"><span class="comment"># 测试下代理的速度</span></div><div class="line">myss ./speedtest-cli</div></pre></td></tr></table></figure></p>
 <h4 id="附：brew-常用命令"><a href="#附：brew-常用命令" class="headerlink" title="附：brew 常用命令"></a>附：brew 常用命令</h4><table>
 <thead>
 <tr>

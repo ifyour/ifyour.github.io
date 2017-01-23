@@ -91,9 +91,9 @@
     <link href="http://ifyour.github.io/2016/03/22/%E4%B8%80%E6%AE%B5%E7%A5%9E%E5%A5%87%E7%9A%84-CSS-%E8%B0%83%E8%AF%95%E4%BB%A3%E7%A0%81/"/>
     <id>http://ifyour.github.io/2016/03/22/一段神奇的-CSS-调试代码/</id>
     <published>2016-03-22T08:32:52.000Z</published>
-    <updated>2017-01-22T23:35:12.000Z</updated>
+    <updated>2017-01-23T00:39:29.000Z</updated>
     
-    <content type="html"><![CDATA[<p>现在到处都是 JavaScript，倘若花点时间去体察，每次都能知道点新的东西。一旦你入了门，你总能从这里或是那里领悟到很多知识。一旦发现些许有意思的东西，总习惯先收藏起来。待到时技(时间＋技术)成熟，再去感觉他们的源代码，看一看它们是怎么办到的，览一览大牛们的 “奇技淫巧”。<br><a id="more"></a></p>
+    <content type="html"><![CDATA[<p>现在到处都是 JavaScript，倘若花点时间去深入分析，每次都能学到点新的东西。当我发现些有意思的东西，习惯先收藏起来。等时技（时间＋技术）成熟，再去 Review 他们的代码，看一看它们是如何做到的，览一览大牛们的 “奇技淫巧”。<br><a id="more"></a></p>
 <h3 id="代码片段"><a href="#代码片段" class="headerlink" title="代码片段"></a>代码片段</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[].forEach.call($$(<span class="string">"*"</span>),<span class="function"><span class="keyword">function</span>(<span class="params">a</span>)</span>&#123;</div><div class="line">    a.style.outline=<span class="string">"1px solid #"</span>+(~~(<span class="built_in">Math</span>.random()*(<span class="number">1</span>&lt;&lt;<span class="number">24</span>))).toString(<span class="number">16</span>);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <p>在浏览器控制台运行此段代码，会给页面里所有的 DOM 元素添加一个 1px 的描边（outline），方便我们在调试 CSS 过程中分析、排查问题。<br><img src="http://ww1.sinaimg.cn/large/6057861cgy1fbzi0vggl6j21kw0vyq8s.jpg" alt=""></p>
 <h3 id="代码分析"><a href="#代码分析" class="headerlink" title="代码分析"></a>代码分析</h3><p>这段代码是 Github 上的 140 Bytes 活动中的代码，简单分析下这段 JS 代码，作者使用了不少技巧：</p>
@@ -109,7 +109,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;现在到处都是 JavaScript，倘若花点时间去体察，每次都能知道点新的东西。一旦你入了门，你总能从这里或是那里领悟到很多知识。一旦发现些许有意思的东西，总习惯先收藏起来。待到时技(时间＋技术)成熟，再去感觉他们的源代码，看一看它们是怎么办到的，览一览大牛们的 “奇技淫巧”。&lt;br&gt;
+      &lt;p&gt;现在到处都是 JavaScript，倘若花点时间去深入分析，每次都能学到点新的东西。当我发现些有意思的东西，习惯先收藏起来。等时技（时间＋技术）成熟，再去 Review 他们的代码，看一看它们是如何做到的，览一览大牛们的 “奇技淫巧”。&lt;br&gt;
     
     </summary>
     

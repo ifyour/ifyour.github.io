@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ifyour.github.io/"/>
-  <updated>2017-01-23T02:40:55.000Z</updated>
+  <updated>2017-01-23T03:06:58.000Z</updated>
   <id>http://ifyour.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://ifyour.github.io/2016/03/23/ProxyChains-NG-%E6%90%AD%E9%85%8D-ShadowSocks-%E5%AE%9E%E7%8E%B0%E7%BB%88%E7%AB%AF%E4%BB%A3%E7%90%86/"/>
     <id>http://ifyour.github.io/2016/03/23/ProxyChains-NG-搭配-ShadowSocks-实现终端代理/</id>
     <published>2016-03-23T00:25:31.000Z</published>
-    <updated>2017-01-23T02:40:55.000Z</updated>
+    <updated>2017-01-23T03:06:58.000Z</updated>
     
     <content type="html"><![CDATA[<p>经常在终端下执行一些网络命令，例如 <code>wget</code> 、<code>git</code>、<code>ssh</code> 等命令，速度慢的不行，说白了，有些是因为 GFW 的原因，有些则是访问国外的服务器本来速度就很慢，而我们的 ShadowSocks 提供的是 <code>socks5</code> 代理，终端无法享用。这个时候 <strong>ProxyChains-NG</strong> 应势而生。<br><a id="more"></a></p>
 <h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>使用 <a href="http://brew.sh/index_zh-cn.html" target="_blank" rel="external">brew</a> 快速安装 ProxyChains-NG，想详细了解 ProxyChains-NG 可以去他们<a href="https://github.com/rofl0r/proxychains-ng" target="_blank" rel="external">项目主页</a>。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install proxychains-ng</div></pre></td></tr></table></figure></p>
@@ -91,14 +91,14 @@
     <link href="http://ifyour.github.io/2016/03/22/%E4%B8%80%E6%AE%B5%E7%A5%9E%E5%A5%87%E7%9A%84-CSS-%E8%B0%83%E8%AF%95%E4%BB%A3%E7%A0%81/"/>
     <id>http://ifyour.github.io/2016/03/22/一段神奇的-CSS-调试代码/</id>
     <published>2016-03-22T08:32:52.000Z</published>
-    <updated>2017-01-23T02:17:42.000Z</updated>
+    <updated>2017-01-23T03:14:04.000Z</updated>
     
     <content type="html"><![CDATA[<p>现在到处都是 JavaScript，倘若花点时间去深入分析，每次都能学到点新的东西。当我发现些有意思的东西，习惯先收藏起来。等时技（时间＋技术）成熟，再去 Review 他们的代码，看一看它们是如何做到的，览一览大牛们的 “奇技淫巧”。<br><a id="more"></a></p>
 <h3 id="代码片段"><a href="#代码片段" class="headerlink" title="代码片段"></a>代码片段</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[].forEach.call($$(<span class="string">"*"</span>),<span class="function"><span class="keyword">function</span>(<span class="params">a</span>)</span>&#123;</div><div class="line">    a.style.outline=<span class="string">"1px solid #"</span>+(~~(<span class="built_in">Math</span>.random()*(<span class="number">1</span>&lt;&lt;<span class="number">24</span>))).toString(<span class="number">16</span>);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <p>在浏览器控制台运行此段代码，会给页面里所有的 DOM 元素添加一个 1px 的描边（outline），方便我们在调试 CSS 过程中分析、排查问题。<br><img src="http://ww1.sinaimg.cn/large/6057861cgy1fbzi0vggl6j21kw0vyq8s.jpg" alt=""></p>
 <h3 id="代码分析"><a href="#代码分析" class="headerlink" title="代码分析"></a>代码分析</h3><p>这段代码是 Github 上的 140 Bytes 活动中的代码，简单分析下这段 JS 代码，作者使用了不少技巧：</p>
 <p>首先是需要选择页面上的所有元素，这里使用了只能在 Console 调试工具中使用的 <code>$$</code> 函数，你可以在 Console 中输入 <code>$$(&#39;a&#39;)</code> 自己试一下。它会返回当前页面的所有 anchor（链接）元素。<code>$$</code> 与 <code>document.querySelectorAll</code> 是等价的，有兴趣可<a href="http://ourjs.com/detail/54ab768a5695544119000007" target="_blank" rel="external">查看</a> $$ 和 $ 选择器的历史。</p>
-<p>其次遍历所有元素，这里用的是 <code>[].forEach.call(...)</code>，使用 forEach 替代 for 之类循环能减少不少代码量，而 forEach 是 Array 对象的方法，所以用了个 <code>[]</code> 空数组来代替 <code>Array.prototype</code> 更显简洁，得到所有元素的节点列表（NodeList），但是它并没有实现 Array 的所有接口，因此使用 <code>$$(&quot;*&quot;).forEach</code> 会返回错误，这里使用 <code>call</code> 方法来更改 forEach 内部 <code>this</code> 指向，当然也可以使用 <code>apply。</code></p>
+<p>其次遍历所有元素，这里用的是 <code>[].forEach.call(...)</code>，使用 forEach 替代 for 之类循环能减少不少代码量，而 forEach 是 Array 对象的方法，所以用了个 <code>[]</code> 空数组来代替 <code>Array.prototype</code> 更显简洁，得到所有元素的节点列表（NodeList），但是它并没有实现 Array 的所有接口，因此使用 <code>$$(&quot;*&quot;).forEach</code> 会返回错误，这里使用 <code>call</code> 方法来更改 forEach 内部 <code>this</code> 指向，当然也可以使用 <code>apply</code>。</p>
 <p>之后就是让元素有一个漂亮的边框，并拥有不同的颜色了。在 CSS 渲染的盒子模型（Box Model）中，<code>outline</code> <strong><em>并不会改变元素及其布局的位置</em></strong>。这里较有意思的是定义不同的颜色的色值：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">~~(<span class="built_in">Math</span>.random()*(<span class="number">1</span>&lt;&lt;<span class="number">24</span>))).toString(<span class="number">16</span>)</div></pre></td></tr></table></figure></p>
 <p>这里想构造的其实是一个16进制的颜色值，即 <code>000000～ffffff</code>，也就是 <code>parseInt(&#39;0&#39;,16)</code> 到 <code>parseInt(&#39;ffffff&#39;,16)</code> 之间的一个值。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">parseInt</span>(<span class="string">'ffffff'</span>,<span class="number">16</span>) == <span class="number">16777215</span> == (<span class="number">2</span>^<span class="number">24</span><span class="number">-1</span>) == (<span class="number">1</span>&lt;&lt;<span class="number">24</span> - <span class="number">1</span>)</div></pre></td></tr></table></figure>

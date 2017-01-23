@@ -1,0 +1,62 @@
+<!DOCTYPE html><html lang="zh-Hans"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> ProxyChains-NG 搭配 ShadowSocks 实现终端代理 · Ifyour's Blog</title><meta name="description" content="ProxyChains-NG 搭配 ShadowSocks 实现终端代理 - Ifyour"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://ifyour.github.io/atom.xml" title="Ifyour's Blog"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="https://twitter.com/JohnWmm/" target="_blank" class="nav-list-link">TWITTER</a></li><li class="nav-list-item"><a href="https://github.com/ifyour/" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/about/" target="_self" class="nav-list-link">ABOUT</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">ProxyChains-NG 搭配 ShadowSocks 实现终端代理</h1><div class="post-info">Mar 23, 2017</div><div class="post-content"><p>经常在终端下执行一些网络命令，例如 <code>wget</code> 、<code>git</code>、<code>ssh</code> 等命令，速度慢的不行，说白了，有些是因为 GFW 的原因，有些则是访问国外的服务器本来速度就很慢，而我们的 ShadowSocks 提供的是 <code>sock5</code> 代理，终端无法享用。这个时候 <strong>ProxyChains-NG</strong> 应势而生。<br><a id="more"></a></p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>使用 <a href="http://brew.sh/index_zh-cn.html" target="_blank" rel="external">brew</a> 快速安装 ProxyChains-NG，想详细了解 ProxyChains-NG 可以去他们<a href="https://github.com/rofl0r/proxychains-ng" target="_blank" rel="external">项目主页</a>。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install proxychains-ng</div></pre></td></tr></table></figure></p>
+<p>配置<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vi /usr/<span class="built_in">local</span>/etc/proxychains.conf</div></pre></td></tr></table></figure></p>
+<p>添加代理<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">socks5  127.0.0.1 1080</div></pre></td></tr></table></figure></p>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>到此为止，整个命令安装完成，用法 <code>proxychains4 需要执行的命令</code>。举个例子：执行下面的命令后，可以看到是 ss 的 IP 了。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">proxychains4 curl ip.cn</div></pre></td></tr></table></figure></p>
+<h3 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h3><p>这个命令太长了，我想换一个！我使用的是 zsh，来给 <code>proxychains4</code> 配置一个别名吧！:P<br>编辑 zsh 配置文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vi ~/.zshrc</div></pre></td></tr></table></figure></p>
+<p>添加别名<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">alias</span> myss=<span class="string">'proxychains4'</span></div></pre></td></tr></table></figure></p>
+<p>让配置生效<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">source</span> ~.zshrc</div></pre></td></tr></table></figure></p>
+<p>再执行之前查看 ip 的命令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">myss curl ip.cn</div></pre></td></tr></table></figure></p>
+<p>Have done! :)</p>
+<h3 id="测速"><a href="#测速" class="headerlink" title="测速"></a>测速</h3><p>使用 speedtest 的命令行工具，来测上行宽带和下行宽度。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 下载 speedtest-cli</span></div><div class="line">wget -O speedtest-cli https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py</div><div class="line"></div><div class="line"><span class="comment"># 给执行权限</span></div><div class="line">chmod +x speedtest-cli</div><div class="line"></div><div class="line"><span class="comment"># 运行</span></div><div class="line">./speedtest-cli</div></pre></td></tr></table></figure></p>
+<h4 id="附：brew-常用命令"><a href="#附：brew-常用命令" class="headerlink" title="附：brew 常用命令"></a>附：brew 常用命令</h4><table>
+<thead>
+<tr>
+<th style="text-align:left">命令</th>
+<th style="text-align:left">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">安装包</td>
+<td style="text-align:left">brew install <code>&lt;PackageName&gt;</code></td>
+</tr>
+<tr>
+<td style="text-align:left">搜索包</td>
+<td style="text-align:left">brew search <code>&lt;PackageName&gt;</code></td>
+</tr>
+<tr>
+<td style="text-align:left">查询包信息</td>
+<td style="text-align:left">brew info <code>&lt;PackageName&gt;</code></td>
+</tr>
+<tr>
+<td style="text-align:left">升级指定包</td>
+<td style="text-align:left">brew upgrade <code>&lt;PackageName&gt;</code></td>
+</tr>
+<tr>
+<td style="text-align:left">更新自己</td>
+<td style="text-align:left">brew update</td>
+</tr>
+<tr>
+<td style="text-align:left">检查过时包</td>
+<td style="text-align:left">brew outdated</td>
+</tr>
+<tr>
+<td style="text-align:left">升级所有包</td>
+<td style="text-align:left">brew upgrade</td>
+</tr>
+<tr>
+<td style="text-align:left">清理缓存</td>
+<td style="text-align:left">brew cleanup</td>
+</tr>
+</tbody>
+</table>
+</div></article></div></main><footer><div class="paginator"><a href="/2016/03/22/一段神奇的-CSS-调试代码/" class="next">下一篇</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'ifyour';
+var disqus_identifier = '2017/03/23/ProxyChains-NG-搭配-ShadowSocks-实现终端代理/';
+var disqus_title = 'ProxyChains-NG 搭配 ShadowSocks 实现终端代理';
+var disqus_url = 'http://ifyour.github.io/2017/03/23/ProxyChains-NG-搭配-ShadowSocks-实现终端代理/';
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//ifyour.disqus.com/count.js" async></script><div class="copyright"><p>© 2015 - 2017 <a href="http://ifyour.github.io">Ifyour</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script></body></html>

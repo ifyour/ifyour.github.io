@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ifyour.github.io/"/>
-  <updated>2017-01-22T23:35:12.000Z</updated>
+  <updated>2017-01-23T00:35:16.000Z</updated>
   <id>http://ifyour.github.io/</id>
   
   <author>
@@ -14,6 +14,77 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ProxyChains-NG 搭配 ShadowSocks 实现终端代理</title>
+    <link href="http://ifyour.github.io/2017/03/23/ProxyChains-NG-%E6%90%AD%E9%85%8D-ShadowSocks-%E5%AE%9E%E7%8E%B0%E7%BB%88%E7%AB%AF%E4%BB%A3%E7%90%86/"/>
+    <id>http://ifyour.github.io/2017/03/23/ProxyChains-NG-搭配-ShadowSocks-实现终端代理/</id>
+    <published>2017-03-23T00:25:31.000Z</published>
+    <updated>2017-01-23T00:35:16.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>经常在终端下执行一些网络命令，例如 <code>wget</code> 、<code>git</code>、<code>ssh</code> 等命令，速度慢的不行，说白了，有些是因为 GFW 的原因，有些则是访问国外的服务器本来速度就很慢，而我们的 ShadowSocks 提供的是 <code>sock5</code> 代理，终端无法享用。这个时候 <strong>ProxyChains-NG</strong> 应势而生。<br><a id="more"></a></p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>使用 <a href="http://brew.sh/index_zh-cn.html" target="_blank" rel="external">brew</a> 快速安装 ProxyChains-NG，想详细了解 ProxyChains-NG 可以去他们<a href="https://github.com/rofl0r/proxychains-ng" target="_blank" rel="external">项目主页</a>。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install proxychains-ng</div></pre></td></tr></table></figure></p>
+<p>配置<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vi /usr/<span class="built_in">local</span>/etc/proxychains.conf</div></pre></td></tr></table></figure></p>
+<p>添加代理<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">socks5  127.0.0.1 1080</div></pre></td></tr></table></figure></p>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>到此为止，整个命令安装完成，用法 <code>proxychains4 需要执行的命令</code>。举个例子：执行下面的命令后，可以看到是 ss 的 IP 了。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">proxychains4 curl ip.cn</div></pre></td></tr></table></figure></p>
+<h3 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h3><p>这个命令太长了，我想换一个！我使用的是 zsh，来给 <code>proxychains4</code> 配置一个别名吧！:P<br>编辑 zsh 配置文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vi ~/.zshrc</div></pre></td></tr></table></figure></p>
+<p>添加别名<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">alias</span> myss=<span class="string">'proxychains4'</span></div></pre></td></tr></table></figure></p>
+<p>让配置生效<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">source</span> ~.zshrc</div></pre></td></tr></table></figure></p>
+<p>再执行之前查看 ip 的命令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">myss curl ip.cn</div></pre></td></tr></table></figure></p>
+<p>Have done! :)</p>
+<h3 id="测速"><a href="#测速" class="headerlink" title="测速"></a>测速</h3><p>使用 speedtest 的命令行工具，来测上行宽带和下行宽度。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 下载 speedtest-cli</span></div><div class="line">wget -O speedtest-cli https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py</div><div class="line"></div><div class="line"><span class="comment"># 给执行权限</span></div><div class="line">chmod +x speedtest-cli</div><div class="line"></div><div class="line"><span class="comment"># 运行</span></div><div class="line">./speedtest-cli</div></pre></td></tr></table></figure></p>
+<h4 id="附：brew-常用命令"><a href="#附：brew-常用命令" class="headerlink" title="附：brew 常用命令"></a>附：brew 常用命令</h4><table>
+<thead>
+<tr>
+<th style="text-align:left">命令</th>
+<th style="text-align:left">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">安装包</td>
+<td style="text-align:left">brew install <code>&lt;PackageName&gt;</code></td>
+</tr>
+<tr>
+<td style="text-align:left">搜索包</td>
+<td style="text-align:left">brew search <code>&lt;PackageName&gt;</code></td>
+</tr>
+<tr>
+<td style="text-align:left">查询包信息</td>
+<td style="text-align:left">brew info <code>&lt;PackageName&gt;</code></td>
+</tr>
+<tr>
+<td style="text-align:left">升级指定包</td>
+<td style="text-align:left">brew upgrade <code>&lt;PackageName&gt;</code></td>
+</tr>
+<tr>
+<td style="text-align:left">更新自己</td>
+<td style="text-align:left">brew update</td>
+</tr>
+<tr>
+<td style="text-align:left">检查过时包</td>
+<td style="text-align:left">brew outdated</td>
+</tr>
+<tr>
+<td style="text-align:left">升级所有包</td>
+<td style="text-align:left">brew upgrade</td>
+</tr>
+<tr>
+<td style="text-align:left">清理缓存</td>
+<td style="text-align:left">brew cleanup</td>
+</tr>
+</tbody>
+</table>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;经常在终端下执行一些网络命令，例如 &lt;code&gt;wget&lt;/code&gt; 、&lt;code&gt;git&lt;/code&gt;、&lt;code&gt;ssh&lt;/code&gt; 等命令，速度慢的不行，说白了，有些是因为 GFW 的原因，有些则是访问国外的服务器本来速度就很慢，而我们的 ShadowSocks 提供的是 &lt;code&gt;sock5&lt;/code&gt; 代理，终端无法享用。这个时候 &lt;strong&gt;ProxyChains-NG&lt;/strong&gt; 应势而生。&lt;br&gt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>一段神奇的 CSS 调试代码</title>

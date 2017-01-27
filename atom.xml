@@ -58,11 +58,11 @@
   </entry>
   
   <entry>
-    <title>ProxyChains-NG 搭配 ShadowSocks 实现终端代理</title>
-    <link href="http://ifyour.github.io/2016/03/23/ProxyChains-NG-%E6%90%AD%E9%85%8D-ShadowSocks-%E5%AE%9E%E7%8E%B0%E7%BB%88%E7%AB%AF%E4%BB%A3%E7%90%86/"/>
-    <id>http://ifyour.github.io/2016/03/23/ProxyChains-NG-搭配-ShadowSocks-实现终端代理/</id>
+    <title>ProxyChains-NG + ShadowSocks 实现终端代理</title>
+    <link href="http://ifyour.github.io/2016/03/23/ProxyChains-NG%20+%20ShadowSocks%20%E5%AE%9E%E7%8E%B0%E7%BB%88%E7%AB%AF%E4%BB%A3%E7%90%86/"/>
+    <id>http://ifyour.github.io/2016/03/23/ProxyChains-NG + ShadowSocks 实现终端代理/</id>
     <published>2016-03-23T00:25:31.000Z</published>
-    <updated>2017-01-23T03:06:58.000Z</updated>
+    <updated>2017-01-27T01:23:10.000Z</updated>
     
     <content type="html"><![CDATA[<p>经常在终端下执行一些网络命令，例如 <code>wget</code> 、<code>git</code>、<code>ssh</code> 等命令，速度慢的不行，说白了，有些是因为 GFW 的原因，有些则是访问国外的服务器本来速度就很慢，而我们的 ShadowSocks 提供的是 <code>socks5</code> 代理，终端无法享用。这个时候 <strong>ProxyChains-NG</strong> 应势而生。<br><a id="more"></a></p>
 <h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>使用 <a href="http://brew.sh/index_zh-cn.html" target="_blank" rel="external">brew</a> 快速安装 ProxyChains-NG，想详细了解 ProxyChains-NG 可以去他们<a href="https://github.com/rofl0r/proxychains-ng" target="_blank" rel="external">项目主页</a>。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install proxychains-ng</div></pre></td></tr></table></figure></p>

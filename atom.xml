@@ -704,7 +704,7 @@
     <link href="http://ifyour.github.io/2015/01/01/CentOS-6-x86-Node-js-MongoDB-Express-%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E7%AC%94%E8%AE%B0/"/>
     <id>http://ifyour.github.io/2015/01/01/CentOS-6-x86-Node-js-MongoDB-Express-环境配置笔记/</id>
     <published>2015-01-01T12:18:33.000Z</published>
-    <updated>2017-01-19T14:46:28.000Z</updated>
+    <updated>2017-02-11T16:12:30.000Z</updated>
     
     <content type="html"><![CDATA[<p>总体来说配置比较顺利，期间也踩了不少坑，毕竟不是专业的运维人员，Linux 经验完全在平常项目中一点点积累的，文章中环境变量的配置只是临时生效（终端关闭后失效），我会再写一篇文章详细说一下 Linux 中的环境变量永久生效的办法。</p>
 <a id="more"></a>
@@ -724,7 +724,7 @@
 <p>7.开机启动数据库(不带授权方式)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">echo</span> <span class="string">"/usr/local/mongodb/bin/mongod --dbpath=/data --logpath=/usr/local/mongodb/logs --logappend  --port=27017"</span> &gt;&gt; /etc/rc.locala</div></pre></td></tr></table></figure></p>
 <div class="tip"><br>因为是学习环境，所以我没有给 MongoDB 增加授权验证，连接数据库是不需要账号密码的，实际项目中需要添加授权。<br></div>
 
-<h3 id="Express"><a href="#Express" class="headerlink" title="Express"></a>Express</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm -i express -g</div></pre></td></tr></table></figure>
+<h3 id="Express"><a href="#Express" class="headerlink" title="Express"></a>Express</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm i express -g</div></pre></td></tr></table></figure>
 ]]></content>
     
     <summary type="html">

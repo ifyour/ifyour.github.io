@@ -3,7 +3,7 @@
 <h3 id="Node-js-安装"><a href="#Node-js-安装" class="headerlink" title="Node.js 安装"></a>Node.js 安装</h3><p>0.进入到待安装位置<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/</div></pre></td></tr></table></figure></p>
 <p>1.下载安装文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget https://nodejs.org/dist/v6.9.4/node-v6.9.4-linux-x86.tar.xz</div></pre></td></tr></table></figure></p>
 <p>2.解压文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">xz <span class="_">-d</span> node-v6.9.4-linux-x86.tar.xz</div><div class="line">tar xvf node-v6.9.4-linux-x86.tar</div></pre></td></tr></table></figure></p>
-<p>3.重命名文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mv node-v* node</div></pre></td></tr></table></figure></p>
+<p>3.重命名文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">rm -rf node-v6.9.4-linux-x86.tar</div><div class="line">mv node-v* node</div></pre></td></tr></table></figure></p>
 <p>4.配置环境变量 (临时生效)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">export</span> PATH=/usr/<span class="built_in">local</span>/node/bin:<span class="variable">$PATH</span></div></pre></td></tr></table></figure></p>
 <p>5.验证是否成功，显示版本号即安装成功！<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">node -v</div></pre></td></tr></table></figure></p>
 <h3 id="Mongodb-安装"><a href="#Mongodb-安装" class="headerlink" title="Mongodb 安装"></a>Mongodb 安装</h3><p>0.进入到待安装位置<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/</div></pre></td></tr></table></figure></p>
@@ -17,7 +17,7 @@
 <div class="tip"><br>因为是学习环境，所以我没有给 MongoDB 增加授权验证，连接数据库是不需要账号密码的，实际项目中需要添加授权。<br></div>
 
 <h3 id="Express"><a href="#Express" class="headerlink" title="Express"></a>Express</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm i express -g</div></pre></td></tr></table></figure>
-</div></article></div></main><footer><div class="paginator"><a href="/2015/01/02/Node.JS-学习笔记-[01]----入门/" class="prev">上一篇</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'ifyour';
+</div></article></div></main><footer><div class="paginator"><a href="/2015/01/02/Node.JS-学习笔记-[01]----入门/" class="prev">PREV</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'ifyour';
 var disqus_identifier = '2015/01/01/CentOS-6-x86-Node-js-MongoDB-Express-环境配置笔记/';
 var disqus_title = 'CentOS 6 x86 Node.js + MongoDB + Express 环境配置笔记';
 var disqus_url = 'http://ifyour.github.io/2015/01/01/CentOS-6-x86-Node-js-MongoDB-Express-环境配置笔记/';

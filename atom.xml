@@ -704,14 +704,14 @@
     <link href="http://ifyour.github.io/2015/01/01/CentOS-6-x86-Node-js-MongoDB-Express-%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E7%AC%94%E8%AE%B0/"/>
     <id>http://ifyour.github.io/2015/01/01/CentOS-6-x86-Node-js-MongoDB-Express-环境配置笔记/</id>
     <published>2015-01-01T12:18:33.000Z</published>
-    <updated>2017-02-12T16:21:43.000Z</updated>
+    <updated>2017-02-13T03:03:21.000Z</updated>
     
     <content type="html"><![CDATA[<p>总体来说配置比较顺利，期间也踩了不少坑，毕竟不是专业的运维人员，Linux 经验完全在平常项目中一点点积累的，文章中环境变量的配置只是临时生效（终端关闭后失效），我会再写一篇文章详细说一下 Linux 中的环境变量永久生效的办法。</p>
 <a id="more"></a>
 <h3 id="Node-js-安装"><a href="#Node-js-安装" class="headerlink" title="Node.js 安装"></a>Node.js 安装</h3><p>0.进入到待安装位置<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/</div></pre></td></tr></table></figure></p>
 <p>1.下载安装文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget https://nodejs.org/dist/v6.9.4/node-v6.9.4-linux-x86.tar.xz</div></pre></td></tr></table></figure></p>
 <p>2.解压文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">xz <span class="_">-d</span> node-v6.9.4-linux-x86.tar.xz</div><div class="line">tar xvf node-v6.9.4-linux-x86.tar</div></pre></td></tr></table></figure></p>
-<p>3.重命名文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mv node-v* node</div></pre></td></tr></table></figure></p>
+<p>3.重命名文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">rm -rf node-v6.9.4-linux-x86.tar</div><div class="line">mv node-v* node</div></pre></td></tr></table></figure></p>
 <p>4.配置环境变量 (临时生效)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">export</span> PATH=/usr/<span class="built_in">local</span>/node/bin:<span class="variable">$PATH</span></div></pre></td></tr></table></figure></p>
 <p>5.验证是否成功，显示版本号即安装成功！<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">node -v</div></pre></td></tr></table></figure></p>
 <h3 id="Mongodb-安装"><a href="#Mongodb-安装" class="headerlink" title="Mongodb 安装"></a>Mongodb 安装</h3><p>0.进入到待安装位置<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/</div></pre></td></tr></table></figure></p>

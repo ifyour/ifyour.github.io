@@ -1,0 +1,22 @@
+menu:
+    Blog: /
+    Archive: /archives/
+    Twitter: https://twitter.com/JohnWmm/
+    GitHub: https://github.com/ifyour/
+    #Rss: /atom.xml
+    About: /about/
+
+favicon: /favicon.png
+logo: /favicon.png
+
+# Comment
+# e.g disqus: seansun
+disqus: ifyour
+duoshuo:
+
+# Analytics
+# google-analytics:
+#ga: UA-65933410-1
+
+# Copyright Infomation
+startyear: 2015

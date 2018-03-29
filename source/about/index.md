@@ -8,7 +8,7 @@ comments: false
 var me = {
     name    : 'Willard Wang',
     gender  : 'male',
-    age     :  25,
+    age     :  26,
     job     : 'Web Developer',
     hobby   : ['Watch movies','Read Bookes','Photography','Coding'],
     contact : function () {

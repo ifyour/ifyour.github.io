@@ -8,11 +8,14 @@ Ifyour's Blog, Powered by Hexo.
 # creates a new article. Default post layout.
 $ hexo new [layout] <title>
 
+# generate
+$ hexo g
+
 # server
 $ hexo s
 
-# generate and deploy
-$ hexo g -d
+# deploy
+$ hexo d
 ```
 
 ### Branch

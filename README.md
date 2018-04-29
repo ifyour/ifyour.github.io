@@ -5,7 +5,13 @@ Ifyour's Blog, Powered by Hexo.
 ### Usage
 
 ```bash
-# creates a new article. Default post layout.
+# config hexo-cli
+$ yarn global add hexo-cli
+
+# go blog folder
+$ cd path/to/blog && yarn
+
+# creates a new article. layoutType: draft/post/page
 $ hexo new [layout] <title>
 
 # generate

@@ -2,6 +2,19 @@
 
 Ifyour's Blog, Powered by Hexo.
 
+### Usage
+
+```bash
+# creates a new article. Default post layout.
+$ hexo new [layout] <title>
+
+# server
+$ hexo s
+
+# generate and deploy
+$ hexo g -d
+```
+
 ### Branch
 - src : All the original files, powered by Hexo.
 - master : For GitHub pages.

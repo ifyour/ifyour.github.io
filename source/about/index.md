@@ -6,13 +6,13 @@ comments: false
 
 ```js
 var me = {
-    name    : 'Willard Wang',
+    name    : 'Willard Wong',
     gender  : 'male',
     age     :  26,
     job     : 'Web Developer',
-    hobby   : ['Watch movies','Read Bookes','Photography','Coding'],
+    hobby   : ['Watch movies','Read Books','Photography','Coding'],
     contact : function () {
-        return 'Email: ifyour' + '[at]' + 'outlook.com';
+        return 'ifyour#outlook.com';
     }
 };
 ```

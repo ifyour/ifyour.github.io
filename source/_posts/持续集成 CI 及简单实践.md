@@ -26,10 +26,10 @@ tags:
 
 
 
-1. 写完博客后，直接 push 到 GitHub 的 `master` 分支
-2. CI 服务通过配置文件 `.travis.yml` 监听当前 `master` 分支发生变化，触发 webhook
+1. 写完博客后，直接 push 到 GitHub 的 `src` 分支(我的 `master` 分支是 pages)
+2. CI 服务通过配置文件 `.travis.yml` 监听当前 `src` 分支发生变化，触发 web hook
 3. CI 服务将当前项目 clone 过去，根据 `.travis.yml` 的配置执行测试和构建
-4. 将最终可以作为生产环境的代码推送到线上环境，并且 push 回  `master` 分支
+4. 将最终可以作为生产环境的代码推送到线上环境，并且 push 回  `src` 分支
 
 
 

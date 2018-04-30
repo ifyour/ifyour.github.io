@@ -1,6 +1,8 @@
-# Blog
+# Blog 
 
-Ifyour's Blog, Powered by Hexo.
+[![Build Status](https://travis-ci.org/ifyour/ifyour.github.io.svg?branch=src)](https://travis-ci.org/ifyour/ifyour.github.io)
+
+> Ifyour's Blog, Powered by Hexo.
 
 ### Usage
 

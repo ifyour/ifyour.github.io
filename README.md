@@ -19,7 +19,7 @@ $ hexo new [layout] <title>
 # generate
 $ hexo g
 
-# server
+# server to preview
 $ hexo s
 
 # deploy

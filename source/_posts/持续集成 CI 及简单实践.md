@@ -16,7 +16,7 @@ tags:
 
 持续集成的目的，就是让产品可以快速迭代，同时还能保持高质量。
 
-![img](http://www.ruanyifeng.com/blogimg/asset/2015/bg2015092301.png)
+![image](https://user-images.githubusercontent.com/15377484/39465580-acb719cc-4d56-11e8-9915-2964d5e523c5.png)
 
 
 
@@ -27,7 +27,7 @@ tags:
 
 
 1. 写完博客后，直接 push 到 GitHub 的 `src` 分支(我的 `master` 分支是 pages)
-2. CI 服务通过配置文件 `.travis.yml` 监听当前 `src` 分支发生变化，触发 web hook
+2. CI 服务通过配置文件 `.travis.yml` 监听当前 `src` 分支发生变化，触发 webhook
 3. CI 服务将当前项目 clone 过去，根据 `.travis.yml` 的配置执行测试和构建
 4. 将最终可以作为生产环境的代码推送到线上环境，并且 push 回  `src` 分支
 

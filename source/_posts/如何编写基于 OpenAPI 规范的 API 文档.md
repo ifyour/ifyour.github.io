@@ -11,16 +11,16 @@ tags:
 
 ## What
 
-> **Swagger** 是一个简单但功能强大的 API 表达工具。使用 Swagger 生成 API，我们可以得到交互式文档，自动生成代码的 SDK 以及 API 的发现特性等
+> **Swagger** 是一个简单但功能强大的 API 表达工具。使用 Swagger 生成 API，我们可以得到交互式文档，自动生成代码的 SDK 以及 API 的发现特性等.
 
 Swagger 是一个开源项目, [这里](https://github.com/swagger-api)是他们的项目主页, 感兴趣的可以去看看.
 
-> **OpenAPI** 规范是 Linux 基金会的一个项目，试图通过定义一种用来描述 API 格式或 API 定义的语言，来规范 RESTful 服务开发过程
+> **OpenAPI** 规范是 Linux 基金会的一个项目，试图通过定义一种用来描述 API 格式或 API 定义的语言，来规范 RESTful 服务开发过程.
  
  比如:
-- 有关该API的一般性描述
+- 有关该 API 的一般性描述
 - 可用路径（/资源）
-- 在每个路径上的可用操作（获取/提交...）
+- 在每个路径上的可用操作（获取/提交等）
 - 每个操作的输入/输出格式
 
 
@@ -34,7 +34,7 @@ Swagger 是一个开源项目, [这里](https://github.com/swagger-api)是他们
 - 需求和系统特性描述的根据
 - 前后台查询、讨论、自测的基础
 - 部分或者全部代码自动生成的根据
-- 其他重要的作用，比如开放平台开发者的手册...
+- 其他重要的作用，比如开放平台开发者的手册等
 
 
 ## How
@@ -80,6 +80,6 @@ after_success:
 
 ## More
 - [Swagger 官方文档](https://swagger.io/docs/)
-- [Swagger 从入门到精通](https://legacy.gitbook.com/book/huangwenchao/swagger/details)
+- [Swagger 入门](https://legacy.gitbook.com/book/huangwenchao/swagger/details)
 - [YAML 是什么](http://www.ruanyifeng.com/blog/2016/07/yaml.html)
 - [YAML & JSON 互转工具](http://www.awesometool.org/Encode/YAML2JSON)

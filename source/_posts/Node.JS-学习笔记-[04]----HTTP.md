@@ -1,8 +1,9 @@
+---
 title: 'Node.JS 学习笔记 [04] -- HTTP'
 date: 2015-01-05 15:05:10
 tags:
-
 ---
+
 本次的学习内容是 Node.js Web 模块，介绍了什么是 web 服务器，以及常见的几种模式，比如 B/S 模式（Browser/Server，浏览器/服务器模式），C/S 模式（Client/Server，客户端/服务器模式）等。Web 客户端通过使用 HTTP 协议就能访问到 Web 服务器上的数据，Web 服务器响应客户端的请求。
 <!-- more -->
 ### HTTP

@@ -1,7 +1,7 @@
+---
 title: 'Node.JS 学习笔记 [03] -- Buffer fs path'
 date: 2015-1-4 21:57:05
 tags:
-
 ---
 
 今天学习了 Node.js 的缓冲区（Buffer）、文件系统（fs）、路径（path）模块，感受了一下 Node.js 作为 JavaScript 的扩展在后台方面的一些功能。给我最多的感受是，大量的异步代码和回调函数，让 Node.js 性能非常出色。来总结下今天学习的内容吧。

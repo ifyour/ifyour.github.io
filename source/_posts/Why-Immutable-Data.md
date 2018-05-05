@@ -138,7 +138,7 @@ let map2 = map1.set('count', 2);
 console.log(map1.list === map2.list); // true
 ```
 
-<div style="width: 300px; ">![image](https://zhenhua-lee.github.io/img/immutable/change.gif)</div>
+<div style="width: 300px; ">![image](https://user-images.githubusercontent.com/15377484/39665040-d92a0764-50bf-11e8-84e3-ad83cf758acd.gif)</div>
 
 这张 GIF 很形象的解释了 `结构共享` 👍 
 

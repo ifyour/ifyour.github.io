@@ -6,7 +6,7 @@ date: 2018-04-30 11:14:00
 > 念念不忘, 必有回响!
 
 ```js
-const me = {
+let me = {
     name    : 'Willard Wong',
     gender  : 'male',
     age     :  26,

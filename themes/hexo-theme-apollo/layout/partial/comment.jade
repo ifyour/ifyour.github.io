@@ -1,30 +1,13 @@
 if theme.disqus
     #disqus_thread
     script.
-        (function (url, cb) {
-            var head = document.getElementsByTagName('head')[0],
-                cbName = 'jsonp' + (Math.random() * Math.random()).toString().substr(2) + Date.now();
-            window[cbName] = function (data) {
-                cb(data);
-                head.removeChild(scriptObj);
-            }
-            url += '?callback=' + cbName;
-            var scriptObj = document.createElement('script');
-            scriptObj.src = url;
-            head.appendChild(scriptObj);
-        })('https://ipinfo.io', function (res) {
-            if (res.country !== 'CN') {
-                var disqus_shortname = '#{theme.disqus}',
-                    disqus_identifier = '#{page.path}',
-                    disqus_title = '#{page.title}',
-                    disqus_url = '#{config.url}/#{page.path}';
-                (function () {
-                    var dsq = document.createElement('script');
-                    dsq.type = 'text/javascript';
-                    dsq.async = true;
-                    dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
-                    document.getElementsByTagName('head')[0].appendChild(dsq);
-                })();
-            }
-        })
-    script(id='dsq-count-scr' src='https://#{theme.disqus}.disqus.com/count.js' async)
+        var disqus_shortname = '#{theme.disqus}';
+        var disqus_identifier = '#{page.path}';
+        var disqus_title = '#{page.title}';
+        var disqus_url = '#{config.url}/#{page.path}';
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    script(id='dsq-count-scr' src='//#{theme.disqus}.disqus.com/count.js' async)

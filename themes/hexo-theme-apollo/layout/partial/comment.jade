@@ -3,9 +3,7 @@ if theme.disqus
     script.
         (function (url, cb) {
             var head = document.getElementsByTagName('head')[0],
-                cbName = 'jsonp' +
-                (Math.random() * Math.random()).toString().substr(2) +
-                Date.now();
+                cbName = 'jsonp' + (Math.random() * Math.random()).toString().substr(2) + Date.now();
             window[cbName] = function (data) {
                 cb(data);
                 head.removeChild(scriptObj);
@@ -25,7 +23,7 @@ if theme.disqus
                     dsq.type = 'text/javascript';
                     dsq.async = true;
                     dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
-                    head.appendChild(dsq);
+                    document.getElementsByTagName('head')[0].appendChild(dsq);
                 })();
             }
         })

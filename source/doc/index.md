@@ -4,7 +4,6 @@ date: 2018-05-06 11:56:00
 ---
 
 - ***React***
-  - [React 技术栈系列教程](http://www.ruanyifeng.com/blog/2016/09/react-technology-stack.html)
   - [React 中文文档](https://doc.react-china.org/docs/hello-world.html)
   - [Redux 中文文档](https://www.kancloud.cn/allanyu/redux-in-chinese/82399)
   - [React-saga 中文文档](http://leonshi.com/redux-saga-in-chinese/docs/api/index.html)
@@ -26,11 +25,14 @@ date: 2018-05-06 11:56:00
   - [Node.js API](http://nodejs.cn/api/)
   - [Express 官网](http://www.expressjs.com.cn/guide/routing.html)
 
+
 - ***Electron***
   - [Electron 官方文档](https://electronjs.org/docs/)
 
+
 - ***WeChat***
   - [小程序官方文档](https://mp.weixin.qq.com/debug/wxadoc/dev/index.html?t=201832)
+
 
 - ***TypeScript***
   - [TypeScript 基础](https://www.tslang.cn/docs/handbook/basic-types.html)
@@ -49,6 +51,8 @@ date: 2018-05-06 11:56:00
 
 - ***Python***
   - [Python 3 教程 (廖雪峰)](https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000)
+  - [Django 中文文档](https://docs.djangoproject.com/zh-hans/2.0/)
+
 
 - ***More...***
   - [印记中文](https://docschina.org/)

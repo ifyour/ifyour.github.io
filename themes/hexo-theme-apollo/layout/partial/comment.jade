@@ -17,6 +17,7 @@ if theme.gitment
     script(src='https://imsun.github.io/gitment/dist/gitment.browser.js')
     script.
         (new Gitment({
+          id: decodeURI(window.location.pathname),
           owner: 'ifyour',
           repo: 'ifyour.github.io',
           oauth: {

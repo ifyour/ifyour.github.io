@@ -17,7 +17,7 @@ if theme.gitment
     script(src='https://imsun.github.io/gitment/dist/gitment.browser.js')
     script.
         (new Gitment({
-            id: '#{page.date}',
+            id: 'aid' + Date.now(),
             title: '#{page.title}' + '的评论',
             link: decodeURI(location.href),
             // --------------------------⬇Required------------------------

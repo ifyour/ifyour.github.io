@@ -14,7 +14,7 @@ if theme.disqus
 
 if theme.gitment
     #gc_container
-    script(src='/upload/gitment.browser.js')
+    script(src='https://unpkg.com/gitment@0.0.3/dist/gitment.browser.js')
     script.
         (new Gitment({
             id: 'aid' + (new Date('#{page.date}')).getTime()/1000,

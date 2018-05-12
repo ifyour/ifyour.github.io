@@ -413,6 +413,7 @@ a.gitment-editor-footer-tip:hover {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  border-bottom: 4px solid #3aa373;
 }
 
 .gitment-editor-submit:hover,
@@ -424,13 +425,11 @@ a.gitment-editor-footer-tip:hover {
 .gitment-editor-submit:disabled {
   color: rgba(255,255,255,0.75);
   background-color: #4fc08d;
-  border-bottom: 4px solid #3aa373;
   box-shadow: none;
 }
 
 .gitment-editor-submit {
   float: right;
-  border-bottom: 4px solid #3aa373;
 }
 
 .gitment-footer-container {

@@ -18,7 +18,7 @@ if theme.gitment
     script.
         (new Gitment({
             id: 'aid' + (new Date('#{page.date}')).getTime()/1000,
-            title: '#{page.title}' + '的评论',
+            title: '#{page.title}' + ' · 评论',
             link: decodeURI(location.href),
             repo: 'ifyour.github.io',
             owner: 'ifyour',

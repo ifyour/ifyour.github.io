@@ -14,10 +14,10 @@ if theme.disqus
 
 if theme.gitment
     #gc_container
-    script(src='https://imsun.github.io/gitment/dist/gitment.browser.js')
+    script(src='/upload/gitment.browser.js')
     script.
         (new Gitment({
-            id: decodeURI('#{page.path}'),
+            id: 'aid' + (new Date('#{page.date}')).getTime()/1000,
             title: '#{page.title}' + '的评论',
             link: decodeURI(location.href),
             // --------------------------⬇Required------------------------

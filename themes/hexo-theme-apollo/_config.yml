@@ -10,8 +10,11 @@ favicon: /favicon.png
 logo: /favicon.png
 
 # Comment
-# e.g disqus: seansun
-disqus: 
+# e.g disqus: ifyour
+disqus:
+
+# 是否开启 Gitment 评论系统
+gitment: true
 
 # Analytics
 # google-analytics:

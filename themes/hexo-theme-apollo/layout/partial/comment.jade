@@ -11,3 +11,16 @@ if theme.disqus
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
     script(id='dsq-count-scr' src='//#{theme.disqus}.disqus.com/count.js' async)
+
+if theme.gitment
+    #gc_container
+    script(src='https://imsun.github.io/gitment/dist/gitment.browser.js')
+    script.
+        (new Gitment({
+          owner: 'ifyour',
+          repo: 'ifyour.github.io',
+          oauth: {
+            client_id: '576e98d38d4bd19f8a02',
+            client_secret: 'ba3616bf2f20c5da947a1fd5c7ef0edff4ffab99',
+          },
+        })).render('gc_container');

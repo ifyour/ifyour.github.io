@@ -17,12 +17,14 @@ if theme.gitment
     script(src='https://imsun.github.io/gitment/dist/gitment.browser.js')
     script.
         (new Gitment({
-          id: decodeURI(window.location.pathname),
-          owner: 'ifyour',
-          repo: 'ifyour.github.io',
-          labels: ['comment'],
-          oauth: {
-            client_id: '576e98d38d4bd19f8a02',
-            client_secret: 'ba3616bf2f20c5da947a1fd5c7ef0edff4ffab99',
-          },
+            id: full_date('#{page.date}', 'YYYY-MMMM-Do HH:mm:ss'),
+            title: '#{page.title}',
+            link: decodeURI(location.href),
+            // --------------------------⬇Required------------------------
+            repo: 'ifyour.github.io',
+            owner: 'ifyour',
+            oauth: {
+                client_id: '576e98d38d4bd19f8a02',
+                client_secret: 'ba3616bf2f20c5da947a1fd5c7ef0edff4ffab99',
+            }
         })).render('gc_container');

@@ -17,7 +17,7 @@ if theme.gitment
     script(src='https://imsun.github.io/gitment/dist/gitment.browser.js')
     script.
         (new Gitment({
-            id: full_date('#{page.date}', 'YYYY-MMMM-Do HH:mm:ss'),
+            id: <%- full_date('#{page.date}', 'YYYY-MMMM-Do HH:mm:ss') %>,
             title: '#{page.title}',
             link: decodeURI(location.href),
             // --------------------------⬇Required------------------------

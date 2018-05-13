@@ -12,7 +12,7 @@ if theme.disqus
         })();
     script(id='dsq-count-scr' src='//#{theme.disqus}.disqus.com/count.js' async)
 
-if theme.gitment
+if theme.gitment && page.comments
     #gc_container
     script(src='https://unpkg.com/gitment@0.0.3/dist/gitment.browser.js')
     script.

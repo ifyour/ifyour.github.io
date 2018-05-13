@@ -10,6 +10,13 @@ footer {
             font-size: 14px;
             font-weight: 100;
             margin: 0;
+            span {
+              font-size: 1.35em;
+              position: relative;
+              top: 0.1em;
+              padding-left: .2em;
+              padding-right: .2em;
+            }
         }
         a:hover {
             color: #888;

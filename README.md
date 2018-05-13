@@ -1,4 +1,4 @@
-# Blog 
+# Blog
 
 [![Build Status](https://travis-ci.org/ifyour/ifyour.github.io.svg?branch=src)](https://travis-ci.org/ifyour/ifyour.github.io)
 
@@ -27,8 +27,10 @@ $ hexo d
 ```
 
 ### Branch
-- src : All the original files, powered by Hexo.
-- master : For GitHub pages.
+
+- src: All the original files, powered by Hexo
+- master: For GitHub pages
 
 ### License
+
 [![CC0](https://i.creativecommons.org/p/zero/1.0/88x31.png)](https://creativecommons.org/publicdomain/zero/1.0/)

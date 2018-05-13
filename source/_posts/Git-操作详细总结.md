@@ -120,3 +120,7 @@ git branch -d dev
 git tag 0.1.1
 git push origin --tags
 ```
+
+## More
+
+- [Git - 简易指南](http://www.bootcss.com/p/git-guide/)

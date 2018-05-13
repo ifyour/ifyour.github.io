@@ -2,6 +2,7 @@
 title: 'Mongodb 学习笔记 -- 增删改查'
 date: 2016-01-05 21:24:40
 tags:
+comments: false
 ---
 
 记录 Mongodb 的学习之旅，从环境配置，到基础命令行使用，算是一个简单的入门教程，同时也是学习总结，还有把踩到的坑都记录下来，以后遇到同样的问题不至于在同一个地方继续踩坑。
@@ -15,7 +16,7 @@ MongoDB 是一个介于关系数据库和非关系数据库之间的产品，是
 本人的操作系统是：MacOS，且已经安装了 [brew](http://brew.sh/index_zh-cn.html) ，所以图省事，我就使用 brew 一键安装了。没用过 brew 的同学可以去[这里看看](http://www.cnblogs.com/TankXiao/p/3247113.html)，用起来还是挺方便的。
 
 ```bash
-brew install mongodb  
+brew install mongodb
 ```
 安装速度取决于你的网络情况，这里稍等片刻。brew 默认的安装位置在 `/usr/local/Cellar/` 一会的功夫，我们就能在这里看到，Mongodb 乖乖的躺在这了。因为 Mongodb 会默认读取 `/data/db` 目录下的数据库，所以方便省事，我们把默认的数据库就创建在这个位置，并且给 `/data` 执行权限，执行以下命令即可。
 
@@ -56,9 +57,9 @@ mongo
 #### 基础命令
 新增数据
 - 显示数据库：`show dbs`
-- 使用/创建数据库：`use 数据库名`   
+- 使用/创建数据库：`use 数据库名`
 - 显示集合：`show collections`
-- 保存数据：`db.collection.save({"key":"value","key2":"value2"})`      
+- 保存数据：`db.collection.save({"key":"value","key2":"value2"})`
 - 插入数据：`db.collection.insert({"key":"value","key2":"value2"})`
 
 <div class="tip">

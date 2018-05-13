@@ -2,6 +2,7 @@
 title: Why Immutable Data?
 date: 2018-05-05 21:14:23
 tags:
+comments: true
 ---
 什么是不可变数据, 如何理解不可变数据, 不可变数据在项目中的实践. 弄清楚了这些问题, 你才能更好的处理项目中一些调优问题. 比如 React 性能优化等. 一起来学习下吧! 👨🏼‍💻
 
@@ -53,12 +54,12 @@ function isArray(arr) {
 function deepClone(obj) {
   if (!isObject(obj))  return obj;
   var cloneObj = isArray(obj) ? [] : {};
-  
+
   for(var key in obj) {
     if (obj.hasOwnProperty(key)) {
       var value = obj[key];
       var copy = value;
-      
+
       if (isObject(value)) {
         // 这里使用了递归
         cloneObj[key] = deepClone(value);
@@ -98,9 +99,9 @@ obj2.age = 6;
 
 ## How
 
-针对以上一系列需求, 我们完全可以使用不可变数据结构来处理, 对应的实现库有: 
+针对以上一系列需求, 我们完全可以使用不可变数据结构来处理, 对应的实现库有:
 - [facebook/immutable-js](https://github.com/facebook/immutable-js)
-- [rtfeldman/seamless-immutable](https://github.com/rtfeldman/seamless-immutable) 
+- [rtfeldman/seamless-immutable](https://github.com/rtfeldman/seamless-immutable)
 
 
 Immutable.js 主要特点:
@@ -125,7 +126,7 @@ console.log(map2.get('count')); // => 2
 
 ```js
 /**
- * 结构共享 
+ * 结构共享
  */
 
 let obj = {
@@ -140,11 +141,11 @@ console.log(map1.list === map2.list); // true
 
 <div style="width: 300px; ">![image](https://user-images.githubusercontent.com/15377484/39665040-d92a0764-50bf-11e8-84e3-ad83cf758acd.gif)</div>
 
-这张 GIF 很形象的解释了 `结构共享` 👍 
+这张 GIF 很形象的解释了 `结构共享` 👍
 
 ```js
 /**
- * 强大的 API 
+ * 强大的 API
  */
 
 let obj = {

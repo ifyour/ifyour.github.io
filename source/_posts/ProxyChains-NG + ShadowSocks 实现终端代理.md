@@ -2,6 +2,7 @@
 title: ProxyChains-NG + ShadowSocks 实现终端代理
 date: 2016-03-23 08:25:31
 tags:
+comments: false
 ---
 
 经常在终端下执行一些网络命令，例如 `wget` 、`git`、`ssh` 等命令，速度慢的不行，说白了，有些是因为 GFW 的原因，有些则是访问国外的服务器本来速度就很慢，而我们的 ShadowSocks 提供的是 `socks5` 代理，终端无法享用。这个时候 **ProxyChains-NG** 应势而生。

@@ -2,6 +2,7 @@
 title: CentOS 6 x86 Node.js + MongoDB + Express 环境配置笔记
 date: 2015-1-1 20:18:33
 tags:
+comments: false
 ---
 
 总体来说配置比较顺利，也踩了不少坑 TAT，毕竟不是专业的运维人员，Linux 经验完全在平常项目中一点点积累的。

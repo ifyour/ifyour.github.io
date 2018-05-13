@@ -2,6 +2,7 @@
 title: 'Node.JS 学习笔记 [05] -- Express'
 date: 2015-01-06 21:24:40
 tags:
+comments: false
 ---
 
 ***Express*** 是一个基于 Node.js 平台的极简、灵活的 Web 应用开发框架，它提供一系列强大的特性，帮助你创建各种 Web 和移动设备应用。Express的核心特性可以概括以下三点。
@@ -166,7 +167,7 @@ res.status(500).json({"error": "message"});
     <title>Title</title>
 </head>
 <body>
-<!-- 注意 ejs 模板中变量的写法 -->    
+<!-- 注意 ejs 模板中变量的写法 -->
 <h1>欢迎你，<%=name%></h1>
 </body>
 </html>

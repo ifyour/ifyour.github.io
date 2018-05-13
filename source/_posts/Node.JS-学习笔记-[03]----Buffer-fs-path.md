@@ -2,6 +2,7 @@
 title: 'Node.JS 学习笔记 [03] -- Buffer fs path'
 date: 2015-1-4 21:57:05
 tags:
+comments: false
 ---
 
 今天学习了 Node.js 的缓冲区（Buffer）、文件系统（fs）、路径（path）模块，感受了一下 Node.js 作为 JavaScript 的扩展在后台方面的一些功能。给我最多的感受是，大量的异步代码和回调函数，让 Node.js 性能非常出色。来总结下今天学习的内容吧。
@@ -251,16 +252,16 @@ var path = require('path');
 * 格式化路径  path.normalize(p)
 * 特点：将不符合规范的路径格式化，简化开发人员中处理各种复杂的路径判断
 * */
-path.normalize('/foo/bar//baz/asdf/quux/..');  
-// returns   
+path.normalize('/foo/bar//baz/asdf/quux/..');
+// returns
 '/foo/bar/baz/asdf'
 
 /*
 * 路径联合 path.join([path1], [path2], [...])
 * 特点：将所有名称用path.seq串联起来，然后用normailze格式化
 * */
-path.join('///foo', 'bar', '//baz/asdf', 'quux', '..');  
-// returns   
+path.join('///foo', 'bar', '//baz/asdf', 'quux', '..');
+// returns
 '/foo/bar/baz/asdf'
 
 /*
@@ -281,44 +282,44 @@ path.resolve('foo/bar', '/tmp/file/', '..', 'a/../subfile');
 * 相当于：path.resolve(from, path.relative(from, to)) == path.resolve(to)
 * */
 //简单理解： 地址一执行怎样的 shell 命令，到达地址二
-path.relative('/data/orandea/test/aaa', '/data/orandea/impl/bbb')  
-// returns  
+path.relative('/data/orandea/test/aaa', '/data/orandea/impl/bbb')
+// returns
 '../../impl/bbb'
 
 /*
 * 文件夹名称 path.dirname(p)
 * 特点：返回路径的上级路径
 * */
-path.dirname('/foo/bar/baz/asdf/quux')  
-// returns  
+path.dirname('/foo/bar/baz/asdf/quux')
+// returns
 '/foo/bar/baz/asdf'
 
 /*
 * 文件名称 path.basename(p, [ext])
 * 特点：返回指定的文件名，返回结果可去掉[ext]后缀字符串
 * */
-path.basename('/foo/bar/baz/asdf/quux.html')  
-// returns  
-'quux.html'  
+path.basename('/foo/bar/baz/asdf/quux.html')
+// returns
+'quux.html'
 
-path.basename('/foo/bar/baz/asdf/quux.html', '.html')  
-// returns  
+path.basename('/foo/bar/baz/asdf/quux.html', '.html')
+// returns
 'quux'
 
 /*
 * 扩展名称 path.extname(p)
 * 特点：返回指定文件名的扩展名称
 * */
-path.extname('index.html')  
-// returns  
-'.html'  
+path.extname('index.html')
+// returns
+'.html'
 
-path.extname('index.')  
-// returns  
-'.'  
+path.extname('index.')
+// returns
+'.'
 
-path.extname('index')  
-// returns  
+path.extname('index')
+// returns
 ''
 
 /*
@@ -326,7 +327,7 @@ path.extname('index')
 * 特点：获取文件路径的分隔符，主要是与操作系统相关
 * 注意调用方式
 * */
-'foo/bar/baz'.split(path.sep)  
-// returns  
-['foo', 'bar', 'baz']  
+'foo/bar/baz'.split(path.sep)
+// returns
+['foo', 'bar', 'baz']
 ```

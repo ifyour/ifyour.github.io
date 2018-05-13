@@ -26,9 +26,9 @@ $ hexo s
 $ hexo d
 ```
 
-### Branch
+### Branches
 
-- src: All the original files, powered by Hexo
+- src: All the original files
 - master: For GitHub pages
 
 ### License

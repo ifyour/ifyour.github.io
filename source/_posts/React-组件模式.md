@@ -16,7 +16,7 @@ from: https://levelup.gitconnected.com/react-component-patterns-ab1f09be2c82
 * 容器组件 vs 展示组件
 * 高阶组件 vs 回调渲染组件
 
-![image](https://cdn-images-1.medium.com/max/2000/1*mPL5M-XhGpDuXLniVRCthw.png)
+![image](https://user-images.githubusercontent.com/15377484/40128970-a333542c-5965-11e8-8505-d1284d2759b1.png)
 
 ### 有状态组件 vs 无状态组件
 

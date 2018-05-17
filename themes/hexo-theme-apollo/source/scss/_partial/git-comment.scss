@@ -680,7 +680,7 @@ a.gitment-editor-footer-tip:hover {
 }
 
 .gitment-markdown a {
-  color: #0366d6;
+  color: #42b983;
   text-decoration: none;
 }
 
@@ -992,6 +992,7 @@ a.gitment-editor-footer-tip:hover {
 .gitment-markdown ul,
 .gitment-markdown ol {
   padding-left: 2em;
+  list-style-type: disc;
 }
 
 .gitment-markdown ul ul,

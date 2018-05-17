@@ -60,7 +60,7 @@ class ButtonCounter extends React.Component {
 }
 ```
 
-正如上面两个 Demo 所示，第二个组件的 constructor 具有状态的定义，第一个组件只是单纯地渲染属性文字。有状态组件和无状态组件的划分看起来非常简单，但是它对于组件复用具有重大意义。
+正如上面两个 Demo 所示，第二个组件的 `constructor` 具有状态的定义，第一个组件只是单纯地渲染属性文字。有状态组件和无状态组件的划分看起来非常简单，但是它对于组件复用具有重大意义。
 
 ### 容器组件 vs 展示组件
 
@@ -96,7 +96,7 @@ class UserListContainer extends React.Component {
 
 这种分类将数据获取和渲染的逻辑分开，进而使用户列表组件可以复用。
 
-如果你想了解更多该模式的信息，[awesome article from Dan Abramov](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0) 对它进行了精确的解释。
+如果你想了解更多该模式的信息，[这篇文章](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0)对它进行了详细的解释。
 
 ### 高阶组件
 
@@ -104,7 +104,7 @@ class UserListContainer extends React.Component {
 
 假设你需要构建一个可扩展菜单组件，当用户点击时，它会显示隐藏子组件内容。因此，你可以使用高阶组件来实现:
 
-```js
+```jsx
 function makeToggleable(Clickable) {
   return class extends React.Component {
     constructor() {
@@ -173,7 +173,7 @@ class Menu extends React.Component {
 
 ### 回调渲染组件
 
-另一个比较高端的复用组件逻辑的方法是将函数作为组件的 props.children，该方法也称为 **Function as Child Components**。我们将使用 ** 渲染回调 ** 来重新实现上面的可扩展 Menu:
+另一个比较高端的复用组件逻辑的方法是将函数作为组件的 `props.children`，该方法也称为 **Function as Child Components**。我们将使用** 渲染回调 **来重新实现上面的可扩展 Menu:
 
 ```jsx
 class Toggleable extends React.Component {
@@ -208,7 +208,7 @@ class Toggleable extends React.Component {
 </Toggleable>
 ```
 
-上面的代码已经将一个函数作为 ** 子组件 **，但是，若我们想复用上述逻辑，我们需要创建一个转换逻辑的新组件：
+上面的代码已经将一个函数作为** 子组件 **，但是，若我们想复用上述逻辑，我们需要创建一个转换逻辑的新组件：
 
 ```jsx
 const ToggleableMenu = props =>

@@ -93,23 +93,14 @@ getUserRank();
 既然获取每个用户资料的请求并不存在依赖性，那么我们可以先触发异步请求，然后延迟处理异步请求的结果，而不是一直等该请求完成。根据这个思路，那可能改进的代码如下：
 
 ```js
-async getUserDetails (username) {
+async function getUserDetails (username) {
   const user = await fetch(user_url);
   return user;
 }
 
 async function getUserRank () {
   const data = await fetch(search_url);
-  const promises = [];
-
-  for(let i = 0; i < data.length; i++) {
-    const item = data[i];
-    const p = getUserDetails(item.username);
-    promises.push(p);
-  }
-
-  // 更精简的代码
-  // const promises = data.map((item) => getUserDetails(item.username))
+  const promises = data.map((item) => getUserDetails(item.username));
   await Promise.all(promises).then(handleYourData);
 }
 

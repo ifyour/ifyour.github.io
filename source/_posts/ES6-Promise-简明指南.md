@@ -6,7 +6,7 @@ tags:
 from: https://codeburst.io/a-simple-guide-to-es6-promises-d71bacd2e13a
 ---
 
-Promise 是 JavaScript ES6 中最令人兴奋的新增功能之一. ES5 中使用回调函数来处理异步操作. 过度使用回调则会产生回调地狱和多级嵌套缩带来的问题. Promise 通过将异步代码转化成同步执行的方式, 大大简化了异步编程方式. 从而避免糊掉地狱以及多层级嵌套带来的问题.
+Promise 是 JavaScript ES6 中最令人兴奋的新增功能之一. ES5 中使用回调函数来处理异步操作. 过度使用回调则会产生回调地狱和多级嵌套缩带来的问题. Promise 通过将异步代码转化成同步执行的方式, 大大简化了异步编程方式. 从而避免回调地狱以及多层级嵌套带来的问题.
 
 <!-- more -->
 

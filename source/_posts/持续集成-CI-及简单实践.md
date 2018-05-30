@@ -11,7 +11,7 @@ comments: true
 
 ## What
 
-> 持续集成（Continuous integration，简称CI）是一种软件开发实践，即团队开发成员经常集成他们的工作，通过每个成员每天至少集成一次，也就意味着每天可能会发生多次集成。
+> 持续集成（英语：Continuous integration，缩写 CI）是一种软件工程流程，是将所有软件工程师对于软件的工作副本持续提交到共用主线（mainline）的一种措施。
 
 ## Why
 

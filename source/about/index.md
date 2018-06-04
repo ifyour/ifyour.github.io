@@ -10,9 +10,9 @@ let me = {
     gender  : 'male',
     age     :  26,
     job     : 'Front-end Developer',
-    Hobbies : ['watch movie', 'reading', 'photography', 'write code', 'yogurt', 'durian'],
+    Hobbies : ['watch movie', 'reading', 'photography', 'write code'],
     email   : 'ifyour{at}outlook.com'
 };
 ```
 
-> *念念不忘, 必有回响! Have a nice day!* 😘
+> *念念不忘, 必有回响!*

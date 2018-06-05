@@ -15,9 +15,12 @@ comments: true
 * [Grammarly](https://app.grammarly.com/ddocs/261389934) - 自用的英文语法错误检查
 * [JSONPlaceholder](http://jsonplaceholder.typicode.com/) - RESTful API 假数据模拟
 * [JSON2YAML](https://www.json2yaml.com/) - JSON 和 YAML 互转
-* [JSON formatter](https://jsonformatter.curiousconcept.com/) - JSON 格式化, 体验还不错
+* [JSON Parser](http://json.parser.online.fr/beta/) - JSON 格式化
+* [RegExr](https://regexr.com/) - 在线正则测试及调试
 * [Regulex](https://jex.im/regulex/) - 正则表达可视化, 快速理解正则表达式
-* [Regex101](https://regex101.com/) - 在线正则测试及调试
+* [CSSMatic](https://www.cssmatic.com/) - CSS 工具, 包括镜像渐变生成, 盒子阴影等
+* [SassMeister](https://www.sassmeister.com/) - Sass 演练场, 可以输出 AutoPrefixer 结果
+* [JSNice](http://www.jsnice.org/) - 反编译 JS 代码, 理解变量是什么意思
 
 ### Docs
 

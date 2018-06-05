@@ -57,7 +57,7 @@ comments: true
 
 * **TypeScript**
 
-  * [TypeScript 基础](https://www.tslang.cn/docs/handbook/basic-types.html)
+  * [TypeScript 中文网](https://www.tslang.cn/index.html)
 
 * **Vanilla JS**
 

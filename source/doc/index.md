@@ -20,6 +20,8 @@ comments: true
 * [Regulex](https://jex.im/regulex/) - 正则表达可视化, 快速理解正则表达式
 * [CSSMatic](https://www.cssmatic.com/) - CSS 工具, 包括镜像渐变生成, 盒子阴影等
 * [SassMeister](https://www.sassmeister.com/) - Sass 演练场, 可以输出 AutoPrefixer 结果
+* [KeyframesApp](https://keyframes.app/) - CSS3 动画关键帧生成工具
+* [CSS Sprites Generator](https://www.toptal.com/developers/css/sprite-generator) - CSS 精灵生成工具
 * [JSNice](http://www.jsnice.org/) - 反编译 JS 代码, 理解变量是什么意思
 
 ### Docs

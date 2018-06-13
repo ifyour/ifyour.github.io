@@ -24,6 +24,7 @@ comments: true
 * [CSS Sprites Generator](https://www.toptal.com/developers/css/sprite-generator) - CSS 精灵生成工具
 * [JSNice](http://www.jsnice.org/) - 反编译 JS 代码, 理解变量是什么意思
 * [Love2.io](https://love2.io/) - 开源技术文档分享平台
+* [WakaTime](https://wakatime.com/) - 记录每天的编码情况, 使用什么语言及统计时长
 * [蓝湖](https://lanhuapp.com/) - 高效的产品设计协作平台, 标注切图很好用
 
 ### Docs

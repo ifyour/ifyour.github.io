@@ -8,21 +8,22 @@ comments: true
 
 * [Rico's cheatsheets](https://devhints.io/) - 记忆小抄, 长话短说各种开发文档
 * [Carbon](https://carbon.now.sh/) - 带样式分享代码
-* [Codepan](https://codepan.net/) - 离线版 JSBin, 前端代码试炼场
+* [Codepan](https://codepan.net/) - 在线测试前端代码, 可以离线使用
+* [jsFiddle](https://jsfiddle.net/) - 同上, 注册账号后可以保存代码
 * [Prettier](https://prettier.io/playground/) - 在线格式化 JavaScript 代码
 * [Text-formatter](https://text-formatter.herokuapp.com/) - 格式化文本, 中英文之间留空格以及英文标点
 * [DevDocs](https://devdocs.io/) - 一站式开发文档集合
-* [Grammarly](https://app.grammarly.com/ddocs/261389934) - 自用的英文语法错误检查
+* [Grammarly](https://app.grammarly.com/ddocs/261389934) - 英文语法错误检查
 * [JSONPlaceholder](http://jsonplaceholder.typicode.com/) - RESTful API 假数据模拟
 * [JSON2YAML](https://www.json2yaml.com/) - JSON 和 YAML 互转
 * [JSON Parser](http://json.parser.online.fr/beta/) - JSON 格式化
 * [RegExr](https://regexr.com/) - 在线正则测试及调试
 * [Regulex](https://jex.im/regulex/) - 正则表达可视化, 快速理解正则表达式
-* [CSSMatic](https://www.cssmatic.com/) - CSS 工具, 包括镜像渐变生成, 盒子阴影等
-* [SassMeister](https://www.sassmeister.com/) - Sass 演练场, 可以输出 AutoPrefixer 结果
+* [CSSMatic](https://www.cssmatic.com/) - 生成镜像渐变, 盒子阴影等
+* [SassMeister](https://www.sassmeister.com/) - Sass 演练场, 可以输出 AutoPrefixer 的结果
 * [KeyframesApp](https://keyframes.app/) - CSS3 动画关键帧生成工具
 * [CSS Sprites Generator](https://www.toptal.com/developers/css/sprite-generator) - CSS 精灵生成工具
-* [JSNice](http://www.jsnice.org/) - 反编译 JS 代码, 理解变量是什么意思
+* [JSNice](http://www.jsnice.org/) - 反编译已压缩的 JS 代码, 理解变量是什么意思
 * [Love2.io](https://love2.io/) - 开源技术文档分享平台
 * [WakaTime](https://wakatime.com/) - 记录每天的编码情况, 使用什么语言及统计时长
 * [蓝湖](https://lanhuapp.com/) - 高效的产品设计协作平台, 标注切图很好用

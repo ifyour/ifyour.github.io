@@ -86,4 +86,4 @@ comments: true
 
 ### One more thing
 
-欢迎在下面留言板分享你觉得有趣的所有东西, 本文[源代码地址](https://raw.githubusercontent.com/ifyour/ifyour.github.io/src/source/doc/index.md). 😎
+欢迎在下面留言板分享你觉得有趣的所有东西, 本文[源代码地址](https://raw.githubusercontent.com/ifyour/ifyour.github.io/src/source/docs/index.md). 😎

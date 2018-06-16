@@ -61,7 +61,7 @@ table {
     width: 100%;
     margin: 1em auto;
     thead {
-        background-color: #ddd;
+        background-color: #eee;
         th {
             padding: 5px;
             min-width: 20px;
@@ -69,7 +69,7 @@ table {
     }
     tbody {
         tr:nth-child(2n) {
-            background-color: #eee;
+            background-color: #f9f9f9;
         }
         td {
             padding: 5px;

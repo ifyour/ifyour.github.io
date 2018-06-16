@@ -3,8 +3,8 @@
 ## Install
 
 ``` bash
-hexo init Blog 
-cd Blog 
+hexo init Blog
+cd Blog
 npm install
 npm install --save hexo-renderer-jade hexo-generator-feed hexo-generator-sitemap hexo-browsersync hexo-generator-archive
 git clone https://github.com/pinggod/hexo-theme-apollo.git themes/apollo
@@ -28,7 +28,7 @@ archive_generator:
 ## Update
 
 ``` bash
-cd themes/apollo 
+cd themes/apollo
 git pull
 ```
 
@@ -51,7 +51,7 @@ result:
 <meta name="description" content="Lorem ipsum dolor sit amet, consectetur.">
 ```
 
-If there is no `desc` property or value, hexo-theme-apollo will use `page.title` and `page.author` instead of it. 
+If there is no `desc` property or value, hexo-theme-apollo will use `page.title` and `page.author` instead of it.
 
 ## H1~H6 Title
 
@@ -69,7 +69,7 @@ If you want to show excerpt(core content of article) to your visitors, do add HT
 
 ## Comment Plugin
 
-Hexo-theme-apollo support two comment plugins: Disqus and Duoshuo. please set like this in your `theme/_config.yml`:
+Hexo-theme-apollo support two comment plugins: Disqus and Duoshuo. please set like this in your `themes/apollo/_config.yml`:
 
 ```yaml
 disqus: seansun

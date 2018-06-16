@@ -10,8 +10,6 @@ author: Ifyour
 language: zh-Hans
 timezone: Asia/Shanghai
 
-# duoshuo
-duoshuo_shortname: ifyour
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
@@ -74,6 +72,3 @@ deploy:
   type: git
   repo: https://github.com/ifyour/ifyour.github.io
   brach: master
-
-# Swiftype Search Key
-#swiftype_key: mYzvZiSuLQRkrq_nHH8q

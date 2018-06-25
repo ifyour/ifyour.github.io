@@ -10,6 +10,7 @@ comments: true
 * [Carbon](https://carbon.now.sh/) - 带样式分享代码
 * [Codepan](https://codepan.net/) - 在线测试前端代码, 可以离线使用
 * [jsFiddle](https://jsfiddle.net/) - 同上, 注册账号后可以保存代码
+* [Web Maker](https://webmakerapp.com/app/) - 又一个前端代码在线测试, 特点是速度快, PWA & Chrome 扩展支持
 * [Prettier](https://prettier.io/playground/) - 在线格式化 JavaScript 代码
 * [Text-formatter](https://text-formatter.herokuapp.com/) - 格式化文本, 中英文之间留空格以及英文标点
 * [DevDocs](https://devdocs.io/) - 一站式开发文档集合

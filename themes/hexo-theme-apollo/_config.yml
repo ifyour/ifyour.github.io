@@ -16,6 +16,9 @@ disqus:
 # 是否开启 Gitment 评论系统
 gitment: true
 
+# 是否启用 Medium zoom 图片放大
+zoom: true
+
 # Analytics
 # google-analytics:
 ga: UA-120929321-1

@@ -27,6 +27,7 @@ comments: true
 * [JSNice](http://www.jsnice.org/) - 反编译已压缩的 JS 代码, 理解变量含义
 * [Love2.io](https://love2.io/) - 开源技术文档分享平台
 * [WakaTime](https://wakatime.com/) - 记录每天的编码情况, 使用什么语言及统计时长
+* [Best of JavaScript](https://bestofjs.org/) - 最流行的前端开源项目清单
 * [蓝湖](https://lanhuapp.com/) - 高效的产品设计协作平台, 标注切图很好用
 
 ### Docs

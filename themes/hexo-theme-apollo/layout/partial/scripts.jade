@@ -13,5 +13,21 @@ if ga
 - var zoom = theme.zoom
 if zoom
     script(src='https://unpkg.com/medium-zoom@0/dist/medium-zoom.min.js')
-    script
-        | mediumZoom('article img');setTimeout(function(){mediumZoom('.gitment-comment-main img');}, 3000);
+    script.
+        mediumZoom('article img');
+        (function(win, targetElem) {
+            if (!targetElem) return;
+            var checkCommentInViewport = function() {
+                if (isElementInViewport(targetElem)) {
+                    win.onscroll = null;
+                    return mediumZoom('.gitment-comment-main img');
+                }
+            }
+            checkCommentInViewport();
+            win.onscroll = checkCommentInViewport;
+            function isElementInViewport(el) {
+                var rect = el.getBoundingClientRect();
+                var winH = win.innerHeight || document.documentElement.clientHeight;
+                return rect.top <= winH && rect.bottom >= winH;
+            }
+        })(this, document.querySelector('#gc_container'));

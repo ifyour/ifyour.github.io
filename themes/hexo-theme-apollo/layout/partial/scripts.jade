@@ -17,17 +17,16 @@ if zoom
         mediumZoom('article img');
         (function(win, targetElem) {
             if (!targetElem) return;
-            var checkCommentInViewport = function() {
+            win.onscroll = (function() {
                 if (isElementInViewport(targetElem)) {
                     win.onscroll = null;
                     return mediumZoom('.gitment-comment-main img');
                 }
-            }
-            checkCommentInViewport();
-            win.onscroll = checkCommentInViewport;
+                return arguments.callee;
+            })();
             function isElementInViewport(el) {
                 var rect = el.getBoundingClientRect();
                 var winH = win.innerHeight || document.documentElement.clientHeight;
                 return rect.top <= winH && rect.bottom >= winH;
-            }
+            };
         })(this, document.querySelector('#gc_container'));

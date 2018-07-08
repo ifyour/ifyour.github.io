@@ -14,7 +14,7 @@ comments: true
 * [Prettier](https://prettier.io/playground/) - 在线格式化 JavaScript 代码
 * [Text-formatter](https://text-formatter.herokuapp.com/) - 格式化文本, 中英文之间留空格以及英文标点
 * [DevDocs](https://devdocs.io/) - 一站式开发文档集合
-* [Grammarly](https://app.grammarly.com/ddocs/261389934) - 英文语法错误检查
+* [Grammarly](https://app.grammarly.com/) - 英文语法错误检查
 * [JSONPlaceholder](http://jsonplaceholder.typicode.com/) - RESTful API 假数据模拟
 * [JSON2YAML](https://www.json2yaml.com/) - JSON 和 YAML 互转
 * [JSON Parser](http://json.parser.online.fr/beta/) - JSON 格式化

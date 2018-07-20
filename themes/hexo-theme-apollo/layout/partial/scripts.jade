@@ -14,13 +14,13 @@ if ga
 if zoom
     script(src='https://unpkg.com/medium-zoom@0/dist/medium-zoom.min.js')
     script.
-        mediumZoom('article img');
+        mediumZoom('article img', {margin: 24});
         (function(win, targetElem) {
             if (!targetElem) return;
             win.onscroll = (function() {
                 if (isElementInViewport(targetElem)) {
                     win.onscroll = null;
-                    return mediumZoom('.gitment-comment-main img');
+                    return mediumZoom('.gitment-comment-main img', {margin: 24});
                 }
                 return arguments.callee;
             })();

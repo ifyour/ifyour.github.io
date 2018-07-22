@@ -46,6 +46,8 @@ let gen = async function() {
   let p2 = await promise('2');
 };
 
+gen();
+
 // 输出结果 👇：
 1
 2

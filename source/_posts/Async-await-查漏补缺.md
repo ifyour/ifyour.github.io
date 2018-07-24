@@ -88,7 +88,7 @@ Promise {<resolved>: undefined}
 
 ### await 等待
 
-await 是个运算符，等待的结果是 Promise 对象或其他值，比如：
+await 是个运算符，等待的结果是 Promise 对象或其它值，比如：
 
 ```js
 function func1() {

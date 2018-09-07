@@ -14,8 +14,8 @@
 [![asciicast](https://asciinema.org/a/emrvroa9054hz6k8ise0uxh2u.png)](https://asciinema.org/a/emrvroa9054hz6k8ise0uxh2u)
 
 ``` bash
-hexo init Blog 
-cd Blog 
+hexo init Blog
+cd Blog
 npm install
 npm install --save hexo-renderer-jade hexo-generator-feed hexo-generator-sitemap hexo-browsersync hexo-generator-archive
 git clone https://github.com/pinggod/hexo-theme-apollo.git themes/apollo
@@ -40,7 +40,7 @@ archive_generator:
 ## 更新
 
 ``` bash
-cd themes/apollo 
+cd themes/apollo
 git pull
 ```
 

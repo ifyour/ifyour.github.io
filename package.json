@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts":{
-    "start": "hexo s",
+    "start": "hexo s -o",
     "build": "hexo clean && hexo g",
     "publish": "hexo d"
   },
@@ -24,6 +24,6 @@
     "hexo-renderer-jade": "^0.3.0",
     "hexo-renderer-marked": "^0.2.4",
     "hexo-renderer-stylus": "^0.3.0",
-    "hexo-server": "^0.3.1"
+    "hexo-server": "^0.3.3"
   }
 }

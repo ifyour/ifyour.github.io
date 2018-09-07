@@ -72,3 +72,7 @@ deploy:
   type: git
   repo: https://github.com/ifyour/ifyour.github.io
   brach: master
+
+# fix hex-server 中文渲染不全
+server:
+  compress: true

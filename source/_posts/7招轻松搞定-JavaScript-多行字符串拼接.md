@@ -17,25 +17,25 @@ comments: false
 <li><a href="#">下页</a></li>
 ```
 对于这样的 DOM 结构需要在 JavaScript 中拼接，你会怎样处理？
-#### 1. 常规方法
+#### 常规方法
 ```js
 var s=`<li><a href="">上页</a></li><li><a href="">1</a></li><li><a href="">下页</a></li>`;
 ```
-#### 2. 字符串相加
+#### 字符串相加
 ```js
 var str = `<li><a href="#">上页</a></li>` +
           `<li><a href="#"> 1 </a></li>` +
           `<li><a href="#">下页</a></li>`;
 ```
 
-#### 3.反斜杠
+#### 反斜杠
 ```js
 var str = `<li><a href="#">上页</a></li>\
            <li><a href="#"> 1 </a></li>\
            <li><a href="#">下页</a></li>`;
 ```
 
-#### 4.数组切割
+#### 数组切割
 ```js
 var str = [
     `<li><a href="#">上页</a></li>`,
@@ -44,14 +44,14 @@ var str = [
 ].join('\n');
 ```
 
-#### 5. ES6 语法
+#### ES6 语法
 ```js
 var str = `<li><a href="#">上页</a></li>
           <li><a href="#"> 1 </a></li>
           <li><a href="#">下页</a></li>`
 ```
 
-#### 6.正则表达式
+#### 正则表达式
 ```text
 查找：\n
 替换：\\\n
@@ -59,7 +59,7 @@ var str = `<li><a href="#">上页</a></li>
 ```
 ![](http://ww3.sinaimg.cn/large/6057861cgw1fbn70seheej218s0v8n0x.jpg)
 
-#### 7.黑魔法
+#### 黑魔法
 ```js
 function aHereDoc() {/*
     <li><a href="#">上页</a></li>

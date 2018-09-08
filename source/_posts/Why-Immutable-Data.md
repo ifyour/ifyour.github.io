@@ -23,7 +23,7 @@ comments: true
 
 引用类型数据结构非常灵活, 节约内存, 能给开发带来不少便利. 但与此同时也产生了一些副作用:
 
-#### Case 1:
+#### Case 1
 ```js
 let obj = { count: 1 };
 let copyObj = obj;
@@ -32,7 +32,7 @@ copyObj.count = 2;
 console.log(copyObj.count); // => 2
 console.log(obj.count); // => 2, 这并不是我们期望的
 ```
-#### Case 2:
+#### Case 2
 ```js
 let obj2 = { count: 1 };
 
@@ -97,12 +97,11 @@ obj2.age = 6;
 
 但是这两种都是浅处理, 遇到深层次的数据结构, 就需要递归处理, 又会存在性能上的问题.
 
-## How
+### How
 
 针对以上一系列需求, 我们完全可以使用不可变数据结构来处理, 对应的实现库有:
 - [facebook/immutable-js](https://github.com/facebook/immutable-js)
 - [rtfeldman/seamless-immutable](https://github.com/rtfeldman/seamless-immutable)
-
 
 Immutable.js 主要特点:
 - 稳定数据结构 (Persistent Data Structure), 每次返回新的对象, 不存在引用
@@ -165,7 +164,7 @@ console.log(map2.getIn(['a', 'b', 'list'])); // => List [ 1, 2, 3, 4 ]
 
 还有一个特点就不举例子了, 超纲! 😁
 
-## 参考
+### 参考
 - [Immutable 详解及 React 中实践](https://github.com/camsong/blog/issues/3)
 - [浅合并 (shallow merge) 例子](https://stackoverflow.com/questions/27936772/how-to-deep-merge-instead-of-shallow-merge/28248548)
 - [Lodash merge 方法](https://lodash.com/docs/4.17.10#merge)

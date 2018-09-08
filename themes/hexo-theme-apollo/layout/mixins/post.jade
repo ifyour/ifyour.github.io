@@ -43,5 +43,10 @@ mixin post(item)
             h1.post-title
                 != item.title
             +postInfo(item)
+            if(is_post())
+                .sidebar-toc
+                    span
+                        != __('catalog')
+                    != toc(page.content, {list_number: false})
             .post-content
                 != item.content

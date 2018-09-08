@@ -42,14 +42,14 @@
 @-webkit-keyframes gitment-spin {
   100% {
     -webkit-transform: rotate(360deg);
-    transform: rotate(360deg)
+    transform: rotate(360deg);
   }
 }
 
 @keyframes gitment-spin {
   100% {
     -webkit-transform: rotate(360deg);
-    transform: rotate(360deg)
+    transform: rotate(360deg);
   }
 }
 
@@ -71,7 +71,7 @@
 }
 
 .gitment-comment-like-btn.liked {
-  color: #F44336;
+  color: #f44336;
 }
 
 .gitment-header-like-btn svg {
@@ -86,7 +86,7 @@
 
 .gitment-header-like-btn.liked svg,
 .gitment-comment-like-btn.liked svg {
-  fill: #F44336;
+  fill: #f44336;
 }
 
 a.gitment-header-issue-link,
@@ -145,7 +145,7 @@ a.gitment-header-issue-link:hover {
 .gitment-comment-main,
 .gitment-editor-main {
   position: relative;
-  border: 1px solid #CFD8DC;
+  border: 1px solid #cfd8dc;
   border-radius: 0;
 }
 
@@ -160,7 +160,7 @@ a.gitment-header-issue-link:hover {
   width: 0;
   height: 0;
   pointer-events: none;
-  content: "";
+  content: '';
   border-color: transparent;
   border-style: solid solid outset;
 }
@@ -168,7 +168,7 @@ a.gitment-header-issue-link:hover {
 .gitment-editor-main::before,
 .gitment-comment-main::before {
   border-width: 8px;
-  border-right-color: #CFD8DC;
+  border-right-color: #cfd8dc;
 }
 
 .gitment-editor-main::after,
@@ -190,7 +190,7 @@ a.gitment-header-issue-link:hover {
 .gitment-editor-header {
   padding: 0;
   margin: 0;
-  border-bottom: 1px solid #CFD8DC;
+  border-bottom: 1px solid #cfd8dc;
 }
 
 a.gitment-comment-name,
@@ -227,7 +227,7 @@ a.gitment-comment-name:visited {
 .gitment-editor-tab.gitment-selected {
   color: #333;
   background-color: #fff;
-  border-color: #CFD8DC;
+  border-color: #cfd8dc;
 }
 
 .gitment-editor-login {
@@ -275,20 +275,28 @@ a.gitment-editor-logout-link:hover {
 
 .gitment-comment-body-folded::before {
   display: block !important;
-  content: "";
+  content: '';
   position: absolute;
   width: 100%;
   left: 0;
   top: 0;
   bottom: 50px;
   pointer-events: none;
-  background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0), rgba(255, 255, 255, .9));
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, .9));
+  background: -webkit-linear-gradient(
+    top,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0.9)
+  );
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0.9)
+  );
 }
 
 .gitment-comment-body-folded::after {
   display: block !important;
-  content: "Click to Expand" !important;
+  content: 'Click to Expand' !important;
   text-align: center;
   color: #666;
   position: absolute;
@@ -298,7 +306,7 @@ a.gitment-editor-logout-link:hover {
   left: 0;
   bottom: 0;
   pointer-events: none;
-  background: rgba(255, 255, 255, .9);
+  background: rgba(255, 255, 255, 0.9);
 }
 
 .gitment-editor-body {
@@ -365,7 +373,7 @@ a.gitment-editor-logout-link:hover {
 .gitment-editor-footer::after {
   display: table;
   clear: both;
-  content: "";
+  content: '';
 }
 
 a.gitment-editor-footer-tip {
@@ -391,9 +399,9 @@ a.gitment-editor-footer-tip:hover {
 .gitment-comments-page-item {
   display: inline-block;
   cursor: pointer;
-  border: 1px solid #CFD8DC;
+  border: 1px solid #cfd8dc;
   margin-left: -1px;
-  padding: .25rem .5rem;
+  padding: 0.25rem 0.5rem;
 }
 
 .gitment-comments-page-item:hover {
@@ -440,7 +448,7 @@ a.gitment-editor-footer-tip:hover {
 
 .gitment-comments-init-btn:disabled,
 .gitment-editor-submit:disabled {
-  color: rgba(255,255,255,0.75);
+  color: rgba(255, 255, 255, 0.75);
   background-color: #4fc08d;
   box-shadow: none;
 }
@@ -530,7 +538,7 @@ a.gitment-editor-footer-tip:hover {
 }
 
 .gitment-markdown .pl-c2::before {
-  content: "^M";
+  content: '^M';
 }
 
 .gitment-markdown .pl-sr .pl-cce {
@@ -664,7 +672,7 @@ a.gitment-editor-footer-tip:hover {
   overflow: visible;
 }
 
-.gitment-markdown [type="checkbox"] {
+.gitment-markdown [type='checkbox'] {
   box-sizing: border-box;
   padding: 0;
 }
@@ -703,13 +711,13 @@ a.gitment-editor-footer-tip:hover {
 
 .gitment-markdown hr::before {
   display: table;
-  content: "";
+  content: '';
 }
 
 .gitment-markdown hr::after {
   display: table;
   clear: both;
-  content: "";
+  content: '';
 }
 
 .gitment-markdown table {
@@ -795,14 +803,14 @@ a.gitment-editor-footer-tip:hover {
 }
 
 .gitment-markdown code {
-  font-family: "Roboto Mono", Monaco, courier, monospace;
+  font-family: 'Roboto Mono', Monaco, courier, monospace;
   font-size: 12px;
 }
 
 .gitment-markdown pre {
   margin-top: 0;
   margin-bottom: 0;
-  font: 12px "Roboto Mono", Monaco, courier, monospace;
+  font: 12px 'Roboto Mono', Monaco, courier, monospace;
 }
 
 .gitment-markdown .octicon {
@@ -839,20 +847,20 @@ a.gitment-editor-footer-tip:hover {
 
 .gitment-markdown::before {
   display: table;
-  content: "";
+  content: '';
 }
 
 .gitment-markdown::after {
   display: table;
   clear: both;
-  content: "";
+  content: '';
 }
 
-.gitment-markdown>*:first-child {
+.gitment-markdown > *:first-child {
   margin-top: 0 !important;
 }
 
-.gitment-markdown>*:last-child {
+.gitment-markdown > *:last-child {
   margin-bottom: 0 !important;
 }
 
@@ -897,11 +905,11 @@ a.gitment-editor-footer-tip:hover {
   border-left: 0.25em solid #dfe2e5;
 }
 
-.gitment-markdown blockquote>:first-child {
+.gitment-markdown blockquote > :first-child {
   margin-top: 0;
 }
 
-.gitment-markdown blockquote>:last-child {
+.gitment-markdown blockquote > :last-child {
   margin-bottom: 0;
 }
 
@@ -1003,11 +1011,11 @@ a.gitment-editor-footer-tip:hover {
   margin-bottom: 0;
 }
 
-.gitment-markdown li>p {
+.gitment-markdown li > p {
   margin-top: 16px;
 }
 
-.gitment-markdown li+li {
+.gitment-markdown li + li {
   margin-top: 0.25em;
 }
 
@@ -1065,21 +1073,21 @@ a.gitment-editor-footer-tip:hover {
   padding-bottom: 0.2em;
   margin: 0;
   font-size: 85%;
-  background-color: rgba(27,31,35,0.05);
+  background-color: rgba(27, 31, 35, 0.05);
   border-radius: 0;
 }
 
 .gitment-markdown code::before,
 .gitment-markdown code::after {
   letter-spacing: -0.2em;
-  content: "\00a0";
+  content: '\00a0';
 }
 
 .gitment-markdown pre {
   word-wrap: normal;
 }
 
-.gitment-markdown pre>code {
+.gitment-markdown pre > code {
   padding: 0;
   margin: 0;
   font-size: 100%;
@@ -1133,7 +1141,8 @@ a.gitment-editor-footer-tip:hover {
 .gitment-markdown kbd {
   display: inline-block;
   padding: 3px 5px;
-  font: 11px "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font: 11px 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier,
+    monospace;
   line-height: 10px;
   color: #444d56;
   vertical-align: middle;
@@ -1144,7 +1153,7 @@ a.gitment-editor-footer-tip:hover {
   box-shadow: inset 0 -1px 0 #959da5;
 }
 
-.gitment-markdown :checked+.radio-label {
+.gitment-markdown :checked + .radio-label {
   position: relative;
   z-index: 1;
   border-color: #0366d6;
@@ -1154,7 +1163,7 @@ a.gitment-editor-footer-tip:hover {
   list-style-type: none;
 }
 
-.gitment-markdown .task-list-item+.task-list-item {
+.gitment-markdown .task-list-item + .task-list-item {
   margin-top: 3px;
 }
 

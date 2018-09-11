@@ -575,9 +575,9 @@ rules: [
 ],...
 ```
 
-> 这样无法法保证 `eslint-loader` 在 `babel-loader` 应用前执行。`webpack` 在 r`ules` 中提供了一个 `enforce` 的字段来配置当前 `rule` 的 `loader` 类型，没配置的话是普通类型，我们可以配置 `pre` 或 `post`，分别对应前置类型或后置类型的 `loader`...
+> 这样无法法保证 `eslint-loader` 在 `babel-loader` 应用前执行。`webpack` 在 `rules` 中提供了一个 `enforce` 的字段来配置当前 `rule` 的 `loader` 类型，没配置的话是普通类型，我们可以配置 `pre` 或 `post`，分别对应前置类型或后置类型的 `loader`...
 
-- 所有的 `loader` **按照前置** -> **行内** -> **普通** -> **后置** 的顺序执行。所以当我们要确保 `eslint-loader` 在 `babel-loader` 之前执行时，可以如下添加 `enforce` 配置
+- 所有的 `loader` 按照 **前置** -> **行内** -> **普通** -> **后置** 的顺序执行。所以当我们要确保 `eslint-loader` 在 `babel-loader` 之前执行时，可以如下添加 `enforce` 配置
 
 ```js
 rules: [
@@ -961,7 +961,7 @@ module.exports = {
 - `webpack.production.js`：生产环境使用的配置
 - `webpack.test.js`：测试环境使用的配置...
 
-** 如何处理这样的配置拆分 **
+**如何处理这样的配置拆分**
 
 > 首先我们要明白，对于 `webpack` 的配置，其实是对外暴露一个 `JS` 对象，所以对于这个对象，我们都可以用 `JS` 代码来修改它，例如
 
@@ -1364,7 +1364,7 @@ module.exports = {
 ```
 
 - 如上，使用 `minify` 字段配置就可以使用 `HTML` 压缩，这个插件是使用 `html-minifier` 来实现 `HTML` 代码压缩的，`minify` 下的配置项直接透传给 `html-minifier`，配置项参考 `html-minifier` 文档即可。
-- 对于 CSS 文件，我们之前介绍过用来处理 CSS 文件的 `css-loader`，也提供了压缩 CSS 代码的功能：...
+- 对于 CSS 文件，我们之前介绍过用来处理 CSS 文件的 `css-loader`，也提供了压缩 CSS 代码的功能：
 
 ```js
 module.exports = {
@@ -1389,14 +1389,14 @@ module.exports = {
 };
 ```
 
-> 在 `css-loader` 的选项中配置 `minimize` 字段为 `true` 来使用 `CSS` 压缩代码的功能。`css-loader` 是使用 `cssnano` 来压缩代码的，`minimize` 字段也可以配置为一个对象，来将相关配置传递给 `cssnano`...
+> 在 `css-loader` 的选项中配置 `minimize` 字段为 `true` 来使用 `CSS` 压缩代码的功能。`css-loader` 是使用 `cssnano` 来压缩代码的，`minimize` 字段也可以配置为一个对象，来将相关配置传递给 `cssnano`
 
 ### 分离代码文件
 
 - 关于分离 CSS 文件这个主题，之前在介绍如何搭建基本的前端开发环境时有提及，在 `webpack` 中使用 `extract-text-webpack-plugin` 插件即可。
 - 先简单解释一下为何要把 CSS 文件分离出来，而不是直接一起打包在 JS 中。最主要的原因是我们希望更好地利用缓存。
 - 假设我们原本页面的静态资源都打包成一个 JS 文件，加载页面时虽然只需要加载一个 JS 文件，但是我们的代码一旦改变了，用户访问新的页面时就需要重新加载一个新的 JS 文件。有些情况下，我们只是单独修改了样式，这样也要重新加载整个应用的 JS 文件，相当不划算。
-- 还有一种情况是我们有多个页面，它们都可以共用一部分样式（这是很常见的，CSS Reset、基础组件样式等基本都是跨页面通用），如果每个页面都单独打包一个 JS 文件，那么每次访问页面都会重复加载原本可以共享的那些 CSS 代码。如果分离开来，第二个页面就有了 CSS 文件的缓存，访问速度自然会加快。虽然对第一个页面来说多了一个请求，但是对随后的页面来说，缓存带来的速度提升相对更加可观...
+- 还有一种情况是我们有多个页面，它们都可以共用一部分样式（这是很常见的，CSS Reset、基础组件样式等基本都是跨页面通用），如果每个页面都单独打包一个 JS 文件，那么每次访问页面都会重复加载原本可以共享的那些 CSS 代码。如果分离开来，第二个页面就有了 CSS 文件的缓存，访问速度自然会加快。虽然对第一个页面来说多了一个请求，但是对随后的页面来说，缓存带来的速度提升相对更加可观
 
 > `3.x` 以前的版本是使用 `CommonsChunkPlugin` 来做代码分离的，而 `webpack 4.x` 则是把相关的功能包到了 `optimize.splitChunks` 中，直接使用该配置就可以实现代码分离。
 
@@ -1421,7 +1421,7 @@ module.exports = {
 <script src="entry.bundle.js" charset="utf-8"></script>
 ```
 
-> 如果你使用了 `html-webpack-plugin`，那么对应需要的 JS 文件都会在 HTML 文件中正确引用，不用担心。如果没有使用，那么你需要从 `stats` 的 `entrypoints` 属性来获取入口应该引用哪些 JS 文件，可以参考 Node API 了解如何从 stats 中获取信息...
+> 如果你使用了 `html-webpack-plugin`，那么对应需要的 JS 文件都会在 HTML 文件中正确引用，不用担心。如果没有使用，那么你需要从 `stats` 的 `entrypoints` 属性来获取入口应该引用哪些 JS 文件，可以参考 Node API 了解如何从 stats 中获取信息
 
 ** 显式配置共享类库可以这么操作 **
 
@@ -1478,7 +1478,7 @@ module.exports = {
 }
 ```
 
-> 上述第一种做法是显示指定哪些类库作为公共部分，第二种做法实现的功能差不多，只是利用了 test 来做模块路径的匹配，第三种做法是把所有在 node_modules 下的模块，即作为依赖安装的，都作为公共部分。你可以针对项目情况，选择最合适的做法..
+> 上述第一种做法是显示指定哪些类库作为公共部分，第二种做法实现的功能差不多，只是利用了 test 来做模块路径的匹配，第三种做法是把所有在 node_modules 下的模块，即作为依赖安装的，都作为公共部分。你可以针对项目情况，选择最合适的做法
 
 #### webpack 3.x 的 CommonsChunkPlugin
 

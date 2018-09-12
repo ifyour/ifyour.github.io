@@ -19,7 +19,7 @@ if theme.gitment && page.comments
         (new Gitment({
             id: 'aid' + (new Date('#{page.date}')).getTime()/1000,
             title: '#{page.title}' + ' · 评论',
-            link: decodeURI(location.href),
+            link: decodeURI(location.protocol + '//' + location.hostname + location.pathname),
             repo: 'ifyour.github.io',
             owner: 'ifyour',
             oauth: {

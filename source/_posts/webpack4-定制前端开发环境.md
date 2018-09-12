@@ -418,12 +418,12 @@ module.exports = {
 
 - 在 webpack 配置中，和模块路径解析相关的配置都在 `resolve` 字段下
 
-```
+```js
 module.exports = {
   resolve: {
     // ...
   }
-}
+};
 ```
 
 #### 常用的一些配置

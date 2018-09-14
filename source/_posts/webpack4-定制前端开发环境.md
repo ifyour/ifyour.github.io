@@ -868,13 +868,18 @@ module.exports = (env, argv) => ({
   optimization: {
     minimize: false,
     // 使用 argv 来获取 mode 参数的值
-    minimizer: argv.mode === 'production' ? [
-      new UglifyJsPlugin({/* 你自己的配置 */}),
-      // 仅在我们要自定义压缩配置时才需要这么做
-      // mode 为 production 时 webpack 会默认使用压缩 JS 的 plugin
-    ] : [],
-  },
-})...
+    minimizer:
+      argv.mode === 'production'
+        ? [
+            new UglifyJsPlugin({
+              /* 你自己的配置 */
+            })
+            // 仅在我们要自定义压缩配置时才需要这么做
+            // mode 为 production 时 webpack 会默认使用压缩 JS 的 plugin
+          ]
+        : []
+  }
+});
 ```
 
 > 这样获取 `mode` 之后，我们就能够区分不同的构建环境，然后根据不同环境再对特殊的 `loader` 或 `plugin` 做额外的配置就可以了
@@ -968,12 +973,12 @@ module.exports = {
 ```js
 const config = {
   // ... webpack 配置
-}
+};
 
 // 我们可以修改这个 config 来调整配置，例如添加一个新的插件
 config.plugins.push(new YourPlugin());
 
-module.exports = config;...
+module.exports = config;
 ```
 
 > 因此，只要有一个工具能比较智能地合并多个配置对象，我们就可以很轻松地拆分 webpack 配置，然后通过判断环境变量，使用工具将对应环境的多个配置对象整合后提供给 webpack 使用。这个工具就是 **[webpack-merge](https://github.com/survivejs/webpack-merge)**
@@ -1031,7 +1036,7 @@ module.exports = smart(base, {
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
     }),
   ],
-})...
+})；
 ```
 
 > 可见 `webpack-merge` 提供的 `smart` 方法，可以帮助我们更加轻松地处理 `loader` 配置的合并。`webpack-merge` 还有其他 `API` 可以用于自定义合并行为
@@ -1252,7 +1257,7 @@ plugins: [
       cssImageRef: "~sprite.png"
     },
   }),
-],...
+],
 ```
 
 > 在你需要的样式代码中引入 `sprite.styl` 后调用需要的 `mixins` 即可
@@ -1566,7 +1571,7 @@ output: {
   path: path.resolve(__dirname, 'dist'),
   filename: '[name].[hash:8].js',
   chunkFilename: '[name].[hash:8].js' // 指定分离出来的代码文件的名称
-},...
+},
 ```
 
 > 这样就可以把分离出来的文件名称用 lodash 标识了，如下图：

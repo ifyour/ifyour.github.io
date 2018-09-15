@@ -902,14 +902,14 @@ module.exports = (env, argv) => ({
 ```js
 const config = {
   // ... webpack 配置
-}
+};
 
 if (process.env.NODE_ENV === 'production') {
   // 生产环境需要做的事情，如使用代码压缩插件等
-  config.plugins.push(new UglifyJsPlugin())
+  config.plugins.push(new UglifyJsPlugin());
 }
 
-module.exports = config...
+module.exports = config;
 ```
 
 #### 运行时的环境变量
@@ -1315,7 +1315,7 @@ module.exports = {
       },
     ],
   },
-}
+};
 ```
 
 #### 使用 DataURL

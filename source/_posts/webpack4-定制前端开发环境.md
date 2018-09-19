@@ -522,7 +522,7 @@ rules: [
       (value) => { /* ... */ return true; }, // 函数，通常需要高度自定义时才会使用
     ],
   },
-],...
+]
 ```
 
 #### 使用 loader 配置
@@ -549,7 +549,7 @@ rules: [
       },
     ],
   },
-],...
+]
 ```
 
 > `use` 字段可以是一个数组，也可以是一个字符串或者表示 `loader` 的对象。如果只需要一个 `loader`，也可以这样：`use: {loader: 'babel-loader'`, `options: { ...} }`
@@ -572,7 +572,7 @@ rules: [
     exclude: /node_modules/,
     loader: "babel-loader",
   },
-],...
+]
 ```
 
 > 这样无法法保证 `eslint-loader` 在 `babel-loader` 应用前执行。`webpack` 在 `rules` 中提供了一个 `enforce` 的字段来配置当前 `rule` 的 `loader` 类型，没配置的话是普通类型，我们可以配置 `pre` 或 `post`，分别对应前置类型或后置类型的 `loader`...
@@ -587,7 +587,7 @@ rules: [
     exclude: /node_modules/,
     loader: "eslint-loader",
   },
-]...
+]
 ```
 
 > 当项目文件类型和应用的 `loader` 不是特别复杂的时候，通常建议把要应用的同一类型 `loader` 都写在同一个匹配规则中，这样更好维护和控制
@@ -1558,7 +1558,7 @@ minChunks: (module, count) => {
 // 注释 webpackChunkName: "lodash" 可以用于指定 chunk 的名称，在输出文件时有用
 import(/* webpackChunkName: "lodash" */ 'lodash').then((_) => {
   console.log(_.lash([1, 2, 3])) // 打印 3
-})...
+})
 ```
 
 - 注意一下，如果你使用了 `Babel` 的话，还需要 `Syntax Dynamic Import` 这个 `Babel` 插件来处理 `import()` 这种语法。

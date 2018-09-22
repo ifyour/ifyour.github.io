@@ -1,5 +1,5 @@
 ---
-title: Axiso 使用姿势指南
+title: Axios 使用姿势指南
 comments: true
 date: 2018-09-19 22:09:48
 tags:
@@ -147,7 +147,7 @@ axios.all([getUserAccount(), getUserPerssions()]).then(
 
 ### 全局封装、异常处理
 
-在项目中，如果每次请求都写一堆 `config` 会存在大量重复代码，一般我们会封装成一个方法，把一些必要的参数配置好，同理，全局的异常还有鉴权等都统一配置。单此请求数据只做和数据相关的业务逻辑。下面来看一下 Axios 的全局封装例子。
+在项目中，如果每次请求都写一堆 `config` 会存在大量重复代码，一般我们会封装成一个方法，把一些必要的参数配置好，同理，全局的异常还有鉴权等都统一配置。单次请求数据只做和数据相关的业务逻辑。下面来看一下 Axios 的全局封装例子。
 
 #### 封装
 
@@ -184,7 +184,7 @@ export const uploadFileRequest = (url, params) => {
   });
 };
 
-//  GET 方法封装
+// GET 方法封装
 export const getRequest = url => {
   return axios({
     method: 'get',
@@ -192,7 +192,7 @@ export const getRequest = url => {
   });
 };
 
-//  PUT 方法封装
+// PUT 方法封装
 export const putRequest = (url, params) => {
   return axios({
     method: 'put',
@@ -209,7 +209,7 @@ export const putRequest = (url, params) => {
   });
 };
 
-//  DELETE 方法封装
+// DELETE 方法封装
 export const deleteRequest = url => {
   return axios({
     method: 'delete',

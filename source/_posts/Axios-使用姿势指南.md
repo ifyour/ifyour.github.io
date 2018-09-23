@@ -356,7 +356,7 @@ axios.defaults.headers.post['Content-Type'] =
 ```js
 import axios from 'axios';
 import QS from 'qs';
-import {Toast} from 'vant';
+import { Toast } from 'vant';
 
 // 环境的切换
 if (process.env.NODE_ENV == 'development') {
@@ -398,42 +398,43 @@ axios.interceptors.response.use(
   error = > {
     if (error.response.status) {
       switch (error.response.status) {
-      case 401:
-        router.replace({
-          path: '/login',
-          query: {
-            redirect: router.currentRoute.fullPath
-          }
-        });
-        break;
-      case 403:
-        Toast({
-          message: '登录过期，请重新登录',
-          duration: 1000,
-          forbidClick: true
-        });
-        break;
-        // 404 请求不存在
-      case 404:
-        Toast({
-          message: '网络请求不存在',
-          duration: 1500,
-          forbidClick: true
-        });
-        break;
-        // 其他错误，直接抛出错误提示
-      default:
-        Toast({
-          message: error.response.data.message,
-          duration: 1500,
-          forbidClick: true
-        });
+        case 401:
+          router.replace({
+            path: '/login',
+            query: {
+              redirect: router.currentRoute.fullPath
+            }
+          });
+          break;
+        case 403:
+          Toast({
+            message: '登录过期，请重新登录',
+            duration: 1000,
+            forbidClick: true
+          });
+          break;
+          // 404 请求不存在
+        case 404:
+          Toast({
+            message: '网络请求不存在',
+            duration: 1500,
+            forbidClick: true
+          });
+          break;
+          // 其他错误，直接抛出错误提示
+        default:
+          Toast({
+            message: error.response.data.message,
+            duration: 1500,
+            forbidClick: true
+          });
       }
       return Promise.reject(error.response);
     }
   }
 );
 
+// GET 请求
 export function get(url, params) {
   return new Promise((resolve, reject) => {
     axios
@@ -447,6 +448,7 @@ export function get(url, params) {
   });
 }
 
+// POST 请求
 export function post(url, params) {
   return new Promise((resolve, reject) => {
     axios

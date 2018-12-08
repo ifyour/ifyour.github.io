@@ -10,7 +10,6 @@ author: Ifyour
 language: en
 timezone: Asia/Shanghai
 
-
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: http://ifyour.github.io/
@@ -76,3 +75,24 @@ deploy:
 # fix hex-server 中文渲染不全
 server:
   compress: true
+
+# offline config passed to sw-precache.
+service_worker:
+  maximumFileSizeToCacheInBytes: 5242880
+  staticFileGlobs:
+    - public/**/*.{js,html,css,png,jpg,gif,svg,eot,ttf,woff,woff2}
+  stripPrefix: public
+  verbose: true
+  runtimeCaching:
+    - urlPattern: /*
+      handler: cacheFirst
+      options:
+        origin: unpkg.com
+    - urlPattern: /*
+      handler: cacheFirst
+      options:
+        origin: cdn.bootcss.com
+    - urlPattern: /*
+      handler: cacheFirst
+      options:
+        origin: cdn.mathjax.com

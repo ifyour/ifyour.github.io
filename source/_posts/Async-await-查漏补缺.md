@@ -53,7 +53,7 @@ gen();
 2
 ```
 
-Async 函数是在 Generator 函数上进行的改进，语法上 Generator 函数的星号换成了 `async`，`yield` 换成了 `await`。
+async 函数是在 Generator 函数上进行的改进，语法上 Generator 函数的星号换成了 `async`，`yield` 换成了 `await`。
 
 而 async 也与 Generator 函数 **不同**：
 
@@ -253,10 +253,11 @@ submit: 2210.47998046875ms
 
 ### async/await 注意点
 
-1.  `async` 用来申明里面包裹的内容 **能够以同步的方式执行**，`await` 则是进行执行顺序控制，每次执行一个 `await`，阻塞代码执行等待 `await` 返回值，然后再执行之后的 `await`
-2.  `await` 后面调用的函数需要返回一个 Promise
-3.  `await` 只能用在 `async` 函数之中，用在普通函数中会报错
-4.  `await` 命令后面的 Promise 对象，运行结果可能是 `rejected`，所以最好把 `await` 命令放在 `try...catch` 代码块中
+1.  `async` 用来声明里面包裹的内容 **能够以同步的方式执行**，`await` 则是进行执行顺序控制，每次执行一个 `await`，阻塞代码执行等待 `await` 返回值，然后再执行之后的 `await`
+2.  `await` 只能用在 `async` 函数之中，用在普通函数中会报错
+3.  `await` 命令后面的 Promise 对象，运行结果可能是 `rejected`，所以最好把 `await` 命令放在 `try...catch` 代码块中
+4.  `await` 后面的表达式如果不是 Promise 实例，`await` 会阻塞后面的代码，然后执行 `async` 外面的同步代码，等同步代码执行完毕后回到 `async` 执行这个表达式作为 `await` 内容，详见这个 [JSFiddle](https://jsfiddle.net/zd4cbfrv/)
+5.  `await` 后面的表达式是一个 Promise 对象，`await` 也会暂停 `async` 后面的代码，先执行 `async` 外面的同步代码，等着 Promise 对象 `fulfilled`，然后把 `resolve` 的参数作为 await 表达式的运算结果，详见[这道](https://github.com/ifyour/learn-javascript/issues/15)面试题
 
 #### async/await 结合 try/catch 写法
 

@@ -37,6 +37,14 @@
       &::before {
         content: counters(section, '.') '. ';
       }
+      &.toc-item.active {
+        > .toc-link {
+          color: #42b983;
+        }
+      }
+      &.toc-item.active::before {
+        color: #42b983;
+      }
       ol {
         padding-left: 15px;
       }

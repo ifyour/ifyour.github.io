@@ -95,4 +95,8 @@ service_worker:
     - urlPattern: /*
       handler: cacheFirst
       options:
-        origin: cdn.mathjax.com
+        origin: cdn.mathjax.org
+    - urlPattern: /*
+      handler: cacheFirst
+      options:
+        origin: wenjunjiang.win

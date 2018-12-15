@@ -4,6 +4,7 @@
   "description": "Just Person Blog",
   "start_url": "/",
   "display": "standalone",
+  "background_color": "#ffffff",
   "icons": [
     {
       "src": "/img/webAppIcon-256x256.png",

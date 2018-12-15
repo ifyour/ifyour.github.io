@@ -6,8 +6,8 @@
   "display": "standalone",
   "icons": [
     {
-      "src": "/favicon.png",
-      "sizes": "174x202",
+      "src": "/img/webAppIcon-256x256.png",
+      "sizes": "256x256",
       "type": "image/png"
     }
   ]

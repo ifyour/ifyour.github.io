@@ -1,5 +1,11 @@
 meta(charset="utf-8")
 meta(name="X-UA-Compatible", content="IE=edge")
+meta(name="theme-color", content="#ffffff")
+meta(name="apple-mobile-web-app-capable", content="yes")
+meta(name="apple-mobile-web-app-status-bar-style", content="black")
+meta(name="apple-mobile-web-app-title", content="Ifyour's Blog")
+meta(name="msapplication-TileImage", content="/img/webAppIcon-256x256.png")
+meta(name="msapplication-TileColor", content="#000")
 
 title
     block site_title
@@ -13,6 +19,9 @@ link(rel="icon", type="image/x-icon", href=url_for(theme.favicon))
 link(rel="stylesheet", href=url_for("css/apollo.css"))
 link(rel="apple-touch-icon", size="256x256", href=url_for("/img/webAppIcon-256x256.png"))
 link(rel="apple-touch-icon", size="512x512", href=url_for("/img/webAppIcon-512x512.png"))
+link(rel="apple-touch-startup-image", href=url_for("/img/apple-launch-750x1334.png"))
+link(rel="preload", href=url_for("/css/apollo.css"))
+link(rel="preload", href=url_for("/js/main.js"))
 
 - var xml = config.url + '/atom.xml'
     link(rel="search", type="application/opensearchdescription+xml", href=xml, title=config.title)

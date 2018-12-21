@@ -100,3 +100,9 @@ service_worker:
       handler: cacheFirst
       options:
         origin: wenjunjiang.win
+
+# algolia
+algolia:
+  applicationID: 3XQ5CPDDMK
+  apiKey: abe9e26eebcac723f34ade5cf6b97441
+  indexName: prod_blog

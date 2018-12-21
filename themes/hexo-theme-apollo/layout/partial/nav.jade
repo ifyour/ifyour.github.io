@@ -7,3 +7,6 @@ ul.nav.nav-list
             - var act = !re.test(value) && "/"+(arr.length > 1 ? arr[0]+"/" : "") === value
             a.nav-list-link(class={active: act} href=url_for(value) target=tar)
                 != key.toUpperCase()
+    li.nav-list-item
+        a.nav-list-link(class={active: false} href="javascript:;" target=tar id="search")
+            | SEARCH

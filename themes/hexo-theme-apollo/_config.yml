@@ -1,10 +1,10 @@
 menu:
-    Blog: /
-    Archive: /archives/
-    Twitter: https://twitter.com/JohnWmm/
-    GitHub: https://github.com/ifyour/
-    Docs: /docs/
-    About: /about/
+  Blog: /
+  Archive: /archives/
+  # Twitter: https://twitter.com/JohnWmm/
+  # GitHub: https://github.com/ifyour/
+  Docs: /docs/
+  About: /about/
 
 favicon: /favicon.png
 logo: /favicon.png

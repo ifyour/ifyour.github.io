@@ -65,6 +65,9 @@
     })(),
     search: (function() {
       var search = $('#search');
+      var searchModal = $('.search');
+      var closeModal = searchModal.querySelector('.close');
+      var searchInput = $('#search-input');
       var algoliaConfig = document.querySelector(
         'meta[property="algolia:search"]'
       ).dataset;
@@ -77,7 +80,21 @@
       return {
         active: function() {
           search.addEventListener('click', function() {
-            console.log('开启搜索蒙层');
+            searchModal.classList.add('active');
+            setTimeout(function () {
+              searchInput.focus();
+            }, 300);
+          });
+
+          d.onkeydown = function (e) {
+            var keyNum = window.event ? e.keyCode : e.which;
+            if (keyNum === 27) { // Esc
+              searchModal.classList.remove('active');
+            }
+          }
+
+          closeModal.addEventListener('click', function() {
+            searchModal.classList.remove('active');
           });
         }
       };
@@ -87,6 +104,7 @@
   w.addEventListener('DOMContentLoaded', function() {
     var top = rootScrollTop();
     Blog.toc.active(top);
+    Blog.search.active();
   });
 
   d.addEventListener(
@@ -98,5 +116,4 @@
     false
   );
 
-  Blog.search.active();
 })(window, document);

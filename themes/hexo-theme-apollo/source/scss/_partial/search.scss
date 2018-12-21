@@ -1,0 +1,117 @@
+.search {
+  position: absolute;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  overflow: auto;
+  // visibility: hidden;
+  display: none;
+  &.active {
+    animation: slide-up-search .3s cubic-bezier(.8,-.4,.2,1.44) 0s forwards;
+    // visibility: visible;
+    display: block;
+  }
+  .close {
+    position: absolute;
+    right: 40px;
+    top: 20px;
+    width: 25px;
+    height: 42px;
+    &::after {
+      content: 'Esc';
+      position: relative;
+      top: -9px;
+      left: 3px;
+      font-size: 13px;
+      color: rgba(14,30,37,.38);
+    }
+  }
+  .container {
+    width: 700px;
+    margin: 0 auto;
+    padding-top: 60px;
+  }
+  .search-input {
+    -webkit-appearance: none;
+    background: 0 0;
+    border: 0;
+    border-bottom: 4px solid rgba(14,30,37,.08);
+    border-radius: 0;
+    box-sizing: border-box;
+    font-size: 1.618em;
+    font-weight: 500;
+    outline: 0;
+    padding: .5rem 0;
+    transition: border-color 3s ease;
+    width: 100%;
+    &:focus {
+      border-color: #42b983;
+    }
+  }
+  .search-by {
+    color: #C3C3C3;
+    text-align: right;
+    margin-top: 4px;
+    margin-bottom: 40px;
+  }
+  .search-results {
+    .search-item {
+      margin-bottom: 40px;
+      h3 {
+        display: inline-block;
+        font-size: 14px;
+        margin-bottom: 25px;
+        margin-top: 0;
+        &::after {
+          background: #42b983;
+          content: " ";
+          display: block;
+          height: 2px;
+          margin-top: 5px;
+          width: 24px;
+        }
+      }
+      ul {
+        margin: 0;
+        list-style: none;
+        padding: 0;
+        li {
+          margin-bottom: 25px;
+          &:last-of-type {
+            margin-bottom: 0;
+          }
+          .search-item-title {
+            font-size: 16px;
+            margin-bottom: 8px;
+            a {
+              padding-bottom: 2px;
+              &:hover {
+                border-bottom: 2px solid #42b983;
+              }
+            }
+          }
+          .search-item-summary {
+            font-size: 14px;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes slide-up-search {
+  0% {
+      opacity: 0;
+      transform: translateY(2em)
+  }
+  100% {
+      opacity: 1;
+      transform: translateY(0)
+  }
+}

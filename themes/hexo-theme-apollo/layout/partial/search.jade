@@ -19,19 +19,17 @@
                             a(href="javascript:;") 这是一个标题这是一个标题这是一个标题这是一个标题
                         .search-item-summary(style="-webkit-box-orient: vertical;")
                             | 文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介
-            .search-item
-                h3 PAGES
-                ul
-                    li
-                        .search-item-title
-                            a(href="javascript:;") 这是一个标题这是一个标题这是一个标题这是一个标题
-                        .search-item-summary(style="-webkit-box-orient: vertical;")
-                            | 文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介
-            .search-item
-                h3 DOCS
-                ul
-                    li
-                        .search-item-title
-                            a(href="javascript:;") 这是一个标题这是一个标题这是一个标题这是一个标题
-                        .search-item-summary(style="-webkit-box-orient: vertical;")
-                            | 文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介
+    script#search-tmp(type='text/html').
+        <h3>ARTICLES</h3>
+        <ul>
+            {{each list item index}}
+            <li>
+                <div class="search-item-title">
+                    <a href="javascript:;">{{ item.title  }}</a>
+                </div>
+                <div class="search-item-summary" style="-webkit-box-orient: vertical;">
+                    {{ item.summary }}
+                </div>
+            </li>
+            {{/each}}
+        </ul>

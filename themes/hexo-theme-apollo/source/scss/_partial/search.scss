@@ -6,7 +6,6 @@
   width: 100%;
   height: 100%;
   background-color: #fff;
-  overflow: auto;
   display: none;
   &.active {
     animation: slide-up-search 0.3s cubic-bezier(0.8, -0.4, 0.2, 1.44) 0s

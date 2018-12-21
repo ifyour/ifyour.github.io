@@ -1,5 +1,6 @@
 (function(w, d) {
   var $ = d.querySelector.bind(d);
+  var template = window.template;
   var noop = function() {};
   var offset = function(el) {
     var x = el.offsetLeft;
@@ -75,7 +76,20 @@
         algoliaConfig.applicationId,
         algoliaConfig.apiKey
       );
-      client.initIndex(algoliaConfig.indexName);
+      var searchIndex = client.initIndex(algoliaConfig.indexName);
+      var query = function (q) {
+        return searchIndex.search(q, { hitsPerPage: 10 }).then(function(res) {
+          return res.hits;
+        });
+      }
+      var render = function (data) {
+        // data = [{title: 'xxx', summary: 'xxxx'}]
+        template($('#search-tmp'), {list: data})
+      }
+
+      query('node').then(function(result) {
+        console.log(result);
+      })
 
       return {
         active: function() {

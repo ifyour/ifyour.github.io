@@ -1,7 +1,7 @@
 ---
 title: React 组件模式
 comments: true
-date: 2018-05-16 00:33:40
+date: 2018-05-15 00:33:40
 tags:
 from: https://levelup.gitconnected.com/react-component-patterns-ab1f09be2c82
 ---
@@ -12,9 +12,9 @@ from: https://levelup.gitconnected.com/react-component-patterns-ab1f09be2c82
 
 ### 概要
 
-* 有状态组件 vs 无状态组件
-* 容器组件 vs 展示组件
-* 高阶组件 vs 回调渲染组件
+- 有状态组件 vs 无状态组件
+- 容器组件 vs 展示组件
+- 高阶组件 vs 回调渲染组件
 
 ![image](https://user-images.githubusercontent.com/15377484/40128970-a333542c-5965-11e8-8505-d1284d2759b1.png)
 
@@ -22,17 +22,13 @@ from: https://levelup.gitconnected.com/react-component-patterns-ab1f09be2c82
 
 正如 WEB 服务有静态和动态之分，React 组件也有有状态和无状态的区分。
 
-* 有状态组件：在应用中组件可以拥有自身状态并操纵它；
-* 无状态组件：只接收属性进行效果呈现。
+- 有状态组件：在应用中组件可以拥有自身状态并操纵它；
+- 无状态组件：只接收属性进行效果呈现。
 
 一个简单的无状态组件，只受属性控制:
 
 ```jsx
-const Button = props => (
-  <button onClick={props.onClick}>
-    {props.text}
-  </button>
-);
+const Button = props => <button onClick={props.onClick}>{props.text}</button>;
 ```
 
 一个具有计数功能的按钮组件 (复用上面 Button 组件)
@@ -40,13 +36,13 @@ const Button = props => (
 ```jsx
 class ButtonCounter extends React.Component {
   constructor() {
-    super()
-    this.state = {clicks: 0}
-    this.handleClick = this.handleClick.bind(this)
+    super();
+    this.state = { clicks: 0 };
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick() {
-    this.setState({clicks: this.state.clicks + 1})
+    this.setState({ clicks: this.state.clicks + 1 });
   }
 
   render() {
@@ -55,7 +51,7 @@ class ButtonCounter extends React.Component {
         onClick={this.handleClick}
         text={`You've clicked me ${this.state.clicks} times!`}
       />
-    )
+    );
   }
 }
 ```
@@ -67,12 +63,15 @@ class ButtonCounter extends React.Component {
 当组件需要获取外部数据时，我们又可以将组件划分为两种新的类型。容器组件负责获取数据，它常常是超出了 React 范畴的，如使用 Redux 或 Relay 进行了绑定。对比而言，展示型组件不依赖于程序其他部分，它只和自身状态或属性有关。下面我们实现一个用户列表的展示组件:
 
 ```jsx
-const UserList = props =>
+const UserList = props => (
   <ul>
     {props.users.map(u => (
-      <li>{u.name} — {u.age} years old</li>
+      <li>
+        {u.name} — {u.age} years old
+      </li>
     ))}
   </ul>
+);
 ```
 
 容器组件可以用来更新用户列表的展示:
@@ -80,16 +79,16 @@ const UserList = props =>
 ```jsx
 class UserListContainer extends React.Component {
   constructor() {
-    super()
-    this.state = {users: [] }
+    super();
+    this.state = { users: [] };
   }
 
   componentDidMount() {
-    fetchUsers(users => this.setState({ users }))
+    fetchUsers(users => this.setState({ users }));
   }
 
   render() {
-    return <UserList users={this.state.users} />
+    return <UserList users={this.state.users} />;
   }
 }
 ```
@@ -108,27 +107,24 @@ class UserListContainer extends React.Component {
 function makeToggleable(Clickable) {
   return class extends React.Component {
     constructor() {
-      super()
-      this.toggle = this.toggle.bind(this)
-      this.state = {show: false}
+      super();
+      this.toggle = this.toggle.bind(this);
+      this.state = { show: false };
     }
 
     toggle() {
-      this.setState(prevState => ({ show: !prevState.show }))
+      this.setState(prevState => ({ show: !prevState.show }));
     }
 
     render() {
       return (
         <div>
-          <Clickable
-            {...this.props}
-            onClick={this.toggle}
-          />
+          <Clickable {...this.props} onClick={this.toggle} />
           {this.state.show && this.props.children}
         </div>
-      )
+      );
     }
-  }
+  };
 }
 ```
 
@@ -142,7 +138,7 @@ class ToggleableMenu extends React.Component {
       <div onClick={this.props.onClick}>
         <h1>{this.props.title}</h1>
       </div>
-    )
+    );
   }
 }
 ```
@@ -164,7 +160,7 @@ class Menu extends React.Component {
           <p>More content</p>
         </ToggleableMenu>
       </div>
-    )
+    );
   }
 }
 ```
@@ -178,17 +174,17 @@ class Menu extends React.Component {
 ```jsx
 class Toggleable extends React.Component {
   constructor() {
-    super()
-    this.toggle = this.toggle.bind(this)
-    this.state = {show: false}
+    super();
+    this.toggle = this.toggle.bind(this);
+    this.state = { show: false };
   }
 
   toggle() {
-    this.setState(prevState => ({ show: !prevState.show }))
+    this.setState(prevState => ({ show: !prevState.show }));
   }
 
   render() {
-    return this.props.children(this.state.show, this.toggle)
+    return this.props.children(this.state.show, this.toggle);
   }
 }
 ```
@@ -211,7 +207,7 @@ class Toggleable extends React.Component {
 上面的代码已经将一个函数作为** 子组件 **，但是，若我们想复用上述逻辑，我们需要创建一个转换逻辑的新组件：
 
 ```jsx
-const ToggleableMenu = props =>
+const ToggleableMenu = props => (
   <Toggleable>
     {(show, onClick) => (
       <div>
@@ -222,6 +218,7 @@ const ToggleableMenu = props =>
       </div>
     )}
   </Toggleable>
+);
 ```
 
 我们使用 Render Callbacks 实现的可扩展的 Menu 组件如下:
@@ -241,7 +238,7 @@ class Menu extends React.Component {
           <p>More content</p>
         </ToggleableMenu>
       </div>
-    )
+    );
   }
 }
 ```

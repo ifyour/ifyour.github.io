@@ -110,9 +110,7 @@
 
           search.addEventListener('click', function() {
             searchModal.classList.add('active');
-            setTimeout(function () {
-              searchInput.focus();
-            }, 300);
+            searchInput.focus();
           });
 
           d.onkeydown = function (e) {

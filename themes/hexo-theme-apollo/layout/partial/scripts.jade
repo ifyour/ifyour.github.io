@@ -1,13 +1,9 @@
-//- LaTex
-script(async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous")
+//- libs
+script(src="/js/algoliasearch.min.js")
+script(src="/js/template-web.min.js")
 
-//- Analytics tracking
-- var ga = theme.ga
-if ga
-    script
-        | (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',
-        != '"' + ga + '"'
-        | ,'auto');ga('send','pageview');
+//- main
+script(src="/js/main.js")
 
 //- Medium zoom plugin
 - var zoom = theme.zoom
@@ -31,5 +27,13 @@ if zoom
             };
         })(this, document.querySelector('#gc_container'));
 
-//- main (Toc highlight, goTop etc..)
-script(src="/js/main.js")
+//- LaTex
+script(async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous")
+
+//- Analytics tracking
+- var ga = theme.ga
+if ga
+    script
+        | (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',
+        != '"' + ga + '"'
+        | ,'auto');ga('send','pageview');

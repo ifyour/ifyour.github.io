@@ -1,9 +1,11 @@
 {
-  "name": "hexo-site",
-  "version": "0.0.0",
+  "name": "ifyour-blog",
+  "version": "1.1.0",
   "private": true,
   "scripts": {
-    "dev": "hexo s -o",
+    "start": "hexo s -o",
+    "dev": "nodemon -e js,jade,md,scss,yml --ignore public/ -L --exec 'hexo g && hexo s'",
+    "index": "hexo c && hexo algolia",
     "build": "hexo clean && hexo g",
     "publish": "hexo d"
   },
@@ -12,6 +14,7 @@
   },
   "dependencies": {
     "hexo": "^3.7.1",
+    "hexo-algoliasearch": "^0.3.0",
     "hexo-browsersync": "^0.2.0",
     "hexo-deployer-git": "^0.2.0",
     "hexo-generator-archive": "^0.1.4",
@@ -26,5 +29,8 @@
     "hexo-renderer-stylus": "^0.3.0",
     "hexo-server": "^0.3.3",
     "hexo-service-worker": "^1.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.9"
   }
 }

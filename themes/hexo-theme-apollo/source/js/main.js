@@ -66,9 +66,9 @@
       };
     })(),
     search: (function() {
-      var search = $('#search');
+      var navSearchText = $('#search');
       var searchModal = $('.search');
-      var closeModal = searchModal.querySelector('.close');
+      var closeButton = searchModal.querySelector('.close');
       var searchInput = $('#search-input');
       var searchResult = $('#search-articles');
       var searchConfig = document.querySelector(
@@ -108,7 +108,7 @@
             }
           })
 
-          search.addEventListener('click', function() {
+          navSearchText.addEventListener('click', function() {
             searchModal.classList.add('active');
             searchInput.focus();
           });
@@ -122,7 +122,7 @@
             }
           }
 
-          closeModal.addEventListener('click', function() {
+          closeButton.addEventListener('click', function() {
             searchModal.classList.remove('active');
             searchResult.innerHTML = '';
             searchInput.value = '';

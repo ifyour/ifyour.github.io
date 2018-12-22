@@ -5,7 +5,7 @@
   "scripts": {
     "start": "hexo s -o",
     "dev": "nodemon -e js,jade,md,scss,yml --ignore public/ -L --exec 'hexo g && hexo s'",
-    "index": "hexo algolia",
+    "index": "hexo clean && hexo algolia",
     "build": "hexo clean && hexo g",
     "publish": "hexo d"
   },

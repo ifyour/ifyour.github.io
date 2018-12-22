@@ -126,6 +126,8 @@
 
           closeModal.addEventListener('click', function() {
             searchModal.classList.remove('active');
+            searchResult.innerHTML = '';
+            searchInput.value = '';
           });
         }
       };

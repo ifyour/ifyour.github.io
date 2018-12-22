@@ -3,11 +3,11 @@
   "version": "1.1.0",
   "private": true,
   "scripts": {
-    "start": "node_modules/.bin/hexo s -o",
-    "dev": "node_modules/.bin/nodemon -e jade,md,scss,yml --ignore public/ -L --exec 'node_modules/.bin/hexo s && node_modules/.bin/hexo g'",
-    "index": "./node_modules/.bin/hexo c && node_modules/.bin/hexo algolia",
-    "build": "node_modules/.bin/hexo clean && node_modules/.bin/hexo g",
-    "publish": "node_modules/.bin/hexo d"
+    "start": "hexo s -o",
+    "dev": "nodemon -e js,jade,md,scss,yml --ignore public/ -L --exec 'hexo g && hexo s'",
+    "index": "hexo c && hexo algolia",
+    "build": "hexo clean && hexo g",
+    "publish": "hexo d"
   },
   "hexo": {
     "version": "3.7.1"

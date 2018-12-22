@@ -4,32 +4,26 @@
         | !{closeSvg}
     .container
         input#search-input.search-input(autocomplete='off', type='text', placeholder='Type to search')
-        .search-by Search by algolia
+        .search-by
+            | Search by
+            a(href='https://www.algolia.com/' target='_blank')  algolia
         .search-results
-            .search-item
-                h3 ARTICLES
-                ul
-                    li
-                        .search-item-title
-                            a(href="javascript:;") 这是一个标题这是一个标题这是一个标题这是一个标题
-                        .search-item-summary(style="-webkit-box-orient: vertical;")
-                            | 文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介
-                    li
-                        .search-item-title
-                            a(href="javascript:;") 这是一个标题这是一个标题这是一个标题这是一个标题
-                        .search-item-summary(style="-webkit-box-orient: vertical;")
-                            | 文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介
+            .search-item#search-articles
     script#search-tmp(type='text/html').
-        <h3>ARTICLES</h3>
-        <ul>
-            {{each list item index}}
-            <li>
-                <div class="search-item-title">
-                    <a href="javascript:;">{{ item.title  }}</a>
-                </div>
-                <div class="search-item-summary" style="-webkit-box-orient: vertical;">
-                    {{ item.summary }}
-                </div>
-            </li>
-            {{/each}}
-        </ul>
+        {{if list.length}}
+            <h3>ARTICLES</h3>
+            <ul>
+                {{each list item}}
+                <li>
+                    <div class="search-item-title">
+                        <a href="{{item.permalink}}">{{@item.title}}</a>
+                    </div>
+                    <div class="search-item-summary" style="-webkit-box-orient: vertical;">
+                        {{@item.summary}}
+                    </div>
+                </li>
+                {{/each}}
+            </ul>
+        {{else if list}}
+            <h2> Oops! No Result~ 😱</h2>
+        {{/if}}

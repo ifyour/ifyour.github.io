@@ -70,28 +70,23 @@
       var searchModal = $('.search');
       var closeModal = searchModal.querySelector('.close');
       var searchInput = $('#search-input');
-      var algoliaConfig = document.querySelector(
+      var searchResult = $('#search-articles');
+      var searchConfig = document.querySelector(
         'meta[property="algolia:search"]'
       ).dataset;
       var client = algoliasearch(
-        algoliaConfig.applicationId,
-        algoliaConfig.apiKey
+        searchConfig.applicationId,
+        searchConfig.apiKey
       );
-      var searchIndex = client.initIndex(algoliaConfig.indexName);
+      var searchIndex = client.initIndex(searchConfig.indexName);
       var query = function (q) {
         return searchIndex.search(q, { hitsPerPage: 10 }).then(function(res) {
           return res.hits;
         });
       }
       var render = function (data) {
-        // data = [{title: 'xxx', summary: 'xxxx'}]
-        template($('#search-tmp'), {list: data})
+        searchResult.innerHTML = template('search-tmp', {list: data});
       }
-
-      // query('node').then(function(result) {
-      //   console.log(result);
-      // })
-
       return {
         active: function() {
 
@@ -99,8 +94,17 @@
             var value = searchInput.value.trim();
             if (value) {
               query(value).then(function (result) {
-                console.log(result);
+                var tmpData = result.map(function (item) {
+                  return {
+                    title: item._highlightResult.title.value,
+                    permalink: item.permalink,
+                    summary: item._highlightResult.excerptStrip.value
+                  }
+                })
+                render(tmpData);
               })
+            } else {
+              searchResult.innerHTML = '';
             }
           })
 
@@ -115,6 +119,8 @@
             var keyNum = w.event ? e.keyCode : e.which;
             if (keyNum === 27) { // Esc
               searchModal.classList.remove('active');
+              searchResult.innerHTML = '';
+              searchInput.value = '';
             }
           }
 

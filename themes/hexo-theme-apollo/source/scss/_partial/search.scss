@@ -60,6 +60,12 @@
     text-align: right;
     margin-top: 4px;
     margin-bottom: 40px;
+    a {
+      color: #c3c3c3;
+      &:hover {
+        color: #888;
+      }
+    }
   }
   .search-results {
     .search-item {
@@ -84,14 +90,24 @@
         padding: 0;
         li {
           margin-bottom: 25px;
+          border-bottom: 1px dashed gray;
+          padding-bottom: 20px;
           &:last-of-type {
             margin-bottom: 0;
+            border-bottom: 0;
           }
           .search-item-title {
             font-size: 16px;
             margin-bottom: 8px;
             a {
               padding-bottom: 2px;
+              em {
+                background-color: #42b983;
+                color: #fff;
+                font-style: normal;
+                font-weight: normal;
+                padding: 0 2px;
+              }
               &:hover {
                 border-bottom: 2px solid #42b983;
               }
@@ -102,6 +118,13 @@
             overflow: hidden;
             display: -webkit-box;
             -webkit-line-clamp: 3;
+            em {
+              background-color: #42b983;
+              padding: 0 2px;
+              color: #fff;
+              font-style: normal;
+              font-weight: normal;
+            }
           }
         }
       }

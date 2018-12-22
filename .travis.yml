@@ -13,8 +13,8 @@ before_install:
 install:
   - npm i
 script:
+  - hexo clean && npm run index
   - hexo clean && hexo g
-  - npm run index
 after_success:
   - cd ./public
   - git init

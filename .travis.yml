@@ -2,22 +2,23 @@ language: node_js
 node_js: stable
 branches:
   only:
-  - src
+    - src
 cache:
   directories:
     - node_modules
 before_install:
-- git config --global user.name "ifyour"
-- git config --global user.email "ifyour@outlook.com"
-- npm install -g hexo-cli
+  - git config --global user.name "ifyour"
+  - git config --global user.email "ifyour@outlook.com"
+  - npm install -g hexo-cli
 install:
-- npm i
+  - npm i
 script:
-- hexo clean && hexo g
+  - hexo clean && hexo g
+  - npm run index
 after_success:
-- cd ./public
-- git init
-- git add --all .
-- git commit -m "Travis CI Auto Builder"
-- git push --quiet --force https://$REPO_TOKEN@github.com/ifyour/ifyour.github.io.git
-  master
+  - cd ./public
+  - git init
+  - git add --all .
+  - git commit -m "Travis CI Auto Builder"
+  - git push --quiet --force https://$REPO_TOKEN@github.com/ifyour/ifyour.github.io.git
+    master

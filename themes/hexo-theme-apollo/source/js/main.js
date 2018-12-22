@@ -1,6 +1,7 @@
 (function(w, d) {
   var $ = d.querySelector.bind(d);
-  var template = window.template;
+  var template = w.template;
+  var algoliasearch = w.algoliasearch;
   var noop = function() {};
   var offset = function(el) {
     var x = el.offsetLeft;
@@ -16,7 +17,7 @@
     return d.documentElement.scrollTop || d.body.scrollTop;
   };
   var isMobile = function() {
-    var ua = window.navigator.userAgent;
+    var ua = w.navigator.userAgent;
     var EXP_ISMOBILE = /(micromessenger|phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i;
     return EXP_ISMOBILE.test(ua);
   };
@@ -87,12 +88,22 @@
         template($('#search-tmp'), {list: data})
       }
 
-      query('node').then(function(result) {
-        console.log(result);
-      })
+      // query('node').then(function(result) {
+      //   console.log(result);
+      // })
 
       return {
         active: function() {
+
+          searchInput.addEventListener('input', function () {
+            var value = searchInput.value.trim();
+            if (value) {
+              query(value).then(function (result) {
+                console.log(result);
+              })
+            }
+          })
+
           search.addEventListener('click', function() {
             searchModal.classList.add('active');
             setTimeout(function () {
@@ -101,7 +112,7 @@
           });
 
           d.onkeydown = function (e) {
-            var keyNum = window.event ? e.keyCode : e.which;
+            var keyNum = w.event ? e.keyCode : e.which;
             if (keyNum === 27) { // Esc
               searchModal.classList.remove('active');
             }

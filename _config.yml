@@ -103,6 +103,16 @@ service_worker:
 
 # algolia
 algolia:
-  applicationID: 3XQ5CPDDMK
+  appId: 3XQ5CPDDMK
   apiKey: abe9e26eebcac723f34ade5cf6b97441
+  adminApiKey: 072ad2692d59a568ac81b42afcdcdb0b
+  chunkSize: 5000
   indexName: prod_blog
+  fields:
+    - title
+    - tags
+    - layout
+    - from
+    - permalink
+    - excerpt:strip
+    - content:strip:truncate,200,1600

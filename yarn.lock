@@ -91,9 +91,9 @@ ajv@^4.9.1:
     co "^4.6.0"
     json-stable-stringify "^1.0.1"
 
-algoliasearch@^3.31.0:
-  version "3.32.0"
-  resolved "http://registry.npm.taobao.org/algoliasearch/download/algoliasearch-3.32.0.tgz#5818168c26ff921bd0346a919071bac928b747ce"
+algoliasearch@3.24.7:
+  version "3.24.7"
+  resolved "http://registry.npm.taobao.org/algoliasearch/download/algoliasearch-3.24.7.tgz#7ba6c41c9c87b3d36c3181e1d93d482b2ae1a660"
   dependencies:
     agentkeepalive "^2.2.0"
     debug "^2.6.8"
@@ -251,6 +251,12 @@ async-each@^1.0.0:
 async@1.5.2:
   version "1.5.2"
   resolved "http://registry.npm.taobao.org/async/download/async-1.5.2.tgz#ec6a61ae56480c0c3cb241c95618e20892f9672a"
+
+async@2.6.0:
+  version "2.6.0"
+  resolved "http://registry.npm.taobao.org/async/download/async-2.6.0.tgz#61a29abb6fcc026fea77e56d1c6ec53a795951f4"
+  dependencies:
+    lodash "^4.14.0"
 
 async@~0.2.6:
   version "0.2.10"
@@ -1690,12 +1696,14 @@ hawk@3.1.3, hawk@~3.1.3:
     hoek "2.x.x"
     sntp "1.x.x"
 
-hexo-algolia@^1.3.1:
-  version "1.3.1"
-  resolved "http://registry.npm.taobao.org/hexo-algolia/download/hexo-algolia-1.3.1.tgz#ee20c3f3286514562488fb77d3120c4fe25b7592"
+hexo-algoliasearch@^0.3.0:
+  version "0.3.0"
+  resolved "http://registry.npm.taobao.org/hexo-algoliasearch/download/hexo-algoliasearch-0.3.0.tgz#9af887a3ca189512031df2a858e6650ccbd9ed1a"
   dependencies:
-    algoliasearch "^3.31.0"
-    p-each-series "^1.0.0"
+    algoliasearch "3.24.7"
+    async "2.6.0"
+    hexo-util "0.6.2"
+    lodash "4.17.4"
 
 hexo-browsersync@^0.2.0:
   version "0.2.0"
@@ -1876,7 +1884,7 @@ hexo-service-worker@^1.0.1:
   dependencies:
     sw-precache "^5.1.0"
 
-hexo-util@^0.6.0:
+hexo-util@0.6.2, hexo-util@^0.6.0:
   version "0.6.2"
   resolved "http://registry.npm.taobao.org/hexo-util/download/hexo-util-0.6.2.tgz#bfc8de63f373e05b3430526d40f25851376587fe"
   dependencies:
@@ -2531,17 +2539,21 @@ lodash.templatesettings@^4.0.0:
   dependencies:
     lodash._reinterpolate "~3.0.0"
 
+lodash@4.17.4, lodash@^4.2.1:
+  version "4.17.4"
+  resolved "http://registry.npm.taobao.org/lodash/download/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
+
 lodash@^3.10.1:
   version "3.10.1"
   resolved "http://registry.npm.taobao.org/lodash/download/lodash-3.10.1.tgz#5bf45e8e49ba4189e17d482789dfd15bd140b7b6"
 
+lodash@^4.14.0:
+  version "4.17.11"
+  resolved "http://registry.npm.taobao.org/lodash/download/lodash-4.17.11.tgz#b39ea6229ef607ecd89e2c8df12536891cac9b8d"
+
 lodash@^4.17.4, lodash@^4.17.5:
   version "4.17.10"
   resolved "http://registry.npm.taobao.org/lodash/download/lodash-4.17.10.tgz#1b7793cf7259ea38fb3661d4d38b3260af8ae4e7"
-
-lodash@^4.2.1:
-  version "4.17.4"
-  resolved "http://registry.npm.taobao.org/lodash/download/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
 
 longest@^1.0.1:
   version "1.0.1"
@@ -3137,19 +3149,9 @@ osenv@^0.1.4:
     os-homedir "^1.0.0"
     os-tmpdir "^1.0.0"
 
-p-each-series@^1.0.0:
-  version "1.0.0"
-  resolved "http://registry.npm.taobao.org/p-each-series/download/p-each-series-1.0.0.tgz#930f3d12dd1f50e7434457a22cd6f04ac6ad7f71"
-  dependencies:
-    p-reduce "^1.0.0"
-
 p-finally@^1.0.0:
   version "1.0.0"
   resolved "http://registry.npm.taobao.org/p-finally/download/p-finally-1.0.0.tgz#3fbcfb15b899a44123b34b6dcc18b724336a2cae"
-
-p-reduce@^1.0.0:
-  version "1.0.0"
-  resolved "http://registry.npm.taobao.org/p-reduce/download/p-reduce-1.0.0.tgz#18c2b0dd936a4690a529f8231f58a0fdb6a47dfa"
 
 package-json@^4.0.0:
   version "4.0.1"

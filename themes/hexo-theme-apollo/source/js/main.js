@@ -120,7 +120,7 @@
       }
       return {
         active: function() {
-          searchInput.addEventListener('input', debounce(searching, 500));
+          searchInput.addEventListener('input', debounce(searching, 300));
 
           navSearchText.addEventListener('click', function() {
             searchModal.classList.add('active');

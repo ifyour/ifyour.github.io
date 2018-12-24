@@ -97,8 +97,8 @@
                 var tmpData = result.map(function (item) {
                   return {
                     title: item._highlightResult.title.value,
-                    permalink: item.permalink,
-                    summary: item._highlightResult.excerptStrip.value
+                    permalink: item.permalink.replace('http://' + w.location.host, ''),
+                    summary: item._highlightResult.excerptStrip.value,
                   }
                 })
                 render(tmpData);

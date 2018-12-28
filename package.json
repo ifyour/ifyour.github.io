@@ -9,6 +9,10 @@
     "build": "hexo clean && hexo g",
     "publish": "hexo d"
   },
+  "prettier": {
+    "singleQuote": true,
+    "semi": true
+  },
   "hexo": {
     "version": "3.7.1"
   },

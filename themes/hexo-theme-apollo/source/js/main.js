@@ -21,20 +21,20 @@
     var EXP_ISMOBILE = /(micromessenger|phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i;
     return EXP_ISMOBILE.test(ua);
   };
-  var debounce = function (fn ,wait) {
+  var debounce = function(fn, wait) {
     var timer = null;
-    return function () {
+    return function() {
       var context = this;
       var args = arguments;
       if (timer) {
-          clearTimeout(timer);
-          timer = null;
+        clearTimeout(timer);
+        timer = null;
       }
-      timer = setTimeout(function () {
-          fn.apply(context, args)
+      timer = setTimeout(function() {
+        fn.apply(context, args);
       }, wait);
-    }
-  }
+    };
+  };
 
   var Blog = {
     toc: (function() {
@@ -93,31 +93,34 @@
         searchConfig.apiKey
       );
       var searchIndex = client.initIndex(searchConfig.indexName);
-      var query = function (q) {
+      var query = function(q) {
         return searchIndex.search(q, { hitsPerPage: 10 }).then(function(res) {
           return res.hits;
         });
-      }
-      var render = function (data) {
-        searchResult.innerHTML = template('search-tmp', {list: data});
-      }
-      var searching = function () {
+      };
+      var render = function(data) {
+        searchResult.innerHTML = template('search-tmp', { list: data });
+      };
+      var searching = function() {
         var value = searchInput.value.trim();
         if (value) {
-          query(value).then(function (result) {
-            var tmpData = result.map(function (item) {
+          query(value).then(function(result) {
+            var tmpData = result.map(function(item) {
               return {
                 title: item._highlightResult.title.value,
-                permalink: item.permalink.replace('http://' + w.location.host, ''),
-                summary: item._highlightResult.excerptStrip.value,
-              }
-            })
+                permalink: item.permalink.replace(
+                  'http://' + w.location.host,
+                  ''
+                ),
+                summary: item._highlightResult.excerptStrip.value
+              };
+            });
             render(tmpData);
-          })
+          });
         } else {
           searchResult.innerHTML = '';
         }
-      }
+      };
       return {
         active: function() {
           searchInput.addEventListener('input', debounce(searching, 300));
@@ -127,14 +130,15 @@
             searchInput.focus();
           });
 
-          d.onkeydown = function (e) {
+          d.onkeydown = function(e) {
             var keyNum = w.event ? e.keyCode : e.which;
-            if (keyNum === 27) { // Esc
+            if (keyNum === 27) {
+              // Esc
               searchModal.classList.remove('active');
               searchResult.innerHTML = '';
               searchInput.value = '';
             }
-          }
+          };
 
           closeButton.addEventListener('click', function() {
             searchModal.classList.remove('active');
@@ -160,5 +164,4 @@
     },
     false
   );
-
 })(window, document);

@@ -26,9 +26,6 @@ $ hexo s
 $ hexo d
 ```
 
-### Search content
-Press <kbd>/</kbd> and input your content, to find the result
-
 ### Branches
 
 - src: All the original files

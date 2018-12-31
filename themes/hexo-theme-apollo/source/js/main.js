@@ -98,8 +98,11 @@
           return res.hits;
         });
       };
-      var render = function(data) {
-        searchResult.innerHTML = template('search-tmp', { list: data });
+      var render = function(data, keywords) {
+        searchResult.innerHTML = template('search-tmp', {
+          list: data,
+          keywords: keywords
+        });
       };
       var searching = function() {
         var value = searchInput.value.trim();
@@ -115,7 +118,7 @@
                 summary: item._highlightResult.excerptStrip.value
               };
             });
-            render(tmpData);
+            render(tmpData, value);
           });
         } else {
           searchResult.innerHTML = '';
@@ -133,7 +136,6 @@
           d.onkeydown = function(e) {
             var keyNum = w.event ? e.keyCode : e.which;
             if (keyNum === 27) {
-              // Esc
               searchModal.classList.remove('active');
               searchResult.innerHTML = '';
               searchInput.value = '';

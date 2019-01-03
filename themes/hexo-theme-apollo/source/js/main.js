@@ -16,7 +16,6 @@
   var rootScrollTop = function() {
     return d.documentElement.scrollTop || d.body.scrollTop;
   };
-  var isMobile = !!window.matchMedia('(max-width: 768px)').matches;
   var debounce = function(fn, wait) {
     var timer = null;
     return function() {
@@ -52,24 +51,28 @@
       };
       return {
         active: function(top) {
-          if (!isMobile) {
+          var isMobile = !!window.matchMedia('(max-width: 768px)').matches;
+          if (isMobile) {
+            toc.classList.remove('fixed');
+          } else {
             top >= 200
               ? toc.classList.add('fixed')
               : toc.classList.remove('fixed');
-          }
-          for (var i = 0, len = titles.length; i < len; i++) {
-            if (top > offset(titles[i]).y - 15) {
-              var prevListEle = toc.querySelector('li.active');
-              var currListEle = toc.querySelector(
-                'a[href="#' + titles[i].id + '"]'
-              ).parentNode;
-              handleTocActive(prevListEle, currListEle);
-            }
-            if (top < offset(titles[0]).y) {
-              handleTocActive(
-                toc.querySelector('li.active'),
-                toc.querySelector('a[href="#' + titles[0].id + '"]').parentNode
-              );
+            for (var i = 0, len = titles.length; i < len; i++) {
+              if (top > offset(titles[i]).y - 15) {
+                var prevListEle = toc.querySelector('li.active');
+                var currListEle = toc.querySelector(
+                  'a[href="#' + titles[i].id + '"]'
+                ).parentNode;
+                handleTocActive(prevListEle, currListEle);
+              }
+              if (top < offset(titles[0]).y) {
+                handleTocActive(
+                  toc.querySelector('li.active'),
+                  toc.querySelector('a[href="#' + titles[0].id + '"]')
+                    .parentNode
+                );
+              }
             }
           }
         }
@@ -149,17 +152,23 @@
   };
 
   w.addEventListener('DOMContentLoaded', function() {
-    var top = rootScrollTop();
-    Blog.toc.active(top);
+    Blog.toc.active(rootScrollTop());
     Blog.search.active();
   });
 
   d.addEventListener(
     'scroll',
     function() {
-      var top = rootScrollTop();
-      Blog.toc.active(top);
+      Blog.toc.active(rootScrollTop());
     },
     false
+  );
+
+  w.addEventListener(
+    'resize',
+    debounce(function() {
+      Blog.toc.active(rootScrollTop());
+    }),
+    200
   );
 })(window, document);

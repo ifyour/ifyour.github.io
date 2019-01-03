@@ -16,11 +16,7 @@
   var rootScrollTop = function() {
     return d.documentElement.scrollTop || d.body.scrollTop;
   };
-  var isMobile = function() {
-    var ua = w.navigator.userAgent;
-    var EXP_ISMOBILE = /(micromessenger|phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i;
-    return EXP_ISMOBILE.test(ua);
-  };
+  var isMobile = !!window.matchMedia('(max-width: 768px)').matches;
   var debounce = function(fn, wait) {
     var timer = null;
     return function() {

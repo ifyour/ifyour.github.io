@@ -52,7 +52,7 @@
       };
       return {
         active: function(top) {
-          if (!isMobile()) {
+          if (!isMobile) {
             top >= 200
               ? toc.classList.add('fixed')
               : toc.classList.remove('fixed');

@@ -27,6 +27,20 @@
       }, ms);
     };
   };
+  var delay = function(f, ms) {
+    var timer = null;
+    return function() {
+      var context = this;
+      var args = arguments;
+      if (timer) {
+        clearTimeout(timer);
+        timer = null;
+      }
+      timer = setTimeout(function() {
+        f.apply(context, args);
+      }, ms);
+    };
+  };
 
   var Blog = {
     toc: (function() {
@@ -122,7 +136,7 @@
       };
       return {
         active: function() {
-          searchInput.addEventListener('input', debounce(searching, 300));
+          searchInput.addEventListener('input', delay(searching, 300));
 
           navSearchText.addEventListener('click', function() {
             searchModal.classList.add('active');

@@ -16,18 +16,15 @@
   var rootScrollTop = function() {
     return d.documentElement.scrollTop || d.body.scrollTop;
   };
-  var debounce = function(fn, wait) {
-    var timer = null;
+  var debounce = function(f, ms) {
+    var isCoolDown = false;
     return function() {
-      var context = this;
-      var args = arguments;
-      if (timer) {
-        clearTimeout(timer);
-        timer = null;
-      }
-      timer = setTimeout(function() {
-        fn.apply(context, args);
-      }, wait);
+      if (isCoolDown) return;
+      f.apply(this, arguments);
+      isCoolDown = true;
+      setTimeout(function() {
+        isCoolDown = false;
+      }, ms);
     };
   };
 
@@ -168,7 +165,6 @@
     'resize',
     debounce(function() {
       Blog.toc.active(rootScrollTop());
-    }),
-    200
+    }, 300)
   );
 })(window, document);

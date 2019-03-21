@@ -5,13 +5,15 @@ comments: false
 ---
 
 ```js
-let me = {
-  name: 'Willard Wong',
-  gender: 'male',
-  age: 27,
-  job: 'Front-end Developer',
-  Hobbies: ['watch movie', 'reading', 'photography', 'write code'],
-  email: 'ifyour[at]outlook.com'
+let Me = {
+  Name: 'Willard Wong',
+  Gender: 'male',
+  Job: 'Front-end Developer',
+  Hobbies: ['movie', 'reading', 'photography', 'code'],
+  Email: 'ifyour@outlook.com',
+  GitHub: 'https://github.com/ifyour',
+  Twitter: 'https://twitter.com/johnwmm',
+  Instagram: 'https://www.instagram.com/wmmjohn/',
 };
 ```
 

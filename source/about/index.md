@@ -11,9 +11,9 @@ let Me = {
   Job: 'Front-end Developer',
   Hobbies: ['movie', 'reading', 'photography', 'code'],
   Email: 'ifyour@outlook.com',
-  GitHub: 'https://github.com/ifyour',
-  Twitter: 'https://twitter.com/johnwmm',
-  Instagram: 'https://www.instagram.com/wmmjohn/',
+  GitHub: 'github.com/ifyour',
+  Twitter: '@johnwmm',
+  Instagram: '@wmmjohn',
 };
 ```
 

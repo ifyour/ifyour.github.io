@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "hexo": "3.7.1",
-    "hexo-algoliasearch": "0.3.0",
+    "hexo-algoliasearch": "0.4.1",
     "hexo-browsersync": "0.3.0",
     "hexo-deployer-git": "0.2.0",
     "hexo-generator-archive": "0.1.5",

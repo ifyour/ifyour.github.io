@@ -91,12 +91,12 @@ ajv@^4.9.1:
     co "^4.6.0"
     json-stable-stringify "^1.0.1"
 
-algoliasearch@3.24.7:
-  version "3.24.7"
-  resolved "http://registry.npm.taobao.org/algoliasearch/download/algoliasearch-3.24.7.tgz#7ba6c41c9c87b3d36c3181e1d93d482b2ae1a660"
+algoliasearch@3.33.0:
+  version "3.33.0"
+  resolved "https://registry.yarnpkg.com/algoliasearch/-/algoliasearch-3.33.0.tgz#83b541124ebb0db54643009d4e660866b3177cdf"
   dependencies:
     agentkeepalive "^2.2.0"
-    debug "^2.6.8"
+    debug "^2.6.9"
     envify "^4.0.0"
     es6-promise "^4.1.0"
     events "^1.1.0"
@@ -251,12 +251,6 @@ async-each@^1.0.0:
 async@1.5.2:
   version "1.5.2"
   resolved "http://registry.npm.taobao.org/async/download/async-1.5.2.tgz#ec6a61ae56480c0c3cb241c95618e20892f9672a"
-
-async@2.6.0:
-  version "2.6.0"
-  resolved "http://registry.npm.taobao.org/async/download/async-2.6.0.tgz#61a29abb6fcc026fea77e56d1c6ec53a795951f4"
-  dependencies:
-    lodash "^4.14.0"
 
 async@~0.2.6:
   version "0.2.10"
@@ -972,7 +966,7 @@ debug@2.6.8:
   dependencies:
     ms "2.0.0"
 
-debug@2.6.9, debug@^2.0.0, debug@^2.1.2, debug@^2.2.0, debug@^2.3.3, debug@^2.6.8:
+debug@2.6.9, debug@^2.0.0, debug@^2.1.2, debug@^2.2.0, debug@^2.3.3, debug@^2.6.9:
   version "2.6.9"
   resolved "http://registry.npm.taobao.org/debug/download/debug-2.6.9.tgz#5d128515df134ff327e90a4c93f4e077a536341f"
   dependencies:
@@ -1696,14 +1690,12 @@ hawk@3.1.3, hawk@~3.1.3:
     hoek "2.x.x"
     sntp "1.x.x"
 
-hexo-algoliasearch@0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/hexo-algoliasearch/-/hexo-algoliasearch-0.3.0.tgz#9af887a3ca189512031df2a858e6650ccbd9ed1a"
+hexo-algoliasearch@0.4.1:
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/hexo-algoliasearch/-/hexo-algoliasearch-0.4.1.tgz#71e8bfdea7dcee10a85eb811b9e01e60a3ee363a"
   dependencies:
-    algoliasearch "3.24.7"
-    async "2.6.0"
-    hexo-util "0.6.2"
-    lodash "4.17.4"
+    algoliasearch "3.33.0"
+    striptags "3.1.1"
 
 hexo-browsersync@0.2.0:
   version "0.2.0"
@@ -1884,7 +1876,7 @@ hexo-service-worker@1.0.1:
   dependencies:
     sw-precache "^5.1.0"
 
-hexo-util@0.6.2, hexo-util@^0.6.0:
+hexo-util@^0.6.0:
   version "0.6.2"
   resolved "http://registry.npm.taobao.org/hexo-util/download/hexo-util-0.6.2.tgz#bfc8de63f373e05b3430526d40f25851376587fe"
   dependencies:
@@ -2539,21 +2531,17 @@ lodash.templatesettings@^4.0.0:
   dependencies:
     lodash._reinterpolate "~3.0.0"
 
-lodash@4.17.4, lodash@^4.2.1:
-  version "4.17.4"
-  resolved "http://registry.npm.taobao.org/lodash/download/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
-
 lodash@^3.10.1:
   version "3.10.1"
   resolved "http://registry.npm.taobao.org/lodash/download/lodash-3.10.1.tgz#5bf45e8e49ba4189e17d482789dfd15bd140b7b6"
 
-lodash@^4.14.0:
-  version "4.17.11"
-  resolved "http://registry.npm.taobao.org/lodash/download/lodash-4.17.11.tgz#b39ea6229ef607ecd89e2c8df12536891cac9b8d"
-
 lodash@^4.17.4, lodash@^4.17.5:
   version "4.17.10"
   resolved "http://registry.npm.taobao.org/lodash/download/lodash-4.17.10.tgz#1b7793cf7259ea38fb3661d4d38b3260af8ae4e7"
+
+lodash@^4.2.1:
+  version "4.17.4"
+  resolved "http://registry.npm.taobao.org/lodash/download/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
 
 longest@^1.0.1:
   version "1.0.1"
@@ -4070,6 +4058,10 @@ strip-indent@^2.0.0:
 strip-json-comments@~2.0.1:
   version "2.0.1"
   resolved "http://registry.npm.taobao.org/strip-json-comments/download/strip-json-comments-2.0.1.tgz#3c531942e908c2697c0ec344858c286c7ca0a60a"
+
+striptags@3.1.1:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/striptags/-/striptags-3.1.1.tgz#c8c3e7fdd6fb4bb3a32a3b752e5b5e3e38093ebd"
 
 striptags@^2.1.1, striptags@^2.2.1:
   version "2.2.1"

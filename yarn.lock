@@ -1696,18 +1696,18 @@ hawk@3.1.3, hawk@~3.1.3:
     hoek "2.x.x"
     sntp "1.x.x"
 
-hexo-algoliasearch@^0.3.0:
+hexo-algoliasearch@0.3.0:
   version "0.3.0"
-  resolved "http://registry.npm.taobao.org/hexo-algoliasearch/download/hexo-algoliasearch-0.3.0.tgz#9af887a3ca189512031df2a858e6650ccbd9ed1a"
+  resolved "https://registry.yarnpkg.com/hexo-algoliasearch/-/hexo-algoliasearch-0.3.0.tgz#9af887a3ca189512031df2a858e6650ccbd9ed1a"
   dependencies:
     algoliasearch "3.24.7"
     async "2.6.0"
     hexo-util "0.6.2"
     lodash "4.17.4"
 
-hexo-browsersync@^0.2.0:
+hexo-browsersync@0.2.0:
   version "0.2.0"
-  resolved "http://registry.npm.taobao.org/hexo-browsersync/download/hexo-browsersync-0.2.0.tgz#1e6c114a06c0a964bf0033dd1175a64307b678d8"
+  resolved "https://registry.yarnpkg.com/hexo-browsersync/-/hexo-browsersync-0.2.0.tgz#1e6c114a06c0a964bf0033dd1175a64307b678d8"
   dependencies:
     bluebird "^2.9.4"
     browser-sync "^2.0.1"
@@ -1738,9 +1738,9 @@ hexo-cli@^1.1.0:
     resolve "^1.5.0"
     tildify "^1.2.0"
 
-hexo-deployer-git@^0.2.0:
+hexo-deployer-git@0.2.0:
   version "0.2.0"
-  resolved "http://registry.npm.taobao.org/hexo-deployer-git/download/hexo-deployer-git-0.2.0.tgz#f0138a58ab35361f4c55906bb37a7a739d512fb0"
+  resolved "https://registry.yarnpkg.com/hexo-deployer-git/-/hexo-deployer-git-0.2.0.tgz#f0138a58ab35361f4c55906bb37a7a739d512fb0"
   dependencies:
     chalk "^1.1.3"
     hexo-fs "^0.1.5"
@@ -1772,45 +1772,45 @@ hexo-fs@^0.2.0:
     escape-string-regexp "^1.0.5"
     graceful-fs "^4.1.4"
 
-hexo-generator-archive@^0.1.4:
+hexo-generator-archive@0.1.5:
   version "0.1.5"
-  resolved "http://registry.npm.taobao.org/hexo-generator-archive/download/hexo-generator-archive-0.1.5.tgz#a979214cdddee2693e0551809c294bedadbb69b3"
+  resolved "https://registry.yarnpkg.com/hexo-generator-archive/-/hexo-generator-archive-0.1.5.tgz#a979214cdddee2693e0551809c294bedadbb69b3"
   dependencies:
     hexo-pagination "0.0.2"
     object-assign "^2.0.0"
 
-hexo-generator-category@^0.1.2:
+hexo-generator-category@0.1.3:
   version "0.1.3"
-  resolved "http://registry.npm.taobao.org/hexo-generator-category/download/hexo-generator-category-0.1.3.tgz#b9e6a5862530a83bdd7da4c819c1b9f3e4ccb4b2"
+  resolved "https://registry.yarnpkg.com/hexo-generator-category/-/hexo-generator-category-0.1.3.tgz#b9e6a5862530a83bdd7da4c819c1b9f3e4ccb4b2"
   dependencies:
     hexo-pagination "0.0.2"
     object-assign "^2.0.0"
 
-hexo-generator-feed@^1.2.0:
+hexo-generator-feed@1.2.2:
   version "1.2.2"
-  resolved "http://registry.npm.taobao.org/hexo-generator-feed/download/hexo-generator-feed-1.2.2.tgz#9516d1596509b157f4d044fb49b2bae398b82ba7"
+  resolved "https://registry.yarnpkg.com/hexo-generator-feed/-/hexo-generator-feed-1.2.2.tgz#9516d1596509b157f4d044fb49b2bae398b82ba7"
   dependencies:
     nunjucks "^3.0.0"
     object-assign "^4.1.1"
 
-hexo-generator-index@^0.1.2:
+hexo-generator-index@0.1.3:
   version "0.1.3"
-  resolved "http://registry.npm.taobao.org/hexo-generator-index/download/hexo-generator-index-0.1.3.tgz#8b85e9ed710a8e3aa301e6c27e058ee64087e50e"
+  resolved "https://registry.yarnpkg.com/hexo-generator-index/-/hexo-generator-index-0.1.3.tgz#8b85e9ed710a8e3aa301e6c27e058ee64087e50e"
   dependencies:
     hexo-pagination "0.0.2"
     object-assign "^2.0.0"
 
-hexo-generator-sitemap@^1.1.2:
+hexo-generator-sitemap@1.2.0:
   version "1.2.0"
-  resolved "http://registry.npm.taobao.org/hexo-generator-sitemap/download/hexo-generator-sitemap-1.2.0.tgz#3018f8d7d1e2e42b3f71a65a7316ffcf583bc3f3"
+  resolved "https://registry.yarnpkg.com/hexo-generator-sitemap/-/hexo-generator-sitemap-1.2.0.tgz#3018f8d7d1e2e42b3f71a65a7316ffcf583bc3f3"
   dependencies:
     minimatch "^3.0.0"
     nunjucks "^2.3.0"
     object-assign "^4.0.1"
 
-hexo-generator-tag@^0.1.1:
+hexo-generator-tag@0.1.2:
   version "0.1.2"
-  resolved "http://registry.npm.taobao.org/hexo-generator-tag/download/hexo-generator-tag-0.1.2.tgz#ec3c74f0ed2cefaeeafff16bc3815e499518a982"
+  resolved "https://registry.yarnpkg.com/hexo-generator-tag/-/hexo-generator-tag-0.1.2.tgz#ec3c74f0ed2cefaeeafff16bc3815e499518a982"
   dependencies:
     hexo-pagination "0.0.2"
     object-assign "^2.0.0"
@@ -1834,39 +1834,39 @@ hexo-pagination@0.0.2:
   dependencies:
     utils-merge "^1.0.0"
 
-hexo-renderer-ejs@^0.1.0:
+hexo-renderer-ejs@0.1.1:
   version "0.1.1"
-  resolved "http://registry.npm.taobao.org/hexo-renderer-ejs/download/hexo-renderer-ejs-0.1.1.tgz#415d2fa33d99507526a5d0a371e36806789b172c"
+  resolved "https://registry.yarnpkg.com/hexo-renderer-ejs/-/hexo-renderer-ejs-0.1.1.tgz#415d2fa33d99507526a5d0a371e36806789b172c"
   dependencies:
     ejs "^1.0.0"
     object-assign "^4.0.1"
 
-hexo-renderer-jade@^0.4.1:
+hexo-renderer-jade@0.4.1:
   version "0.4.1"
-  resolved "http://registry.npm.taobao.org/hexo-renderer-jade/download/hexo-renderer-jade-0.4.1.tgz#918ef3ac962a4a30121b972aa60801560682bf6a"
+  resolved "https://registry.yarnpkg.com/hexo-renderer-jade/-/hexo-renderer-jade-0.4.1.tgz#918ef3ac962a4a30121b972aa60801560682bf6a"
   dependencies:
     jade "^1.11.0"
     pug "^2.0.0-rc.1"
 
-hexo-renderer-marked@^0.2.4:
+hexo-renderer-marked@0.2.11:
   version "0.2.11"
-  resolved "http://registry.npm.taobao.org/hexo-renderer-marked/download/hexo-renderer-marked-0.2.11.tgz#32fd3880d3c3979fd7b8015ec121a6c44ff49f84"
+  resolved "https://registry.yarnpkg.com/hexo-renderer-marked/-/hexo-renderer-marked-0.2.11.tgz#32fd3880d3c3979fd7b8015ec121a6c44ff49f84"
   dependencies:
     hexo-util "^0.6.0"
     marked "^0.3.5"
     object-assign "^4.1.0"
     strip-indent "^1.0.1"
 
-hexo-renderer-stylus@^0.3.0:
+hexo-renderer-stylus@0.3.3:
   version "0.3.3"
-  resolved "http://registry.npm.taobao.org/hexo-renderer-stylus/download/hexo-renderer-stylus-0.3.3.tgz#c54ea27e1fd8e3c8a9a7a84cfba8ad354122ca7f"
+  resolved "https://registry.yarnpkg.com/hexo-renderer-stylus/-/hexo-renderer-stylus-0.3.3.tgz#c54ea27e1fd8e3c8a9a7a84cfba8ad354122ca7f"
   dependencies:
     nib "^1.1.2"
     stylus "^0.54.5"
 
-hexo-server@^0.3.3:
+hexo-server@0.3.3:
   version "0.3.3"
-  resolved "http://registry.npm.taobao.org/hexo-server/download/hexo-server-0.3.3.tgz#b86712974920bfcc3057debbdb35dd1be6c30080"
+  resolved "https://registry.yarnpkg.com/hexo-server/-/hexo-server-0.3.3.tgz#b86712974920bfcc3057debbdb35dd1be6c30080"
   dependencies:
     bluebird "^3.5.1"
     chalk "^1.1.3"
@@ -1878,9 +1878,9 @@ hexo-server@^0.3.3:
     opn "^5.3.0"
     serve-static "^1.13.2"
 
-hexo-service-worker@^1.0.1:
+hexo-service-worker@1.0.1:
   version "1.0.1"
-  resolved "http://registry.npm.taobao.org/hexo-service-worker/download/hexo-service-worker-1.0.1.tgz#44391adfd973f14cab4ca85e230c16e5b4361ed2"
+  resolved "https://registry.yarnpkg.com/hexo-service-worker/-/hexo-service-worker-1.0.1.tgz#44391adfd973f14cab4ca85e230c16e5b4361ed2"
   dependencies:
     sw-precache "^5.1.0"
 
@@ -1906,9 +1906,9 @@ hexo-util@^0.6.3:
     html-entities "^1.2.0"
     striptags "^2.1.1"
 
-hexo@^3.7.1:
+hexo@3.7.1:
   version "3.7.1"
-  resolved "http://registry.npm.taobao.org/hexo/download/hexo-3.7.1.tgz#0381874e67891b521b9e3023ef4db85a62337f96"
+  resolved "https://registry.yarnpkg.com/hexo/-/hexo-3.7.1.tgz#0381874e67891b521b9e3023ef4db85a62337f96"
   dependencies:
     abbrev "^1.0.7"
     archy "^1.0.0"
@@ -2903,9 +2903,9 @@ node-pre-gyp@^0.6.39:
     tar "^2.2.1"
     tar-pack "^3.4.0"
 
-nodemon@^1.18.9:
+nodemon@1.18.9:
   version "1.18.9"
-  resolved "http://registry.npm.taobao.org/nodemon/download/nodemon-1.18.9.tgz#90b467efd3b3c81b9453380aeb2a2cba535d0ead"
+  resolved "https://registry.yarnpkg.com/nodemon/-/nodemon-1.18.9.tgz#90b467efd3b3c81b9453380aeb2a2cba535d0ead"
   dependencies:
     chokidar "^2.0.4"
     debug "^3.1.0"

@@ -30,7 +30,7 @@
     "hexo-renderer-ejs": "0.3.1",
     "hexo-renderer-jade": "0.4.1",
     "hexo-renderer-marked": "1.0.1",
-    "hexo-renderer-stylus": "0.3.3",
+    "hexo-renderer-stylus": "1.1.0",
     "hexo-server": "0.3.3",
     "hexo-service-worker": "1.0.1"
   },

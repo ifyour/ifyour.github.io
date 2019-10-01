@@ -1,5 +1,6 @@
 .darkmode-toggle {
   font-size: 16px;
+  z-index: 9;
 }
 
 .darkmode--activated {
@@ -7,6 +8,10 @@
   h3,
   h4 {
     color: #c6b7a3;
+  }
+
+  .post-content h3 a:before {
+    color: #8E426E;
   }
 
   .sidebar-toc ol a {
@@ -36,7 +41,6 @@
   .gitment-editor-tab.gitment-selected {
     border-color: lightgray;
   }
-
 
   .sidebar-toc ol li::before {
     color: #c6b7a3;

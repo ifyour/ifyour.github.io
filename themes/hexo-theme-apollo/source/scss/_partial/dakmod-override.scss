@@ -1,0 +1,52 @@
+.darkmode-toggle {
+  font-size: 16px;
+}
+
+.darkmode--activated {
+  .post-block
+  h3,
+  h4 {
+    color: #c6b7a3;
+  }
+
+  .sidebar-toc ol a {
+    color: #c6b7a3;
+  }
+
+  .sidebar-toc > span {
+    color: #c6b7a3;
+  }
+
+  .highlight .code pre {
+    background-color: lightgray;
+  }
+
+  .gitment-markdown {
+    color: #c6b7a3;
+  }
+
+  .gitment-editor-body textarea {
+    background-color: black;
+  }
+
+  .gitment-comment-header {
+    background-color: black;
+  }
+
+  .gitment-editor-tab.gitment-selected {
+    border-color: lightgray;
+  }
+
+
+  .sidebar-toc ol li::before {
+    color: #c6b7a3;
+  }
+
+  .search {
+    color: #c6b7a3;
+    background: #000000;
+    .search-item-title a {
+      color: #c6b7a3;
+    }
+  }
+}

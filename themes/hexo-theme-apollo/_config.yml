@@ -19,6 +19,9 @@ gitment: true
 # 是否启用 Medium zoom 图片放大
 zoom: true
 
+# 是否启用暗黑模式
+darkMode: true
+
 # Analytics
 # google-analytics:
 ga: UA-120929321-1

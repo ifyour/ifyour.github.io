@@ -4,14 +4,20 @@
 }
 
 .darkmode--activated {
-  .post-block
-  h3,
+  .post-block h3,
   h4 {
     color: #c6b7a3;
   }
 
   .post-content h3 a:before {
-    color: #8E426E;
+    color: #8e426e;
+  }
+
+  .sidebar-toc ol li.toc-item.active::before {
+    color: #da92bc;
+  }
+  .sidebar-toc ol li.toc-item.active > .toc-link {
+    color: #da92bc;
   }
 
   .sidebar-toc ol a {

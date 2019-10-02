@@ -1,3 +1,22 @@
+//- darkMode plugin
+- var darkMode = theme.darkMode
+if darkMode
+    script(src='https://cdn.jsdelivr.net/npm/darkmode-js@1.4.0/lib/darkmode-js.min.js')
+    script.
+        new Darkmode({
+            bottom: '1rem',
+            right: '1rem',
+            left: 'unset',
+            time: '0.5s',
+            mixColor: '#fff',
+            backgroundColor: '#fff',
+            buttonColorDark: '#100f2c',
+            buttonColorLight: '#fff',
+            saveInCookies: true,
+            label: '🌓',
+            autoMatchOsTheme: true
+        }).showWidget();
+
 //- libs
 script(src="/js/algoliasearch.min.js")
 script(src="/js/template-web.min.js")
@@ -26,25 +45,6 @@ if zoom
                 return rect.top <= winH && rect.bottom >= winH;
             };
         })(this, document.querySelector('#gc_container'));
-
-//- darkMode plugin
-- var darkMode = theme.darkMode
-if darkMode
-    script(src='https://cdn.jsdelivr.net/npm/darkmode-js@1.4.0/lib/darkmode-js.min.js')
-    script.
-        new Darkmode({
-            bottom: '1rem',
-            right: '1rem',
-            left: 'unset',
-            time: '0.5s',
-            mixColor: '#fff',
-            backgroundColor: '#fff',
-            buttonColorDark: '#100f2c',
-            buttonColorLight: '#fff',
-            saveInCookies: true,
-            label: '🌓',
-            autoMatchOsTheme: true
-        }).showWidget();
 
 //- LaTex
 //- script(async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous")

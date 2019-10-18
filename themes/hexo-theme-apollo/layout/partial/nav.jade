@@ -8,5 +8,5 @@ ul.nav.nav-list
             a.nav-list-link(class={active: act} href=url_for(value) target=tar)
                 != key.toUpperCase()
     li.nav-list-item
-        a.nav-list-link(class={active: false} href="javascript:;" target=tar id="search")
+        a.nav-list-link(class={active: false} href="javascript:;" target="_self" id="search")
             | SEARCH

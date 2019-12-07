@@ -1,0 +1,155 @@
+<!DOCTYPE html><html lang="en"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="theme-color" content="#ffffff"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="apple-mobile-web-app-title" content="Ifyour's Blog"><meta name="msapplication-TileImage" content="/img/webAppIcon-256x256.png"><meta name="msapplication-TileColor" content="#000"><meta property="algolia:search" data-application-id="3XQ5CPDDMK" data-api-key="abe9e26eebcac723f34ade5cf6b97441" data-index-name="prod_blog"><title>给小白读的 WEB 托管服务进化史 · Ifyour's Blog</title><meta name="description" content="给小白读的 WEB 托管服务进化史 - Ifyour"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="manifest" href="/manifest.json"><link rel="icon" type="image/x-icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="apple-touch-icon" size="256x256" href="/img/webAppIcon-256x256.png"><link rel="apple-touch-icon" size="512x512" href="/img/webAppIcon-512x512.png"><link rel="apple-touch-startup-image" href="/img/apple-launch-750x1334.png"><link rel="preload" href="/css/apollo.css" as="style"><link rel="preload" href="/js/main.js" as="script"><link rel="search" type="application/opensearchdescription+xml" href="http://ifyour.github.io/atom.xml" title="Ifyour's Blog"></head><body><div class="search"><a href="javascript:;" target="_self" class="close"><svg id="icon-close" viewbox="0 0 16 16" width="24" height="24" fill="#A4A9AC"><path d="M8,15 C4.13400675,15 1,11.8659932 1,8 C1,4.13400675 4.13400675,1 8,1 C11.8659932,1 15,4.13400675 15,8 C15,11.8659932 11.8659932,15 8,15 Z M10.44352,10.7233105 L10.4528296,10.7326201 L10.7326201,10.4528296 C11.0310632,10.1543865 11.0314986,9.66985171 10.7335912,9.37194437 L9.36507937,8.0034325 L10.7360526,6.63245928 C11.0344957,6.33401613 11.0349311,5.84948135 10.7370237,5.55157401 L10.448426,5.26297627 C10.1505186,4.96506892 9.66598387,4.96550426 9.36754072,5.26394741 L8.00589385,6.62559428 L6.63738198,5.25708241 C6.33947464,4.95917507 5.85493986,4.95961041 5.55649671,5.25805356 L5.26737991,5.54717036 C4.96893676,5.84561351 4.96850142,6.33014829 5.26640876,6.62805563 L6.62561103,7.9872579 L5.25463781,9.35823112 C4.95619466,9.65667427 4.95575932,10.141209 5.25366666,10.4391164 L5.5422644,10.7277141 C5.84017175,11.0256215 6.32470652,11.0251861 6.62314967,10.726743 L7.99412289,9.35576976 L9.36263476,10.7242816 C9.66054211,11.022189 10.1450769,11.0217536 10.44352,10.7233105 Z"/></svg></a><div class="container"><input id="search-input" autocomplete="off" type="text" placeholder="Type to search" class="search-input"><div class="search-by">Search by<a href="https://www.algolia.com/" target="_blank"> algolia</a></div><div class="search-results"><div id="search-articles" class="search-item"></div></div></div><script id="search-tmp" type="text/html">{{if list.length}}
+    <h3>ARTICLES</h3>
+    <ul>
+        {{each list item}}
+        <li>
+            <div class="search-item-title">
+                <a href="{{item.permalink}}">{{@item.title}}</a>
+            </div>
+            <div class="search-item-summary" style="-webkit-box-orient: vertical;">
+                {{@item.summary}}
+            </div>
+        </li>
+        {{/each}}
+    </ul>
+{{else if list}}
+    <h2>
+        Oops! no result,
+        Try it on <a target="_blank" style="color: #2c3e50; border-bottom: 2px solid #42b983; font-size: 19px;" href="https://www.google.com/search?q=site%3Aifyour.github.io+{{keywords}}">Google: {{keywords}}</a>~ 😱
+    </h2>
+{{/if}}</script></div><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="/docs/" target="_self" class="nav-list-link">DOCS</a></li><li class="nav-list-item"><a href="/about/" target="_self" class="nav-list-link">ABOUT</a></li><li class="nav-list-item"><a href="javascript:;" target="_self" id="search" class="nav-list-link">SEARCH</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">给小白读的 WEB 托管服务进化史</h1><div class="post-info">Jun 9, 2018</div><div class="sidebar-toc"><span>Catalog</span><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#引子"><span class="toc-text">引子</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#从头开始——专用服务器"><span class="toc-text">从头开始——专用服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#优点"><span class="toc-text">优点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#缺点"><span class="toc-text">缺点</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使事情变得更容易——虚拟化"><span class="toc-text">使事情变得更容易——虚拟化</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#什么是虚拟化"><span class="toc-text">什么是虚拟化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#优点-1"><span class="toc-text">优点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#缺点-1"><span class="toc-text">缺点</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#进化——虚拟化变成-IaaS"><span class="toc-text">进化——虚拟化变成 IaaS</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#什么是基础设施即服务-IaaS"><span class="toc-text">什么是基础设施即服务 (IaaS)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#为什么这个进化如此重要"><span class="toc-text">为什么这个进化如此重要</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#进一步演化——平台即服务-PaaS"><span class="toc-text">进一步演化——平台即服务 (PaaS)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#构建-PaaS-是困难的"><span class="toc-text">构建 PaaS 是困难的</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#最后——容器托管平台-CaaS"><span class="toc-text">最后——容器托管平台 (CaaS)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol></div><div class="post-content"><p>这篇文章是来拓展自己知识面的, 在我读高中那会 (08 年), 我身边就有沉迷电脑技术的同学, 那个时候我想着做一个自己的网站, 肯定是非常牛逼的事了. 从最开始接触的服务, 依次来排个序. 永硕 E 盘 -&gt; 免费空间建站 (国外居多) -&gt; 虚拟空间 -&gt; 虚拟服务器 (VPS) -&gt; 独立服务器. 看完这篇文章后, 我总算对这方面知识有了一个比较系统性的认识了. 一起来学习一下.</p>
+<a id="more"></a>
+<h3 id="引子"><a href="#引子" class="headerlink" title="引子"></a>引子</h3><p>文章开始之前, 我觉得还是有必要把这些专有名词先科普一下, 不要觉得很高大上, 简称而已.</p>
+<ul>
+<li>IaaS - 基础设施即服务</li>
+<li>PaaS - 平台即服务</li>
+<li>CaaS - 容器即服务</li>
+</ul>
+<p>本文介绍了 Web 托管服务进化的历史, 从专用服务器到虚拟化到 IaaS、PaaS 和最新的 CaaS; 说明了每种方式的优点和缺点. 着重阐述了构建 PaaS 应用的各个组件, 以及在选择 CaaS 提供商时应该考虑的问题. 最后从成本和功能性的角度论述了 PaaS 用户应该迁移到 CaaS 平台.</p>
+<p>读完这篇博文, 你应该可以清楚的理解:</p>
+<ul>
+<li>这些名词到底指什么</li>
+<li>这为什么对你很重要</li>
+<li>对于你的使用场景，哪种方式最适合</li>
+</ul>
+<p>当然没有一种方式能够适合所有的 Web 基础设施的场景, 你的特殊场景或许需要特殊的考虑.</p>
+<h3 id="从头开始——专用服务器"><a href="#从头开始——专用服务器" class="headerlink" title="从头开始——专用服务器"></a>从头开始——专用服务器</h3><p>Web 托管的本质还是在一个数据中心里布满了服务器、交换机、路由器、存储阵列和其它网络组件. 我们所讨论的每一个选项不管它是 PaaS、IaaS 还是 CaaS, 它底层使用的基础设施都是相同的, 即在一个大屋子里的很多独立服务器. 他们只是上面增加了很多抽象层使得管理变得更简单, 和使用自动化的方式处理以前很慢或者需要手动步骤的任务.</p>
+<p>专用服务器, 或者叫做 “裸机” 有它的优点和缺点.</p>
+<h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><ul>
+<li>性能——你在直接使用一个服务器, 没有任何抽象层例如虚拟化带来的性能开销.</li>
+<li>可靠性——没有抽象层和虚拟化, 出错的可能性会降低.</li>
+<li>资源利用率——使用专用服务器, 你的进程不需要跟其它的虚拟机或者进程竞争资源例如 CPU、内存和带宽.</li>
+</ul>
+<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><ul>
+<li>管理复杂性——你无法容易地克隆专用服务器来产生更多的实例, 专用服务器没有 AMI（译者注: Amazon Machine Image）或者镜像的概念. 想扩展你的基础设施到多个服务器上？我希望你用配置管理, 或者使用可信赖的老朋友 rsync.</li>
+<li>成本——使用专用服务器, 在大多数情况下你需要预先支付服务器的硬件价格, 然后再付租用场地的成本, 或者你从一个服务提供商那里租赁它们. 无论哪种方式, 你都没法在不使用时终止服务器的租赁来节省成本, 因此你需要更加谨慎的对待你的财务计划.</li>
+<li>你所有的进程和应用都运行在专用服务器上, 因此运行在相同的操作系统上. 为了可扩展性的目的, 你往往希望服务器只运行单一的进程, 例如 Web 服务或者数据库服务. 在一个服务器上运行所有的应用使得操作系统的调优变得更困难.</li>
+</ul>
+<h3 id="使事情变得更容易——虚拟化"><a href="#使事情变得更容易——虚拟化" class="headerlink" title="使事情变得更容易——虚拟化"></a>使事情变得更容易——虚拟化</h3><p>尽管专用服务器有很多优点, 但是它的缺点在大多数情况下会远远超过其优点. 公司为了能够迅速进入市场赢得竞争, 对于部署的速度提出了更高的要求, 虚拟化就很自然的成为了数据中心进化中的下一个步骤.</p>
+<h4 id="什么是虚拟化"><a href="#什么是虚拟化" class="headerlink" title="什么是虚拟化"></a>什么是虚拟化</h4><p>简而言之, 虚拟化就是将物理服务器分成更小的虚拟机, 这些虚拟机只能访问物理机的部分资源. 例如你有一个 8CPU 核以及 16GB 内存的物理服务器, 则可以将它分成 8 个虚拟机, 每个虚拟机有 1 个 CPU 和 2GB 内存. 你或许已经听说过一些虚拟化技术如 Xen, KVM, VMware 和 Hyper-V, 其实很有更多.</p>
+<h4 id="优点-1"><a href="#优点-1" class="headerlink" title="优点"></a>优点</h4><ul>
+<li>你可以在需要更多虚拟机实例或者想要虚拟机共享时进行虚拟机的克隆.</li>
+<li>你可以备份虚拟机镜像作为安全保护或者灾备.</li>
+</ul>
+<h4 id="缺点-1"><a href="#缺点-1" class="headerlink" title="缺点"></a>缺点</h4><ul>
+<li>使用虚拟化意味着额外的性能开销, 可能造成性能下降.</li>
+<li>虚拟机镜像在不同的服务提供商和虚拟化技术之间基本上是不可移植的.</li>
+<li>管理虚拟机依然是手工步骤, 需要管理的时间和专业知识.</li>
+</ul>
+<h3 id="进化——虚拟化变成-IaaS"><a href="#进化——虚拟化变成-IaaS" class="headerlink" title="进化——虚拟化变成 IaaS"></a>进化——虚拟化变成 IaaS</h3><p>你知道 <a href="http://www.businessinsider.com/people-think-stormy-weather-affects-cloud-computing-2012-8" target="_blank" rel="noopener">51% 的人认为 “云” 会被天气影响吗</a>？你知道当人们谈论 “云” 时他们实际上是在讨论基础设施即服务 (IaaS) 吗？</p>
+<h4 id="什么是基础设施即服务-IaaS"><a href="#什么是基础设施即服务-IaaS" class="headerlink" title="什么是基础设施即服务 (IaaS)"></a>什么是基础设施即服务 (IaaS)</h4><ul>
+<li>通过 API 来管理硬件的虚拟化.</li>
+<li>通过编程接口访问计算、存储和网络资源和配置.</li>
+<li>当你需要是申请一个新的虚拟机, 当你完成后终止虚拟机, 你只需要为你使用的资源付费.</li>
+<li>将数据中心资源视为公共设施.</li>
+</ul>
+<p>亚马逊在 2006 年发布了其 Amazon Web Services（AWS）和 EC2 产品，成为了这个领域的先驱。</p>
+<h4 id="为什么这个进化如此重要"><a href="#为什么这个进化如此重要" class="headerlink" title="为什么这个进化如此重要"></a>为什么这个进化如此重要</h4><p>在过去当你需要上线一个在线业务时, 你不得不进行复杂的计划来保证你在数据中心内有足够的机架空间、足够的服务器和存储来处理业务的增长, 足够的网络带宽来处理所有的用户流量. 这种计划并不容易, 尤其是对早期的业务来讲, 你无法预测业务的未来和增长轨迹.</p>
+<ol>
+<li>它给了开发者超能量:<ul>
+<li>构思一个想法立即上线.</li>
+<li>如果成功了, 可以容易的扩展规模.</li>
+<li>如果失败了, 关闭虚拟机以节约成本.</li>
+</ul>
+</li>
+<li>它使得数据中心自动化变得更强大:<ul>
+<li>全自动基础设施管理成为可能, 出现了 “基础设施即代码” 的概念.</li>
+<li>弹性伸缩在过去是不可能实现的, 但是现在 web 基础设施可以当业务变化时自动的扩展或者收缩.</li>
+<li>在服务器的自动化管理之后, 数据中心的自动化也扩展到了存储、网络以及其它大量的需要专业知识的系统, 在代码和 API 能够处理这些自动化之后, 这给全球的开发者社区带来了新的机遇.</li>
+</ul>
+</li>
+</ol>
+<h3 id="进一步演化——平台即服务-PaaS"><a href="#进一步演化——平台即服务-PaaS" class="headerlink" title="进一步演化——平台即服务 (PaaS)"></a>进一步演化——平台即服务 (PaaS)</h3><p>平台即服务 (PaaS) 使得开发人员可以很容易的部署和管理应用而隐藏掉所有的实现细节例如服务器、负载均衡器、DNS 等等. 他们或多或少的去除了对运维团队的需求, 而是让开发人员去关注应用部署. 有很多 PaaS 提供商, 其中一个最流行的是 Heroku. 关于 Heroku 的一个有趣的事情是 Heroku 完全是运行在 AWS 之上并依赖 AWS 的. 如果你不愿意你的应用运行在美国东部或者欧洲西部的 AWS 上的话, 这或许是一个问题. 没有 IaaS, 像 Heroku 这样的平台可能就不会存在了. PaaS 提供商利用 IaaS 作为一个非常重要的组成部分来交付它们的服务. 在减少从想法到部署的时间、自动化流程以及减少特殊的系统知识需求的趋势中, PaaS 是合理的下一步, 就像是从专用服务器到 IaaS 一样.</p>
+<h4 id="构建-PaaS-是困难的"><a href="#构建-PaaS-是困难的" class="headerlink" title="构建 PaaS 是困难的"></a>构建 PaaS 是困难的</h4><p>能够通过抽象而避免处理服务器相关的问题是不容易的, 需要引入很多东西才能做到.</p>
+<p>在 PaaS 的概念之下有几个主要的模块：</p>
+<ul>
+<li>编译系统——把你的代码编译成可以运行的应用, 并且把它存储到某个地方作为后续使用.</li>
+<li>应用管理数据库——管理 Git 版本、build 版本和应用元数据.</li>
+<li>集群调度器——将一组服务器作为一台大的服务器来管理, 在服务器资源池的某个服务器上运行你的程序, 并检查和替换失效的作业.</li>
+<li>负载均衡——允许从 Internet 和内部程序来的业务负载被正确的路由到合适的位置.</li>
+<li>DNS——在你产生和修改应用时自动配置 DNS 条目.</li>
+<li>或许是最重要的——某个形式的容器化例如  freebsd jails、solaris zones、或者 linux containers, 容器化使得某个的应用不会进入和影响到其它的应用.</li>
+</ul>
+<p>第一个和最后一个点是 Docker 迅速发展的非常重要的原因. Linux 容器技术已经存在了一段时间了, 但是只有某些大的公司或者 PaaS 提供商自动化了容器的使用, Docker 使 Linux 容器的使用变得非常简单, 也提供了标准化的镜像格式, 它成为了 PaaS 中重要的组成部分.</p>
+<p>这非常强大, 因为很多公司在处理爆发式的用户增长, 来自于移动、社交和 IoT 的新的业务模式, 以及期望从传统的长的版本发布周期转变到持续交付. 他们利用基于软件的架构或者微服务. 他们需要能够自动部署和测试新的代码, 并根据业务的变化弹性伸缩. 但问题是他们没有足够的资源和经验来交付到他们的开发团队, 所以他们不得不将其外包给 PaaS 提供商. 不幸的是, 当你这么做的时候, 你就放弃了对于这个黑盒子的很多控制, 而是花很多钱并使得自己完全依赖于它. 另外一个选项是, 很多公司反复的重新发明轮子或者使用那些难于维护的、运行缓慢的和易于出错的工具.</p>
+<p>最好的情形是在自己的数据中心或者 Cloud 帐号中运行一个 PaaS 平台, 你可以全权控制, 你的团队可以直接参与应用的部署, 因此可以形成一种真正的 DevOps 文化. Docker 及其标准化的生态系统是这种愿景成为现实的重要一步.</p>
+<h3 id="最后——容器托管平台-CaaS"><a href="#最后——容器托管平台-CaaS" class="headerlink" title="最后——容器托管平台 (CaaS)"></a>最后——容器托管平台 (CaaS)</h3><p>什么是容器托管平台, 或者叫容器即服务呢？这就是我在上面的章节中提到的另外一种构建在 Docker 基础上的 Web 托管方式. 它是你用容器来部署复杂的多层次的应用所需要的自动化的编译系统, 集群调度器, 负载均衡, DNS 自动化以及服务发现. 这是 PaaS 的另外一部分内容, 但是你不是用一个复杂的编译系统来编译你的应用, 而是用 Docker 镜像. 镜像可以非常容易的进行编译和本地测试, 因此你在部署应用之前就确认应用可以正常工作. 现在 PaaS 用户也可以得到相同的体验, 但是不需要拥有自己的硬件或者云帐号的前提下节约大量的成本. 他们不再受限于其服务提供商所支持的环境, 可以通过将应用打包成 Docker 镜像的方式在任何地方运行.</p>
+<p>在这个过程中, 利用诸如 ContainerShip Cloud, 你可以在任何地方, 在任何云平台上甚至是裸机上用相同的方式运行你的应用. 你不再被卡在构建复杂的应用来解决非常困难的问题, 或者卡在使用某个提供商的特殊的自动化部署工具上.</p>
+<ul>
+<li>但是选择一个正确的 Docker 容器托管平台并不是一件容易的事情, 有很多的问题需要你去思考和注意.</li>
+<li>有大量的选项, 因此选择其中一个进行研究就变得困难. 好消息是如果你的应用已经容器化, 你就可以轻松的测试其中的每一个.</li>
+<li>你正在使用的服务提供商例如 Triton 或者 ECS 的某个解决方案或许使得你无法脱离这个提供商, 这也使得 Docker 的最令人兴奋的可移植性变得不那么重要了.</li>
+<li>许多 CaaS 方案在他们自己的硬件上运行所有的管理系统, 你自己的服务器上只是运行某个代理程序来连接他们的 API, 因此如果他们的系统宕机后你的集群将无法工作.</li>
+<li>允许你在防火墙后运行整个系统的方案是非常复杂的, 需要一个团队去管理和升级.</li>
+<li>能够容易的在防火墙后运行整个系统的方案会使得高可用成为低优先级的事情.</li>
+<li>当你选择了一个 CaaS 提供商时, 你就可以摆脱了你的服务托管提供商的锁定, 但是你将陷入到 CaaS 提供商的锁定. 你无法不使用他们的 SaaS 管理接口而在你自己的硬件上运行整个系统包括管理系统, API 和 UI. 你一旦决定付钱, 你最好可以一直付钱.</li>
+</ul>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>终于看完了, 真的是又臭又长啊. 回顾一下这篇文章, 总体来说是经历了这样一个过程:</p>
+<ol>
+<li>专有服务器</li>
+<li>虚拟化技术</li>
+<li>基础设施即服务 (IaaS)</li>
+<li>平台即服务 (PaaS)</li>
+<li>容器即服务 (CaaS)</li>
+</ol>
+<p>总结一下, 我觉得开发人员还是有必要了解一下关于产品部署相关的技术发展. 然后根据自己的业务来选择合适的服务提供商.</p>
+</div></article></div></main><footer><div class="paginator"><a href="/2018/06/16/代码重构/" class="prev">PREV</a><a href="/2018/05/29/ES6-Promise-简明指南/" class="next">NEXT</a></div><div id="gc_container"></div><script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.js"></script><script>(new Gitment({
+    id: 'aid' + (new Date('Sat Jun 09 2018 18:29:12 GMT+0800')).getTime()/1000,
+    title: '给小白读的 WEB 托管服务进化史' + ' · 评论',
+    link: decodeURI(location.protocol + '//' + location.hostname + location.pathname),
+    repo: 'ifyour.github.io',
+    owner: 'ifyour',
+    oauth: {
+        client_id: '576e98d38d4bd19f8a02',
+        client_secret: 'ba3616bf2f20c5da947a1fd5c7ef0edff4ffab99',
+    }
+})).render('gc_container');</script><div class="copyright"><p>© 2015 - 2019 Made with <span>❤</span> by <a href="https://github.com/ifyour/ifyour.github.io">Ifyour</a></p><p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div><script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.4.0/lib/darkmode-js.min.js"></script><script>new Darkmode({
+    bottom: '1rem',
+    right: '1rem',
+    left: 'unset',
+    time: '0.5s',
+    mixColor: '#fff',
+    backgroundColor: '#fff',
+    buttonColorDark: '#100f2c',
+    buttonColorLight: '#fff',
+    saveInCookies: true,
+    label: '🌓',
+    autoMatchOsTheme: true
+}).showWidget();
+</script><script src="/js/algoliasearch.min.js"></script><script src="/js/template-web.min.js"></script><script src="/js/main.js"></script><script src="https://unpkg.com/medium-zoom@0/dist/medium-zoom.min.js"></script><script>mediumZoom('article img', {margin: 24});
+(function(win, targetElem) {
+    if (!targetElem) return;
+    win.onscroll = (function() {
+        if (isElementInViewport(targetElem)) {
+            win.onscroll = null;
+            return mediumZoom('.gitment-comment-main img', {margin: 24});
+        }
+        return arguments.callee;
+    })();
+    function isElementInViewport(el) {
+        var rect = el.getBoundingClientRect();
+        var winH = win.innerHeight || document.documentElement.clientHeight;
+        return rect.top <= winH && rect.bottom >= winH;
+    };
+})(this, document.querySelector('#gc_container'));
+</script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-120929321-1",'auto');ga('send','pageview');</script></footer></div><script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>

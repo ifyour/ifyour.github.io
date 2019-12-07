@@ -1,0 +1,83 @@
+<!DOCTYPE html><html lang="en"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="theme-color" content="#ffffff"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="apple-mobile-web-app-title" content="Ifyour's Blog"><meta name="msapplication-TileImage" content="/img/webAppIcon-256x256.png"><meta name="msapplication-TileColor" content="#000"><meta property="algolia:search" data-application-id="3XQ5CPDDMK" data-api-key="abe9e26eebcac723f34ade5cf6b97441" data-index-name="prod_blog"><title>持续集成 (CI) 及简单实践 · Ifyour's Blog</title><meta name="description" content="持续集成 (CI) 及简单实践 - Ifyour"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="manifest" href="/manifest.json"><link rel="icon" type="image/x-icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="apple-touch-icon" size="256x256" href="/img/webAppIcon-256x256.png"><link rel="apple-touch-icon" size="512x512" href="/img/webAppIcon-512x512.png"><link rel="apple-touch-startup-image" href="/img/apple-launch-750x1334.png"><link rel="preload" href="/css/apollo.css" as="style"><link rel="preload" href="/js/main.js" as="script"><link rel="search" type="application/opensearchdescription+xml" href="http://ifyour.github.io/atom.xml" title="Ifyour's Blog"></head><body><div class="search"><a href="javascript:;" target="_self" class="close"><svg id="icon-close" viewbox="0 0 16 16" width="24" height="24" fill="#A4A9AC"><path d="M8,15 C4.13400675,15 1,11.8659932 1,8 C1,4.13400675 4.13400675,1 8,1 C11.8659932,1 15,4.13400675 15,8 C15,11.8659932 11.8659932,15 8,15 Z M10.44352,10.7233105 L10.4528296,10.7326201 L10.7326201,10.4528296 C11.0310632,10.1543865 11.0314986,9.66985171 10.7335912,9.37194437 L9.36507937,8.0034325 L10.7360526,6.63245928 C11.0344957,6.33401613 11.0349311,5.84948135 10.7370237,5.55157401 L10.448426,5.26297627 C10.1505186,4.96506892 9.66598387,4.96550426 9.36754072,5.26394741 L8.00589385,6.62559428 L6.63738198,5.25708241 C6.33947464,4.95917507 5.85493986,4.95961041 5.55649671,5.25805356 L5.26737991,5.54717036 C4.96893676,5.84561351 4.96850142,6.33014829 5.26640876,6.62805563 L6.62561103,7.9872579 L5.25463781,9.35823112 C4.95619466,9.65667427 4.95575932,10.141209 5.25366666,10.4391164 L5.5422644,10.7277141 C5.84017175,11.0256215 6.32470652,11.0251861 6.62314967,10.726743 L7.99412289,9.35576976 L9.36263476,10.7242816 C9.66054211,11.022189 10.1450769,11.0217536 10.44352,10.7233105 Z"/></svg></a><div class="container"><input id="search-input" autocomplete="off" type="text" placeholder="Type to search" class="search-input"><div class="search-by">Search by<a href="https://www.algolia.com/" target="_blank"> algolia</a></div><div class="search-results"><div id="search-articles" class="search-item"></div></div></div><script id="search-tmp" type="text/html">{{if list.length}}
+    <h3>ARTICLES</h3>
+    <ul>
+        {{each list item}}
+        <li>
+            <div class="search-item-title">
+                <a href="{{item.permalink}}">{{@item.title}}</a>
+            </div>
+            <div class="search-item-summary" style="-webkit-box-orient: vertical;">
+                {{@item.summary}}
+            </div>
+        </li>
+        {{/each}}
+    </ul>
+{{else if list}}
+    <h2>
+        Oops! no result,
+        Try it on <a target="_blank" style="color: #2c3e50; border-bottom: 2px solid #42b983; font-size: 19px;" href="https://www.google.com/search?q=site%3Aifyour.github.io+{{keywords}}">Google: {{keywords}}</a>~ 😱
+    </h2>
+{{/if}}</script></div><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="/docs/" target="_self" class="nav-list-link">DOCS</a></li><li class="nav-list-item"><a href="/about/" target="_self" class="nav-list-link">ABOUT</a></li><li class="nav-list-item"><a href="javascript:;" target="_self" id="search" class="nav-list-link">SEARCH</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">持续集成 (CI) 及简单实践</h1><div class="post-info">Apr 30, 2018</div><div class="sidebar-toc"><span>Catalog</span><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#What"><span class="toc-text">What</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Why"><span class="toc-text">Why</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#How"><span class="toc-text">How</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#More"><span class="toc-text">More</span></a></li></ol></div><div class="post-content"><p>在软件开发领域, 一直有很多比较专业的术语, 本着科普的精神, 来填一下自己的 <del>知识盲区</del> 😂, 什么是持续集成? 如何做持续集成? 为什么要做持续集成? 带着这些问题, 本篇文章会给你答案.</p>
+<a id="more"></a>
+<h2 id="What"><a href="#What" class="headerlink" title="What"></a>What</h2><blockquote>
+<p>持续集成（英语：Continuous integration，缩写 CI）是一种软件工程流程，是将所有软件工程师对于软件的工作副本持续提交到共用主线（mainline）的一种措施。</p>
+</blockquote>
+<h2 id="Why"><a href="#Why" class="headerlink" title="Why"></a>Why</h2><p>持续集成的目的，就是让产品可以快速迭代，同时还能保持高质量。</p>
+<p><img src="https://user-images.githubusercontent.com/15377484/39465580-acb719cc-4d56-11e8-9915-2964d5e523c5.png" alt="image"></p>
+<h2 id="How"><a href="#How" class="headerlink" title="How"></a>How</h2><p>它的核心措施是，代码集成到主干之前，必须通过自动化测试。只要有一个测试用例失败，就不能集成。以本次给博客做持续集成为例，它的流程是这样子的：</p>
+<ol>
+<li>写完博客后，直接 push 到 GitHub 的 <code>src</code> 分支(我的 <code>master</code> 分支是 pages)</li>
+<li>CI 服务通过配置文件 <code>.travis.yml</code> 监听当前 <code>src</code> 分支发生变化，触发 webhook</li>
+<li>CI 服务将当前项目 clone 过去，根据 <code>.travis.yml</code> 的配置执行测试和构建</li>
+<li>将最终可以作为生产环境的代码推送到线上环境，并且 push 回  <code>src</code> 分支</li>
+</ol>
+<p>这样做的好处就是：</p>
+<ul>
+<li>发布新文章，只需 push 一次到仓库，剩下的测试、构建、部署生产环境等，CI 帮我自动完成。</li>
+<li>快速发现错误。每完成一点更新，就集成到主干，定位错误也比较容易。</li>
+<li>防止分支大幅偏离主干。如果不是经常集成，主干又在不断更新，会导致以后集成的难度变大。</li>
+</ul>
+<h2 id="More"><a href="#More" class="headerlink" title="More"></a>More</h2><ul>
+<li><a href="http://www.ruanyifeng.com/blog/2015/09/continuous-integration.html" target="_blank" rel="noopener">持续集成是什么</a></li>
+<li><a href="https://segmentfault.com/a/1190000009054888" target="_blank" rel="noopener">使用 Travis 自动部署 Hexo</a></li>
+</ul>
+</div></article></div></main><footer><div class="paginator"><a href="/2018/05/05/Why-Immutable-Data/" class="prev">PREV</a><a href="/2016/03/26/call、apply、bind-的区别及应用/" class="next">NEXT</a></div><div id="gc_container"></div><script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.js"></script><script>(new Gitment({
+    id: 'aid' + (new Date('Mon Apr 30 2018 09:00:00 GMT+0800')).getTime()/1000,
+    title: '持续集成 (CI) 及简单实践' + ' · 评论',
+    link: decodeURI(location.protocol + '//' + location.hostname + location.pathname),
+    repo: 'ifyour.github.io',
+    owner: 'ifyour',
+    oauth: {
+        client_id: '576e98d38d4bd19f8a02',
+        client_secret: 'ba3616bf2f20c5da947a1fd5c7ef0edff4ffab99',
+    }
+})).render('gc_container');</script><div class="copyright"><p>© 2015 - 2019 Made with <span>❤</span> by <a href="https://github.com/ifyour/ifyour.github.io">Ifyour</a></p><p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div><script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.4.0/lib/darkmode-js.min.js"></script><script>new Darkmode({
+    bottom: '1rem',
+    right: '1rem',
+    left: 'unset',
+    time: '0.5s',
+    mixColor: '#fff',
+    backgroundColor: '#fff',
+    buttonColorDark: '#100f2c',
+    buttonColorLight: '#fff',
+    saveInCookies: true,
+    label: '🌓',
+    autoMatchOsTheme: true
+}).showWidget();
+</script><script src="/js/algoliasearch.min.js"></script><script src="/js/template-web.min.js"></script><script src="/js/main.js"></script><script src="https://unpkg.com/medium-zoom@0/dist/medium-zoom.min.js"></script><script>mediumZoom('article img', {margin: 24});
+(function(win, targetElem) {
+    if (!targetElem) return;
+    win.onscroll = (function() {
+        if (isElementInViewport(targetElem)) {
+            win.onscroll = null;
+            return mediumZoom('.gitment-comment-main img', {margin: 24});
+        }
+        return arguments.callee;
+    })();
+    function isElementInViewport(el) {
+        var rect = el.getBoundingClientRect();
+        var winH = win.innerHeight || document.documentElement.clientHeight;
+        return rect.top <= winH && rect.bottom >= winH;
+    };
+})(this, document.querySelector('#gc_container'));
+</script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-120929321-1",'auto');ga('send','pageview');</script></footer></div><script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>

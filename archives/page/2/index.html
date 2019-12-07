@@ -1,0 +1,49 @@
+<!DOCTYPE html><html lang="en"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="theme-color" content="#ffffff"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="apple-mobile-web-app-title" content="Ifyour's Blog"><meta name="msapplication-TileImage" content="/img/webAppIcon-256x256.png"><meta name="msapplication-TileColor" content="#000"><meta property="algolia:search" data-application-id="3XQ5CPDDMK" data-api-key="abe9e26eebcac723f34ade5cf6b97441" data-index-name="prod_blog"><title>Ifyour's Blog</title><meta name="description" content="业精于勤，荒于嬉；行成于思，毁于随。"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="manifest" href="/manifest.json"><link rel="icon" type="image/x-icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="apple-touch-icon" size="256x256" href="/img/webAppIcon-256x256.png"><link rel="apple-touch-icon" size="512x512" href="/img/webAppIcon-512x512.png"><link rel="apple-touch-startup-image" href="/img/apple-launch-750x1334.png"><link rel="preload" href="/css/apollo.css" as="style"><link rel="preload" href="/js/main.js" as="script"><link rel="search" type="application/opensearchdescription+xml" href="http://ifyour.github.io/atom.xml" title="Ifyour's Blog"></head><body><div class="search"><a href="javascript:;" target="_self" class="close"><svg id="icon-close" viewbox="0 0 16 16" width="24" height="24" fill="#A4A9AC"><path d="M8,15 C4.13400675,15 1,11.8659932 1,8 C1,4.13400675 4.13400675,1 8,1 C11.8659932,1 15,4.13400675 15,8 C15,11.8659932 11.8659932,15 8,15 Z M10.44352,10.7233105 L10.4528296,10.7326201 L10.7326201,10.4528296 C11.0310632,10.1543865 11.0314986,9.66985171 10.7335912,9.37194437 L9.36507937,8.0034325 L10.7360526,6.63245928 C11.0344957,6.33401613 11.0349311,5.84948135 10.7370237,5.55157401 L10.448426,5.26297627 C10.1505186,4.96506892 9.66598387,4.96550426 9.36754072,5.26394741 L8.00589385,6.62559428 L6.63738198,5.25708241 C6.33947464,4.95917507 5.85493986,4.95961041 5.55649671,5.25805356 L5.26737991,5.54717036 C4.96893676,5.84561351 4.96850142,6.33014829 5.26640876,6.62805563 L6.62561103,7.9872579 L5.25463781,9.35823112 C4.95619466,9.65667427 4.95575932,10.141209 5.25366666,10.4391164 L5.5422644,10.7277141 C5.84017175,11.0256215 6.32470652,11.0251861 6.62314967,10.726743 L7.99412289,9.35576976 L9.36263476,10.7242816 C9.66054211,11.022189 10.1450769,11.0217536 10.44352,10.7233105 Z"/></svg></a><div class="container"><input id="search-input" autocomplete="off" type="text" placeholder="Type to search" class="search-input"><div class="search-by">Search by<a href="https://www.algolia.com/" target="_blank"> algolia</a></div><div class="search-results"><div id="search-articles" class="search-item"></div></div></div><script id="search-tmp" type="text/html">{{if list.length}}
+    <h3>ARTICLES</h3>
+    <ul>
+        {{each list item}}
+        <li>
+            <div class="search-item-title">
+                <a href="{{item.permalink}}">{{@item.title}}</a>
+            </div>
+            <div class="search-item-summary" style="-webkit-box-orient: vertical;">
+                {{@item.summary}}
+            </div>
+        </li>
+        {{/each}}
+    </ul>
+{{else if list}}
+    <h2>
+        Oops! no result,
+        Try it on <a target="_blank" style="color: #2c3e50; border-bottom: 2px solid #42b983; font-size: 19px;" href="https://www.google.com/search?q=site%3Aifyour.github.io+{{keywords}}">Google: {{keywords}}</a>~ 😱
+    </h2>
+{{/if}}</script></div><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link active">ARCHIVE</a></li><li class="nav-list-item"><a href="/docs/" target="_self" class="nav-list-link">DOCS</a></li><li class="nav-list-item"><a href="/about/" target="_self" class="nav-list-link">ABOUT</a></li><li class="nav-list-item"><a href="javascript:;" target="_self" id="search" class="nav-list-link">SEARCH</a></li></ul></header><main class="container"><div class="archive"><h2 class="archive-year">2018</h2><div class="post-item"><div class="post-info">May 29, 2018</div><a href="/2018/05/29/ES6-Promise-简明指南/" class="post-title-link">ES6 Promise 简明指南</a></div><div class="post-item"><div class="post-info">May 20, 2018</div><a href="/2018/05/20/如何避免-async-await-地狱/" class="post-title-link">如何避免 async/await 地狱</a></div><div class="post-item"><div class="post-info">May 15, 2018</div><a href="/2018/05/14/React-组件模式/" class="post-title-link">React 组件模式</a></div><div class="post-item"><div class="post-info">May 11, 2018</div><a href="/2018/05/11/Git-操作详细总结/" class="post-title-link">Git 操作详细总结</a></div><div class="post-item"><div class="post-info">May 5, 2018</div><a href="/2018/05/05/Why-Immutable-Data/" class="post-title-link">Why Immutable Data?</a></div><div class="post-item"><div class="post-info">Apr 30, 2018</div><a href="/2018/04/30/持续集成-CI-及简单实践/" class="post-title-link">持续集成 (CI) 及简单实践</a></div><h2 class="archive-year">2016</h2><div class="post-item"><div class="post-info">Mar 26, 2016</div><a href="/2016/03/26/call、apply、bind-的区别及应用/" class="post-title-link">call、apply、bind 的区别及应用</a></div><div class="post-item"><div class="post-info">Mar 23, 2016</div><a href="/2016/03/23/ProxyChains-NG-ShadowSocks-实现终端代理/" class="post-title-link">ProxyChains-NG + ShadowSocks 实现终端代理</a></div><div class="post-item"><div class="post-info">Mar 22, 2016</div><a href="/2016/03/22/一段神奇的-CSS-调试代码/" class="post-title-link">一段神奇的 CSS 调试代码</a></div><div class="post-item"><div class="post-info">Feb 19, 2016</div><a href="/2016/02/19/JavaScript-中的-this-用法总结/" class="post-title-link">JavaScript 中的 this 用法总结</a></div></div></main><footer><div class="paginator"><a href="/archives/" class="prev">PREV</a><a href="/archives/page/3/" class="next">NEXT</a></div><div class="copyright"><p>© 2015 - 2019 Made with <span>❤</span> by <a href="https://github.com/ifyour/ifyour.github.io">Ifyour</a></p><p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div><script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.4.0/lib/darkmode-js.min.js"></script><script>new Darkmode({
+    bottom: '1rem',
+    right: '1rem',
+    left: 'unset',
+    time: '0.5s',
+    mixColor: '#fff',
+    backgroundColor: '#fff',
+    buttonColorDark: '#100f2c',
+    buttonColorLight: '#fff',
+    saveInCookies: true,
+    label: '🌓',
+    autoMatchOsTheme: true
+}).showWidget();
+</script><script src="/js/algoliasearch.min.js"></script><script src="/js/template-web.min.js"></script><script src="/js/main.js"></script><script src="https://unpkg.com/medium-zoom@0/dist/medium-zoom.min.js"></script><script>mediumZoom('article img', {margin: 24});
+(function(win, targetElem) {
+    if (!targetElem) return;
+    win.onscroll = (function() {
+        if (isElementInViewport(targetElem)) {
+            win.onscroll = null;
+            return mediumZoom('.gitment-comment-main img', {margin: 24});
+        }
+        return arguments.callee;
+    })();
+    function isElementInViewport(el) {
+        var rect = el.getBoundingClientRect();
+        var winH = win.innerHeight || document.documentElement.clientHeight;
+        return rect.top <= winH && rect.bottom >= winH;
+    };
+})(this, document.querySelector('#gc_container'));
+</script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-120929321-1",'auto');ga('send','pageview');</script></footer></div><script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>

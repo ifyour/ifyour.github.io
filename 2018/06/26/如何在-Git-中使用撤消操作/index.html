@@ -1,0 +1,101 @@
+<!DOCTYPE html><html lang="en"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="theme-color" content="#ffffff"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="apple-mobile-web-app-title" content="Ifyour's Blog"><meta name="msapplication-TileImage" content="/img/webAppIcon-256x256.png"><meta name="msapplication-TileColor" content="#000"><meta property="algolia:search" data-application-id="3XQ5CPDDMK" data-api-key="abe9e26eebcac723f34ade5cf6b97441" data-index-name="prod_blog"><title>如何在 Git 中使用撤消操作 · Ifyour's Blog</title><meta name="description" content="如何在 Git 中使用撤消操作 - Ifyour"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="manifest" href="/manifest.json"><link rel="icon" type="image/x-icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="apple-touch-icon" size="256x256" href="/img/webAppIcon-256x256.png"><link rel="apple-touch-icon" size="512x512" href="/img/webAppIcon-512x512.png"><link rel="apple-touch-startup-image" href="/img/apple-launch-750x1334.png"><link rel="preload" href="/css/apollo.css" as="style"><link rel="preload" href="/js/main.js" as="script"><link rel="search" type="application/opensearchdescription+xml" href="http://ifyour.github.io/atom.xml" title="Ifyour's Blog"></head><body><div class="search"><a href="javascript:;" target="_self" class="close"><svg id="icon-close" viewbox="0 0 16 16" width="24" height="24" fill="#A4A9AC"><path d="M8,15 C4.13400675,15 1,11.8659932 1,8 C1,4.13400675 4.13400675,1 8,1 C11.8659932,1 15,4.13400675 15,8 C15,11.8659932 11.8659932,15 8,15 Z M10.44352,10.7233105 L10.4528296,10.7326201 L10.7326201,10.4528296 C11.0310632,10.1543865 11.0314986,9.66985171 10.7335912,9.37194437 L9.36507937,8.0034325 L10.7360526,6.63245928 C11.0344957,6.33401613 11.0349311,5.84948135 10.7370237,5.55157401 L10.448426,5.26297627 C10.1505186,4.96506892 9.66598387,4.96550426 9.36754072,5.26394741 L8.00589385,6.62559428 L6.63738198,5.25708241 C6.33947464,4.95917507 5.85493986,4.95961041 5.55649671,5.25805356 L5.26737991,5.54717036 C4.96893676,5.84561351 4.96850142,6.33014829 5.26640876,6.62805563 L6.62561103,7.9872579 L5.25463781,9.35823112 C4.95619466,9.65667427 4.95575932,10.141209 5.25366666,10.4391164 L5.5422644,10.7277141 C5.84017175,11.0256215 6.32470652,11.0251861 6.62314967,10.726743 L7.99412289,9.35576976 L9.36263476,10.7242816 C9.66054211,11.022189 10.1450769,11.0217536 10.44352,10.7233105 Z"/></svg></a><div class="container"><input id="search-input" autocomplete="off" type="text" placeholder="Type to search" class="search-input"><div class="search-by">Search by<a href="https://www.algolia.com/" target="_blank"> algolia</a></div><div class="search-results"><div id="search-articles" class="search-item"></div></div></div><script id="search-tmp" type="text/html">{{if list.length}}
+    <h3>ARTICLES</h3>
+    <ul>
+        {{each list item}}
+        <li>
+            <div class="search-item-title">
+                <a href="{{item.permalink}}">{{@item.title}}</a>
+            </div>
+            <div class="search-item-summary" style="-webkit-box-orient: vertical;">
+                {{@item.summary}}
+            </div>
+        </li>
+        {{/each}}
+    </ul>
+{{else if list}}
+    <h2>
+        Oops! no result,
+        Try it on <a target="_blank" style="color: #2c3e50; border-bottom: 2px solid #42b983; font-size: 19px;" href="https://www.google.com/search?q=site%3Aifyour.github.io+{{keywords}}">Google: {{keywords}}</a>~ 😱
+    </h2>
+{{/if}}</script></div><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="/docs/" target="_self" class="nav-list-link">DOCS</a></li><li class="nav-list-item"><a href="/about/" target="_self" class="nav-list-link">ABOUT</a></li><li class="nav-list-item"><a href="javascript:;" target="_self" id="search" class="nav-list-link">SEARCH</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">如何在 Git 中使用撤消操作</h1><div class="post-info">Jun 27, 2018<a href="https://blog.github.com/2015-06-08-how-to-undo-almost-anything-with-git/" target="_blank" title="https://blog.github.com/2015-06-08-how-to-undo-almost-anything-with-git/" class="post-from">Translation · Original Link</a></div><div class="sidebar-toc"><span>Catalog</span><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#撤销一个已发布的更新"><span class="toc-text">撤销一个已发布的更新</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改上次-commit-的提交信息"><span class="toc-text">修改上次 commit 的提交信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#撤销本地修改"><span class="toc-text">撤销本地修改</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#重置本地修改"><span class="toc-text">重置本地修改</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#撤销本地修改之后重做"><span class="toc-text">撤销本地修改之后重做</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#提交到了另一个分支"><span class="toc-text">提交到了另一个分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#覆盖整个分支"><span class="toc-text">覆盖整个分支</span></a></li></ol></div><div class="post-content"><p>版本控制系统的一个好处就是你可以轻易地撤销之前错误的操作。当你用 <code>git commit</code> 提交了一个新的更改后 git 会将当时的文件内容暂时保存下来，之后你就可以用 git 随意回滚到任意一个版本。这篇文章会介绍一些常见的可能用到撤销 <code>undo</code> 操作的情况。</p>
+<a id="more"></a>
+<h3 id="撤销一个已发布的更新"><a href="#撤销一个已发布的更新" class="headerlink" title="撤销一个已发布的更新"></a>撤销一个已发布的更新</h3><p><strong>情景</strong>: 你已经用 <code>git push</code> 将代码提交到了 GitHub，然后你意识到这其中的一个 commit 有错误，于是你想撤销那个 commit。</p>
+<p><strong>操作</strong>: <code>git revert &lt;SHA&gt;</code></p>
+<p><strong>效果</strong>: git 会新建一个新的 commit 来执行提供的 <sha> 对应 commit 的相反的更改，任何在该旧 commit 中删除的内容将会在新 commit 中添加进去，反之亦然。</sha></p>
+<p>这是 git 里最安全的撤消操作的办法，因为这不会影响你的提交历史。于是现在你可以提交新的 commit 去撤销之前错误的操作了。</p>
+<h3 id="修改上次-commit-的提交信息"><a href="#修改上次-commit-的提交信息" class="headerlink" title="修改上次 commit 的提交信息"></a>修改上次 commit 的提交信息</h3><p><strong>情景</strong>: 你在上次 commit 提交信息中打错了一个单词，比如你执行了 <code>git commit -m &quot;fxied bug #42&quot;</code> 然后你意识到应该是 <code>fixed bug #42</code>。</p>
+<p><strong>操作</strong>: <code>git commit --amend</code> 或 <code>git commit --amend -m &quot;Fixes bug #42&quot;</code></p>
+<p><strong>效果</strong>: <code>git commit --amend</code> 结合最新的文件修改情况和上一次提交信息更新并替换上一次提交。没有新的文件更改就直接覆盖上次提交。</p>
+<h3 id="撤销本地修改"><a href="#撤销本地修改" class="headerlink" title="撤销本地修改"></a>撤销本地修改</h3><p><strong>情景</strong>: 你家的喵星人跑到你的键盘上装逼用双爪打字然后不知怎么还点了保存，然后编辑器还崩溃了，你还没有 commit 这只猫做的修改，你想撤销那个文件里被猫修改的内容。</p>
+<p><strong>操作</strong>: <code>git checkout -- &lt;bad filename&gt;</code></p>
+<p><strong>效果</strong>: <code>git checkout</code> 会将该文件的内容恢复到上一次 git commit 的状态。你可以提供一个分支名称或者直接提供要回到的 SHA。</p>
+<p>请记住，这种方法作出的撤销是彻底的，这些内容不会被 commit 所以之后你并不能再用 git 恢复这些内容。</p>
+<h3 id="重置本地修改"><a href="#重置本地修改" class="headerlink" title="重置本地修改"></a>重置本地修改</h3><p><strong>情景</strong>: 你在本地 commit 了一些内容（并没有 push），但是你搞错了，你想撤销最近这三个 commit，就像让它们从来不存在那样。</p>
+<p><strong>操作</strong>: <code>git reset &lt;last good SHA&gt;</code> 或 <code>git reset --hard &lt;last good SHA&gt;</code></p>
+<p><strong>效果</strong>: <code>git reset</code> 会让你的 git 历史会退到你指定的 SHA 的状态。这些 commit 不存在了但是你硬盘上的这些文件还是维持在被修改了的状态，这是最安全的做法。但是有时你也想同时撤销硬盘上的修改，这时加上 <code>--hard</code> 就会很有用。</p>
+<h3 id="撤销本地修改之后重做"><a href="#撤销本地修改之后重做" class="headerlink" title="撤销本地修改之后重做"></a>撤销本地修改之后重做</h3><p><strong>情景</strong>: 你提交了一些 commit，然后执行 <code>git reset --hard</code> 来撤消这些 commit 并清除本地硬盘上的修改。但是最后你意识到你想要回这些 commit！</p>
+<p><strong>操作</strong>: <code>git reflog</code> 和 <code>git reset</code> 或 <code>git checkout</code></p>
+<p><strong>效果</strong>: <code>git reflog</code> 是个修复项目提交历史的好方法。你可以找回几乎所有内容 —— 所有你 commit 过的内容 —— 用 reflog 就行。</p>
+<p>你可能对 <code>git log</code> 很熟悉，这个操作会列出你的 git 提交历史。<code>git reflog</code> 很像它，但是列出的是 <code>HEAD</code> 修改的时间。</p>
+<p>一些说明:</p>
+<ul>
+<li><code>HEAD</code> 修改。在切换分支时 <code>HEAD</code> 会被修改，用 commit 保存修改然后用 reset 撤消修改。但是在你 <code>git checkout -- &lt;bad filename&gt;</code> 时并不会被修改，就像上面说过的那样，这些修改不会被 commit，所以 <code>git reflog</code> 也不能帮你找回这些内容。</li>
+<li><code>git reflog</code> 不是永远有用的。git 会定期清理那些无法追溯的内容。不要期望能用 <code>git reflog</code> 找回一个多月以前的内容。</li>
+<li>你的 <code>git reflog</code> 仅对你有用。你不能用 <code>git reflog</code> 来找回其他人 commit 的修改。</li>
+</ul>
+<p><img src="https://cloud.githubusercontent.com/assets/2077/6953866/f6b9f054-d891-11e4-8c53-838eff9f40ae.png" alt="reflog"></p>
+<p>然后…接下来怎么做才能撤销之前的撤销？这取决你到你要干什么:</p>
+<ul>
+<li>如果你想回到一个特定的时间，用 <code>git reset --hard &lt;SHA&gt;</code>。</li>
+<li>如果你想在不修改提交历史的情况下找回那些文件并作为新文件保存，用 <code>git checkout &lt;SHA&gt; -- &lt;filename&gt;</code>。</li>
+<li>如果你想使其中一个 commit 回到你的项目历史中，用 <code>git cherry-pick &lt;SHA&gt;</code>。</li>
+</ul>
+<h3 id="提交到了另一个分支"><a href="#提交到了另一个分支" class="headerlink" title="提交到了另一个分支"></a>提交到了另一个分支</h3><p><strong>情景</strong>: 你提交了一些 commits，然后意识到你当前是在 master 分支上，而你其实是想提交到一个 <code>feature</code> 分支上。</p>
+<p><strong>操作</strong>: <code>git branch feature</code>, <code>git reset --hard origin/master</code>, 和 <code>git checkout feature</code></p>
+<p><strong>效果</strong>: 你可能常常使用 <code>git checkout -b &lt;name&gt;</code> 操作来检出一个新分支，这是一个很方便的创建新分支的操作，但是你并不想同时切换到那个分支上。现在使用 <code>git branch feature</code> 既可以创建一个 <code>feature</code> 新分支并且不会切换到那个分支，同时该分支会指向你当前分支最新的一个 commit。</p>
+<p>下一步，用 <code>git reset --hard</code> 去恢复 <code>master</code> 分支到 <code>origin/master</code> 的状态。</p>
+<p>最后，<code>git checkout</code> 到你的 <code>feature</code> 分支，你能看到所有的更改。</p>
+<h3 id="覆盖整个分支"><a href="#覆盖整个分支" class="headerlink" title="覆盖整个分支"></a>覆盖整个分支</h3><p><strong>情景</strong>: 你基于 <code>master</code> 分支创建了 <code>feature</code> 分支，但是 <code>master</code> 分支远远落后 <code>origin/master</code> 的更改。现在 <code>master</code> 分支和 <code>origin/master</code> 同步了，你想马上同步到 <code>feature</code> 分支，还不是再次远远落后。</p>
+<p><strong>操作</strong>: <code>git checkout feature</code> 和 <code>git rebase master</code></p>
+<p><strong>效果</strong>: 你可能知道用 <code>git reset</code> 然后重新 commit 来达到类似效果，不过那样会丢失 commit 历史。</p>
+<div class="tip">文章翻译: <a href="https://egoist.moe/2015/10/04/how-to-undo-with-git" target="_blank" rel="noopener">@egoist</a>，版权归原作者所有。</div>
+</div></article></div></main><footer><div class="paginator"><a href="/2018/07/15/Promise-查漏补缺/" class="prev">PREV</a><a href="/2018/06/20/我的主管给我的一些建议/" class="next">NEXT</a></div><div id="gc_container"></div><script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.js"></script><script>(new Gitment({
+    id: 'aid' + (new Date('Wed Jun 27 2018 07:19:14 GMT+0800')).getTime()/1000,
+    title: '如何在 Git 中使用撤消操作' + ' · 评论',
+    link: decodeURI(location.protocol + '//' + location.hostname + location.pathname),
+    repo: 'ifyour.github.io',
+    owner: 'ifyour',
+    oauth: {
+        client_id: '576e98d38d4bd19f8a02',
+        client_secret: 'ba3616bf2f20c5da947a1fd5c7ef0edff4ffab99',
+    }
+})).render('gc_container');</script><div class="copyright"><p>© 2015 - 2019 Made with <span>❤</span> by <a href="https://github.com/ifyour/ifyour.github.io">Ifyour</a></p><p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div><script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.4.0/lib/darkmode-js.min.js"></script><script>new Darkmode({
+    bottom: '1rem',
+    right: '1rem',
+    left: 'unset',
+    time: '0.5s',
+    mixColor: '#fff',
+    backgroundColor: '#fff',
+    buttonColorDark: '#100f2c',
+    buttonColorLight: '#fff',
+    saveInCookies: true,
+    label: '🌓',
+    autoMatchOsTheme: true
+}).showWidget();
+</script><script src="/js/algoliasearch.min.js"></script><script src="/js/template-web.min.js"></script><script src="/js/main.js"></script><script src="https://unpkg.com/medium-zoom@0/dist/medium-zoom.min.js"></script><script>mediumZoom('article img', {margin: 24});
+(function(win, targetElem) {
+    if (!targetElem) return;
+    win.onscroll = (function() {
+        if (isElementInViewport(targetElem)) {
+            win.onscroll = null;
+            return mediumZoom('.gitment-comment-main img', {margin: 24});
+        }
+        return arguments.callee;
+    })();
+    function isElementInViewport(el) {
+        var rect = el.getBoundingClientRect();
+        var winH = win.innerHeight || document.documentElement.clientHeight;
+        return rect.top <= winH && rect.bottom >= winH;
+    };
+})(this, document.querySelector('#gc_container'));
+</script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-120929321-1",'auto');ga('send','pageview');</script></footer></div><script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>

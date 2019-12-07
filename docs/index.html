@@ -1,0 +1,152 @@
+<!DOCTYPE html><html lang="en"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="theme-color" content="#ffffff"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="apple-mobile-web-app-title" content="Ifyour's Blog"><meta name="msapplication-TileImage" content="/img/webAppIcon-256x256.png"><meta name="msapplication-TileColor" content="#000"><meta property="algolia:search" data-application-id="3XQ5CPDDMK" data-api-key="abe9e26eebcac723f34ade5cf6b97441" data-index-name="prod_blog"><title>工具及文档 · Ifyour's Blog</title><meta name="description" content="工具及文档 - Ifyour"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="manifest" href="/manifest.json"><link rel="icon" type="image/x-icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="apple-touch-icon" size="256x256" href="/img/webAppIcon-256x256.png"><link rel="apple-touch-icon" size="512x512" href="/img/webAppIcon-512x512.png"><link rel="apple-touch-startup-image" href="/img/apple-launch-750x1334.png"><link rel="preload" href="/css/apollo.css" as="style"><link rel="preload" href="/js/main.js" as="script"><link rel="search" type="application/opensearchdescription+xml" href="http://ifyour.github.io/atom.xml" title="Ifyour's Blog"></head><body><div class="search"><a href="javascript:;" target="_self" class="close"><svg id="icon-close" viewbox="0 0 16 16" width="24" height="24" fill="#A4A9AC"><path d="M8,15 C4.13400675,15 1,11.8659932 1,8 C1,4.13400675 4.13400675,1 8,1 C11.8659932,1 15,4.13400675 15,8 C15,11.8659932 11.8659932,15 8,15 Z M10.44352,10.7233105 L10.4528296,10.7326201 L10.7326201,10.4528296 C11.0310632,10.1543865 11.0314986,9.66985171 10.7335912,9.37194437 L9.36507937,8.0034325 L10.7360526,6.63245928 C11.0344957,6.33401613 11.0349311,5.84948135 10.7370237,5.55157401 L10.448426,5.26297627 C10.1505186,4.96506892 9.66598387,4.96550426 9.36754072,5.26394741 L8.00589385,6.62559428 L6.63738198,5.25708241 C6.33947464,4.95917507 5.85493986,4.95961041 5.55649671,5.25805356 L5.26737991,5.54717036 C4.96893676,5.84561351 4.96850142,6.33014829 5.26640876,6.62805563 L6.62561103,7.9872579 L5.25463781,9.35823112 C4.95619466,9.65667427 4.95575932,10.141209 5.25366666,10.4391164 L5.5422644,10.7277141 C5.84017175,11.0256215 6.32470652,11.0251861 6.62314967,10.726743 L7.99412289,9.35576976 L9.36263476,10.7242816 C9.66054211,11.022189 10.1450769,11.0217536 10.44352,10.7233105 Z"/></svg></a><div class="container"><input id="search-input" autocomplete="off" type="text" placeholder="Type to search" class="search-input"><div class="search-by">Search by<a href="https://www.algolia.com/" target="_blank"> algolia</a></div><div class="search-results"><div id="search-articles" class="search-item"></div></div></div><script id="search-tmp" type="text/html">{{if list.length}}
+    <h3>ARTICLES</h3>
+    <ul>
+        {{each list item}}
+        <li>
+            <div class="search-item-title">
+                <a href="{{item.permalink}}">{{@item.title}}</a>
+            </div>
+            <div class="search-item-summary" style="-webkit-box-orient: vertical;">
+                {{@item.summary}}
+            </div>
+        </li>
+        {{/each}}
+    </ul>
+{{else if list}}
+    <h2>
+        Oops! no result,
+        Try it on <a target="_blank" style="color: #2c3e50; border-bottom: 2px solid #42b983; font-size: 19px;" href="https://www.google.com/search?q=site%3Aifyour.github.io+{{keywords}}">Google: {{keywords}}</a>~ 😱
+    </h2>
+{{/if}}</script></div><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="/docs/" target="_self" class="nav-list-link active">DOCS</a></li><li class="nav-list-item"><a href="/about/" target="_self" class="nav-list-link">ABOUT</a></li><li class="nav-list-item"><a href="javascript:;" target="_self" id="search" class="nav-list-link">SEARCH</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">工具及文档</h1><div class="post-info">May 6, 2018</div><div class="post-content"><h3 id="Interesting-tools"><a href="#Interesting-tools" class="headerlink" title="Interesting tools"></a>Interesting tools</h3><ul>
+<li><a href="https://devhints.io/" target="_blank" rel="noopener">Rico’s cheatsheets</a> - 记忆小抄, 长话短说各种开发文档</li>
+<li><a href="https://carbon.now.sh/" target="_blank" rel="noopener">Carbon</a> - 带样式分享代码</li>
+<li><a href="https://codepen.io/pen/" target="_blank" rel="noopener">CodePen</a> - 在线测试前端代码</li>
+<li><a href="https://codesandbox.io/s/" target="_blank" rel="noopener">CodeSandbox</a> - 代码沙盒，可以分享带有依赖的前端项目</li>
+<li><a href="https://prettier.io/playground/" target="_blank" rel="noopener">Prettier</a> - 在线格式化 JavaScript 代码</li>
+<li><a href="https://text-formatter.herokuapp.com/" target="_blank" rel="noopener">Text-formatter</a> - 格式化文本, 中英文之间留空格以及英文标点</li>
+<li><a href="https://devdocs.io/" target="_blank" rel="noopener">DevDocs</a> - 一站式开发文档集合</li>
+<li><a href="https://app.grammarly.com/" target="_blank" rel="noopener">Grammarly</a> - 英文语法错误检查</li>
+<li><a href="http://jsonplaceholder.typicode.com/" target="_blank" rel="noopener">JSONPlaceholder</a> - RESTful API 假数据模拟</li>
+<li><a href="https://www.json2yaml.com/" target="_blank" rel="noopener">JSON2YAML</a> - JSON 和 YAML 互转</li>
+<li><a href="http://json.parser.online.fr/beta/" target="_blank" rel="noopener">JSON Parser</a> - JSON 格式化</li>
+<li><a href="https://regexr.com/" target="_blank" rel="noopener">RegExr</a> - 在线正则测试及调试</li>
+<li><a href="https://jex.im/regulex/" target="_blank" rel="noopener">Regulex</a> - 正则表达可视化, 快速理解正则表达式</li>
+<li><a href="https://www.cssmatic.com/" target="_blank" rel="noopener">CSSMatic</a> - 生成镜像渐变, 盒子阴影等</li>
+<li><a href="https://cssgradient.io/" target="_blank" rel="noopener">CSS Gradient</a> - 专业生成镜像渐变、线性渐变</li>
+<li><a href="https://www.sassmeister.com/" target="_blank" rel="noopener">SassMeister</a> - Sass 演练场, 可以输出 AutoPrefixer 的结果</li>
+<li><a href="https://keyframes.app/" target="_blank" rel="noopener">KeyframesApp</a> - CSS3 动画关键帧生成工具</li>
+<li><a href="https://www.toptal.com/developers/css/sprite-generator" target="_blank" rel="noopener">CSS Sprites Generator</a> - CSS 精灵生成工具</li>
+<li><a href="http://www.jsnice.org/" target="_blank" rel="noopener">JSNice</a> - 反编译已压缩的 JS 代码, 理解变量含义</li>
+<li><a href="https://love2.io/" target="_blank" rel="noopener">Love2.io</a> - 开源技术文档分享平台</li>
+<li><a href="https://wakatime.com/" target="_blank" rel="noopener">WakaTime</a> - 记录每天的编码情况, 使用什么语言及统计时长</li>
+<li><a href="https://bestofjs.org/" target="_blank" rel="noopener">Best of JavaScript</a> - 最流行的前端开源项目清单</li>
+<li><a href="https://lanhuapp.com/" target="_blank" rel="noopener">蓝湖</a> - 高效的产品设计协作平台, 标注切图很好用</li>
+</ul>
+<h3 id="Docs"><a href="#Docs" class="headerlink" title="Docs"></a>Docs</h3><ul>
+<li><p><strong>React</strong></p>
+<ul>
+<li><a href="https://doc.react-china.org/docs/hello-world.html" target="_blank" rel="noopener">React 中文文档</a></li>
+<li><a href="https://www.kancloud.cn/allanyu/redux-in-chinese/82399" target="_blank" rel="noopener">Redux 中文文档</a></li>
+<li><a href="http://leonshi.com/redux-saga-in-chinese/docs/api/index.html" target="_blank" rel="noopener">React-saga 中文文档</a></li>
+<li><a href="https://react-guide.github.io/react-router-cn" target="_blank" rel="noopener">React-router 中文文档</a></li>
+<li><a href="https://suprise.gitbooks.io/mobx-cn/content/fp.html" target="_blank" rel="noopener">Mobx 中文文档</a></li>
+<li><a href="https://ant.design/docs/react/introduce-cn" target="_blank" rel="noopener">Ant-design 文档</a></li>
+<li><a href="http://reactnative.cn/docs/0.50/getting-started.html" target="_blank" rel="noopener">React-Native 文档</a></li>
+</ul>
+</li>
+<li><p><strong>Vue.js</strong></p>
+<ul>
+<li><a href="https://cn.vuejs.org/v2/guide/" target="_blank" rel="noopener">Vue.js 官网</a></li>
+<li><a href="https://router.vuejs.org/zh-cn/" target="_blank" rel="noopener">Vue-Router</a></li>
+<li><a href="https://vuex.vuejs.org/zh-cn/" target="_blank" rel="noopener">Vuex</a></li>
+<li><a href="https://ssr.vuejs.org/zh/" target="_blank" rel="noopener">Vue-SSR 服务器端渲染</a></li>
+<li><a href="https://zh.nuxtjs.org/guide/installation" target="_blank" rel="noopener">Vue-NUXT</a></li>
+</ul>
+</li>
+<li><p><strong>Node.js</strong></p>
+<ul>
+<li><a href="http://nodejs.cn/api/" target="_blank" rel="noopener">Node.js API</a></li>
+<li><a href="http://www.expressjs.com.cn/guide/routing.html" target="_blank" rel="noopener">Express 官网</a></li>
+</ul>
+</li>
+<li><p><strong>Electron</strong></p>
+<ul>
+<li><a href="https://electronjs.org/docs/" target="_blank" rel="noopener">Electron 官方文档</a></li>
+</ul>
+</li>
+<li><p><strong>WeChat</strong></p>
+<ul>
+<li><a href="https://mp.weixin.qq.com/debug/wxadoc/dev/index.html?t=201832" target="_blank" rel="noopener">小程序官方文档</a></li>
+</ul>
+</li>
+<li><p><strong>TypeScript</strong></p>
+<ul>
+<li><a href="https://www.tslang.cn/index.html" target="_blank" rel="noopener">TypeScript 中文网</a></li>
+</ul>
+</li>
+<li><p><strong>Vanilla JS</strong></p>
+<ul>
+<li><a href="https://segmentfault.com/a/1190000012646488" target="_blank" rel="noopener">JavaScript 基础进阶系列</a></li>
+<li><a href="https://github.com/wangfupeng1988/js-async-tutorial" target="_blank" rel="noopener">深入理解 JS 异步</a></li>
+<li><a href="https://www.cnblogs.com/tomxu/archive/2011/12/15/2288411.html" target="_blank" rel="noopener">深入理解 JS (Tom)</a></li>
+</ul>
+</li>
+<li><p><strong>Webpack</strong></p>
+<ul>
+<li><a href="http://www.css88.com/doc/webpack/" target="_blank" rel="noopener">Webpack 3.x</a></li>
+<li><a href="http://www.css88.com/doc/webpack2/api/loaders/#version" target="_blank" rel="noopener">Webpack 2.x</a></li>
+</ul>
+</li>
+<li><p><strong>Python</strong></p>
+<ul>
+<li><a href="https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000" target="_blank" rel="noopener">Python 3 教程 (廖雪峰)</a></li>
+<li><a href="https://docs.djangoproject.com/zh-hans/2.0/" target="_blank" rel="noopener">Django 中文文档</a></li>
+</ul>
+</li>
+<li><p><strong>More…</strong></p>
+<ul>
+<li><a href="https://docschina.org/" target="_blank" rel="noopener">印记中文</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="One-more-thing"><a href="#One-more-thing" class="headerlink" title="One more thing"></a>One more thing</h3><p>欢迎在下面留言板分享你觉得有趣的所有东西, 本文<a href="https://raw.githubusercontent.com/ifyour/ifyour.github.io/src/source/docs/index.md" target="_blank" rel="noopener">源代码地址</a>. 😎</p>
+</div></article></div></main><footer><div class="paginator"></div><div id="gc_container"></div><script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.js"></script><script>(new Gitment({
+    id: 'aid' + (new Date('Sun May 06 2018 11:56:00 GMT+0800')).getTime()/1000,
+    title: '工具及文档' + ' · 评论',
+    link: decodeURI(location.protocol + '//' + location.hostname + location.pathname),
+    repo: 'ifyour.github.io',
+    owner: 'ifyour',
+    oauth: {
+        client_id: '576e98d38d4bd19f8a02',
+        client_secret: 'ba3616bf2f20c5da947a1fd5c7ef0edff4ffab99',
+    }
+})).render('gc_container');</script><div class="copyright"><p>© 2015 - 2019 Made with <span>❤</span> by <a href="https://github.com/ifyour/ifyour.github.io">Ifyour</a></p><p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div><script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.4.0/lib/darkmode-js.min.js"></script><script>new Darkmode({
+    bottom: '1rem',
+    right: '1rem',
+    left: 'unset',
+    time: '0.5s',
+    mixColor: '#fff',
+    backgroundColor: '#fff',
+    buttonColorDark: '#100f2c',
+    buttonColorLight: '#fff',
+    saveInCookies: true,
+    label: '🌓',
+    autoMatchOsTheme: true
+}).showWidget();
+</script><script src="/js/algoliasearch.min.js"></script><script src="/js/template-web.min.js"></script><script src="/js/main.js"></script><script src="https://unpkg.com/medium-zoom@0/dist/medium-zoom.min.js"></script><script>mediumZoom('article img', {margin: 24});
+(function(win, targetElem) {
+    if (!targetElem) return;
+    win.onscroll = (function() {
+        if (isElementInViewport(targetElem)) {
+            win.onscroll = null;
+            return mediumZoom('.gitment-comment-main img', {margin: 24});
+        }
+        return arguments.callee;
+    })();
+    function isElementInViewport(el) {
+        var rect = el.getBoundingClientRect();
+        var winH = win.innerHeight || document.documentElement.clientHeight;
+        return rect.top <= winH && rect.bottom >= winH;
+    };
+})(this, document.querySelector('#gc_container'));
+</script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-120929321-1",'auto');ga('send','pageview');</script></footer></div><script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>

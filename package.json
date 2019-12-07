@@ -4,10 +4,19 @@
   "private": true,
   "scripts": {
     "start": "hexo s -o",
-    "dev": "nodemon -e js,jade,md,scss,yml --ignore public/ -L --exec 'hexo g && hexo s'",
+    "dev": "nodemon --ext js,jade,md,scss,yml --ignore public/ --exec 'hexo g && hexo s'",
     "index": "hexo clean && hexo algolia",
     "build": "hexo clean && hexo g",
-    "publish": "hexo d"
+    "publish": "hexo d",
+    "test": "npm run lint",
+    "lint": "run-s eclint prettier lint-md",
+    "lint:fix": "run-s eclint:fix prettier:fix lint-md:fix",
+    "eclint": "bash -c 'eclint check $(git ls-files)'",
+    "eclint:fix": "bash -c 'eclint fix $(git ls-files)'",
+    "lint-md": "lint-md ./source",
+    "lint-md:fix": "lint-md --fix ./source",
+    "prettier": "prettier -l ./source",
+    "prettier:fix": "prettier --write -l ./source"
   },
   "prettier": {
     "singleQuote": true,
@@ -16,7 +25,8 @@
   "hexo": {
     "version": "3.9.0"
   },
-  "dependencies": {
+  "devDependencies": {
+    "eclint": "^2.8.1",
     "hexo": "3.9.0",
     "hexo-algoliasearch": "0.4.1",
     "hexo-browsersync": "0.3.0",
@@ -32,9 +42,11 @@
     "hexo-renderer-marked": "0.3.2",
     "hexo-renderer-stylus": "0.3.3",
     "hexo-server": "0.3.3",
-    "hexo-service-worker": "1.0.1"
-  },
-  "devDependencies": {
-    "nodemon": "1.19.1"
+    "hexo-service-worker": "1.0.1",
+    "husky": "^3.1.0",
+    "lint-md-cli": "^0.1.1",
+    "nodemon": "1.19.1",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^1.19.1"
   }
 }

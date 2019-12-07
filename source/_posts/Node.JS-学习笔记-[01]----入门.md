@@ -13,7 +13,7 @@ Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。Node.js �
 
 #### Node.js 和 JavaScript 的区别
 - Node.js 是一个可以运行 JavaScript 的平台，基于 ChromeV8 引擎，是对 JavaScript 的增强，使 JavaScript 具备了服务器语言的开发能力，比如操作文件、读取系统信息、网络传输等。
-- JavaScript 是一门编程语言，只要有 JavaScript 引擎就能运行并且如果JavaScript运行在浏览器中，浏览器对JavaScript加入了浏览器和文档操作的接口（方法）。
+- JavaScript 是一门编程语言，只要有 JavaScript 引擎就能运行并且如果 JavaScript 运行在浏览器中，浏览器对 JavaScript 加入了浏览器和文档操作的接口（方法）。
 
 <div class="tip">
 简单理解：浏览器中 JavaScript 主要是操作 BOM 和 DOM，而 Node.js 则是具有服务端语言处理能力（处理网络请求，保存数据到数据库等）。
@@ -32,7 +32,7 @@ Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。Node.js �
 #### 模块规范
 - ***AMD*** (Asynchronous Module Definition)，这种规范是异步的加载模块，RequireR.js 应用了这一规范,适合客户端浏览器环境。
 - ***CMD*** (Common Module Definition), 是 Sea.js 推崇的规范。
-- ***CommonJS*** , 是诞生比较早的。Node.js 就采用了 CommonJS 的规范来定义模块。但是 CommonJs 采用的是同步加载文件方式，只适用于服务端（Node.js平台）。
+- ***CommonJS*** , 是诞生比较早的。Node.js 就采用了 CommonJS 的规范来定义模块。但是 CommonJs 采用的是同步加载文件方式，只适用于服务端（Node.js 平台）。
 
 #### 使用模块
 模块定义完成后，就可以使用模块，通过命令行参数传递给 Node.js 以启动程序的模块被称为 ***主模块***。主模块负责调度组成整个程序的其它模块完成工作。其实就类似网站中的 `index.html`，Node.js 中的主模块通常是 `main.js` 或者 `index.js`。

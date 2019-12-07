@@ -138,7 +138,7 @@ module.exports = {
 
 > 我们一开始直接使用 `webpack` 构建时，默认创建的输出内容就是 `./dist/main.js`
 
-** 一个简单的 webpack 配置 **
+**一个简单的 webpack 配置**
 
 > 我们把上述涉及的几部分配置内容合到一起，就可以创建一个简单的 `webpack` 配置了，`webpack` 运行时默认读取项目下的 `webpack.config.js` 文件作为配置。所以我们在项目中创建一个 `webpack.config.js` 文件
 
@@ -186,7 +186,7 @@ module.exports = {
 
 > `webpack` 默认从作为入口的 `.js` 文件进行构建（更多是基于 `SPA` 去考虑），但通常一个前端项目都是从一个页面（即 HTML）出发的，最简单的方法是，创建一个 HTML 文件，使用 `script` 标签直接引用构建好的 JS 文件，如...
 
-```
+```plain
 <script src="./dist/bundle.js"></script>
 ```
 
@@ -440,7 +440,7 @@ alias: {
 
 > 上述的配置是模糊匹配，意味着只要模块路径中携带了 utils 就可以被替换掉，如：
 
-```
+```plain
 import 'utils/query.js' // 等同于 import '[项目绝对路径]/src/utils/query.js'
 ```
 
@@ -1262,7 +1262,7 @@ plugins: [
 
 > 在你需要的样式代码中引入 `sprite.styl` 后调用需要的 `mixins` 即可
 
-```
+```plain
 @import '~sprite.styl'
 
 .close-button
@@ -1428,7 +1428,7 @@ module.exports = {
 
 > 如果你使用了 `html-webpack-plugin`，那么对应需要的 JS 文件都会在 HTML 文件中正确引用，不用担心。如果没有使用，那么你需要从 `stats` 的 `entrypoints` 属性来获取入口应该引用哪些 JS 文件，可以参考 Node API 了解如何从 stats 中获取信息
 
-** 显式配置共享类库可以这么操作 **
+**显式配置共享类库可以这么操作**
 
 ```js
 module.exports = {
@@ -1505,7 +1505,7 @@ module.exports = {
 - `chunk` 在这里是构建的主干，可以简单理解为一个入口对应一个 `chunk`。
 - 以上插件配置在构建后会生成一个 `commons.js` 文件，该文件就是代码中的公共部分。上面的配置中 `minChunks` 字段为 3，该字段的意思是当一个模块被 3 个以上的 `chunk` 依赖时，这个模块就会被划分到 `commons chunk` 中去。单从这个配置的角度上讲，这种方式并没有 `4.x` 的 `chunks: "all"` 那么方便。
 
-**CommonsChunkPlugin 也是支持显式配置共享类库的 **
+**CommonsChunkPlugin 也是支持显式配置共享类库的**
 
 ```js
 module.exports = {

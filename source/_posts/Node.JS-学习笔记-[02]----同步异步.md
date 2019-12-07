@@ -66,7 +66,7 @@ event.emit('myevent','ifyour');// 触发事件
 
 |方法                               | 描述                                                     |
 |:---------------------------------|:---------------------------------------------------------|
-|addListener(event, listener)      | 为指定事件添加一个监听器到监听器数组的尾部。与on等价          |
+|addListener(event, listener)      | 为指定事件添加一个监听器到监听器数组的尾部。与 on 等价          |
 |on(event, listener)               | 为指定事件注册一个监听器，接受一个字符串 event 和一个回调函数 |
 |once(event, listener)             | 为指定事件注册一个单次监听器                                |
 |removeListener(event,listener)    |移除指定事件的某个监听器，监听器必须是该事件已经注册过的监听器  |
@@ -106,7 +106,7 @@ function getData(data) {
 ```
 上面的代码中，当读取多个 `data` 文件时，输出的内容的顺序可能不一致，因为事件采用回调函数实现了异步操作。可以看出，事件实现异步，本质上还是回调函数。
 
-> 所谓Promise，简单说就是一个容器，里面保存着某个未来才会结束的事件（通常是一个异步操作）的结果。从语法上说，Promise 是一个对象，从它可以获取异步操作的消息。
+> 所谓 Promise，简单说就是一个容器，里面保存着某个未来才会结束的事件（通常是一个异步操作）的结果。从语法上说，Promise 是一个对象，从它可以获取异步操作的消息。
 
 下面来看看 `Promise` 的一个实例：
 ```js
@@ -133,7 +133,7 @@ ES6 规定，Promise 对象是一个构造函数，用来生成 Promise 实例�
 - resolve : 在异步操作成功时调用，并将异步操作的结果，作为参数传递出去；
 - reject  : 在异步操作失败时调用，并将异步操作报出的错误，作为参数传递出去。
 
-Promise实例生成以后，可以用 `then` 方法分别指定 Resolved 状态和 Reject 状态的回调函数。
+Promise 实例生成以后，可以用 `then` 方法分别指定 Resolved 状态和 Reject 状态的回调函数。
 ```js
 promise.then(function(value) {
   // success

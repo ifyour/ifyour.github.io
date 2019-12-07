@@ -90,7 +90,7 @@ obj2.age = 6;
 // 所以这明显是多余的, 并且存在严重的性能问题
 ```
 
-在原生 JavaScript 中实现数据不可变, 有2个办法:
+在原生 JavaScript 中实现数据不可变, 有 2 个办法:
 
 - ES6: `const`
 - ES5: `Object.freeze`

@@ -169,7 +169,7 @@ class Menu extends React.Component {
 
 ### 回调渲染组件
 
-另一个比较高端的复用组件逻辑的方法是将函数作为组件的 `props.children`，该方法也称为 **Function as Child Components**。我们将使用** 渲染回调 **来重新实现上面的可扩展 Menu:
+另一个比较高端的复用组件逻辑的方法是将函数作为组件的 `props.children`，该方法也称为 **Function as Child Components**。我们将使用**渲染回调**来重新实现上面的可扩展 Menu:
 
 ```jsx
 class Toggleable extends React.Component {
@@ -204,7 +204,7 @@ class Toggleable extends React.Component {
 </Toggleable>
 ```
 
-上面的代码已经将一个函数作为** 子组件 **，但是，若我们想复用上述逻辑，我们需要创建一个转换逻辑的新组件：
+上面的代码已经将一个函数作为**子组件**，但是，若我们想复用上述逻辑，我们需要创建一个转换逻辑的新组件：
 
 ```jsx
 const ToggleableMenu = props => (

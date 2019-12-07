@@ -18,7 +18,7 @@ comments: false
 
 - Request URL:https://www.google.com/  请求的 URL，这里我们访问的是 Google 首页。
 - Request Method:GET 请求方式，这里采用的是 GET 方式请求。
-- Status Code:200  状态码200 ，表示 OK。
+- Status Code:200  状态码 200 ，表示 OK。
 - Remote Address:127.0.0.1:1080 这里表示请求的远端 IP 地址及端口，因为我是科学上网，这里才显示了一个回路地址。
 
 #### Node.js 搭建 http 服务器
@@ -46,7 +46,7 @@ scheme://host.domain:port/path/filename?queryName=queryValue
 - scheme：定义服务类型，常见的如 http
 - host：定义域主机，http 通常是 www
 - domain：定义域名，比如 google.com
-- :port：定义主机的端口号，默认是80
+- :port：定义主机的端口号，默认是 80
 - path：定义路径，省略 `/` 表示根目录
 - filename：定义文件名
 - ?queryName=queryValue：查询字符串
@@ -88,7 +88,7 @@ http.createServer(function (req, res) {
 ```
 
 #### HTTP 响应状态码
-HTTP 状态码由三个十进制数字组成，第一个十进制数字定义了状态码的类型，后两个数字没有分类的作用。HTTP 状态码共分为5种类型：
+HTTP 状态码由三个十进制数字组成，第一个十进制数字定义了状态码的类型，后两个数字没有分类的作用。HTTP 状态码共分为 5 种类型：
 
 |分类   |分类描述                                   |
 |:-----|:------------------------------------------|
@@ -151,7 +151,7 @@ scheme://host.domain:port/path/filename?queryName=queryValue
     <input type="submit" value="提交"/>
 </form>
 ```
-- action：提交到服务器处理程序的url地址
+- action：提交到服务器处理程序的 url 地址
 - method：提交方式有 `GET` 和 `POST`
 - GET：会把表单数据作为 URL 的一部分显示在地址栏中，URL 长度有限制不能提交大量数据
 - POST：会把表单数据放到 HTTP 请求体中，相对安全，而且可以提交大量数据（比如文件）

@@ -8,7 +8,7 @@ comments: false
 记录 Mongodb 的学习之旅，从环境配置，到基础命令行使用，算是一个简单的入门教程，同时也是学习总结，还有把踩到的坑都记录下来，以后遇到同样的问题不至于在同一个地方继续踩坑。
 <!-- more -->
 ### Mongodb 介绍
-> MongoDB是一种文档导向***数据库管理系统***，由C++撰写而成，旨在为 WEB 应用提供可扩展的高性能数据存储解决方案。2007年10月，MongoDB由10gen团队所发展。2009年2月首度推出。 --- ***维基百科***
+> MongoDB 是一种文档导向***数据库管理系统***，由 C++撰写而成，旨在为 WEB 应用提供可扩展的高性能数据存储解决方案。2007 年 10 月，MongoDB 由 10gen 团队所发展。2009 年 2 月首度推出。 --- ***维基百科***
 
 MongoDB 是一个介于关系数据库和非关系数据库之间的产品，是非关系数据库当中功能最丰富，最像关系数据库的。听着很饶，其实就是非关系数据库。那什么又是 ***关系型数据库*** 呢？关系型数据库以行和列的形式存储数据，这一系列的行和列被称为表，一组表组成了数据库。表与表之间的数据记录有关系。
 
@@ -50,7 +50,7 @@ local  0.000GB
 echo 'export PATH=/usr/local/Cellar/mongodb/3.4.0/bin:$PATH'>>~/.bash_profile
 ```
 ### Mongodb 使用
-使用之前，在明白几个概念，相比关系型数据库，非关系数据库采用了 ***数据库***、***集合***、***文档***、的概念。其实对比 SQL 数据库，就很容易理解，集合就好比是一张表，文档好比就是一整行数据。库的概念是一致的。就这点区别。在终端输入 `mongo` 进入shell 控制台。
+使用之前，在明白几个概念，相比关系型数据库，非关系数据库采用了 ***数据库***、***集合***、***文档***、的概念。其实对比 SQL 数据库，就很容易理解，集合就好比是一张表，文档好比就是一整行数据。库的概念是一致的。就这点区别。在终端输入 `mongo` 进入 shell 控制台。
 ```bash
 mongo
 ```
@@ -70,7 +70,7 @@ mongo
 - 删除所有文档：`db.collection.remove({})`
 - 删除指定文档：`db.collection.remove({"key":"value"})`
 - 删除集合：`db.collection.drop()` 或者 `db.runCommand({"drop":"collection"})`
-- 删除数据库：`db.runCommand({"dropDatabase": 1})` 注意：1没有引号
+- 删除数据库：`db.runCommand({"dropDatabase": 1})` 注意：1 没有引号
 
 查找数据
 - 查找所有数据： `db.collection.find({})`
@@ -87,9 +87,9 @@ mongo
 - 字段存在查找：`db.collection.find({"key":{$exists:true|false}})`
 - 多条件查找：`db.collection.find({$or:[{a:1},{b:2}]})`
 - 内嵌对象中的值查找：`db.collection.find({"key.subkey":value})`
-- 排序：`db.collection.find({}).sort({"key1":1,"key2":-1})` 1升序 -1降序
-- 对字段建立索引：`db.collection.find({})ensureIndex({"key":1})` 1升序 -1降序
-- 范围控制查找：`db.collection.find().skip(5).limit(5)` 跳过5条，读取5条
+- 排序：`db.collection.find({}).sort({"key1":1,"key2":-1})` 1 升序 -1 降序
+- 对字段建立索引：`db.collection.find({})ensureIndex({"key":1})` 1 升序 -1 降序
+- 范围控制查找：`db.collection.find().skip(5).limit(5)` 跳过 5 条，读取 5 条
 - 查询结果集统计：`db.collection.find().count()`
 - 模糊查找：`db.collection.find({"key":/ab/})` 正则
 

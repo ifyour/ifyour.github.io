@@ -6,7 +6,7 @@ tags:
 from:
 ---
 
-Promise 的重要性不用多说, 曾经看到关于 JavaScript 的描述 --- JS 的三座大山就是: ` 原型 `/` 作用域 `/` 异步 `, 所以如果说你是一个合格的 JavaScript 程序员, 这三块的内容肯定是要吃透的. 纵观 JavaScript 的异步史, 它经历了 `callback` -> `Promise` -> `Generator` -> `async-await` 这样一个历程, 前前后后编写异步代码的变化. 从变化中就可以体会到, 确实越来越简洁, 越来越易读. 掌握它们, 你能写出更优雅的代码.
+Promise 的重要性不用多说, 曾经看到关于 JavaScript 的描述 --- JS 的三座大山就是: `原型`/`作用域`/`异步`, 所以如果说你是一个合格的 JavaScript 程序员, 这三块的内容肯定是要吃透的. 纵观 JavaScript 的异步史, 它经历了 `callback` -> `Promise` -> `Generator` -> `async-await` 这样一个历程, 前前后后编写异步代码的变化. 从变化中就可以体会到, 确实越来越简洁, 越来越易读. 掌握它们, 你能写出更优雅的代码.
 
 <!-- more -->
 
@@ -203,7 +203,7 @@ taskID=3 finished in time=707.
 taskID=1 finished in time=854.
 ```
 
-Promise.race 虽然 ** 返回第一个状态改变的 Promise 实例 **, 但不能阻止其他 Promise 实例状态改变.
+Promise.race 虽然 **返回第一个状态改变的 Promise 实例**, 但不能阻止其他 Promise 实例状态改变.
 
 如果 `Promise.all` 和 `Promise.race` 的参数不是 Promise 实例, 它们就会调用 Promise.resolve 方法, 将参数转为 Promise 实例, 再进一步处理.
 

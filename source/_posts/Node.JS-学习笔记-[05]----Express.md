@@ -5,7 +5,7 @@ tags:
 comments: false
 ---
 
-***Express*** 是一个基于 Node.js 平台的极简、灵活的 Web 应用开发框架，它提供一系列强大的特性，帮助你创建各种 Web 和移动设备应用。Express的核心特性可以概括以下三点。
+***Express*** 是一个基于 Node.js 平台的极简、灵活的 Web 应用开发框架，它提供一系列强大的特性，帮助你创建各种 Web 和移动设备应用。Express 的核心特性可以概括以下三点。
 <!-- more -->
 
 - 可以设置中间件来响应 HTTP 请求。
@@ -213,7 +213,7 @@ res.redirect('/404.html');
 res.redirect('https://www.google.com/');
 ```
 
-更多响应对象的方法，参考 [Express 官方API](http://www.expressjs.com.cn/4x/api.html#res)。
+更多响应对象的方法，参考 [Express 官方 API](http://www.expressjs.com.cn/4x/api.html#res)。
 ### Express 请求对象
 Express 中的 `Request` 对象，包含了一次请求中的所有数据，比如请求头、路径、Cookies 等，获取请求头中的信息，服务器根据这些信息处理业务逻辑层，最终将处理过后的数据返回给用户。这里总结了常用的请求对象方法。
 

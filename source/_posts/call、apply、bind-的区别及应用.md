@@ -74,7 +74,7 @@ Math.min.call(Math, 34,5,3,6,54,6,-67,5,7,6,-8,687);
 Math.min.apply(Math, arr);
 ```
 #### 将伪数组转化为数组
-JavaScript 中的伪数组(例如通过 `document.getElementsByTagName` 获取的元素)具有 `length` 属性，并且可以通过 0、1、2…下标来访问其中的元素，但是没有 `Array` 中的 `push`、`pop` 等方法。我们可以利用 `call`、`apply` 来将其转化为真正的数组这样便可以方便地使用数组方法了。
+JavaScript 中的伪数组(例如通过 `document.getElementsByTagName` 获取的元素)具有 `length` 属性，并且可以通过 0、1、2……下标来访问其中的元素，但是没有 `Array` 中的 `push`、`pop` 等方法。我们可以利用 `call`、`apply` 来将其转化为真正的数组这样便可以方便地使用数组方法了。
 
 ```js
 // 这是一个伪数组
